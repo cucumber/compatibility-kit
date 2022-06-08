@@ -136,24 +136,24 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 * First release
 
 <!-- Releases -->
-[Unreleased]: https://github.com/cucumber/common/compare/compatibility-kit/v9.2.1...main
-[9.2.1]:      https://github.com/cucumber/common/compare/compatibility-kit/v9.2.0...v9.2.1
-[9.2.0]:      https://github.com/cucumber/common/compare/compatibility-kit/v9.1.2...v9.2.0
-[9.1.2]:      https://github.com/cucumber/common/compare/compatibility-kit/v9.1.1...v9.1.2
-[9.1.1]:      https://github.com/cucumber/common/compare/compatibility-kit/v9.1.0...v9.1.1
-[9.1.0]:      https://github.com/cucumber/common/compare/compatibility-kit/v9.0.0...v9.1.0
-[9.0.0]:      https://github.com/cucumber/common/compare/compatibility-kit/v8.0.0...v9.0.0
-[8.0.0]:      https://github.com/cucumber/common/compare/compatibility-kit/v7.1.0...v8.0.0
-[7.1.0]:      https://github.com/cucumber/common/compare/compatibility-kit/v7.0.0...v7.1.0
-[7.0.0]:      https://github.com/cucumber/common/compare/compatibility-kit/v6.0.0...v7.0.0
-[6.0.0]:      https://github.com/cucumber/common/compare/compatibility-kit/v5.0.1...v6.0.0
-[5.0.1]:      https://github.com/cucumber/common/compare/compatibility-kit/v5.0.0...v5.0.1
-[5.0.0]:      https://github.com/cucumber/common/compare/compatibility-kit/v4.0.1...v5.0.0
-[4.0.1]:      https://github.com/cucumber/common/compare/compatibility-kit/v4.0.0...v4.0.1
-[4.0.0]:      https://github.com/cucumber/common/compare/compatibility-kit/v3.0.0...v4.0.0
-[3.0.0]:      https://github.com/cucumber/common/compare/compatibility-kit/v2.0.0...v3.0.0
-[2.0.0]:      https://github.com/cucumber/common/compare/compatibility-kit/v1.0.0...v2.0.0
-[1.0.0]:      https://github.com/cucumber/common/releases/tag/compatibility-kit/v1.0.0
+[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v9.2.1...main
+[9.2.1]:      https://github.com/cucumber/compatibility-kit/compare/v9.2.0...v9.2.1
+[9.2.0]:      https://github.com/cucumber/compatibility-kit/compare/v9.1.2...v9.2.0
+[9.1.2]:      https://github.com/cucumber/compatibility-kit/compare/v9.1.1...v9.1.2
+[9.1.1]:      https://github.com/cucumber/compatibility-kit/compare/v9.1.0...v9.1.1
+[9.1.0]:      https://github.com/cucumber/compatibility-kit/compare/v9.0.0...v9.1.0
+[9.0.0]:      https://github.com/cucumber/compatibility-kit/compare/v8.0.0...v9.0.0
+[8.0.0]:      https://github.com/cucumber/compatibility-kit/compare/v7.1.0...v8.0.0
+[7.1.0]:      https://github.com/cucumber/compatibility-kit/compare/v7.0.0...v7.1.0
+[7.0.0]:      https://github.com/cucumber/compatibility-kit/compare/v6.0.0...v7.0.0
+[6.0.0]:      https://github.com/cucumber/compatibility-kit/compare/v5.0.1...v6.0.0
+[5.0.1]:      https://github.com/cucumber/compatibility-kit/compare/v5.0.0...v5.0.1
+[5.0.0]:      https://github.com/cucumber/compatibility-kit/compare/v4.0.1...v5.0.0
+[4.0.1]:      https://github.com/cucumber/compatibility-kit/compare/v4.0.0...v4.0.1
+[4.0.0]:      https://github.com/cucumber/compatibility-kit/compare/v3.0.0...v4.0.0
+[3.0.0]:      https://github.com/cucumber/compatibility-kit/compare/v2.0.0...v3.0.0
+[2.0.0]:      https://github.com/cucumber/compatibility-kit/compare/v1.0.0...v2.0.0
+[1.0.0]:      https://github.com/cucumber/common/releases/tag/v1.0.0
 
 <!-- Contributors in alphabetical order -->
 [aslakhellesoy]:    https://github.com/aslakhellesoy
