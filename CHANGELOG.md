@@ -11,7 +11,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Changed
 
-* Update to `fake-cucumber@16.0.0` and include keywords types in messages
+## [10.0.0] - 2022-06-09
+
+### Changed
+
+* Update the ndjson files in the kit using `fake-cucumber` 16.0.0 to bring new
+  keyword types to steps and pickles
+  (refs. [#1966](https://github.com/cucumber/common/pull/1966)
+  [#1741](https://github.com/cucumber/common/pull/1741))
+  
 
 ### Deprecated
 
