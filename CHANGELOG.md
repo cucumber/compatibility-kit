@@ -11,6 +11,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Changed
 
+* Update to `fake-cucumber@16.0.0` and include keywords types in messages
+
 ### Deprecated
 
 ### Removed
