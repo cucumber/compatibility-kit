@@ -11,6 +11,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Changed
 
+### Deprecated
+
+### Removed
+
+### Fixed
+
 ## [10.0.0] - 2022-06-09
 
 ### Changed
@@ -19,13 +25,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
   keyword types to steps and pickles
   (refs. [#1966](https://github.com/cucumber/common/pull/1966)
   [#1741](https://github.com/cucumber/common/pull/1741))
-  
-
-### Deprecated
-
-### Removed
-
-### Fixed
 
 ## [9.2.1] - 2022-05-19
 
@@ -146,7 +145,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 * First release
 
 <!-- Releases -->
-[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v9.2.1...main
+[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v10.0.0...main
+[10.0.0]:      https://github.com/cucumber/compatibility-kit/compare/v9.2.1...v10.0.0
 [9.2.1]:      https://github.com/cucumber/compatibility-kit/compare/v9.2.0...v9.2.1
 [9.2.0]:      https://github.com/cucumber/compatibility-kit/compare/v9.1.2...v9.2.0
 [9.1.2]:      https://github.com/cucumber/compatibility-kit/compare/v9.1.1...v9.1.2
