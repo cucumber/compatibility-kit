@@ -1,0 +1,19 @@
+{
+  "name": "cck-devkit",
+  "version": "10.0.0",
+  "description": "Development kit for the cucumber compatibility kit packages",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cucumber/compatibility-kit.git"
+  },
+  "author": "\"Aurelien Reeves (https://github.com/aurelien-reeves)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cucumber/compatibility-kit/issues"
+  },
+  "homepage": "https://github.com/cucumber/compatibility-kit#readme"
+}
