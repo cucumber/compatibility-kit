@@ -1,0 +1,28 @@
+{
+  "name": "cck-devkit",
+  "version": "10.0.0",
+  "description": "Development kit for the cucumber compatibility kit packages",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "generate-ndjson": "npm run generate-ndjson-from-features && npm run generate-ndjson-from-markdown",
+    "generate-ndjson-from-features": "run-for-every-file --src 'samples/**/*.feature' --run 'npx fake-cucumber --predictable-ids {{src-file}} | jq -cS > {{src-file}}.ndjson'",
+    "generate-ndjson-from-markdown": "run-for-every-file --src 'samples/**/*.feature.md' --run 'npx fake-cucumber --predictable-ids {{src-file}} | jq -cS > {{src-file}}.ndjson'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cucumber/compatibility-kit.git"
+  },
+  "author": "\"Aurelien Reeves (https://github.com/aurelien-reeves)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cucumber/compatibility-kit/issues"
+  },
+  "homepage": "https://github.com/cucumber/compatibility-kit#readme",
+  "devDependencies": {
+    "@cucumber/fake-cucumber": "^16.0.0",
+    "run-for-every-file": "^1.1.0",
+    "stream-buffers": "^3.0.2",
+    "ts-node": "^10.8.1"
+  }
+}
