@@ -7,15 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ----
 ## [Unreleased]
 
-### Added
-
-### Changed
-
-### Deprecated
-
-### Removed
-
-### Fixed
+* Create a devkit, with the impact that step definition messages now reference a path beginning with `samples` rather than `features` [#4](https://github.com/cucumber/compatibility-kit/pull/4)
 
 ## [10.0.0] - 2022-06-09
 
