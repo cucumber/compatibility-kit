@@ -21,6 +21,7 @@
   "homepage": "https://github.com/cucumber/compatibility-kit#readme",
   "devDependencies": {
     "@cucumber/fake-cucumber": "^16.0.0",
+    "ajv": "^8.11.0",
     "run-for-every-file": "^1.1.0",
     "stream-buffers": "^3.0.2",
     "ts-node": "^10.8.1"
