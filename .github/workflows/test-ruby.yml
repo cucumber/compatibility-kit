@@ -28,10 +28,11 @@ jobs:
           bundler-cache: true
           working-directory: ruby
 
-      - name: Copy the samples to ruby/features
         uses: actions/setup-node@v3
         with:
           cache: "npm"
+
+      - name: Copy the samples to ruby/features
         run: npm ci && npm run copy-to:ruby
 
       - name: Run tests
