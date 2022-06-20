@@ -29,7 +29,12 @@ jobs:
           working-directory: ruby
 
       - name: Copy the samples to ruby/features
-        run: npm run copy-to:ruby
+        uses: actions/setup-node@v3
+        with:
+          cache: "npm"
+        run:
+          - npm ci
+          - npm run copy-to:ruby
 
       - name: Run tests
         run: bundle exec rake
