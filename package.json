@@ -4,10 +4,14 @@
   "description": "Development kit for the cucumber compatibility kit packages",
   "main": "index.js",
   "scripts": {
+    "pretest": "npm run copy-samples",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "generate-ndjson": "npm run generate-ndjson-from-features && npm run generate-ndjson-from-markdown",
-    "generate-ndjson-from-features": "run-for-every-file --src 'samples/**/*.feature' --run 'npx fake-cucumber --predictable-ids {{src-file}} | jq -cS > {{src-file}}.ndjson'",
-    "generate-ndjson-from-markdown": "run-for-every-file --src 'samples/**/*.feature.md' --run 'npx fake-cucumber --predictable-ids {{src-file}} | jq -cS > {{src-file}}.ndjson'"
+    "generate-ndjson": "npm run generate-ndjson:features && npm run generate-ndjson:markdown && npm run test",
+    "generate-ndjson:features": "run-for-every-file --src 'samples/**/*.feature' --run 'npx fake-cucumber --predictable-ids {{src-file}} | jq -cS > {{src-file}}.ndjson'",
+    "generate-ndjson:markdown": "run-for-every-file --src 'samples/**/*.feature.md' --run 'npx fake-cucumber --predictable-ids {{src-file}} | jq -cS > {{src-file}}.ndjson'",
+    "copy-samples": "npm run copy-to:javascript && npm run copy-to:ruby",
+    "copy-to:javascript": "shx cp -r samples/* javascript/features",
+    "copy-to:ruby": "shx cp -r samples/* ruby/features && rm -rf ruby/features/**/*.ts"
   },
   "repository": {
     "type": "git",
@@ -23,6 +27,7 @@
     "@cucumber/fake-cucumber": "^16.0.0",
     "ajv": "^8.11.0",
     "run-for-every-file": "^1.1.0",
+    "shx": "^0.3.4",
     "stream-buffers": "^3.0.2",
     "ts-node": "^10.8.1"
   }
