@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ----
 ## [Unreleased]
 
+### Added
+
+* CI (fake) data have been added back to the samples ndjson
+  ([PR#9](https://github.com/cucumber/compatibility-kit/pull/9))
+
 ### Changed
 
 * Create a devkit, with the impact that step definition messages now reference a path beginning with `samples` rather than `features` [#4](https://github.com/cucumber/compatibility-kit/pull/4)
