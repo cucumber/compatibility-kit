@@ -4,6 +4,7 @@ import * as messages from '@cucumber/messages'
 import {pipeline as asyncPipeline, Writable} from 'stream'
 import {promisify} from 'util'
 import fs from 'fs'
+import { env, exit } from "process"
 
 const pipeline = promisify(asyncPipeline)
 
@@ -17,14 +18,22 @@ refs.forEach((ref) => ajv.addSchema(ref))
 const validate = ajv.compile(loadSchema('Envelope.json'))
 
 async function main() {
+  let isEmpty = true
+
   await pipeline(
     process.stdin,
     new messageStreams.NdjsonToMessageStream(line => JSON.parse(line)),
     new Writable({
       objectMode: true,
       write(envelope: messages.Envelope, _, callback) {
+        if (Object.keys(envelope).length) {
+          isEmpty = false
+        }
+
         const valid = validate(envelope)
+
         if (valid) return callback()
+
         callback(new Error(`JSON Schema validation error:
 ${JSON.stringify(validate.errors, null, 2)}
 Message:
@@ -33,6 +42,10 @@ ${JSON.stringify(envelope, null, 2)}
       }
     })
   )
+
+  if (isEmpty) {
+    throw new Error('Empty stream or empty json object')
+  }
 }
 
 function loadSchema(name: string) {
