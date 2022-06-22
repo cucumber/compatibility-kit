@@ -31,9 +31,11 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           cache: "npm"
+          cache-dependency-path: devkit/package-lock.json
 
       - name: Copy the samples to ruby/features
         run: npm ci && npm run copy-to:ruby
+        working-directory: devkit
 
       - name: Run tests
         run: bundle exec rake
