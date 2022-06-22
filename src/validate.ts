@@ -36,7 +36,7 @@ ${JSON.stringify(envelope, null, 2)}
 }
 
 function loadSchema(name: string) {
-  return JSON.parse(fs.readFileSync(`${__dirname}/../../../messages/jsonschema/${name}`, 'utf-8'));
+  return JSON.parse(fs.readFileSync(`${__dirname}/../node_modules/@cucumber/messages/schema/${name}`, 'utf-8'));
 }
 
 main().catch(err => {
