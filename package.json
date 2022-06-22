@@ -10,7 +10,7 @@
     "generate-ndjson": "dotenv-run-script .ci_env -- generate-ndjson:features && dotenv-run-script .ci_env -- generate-ndjson:markdown",
     "generate-ndjson:features": "run-for-every-file --src 'samples/**/*.feature' --run 'npx fake-cucumber --predictable-ids {{src-file}} | jq -cS > {{src-file}}.ndjson'",
     "generate-ndjson:markdown": "run-for-every-file --src 'samples/**/*.feature.md' --run 'npx fake-cucumber --predictable-ids {{src-file}} | jq -cS > {{src-file}}.ndjson'",
-    "postgenerate-ndjson": "npm test",
+    "postgenerate-ndjson": "npm test && npm run copy-samples",
     "copy-samples": "npm run copy-to:javascript && npm run copy-to:ruby",
     "copy-to:javascript": "shx cp -r samples/* javascript/features",
     "copy-to:ruby": "shx cp -r samples/* ruby/features && rm -rf ruby/features/**/*.ts"
