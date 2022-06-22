@@ -10,7 +10,7 @@ on:
       - main
 
 jobs:
-  test:
+  test-ruby:
     strategy:
       fail-fast: false
       matrix:
