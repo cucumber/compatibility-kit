@@ -10,9 +10,9 @@ For example, cucumber-ruby and cucumber-js are using it to make sure they emmit 
 
 The kit is composed of features, step definitions, and messages:
 
-- features, once executed, emit an exhaustive set of Messages definfed by the protocol.
-- step definitions allows to execute the features of the kit as expected.
-- Messages - serialized as .ndjson files - are the reference: a given feature from the kit, executed using its dedicated step definitions, must emit the corresponding messages.
+- features, once executed, emit an exhaustive set of Messages as specified by the protocol
+- step definitions allows to execute the features of the kit as expected
+- Messages - serialized as .ndjson files - are the reference: a given feature from the kit, executed using its dedicated step definitions, must emit the corresponding messages
 
 The Messages from the kit are generated using fake-cucumber, which is used here as a reference implementation of the Messages protocol.
 
@@ -28,6 +28,6 @@ The devkit is a set of tools to generate new Messages to extend the kit, or to u
 
 At the moment, there are two packages: a NPM one, and a ruby gem.
 
-The NPM package bundles nothing more than the compatibility kit with step definitions implemented in TypeScript.
+The NPM package bundles the kit with step definitions implemented in TypeScript.
 
 The ruby gem, in addition of the kit and its step definitions written in ruby, also provides a few helpers to make it easier to work with the CCK.
