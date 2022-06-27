@@ -13,7 +13,7 @@ features from the kit.
 
 The kit is composed of features, step definitions, and messages:
 
-- features, once executed, emit an exhaustive set of Messages as specified b
+- features, once executed, emit an exhaustive set of Messages as specified by
   the protocol
 - step definitions allows to execute the features of the kit as expected
 - Messages - serialized as `.ndjson` files - are the reference: a given feature
