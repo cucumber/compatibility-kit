@@ -1,7 +1,6 @@
 # Cucumber Compatibility Kit
 
-The CCK - aka. Cucumber Compatibility Kit - is a set of features and Messages.
-It aims to validate an implementation of the
+The Cucumber Compatibility Kit (CCK) aims to validate a Cucumber implementation's support for the
 [Cucumber Messages protocol](https://github.com/cucumber/common/tree/main/messages#cucumber-messages).
 
 For example, [cucumber-ruby](https://github.com/cucumber/cucumber-ruby/blob/main/spec/cck/cck_spec.rb)
