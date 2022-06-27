@@ -1,12 +1,21 @@
 # The Cucumber Compatibility Kit for Ruby
 
-The Cucumber Compatibility Kit - or CCK - for ruby is a gem that aims to help validating
-an implementation of Cucumber.
+The CCK - aka. Cucumber Compatibility Kit - is a set of features and Messages.
+It aims to validate an implementation of the
+[Cucumber Messages protocol](https://github.com/cucumber/common/tree/main/messages#cucumber-messages).
 
-It provides a set of features and the expected messages related to those features.
+## Overview
 
-It also provides some tools to help in the validation of messages issued from the
-execution of the CCK's features.
+The kit is composed of features and messages:
+
+- features, once executed, emit an exhaustive set of Messages as specified by
+  the protocol
+- Messages - serialized as `.ndjson` files - are the reference: a given feature
+  from the kit, executed using its dedicated step definitions, must emit the
+  corresponding Messages
+
+The ruby gem also provides some tools to help in the validation of messages issued
+from the execution of the CCK's features.
 
 ## Installation and Usage
 
@@ -54,3 +63,18 @@ required to execute the given example. As we use the `--format message` formatte
 You can use `gem open cucumber-compatibility-kit` in order to take a look on the
 features, their support code, and the expected messages.They are available in the
 `features` folder within the gem.
+
+## More info
+
+The Cucumber Compatibility Kit is part of the development tools of [Cucumber](https://cucumber.io).
+It allows us to make sure that all our implementations are properly supporting our internal protocol
+and thus are compabitle with each other and with our common tools like the [html-formatter](https://github.com/cucumber/html-formatter).
+
+It can be a valuable tool if you are developing integration with cucumber, or your
+own implementation of it.
+
+Join us on [github/cucumber/compatibility-kit](https://github.com/cucumber/compatibility-kit)
+to get more help if you need to.
+
+You can also take a look on [cucumber-ruby](https://github.com/cucumber/cucumber-ruby/blob/v8.0.0/spec/cck/cck_spec.rb)
+to see how the kit is used there.
