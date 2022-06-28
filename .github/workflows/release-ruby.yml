@@ -11,6 +11,7 @@ on:
 
 jobs:
   pre-release-check:
+    runs-on: ubuntu-latest
     steps:
       - run: echo "precheck"
     # uses: cucumber/.github/.github/workflows/prerelease-checks.yml@main
