@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ----
 ## [Unreleased]
 
+## [11.0.0] - 2022-06-28
+
 ### Added
 
 * Fake CI data in messages have been added back to the samples ndjson
@@ -146,7 +148,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 * First release
 
 <!-- Releases -->
-[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v10.0.0...main
+[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v11.0.0...main
+[11.0.0]:      https://github.com/cucumber/compatibility-kit/compare/v10.0.0...v11.0.0
 [10.0.0]:      https://github.com/cucumber/compatibility-kit/compare/v9.2.1...v10.0.0
 [9.2.1]:      https://github.com/cucumber/compatibility-kit/compare/v9.2.0...v9.2.1
 [9.2.0]:      https://github.com/cucumber/compatibility-kit/compare/v9.1.2...v9.2.0

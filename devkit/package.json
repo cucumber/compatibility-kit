@@ -1,6 +1,6 @@
 {
   "name": "cck-devkit",
-  "version": "10.0.0",
+  "version": "11.0.0",
   "description": "Development kit for the cucumber compatibility kit packages",
   "main": "index.js",
   "scripts": {
