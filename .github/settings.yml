@@ -1,1 +1,5 @@
 _extends: .github
+
+repository:
+  name: compatibility-kit
+  description: Platform-agnostic set of acceptance tests for validating cucumber implementations
