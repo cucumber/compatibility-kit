@@ -11,6 +11,8 @@ on:
 
 jobs:
   pre-release-check:
+    steps:
+      - run: echo "precheck"
     # uses: cucumber/.github/.github/workflows/prerelease-checks.yml@main
 
   publish-npm:
