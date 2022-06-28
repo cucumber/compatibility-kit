@@ -9,12 +9,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Added
 
-* CI (fake) data have been added back to the samples ndjson
+* Fake CI data in messages have been added back to the samples ndjson
   ([PR#9](https://github.com/cucumber/compatibility-kit/pull/9))
 
 ### Changed
 
-* Create a devkit, with the impact that step definition messages now reference a path beginning with `samples` rather than `features` [#4](https://github.com/cucumber/compatibility-kit/pull/4)
+* Creation of a devkit, impacting step definition messages: URI are now beginning with `samples` and not `features` [#4](https://github.com/cucumber/compatibility-kit/pull/4)
 * [JavaScript] Remove all dependencies from the package
   ([PR#8](https://github.com/cucumber/compatibility-kit/pull/8))
 
