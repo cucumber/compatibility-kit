@@ -7,17 +7,17 @@ Gem::Specification.new do |s|
   s.description = 'Kit to check compatibility with official cucumber implementation'
   s.summary     = "#{s.name}-#{s.version}"
   s.email       = 'cukebot@cucumber.io'
-  s.homepage    = 'https://github.com/cucumber/common'
+  s.homepage    = 'https://github.com/cucumber/compatibility-kit'
   s.platform    = Gem::Platform::RUBY
   s.license     = 'MIT'
   s.required_ruby_version = '>= 2.3'
 
   s.metadata = {
-    'bug_tracker_uri' => 'https://github.com/cucumber/common/issues',
-    'changelog_uri' => 'https://github.com/cucumber/common/blob/main/compatibility-kit/CHANGELOG.md',
+    'bug_tracker_uri' => 'https://github.com/cucumber/compatibility-kit/issues',
+    'changelog_uri' => 'https://github.com/cucumber/compatibility-kit/blob/main/compatibility-kit/CHANGELOG.md',
     'documentation_uri' => 'https://cucumber.io/docs/gherkin/',
     'mailing_list_uri' => 'https://groups.google.com/forum/#!forum/cukes',
-    'source_code_uri' => 'https://github.com/cucumber/common/blob/main/compatibility-kit/ruby'
+    'source_code_uri' => 'https://github.com/cucumber/compatibility-kit/blob/main/ruby'
   }
 
   s.add_dependency 'cucumber-messages', '~> 19.0', '>= 19.0.0'
