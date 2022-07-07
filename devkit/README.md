@@ -43,6 +43,8 @@ in the packages.
 After reviewing the `git diff`, you can commit and push the changes into a new
 pull request for review.
 
+Note: You need to have `jq` available on your path.
+
 #### Note regarding the packages
 
 The packages have specific instructions into `.gitignore` to ignore the files
