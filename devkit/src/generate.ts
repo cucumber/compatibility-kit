@@ -1,3 +1,4 @@
+import fs from 'node:fs'
 import path from 'node:path'
 import {execSync} from 'node:child_process'
 import globby from 'globby'
@@ -20,7 +21,12 @@ async function main() {
     for (const feature of features) {
         const [, suite] = feature.split(path.sep)
         console.log(`Generating samples for "${suite}" suite`)
-        execSync(`npx @cucumber/fake-cucumber --predictable-ids ${feature} | jq -cS > ${feature}.ndjson`, {env})
+        const args = ['--predictable-ids']
+        const argumentsPath = path.resolve(process.cwd(), `samples/${suite}/${suite}.arguments.txt`)
+        if (fs.existsSync(argumentsPath)) {
+            args.push(fs.readFileSync(argumentsPath, {encoding: 'utf-8'}).trim())
+        }
+        execSync(`npx @cucumber/fake-cucumber ${args.join(' ')} ${feature} | jq -cS > ${feature}.ndjson`, {env})
     }
 }
 
