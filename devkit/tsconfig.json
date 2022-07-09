@@ -8,5 +8,5 @@
     "moduleResolution": "node",
     "types": ["node"]
   },
-  "files": ["src/validate.ts"]
+  "files": ["src/generate.ts", "src/validate.ts"]
 }
