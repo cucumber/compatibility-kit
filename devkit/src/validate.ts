@@ -4,7 +4,6 @@ import * as messages from '@cucumber/messages'
 import {pipeline as asyncPipeline, Writable} from 'stream'
 import {promisify} from 'util'
 import fs from 'fs'
-import { env, exit } from "process"
 
 const pipeline = promisify(asyncPipeline)
 

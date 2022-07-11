@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 * `body` was sometime missing in `attachments.feature.ndjson`
   ([PR#17](https://github.com/cucumber/compatibility-kit/pull/17/))
+* Fix messages for `retry.feature.ndjson` to include multiple attempts ([#18](https://github.com/cucumber/compatibility-kit/pull/18))
 
 ## [11.0.0] - 2022-06-28
 
