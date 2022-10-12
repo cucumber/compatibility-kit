@@ -1,12 +1,10 @@
 name: Test ruby
 
 on:
-  workflow_call:
-
   push:
     branches:
       - main
-
+      - renovate/**
   pull_request:
     branches:
       - main
