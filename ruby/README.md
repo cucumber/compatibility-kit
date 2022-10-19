@@ -78,3 +78,13 @@ to get more help if you need to.
 
 You can also take a look on [cucumber-ruby](https://github.com/cucumber/cucumber-ruby/blob/v8.0.0/spec/cck/cck_spec.rb)
 to see how the kit is used there.
+
+## Development
+
+Before building this project locally, the samples must be copied from the `devkit`. Use: 
+
+```
+cd ../devkit
+npm run copy-samples
+cd ../ruby
+```
