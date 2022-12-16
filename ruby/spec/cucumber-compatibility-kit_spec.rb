@@ -5,6 +5,7 @@ describe Cucumber::CompatibilityKit do
   let(:gherkin_examples) {
     [
       'attachments',
+      'cdata',
       'data-tables',
       'examples-tables',
       'hooks',
