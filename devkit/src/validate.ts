@@ -7,7 +7,7 @@ import fs from 'fs'
 
 const pipeline = promisify(asyncPipeline)
 
-const refs = 'Source.json Attachment.json Location.json SourceReference.json Hook.json GherkinDocument.json Meta.json ParameterType.json ParseError.json Pickle.json StepDefinition.json TestCase.json Timestamp.json TestCaseFinished.json TestCaseStarted.json TestRunFinished.json TestRunStarted.json Duration.json TestStepFinished.json TestStepStarted.json UndefinedParameterType.json'.split(' ')
+const refs = 'Source.json Attachment.json Exception.json Location.json SourceReference.json Hook.json GherkinDocument.json Meta.json ParameterType.json ParseError.json Pickle.json StepDefinition.json TestCase.json Timestamp.json TestCaseFinished.json TestCaseStarted.json TestRunFinished.json TestRunStarted.json Duration.json TestStepFinished.json TestStepStarted.json UndefinedParameterType.json'.split(' ')
   .map(loadSchema)
 
 const ajv = new Ajv({
