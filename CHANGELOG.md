@@ -6,7 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
-- Added sample with CDATA element ([#24](https://github.com/cucumber/compatibility-kit/pull/24) M.P. Korstanje)
+
+## [11.1.0] - 2022-12-17
 
 ## [11.0.1] - 2022-07-11
 ### Fixed
@@ -102,7 +103,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - First release
 
-[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v11.0.1...main
+[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v11.1.0...main
+[11.1.0]: https://github.com/cucumber/compatibility-kit/compare/v11.0.1...main
 [11.0.1]: https://github.com/cucumber/compatibility-kit/compare/v11.0.0...main
 [11.0.0]: https://github.com/cucumber/compatibility-kit/compare/v10.0.0...v11.0.0
 [10.0.0]: https://github.com/cucumber/compatibility-kit/compare/v9.2.1...v10.0.0
@@ -123,3 +125,4 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 [3.0.0]: https://github.com/cucumber/compatibility-kit/compare/v2.0.0...v3.0.0
 [2.0.0]: https://github.com/cucumber/compatibility-kit/compare/v1.0.0...v2.0.0
 [1.0.0]: https://github.com/cucumber/common/releases/tag/v1.0.0...v0.0.1
+v0.0.1
