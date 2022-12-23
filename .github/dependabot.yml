@@ -6,6 +6,6 @@
 version: 2
 updates:
   - package-ecosystem: "bundler"
-    directory: "ruby" # Location of package manifests
+    directory: "/ruby" # Location of package manifests
     schedule:
       interval: "daily"
