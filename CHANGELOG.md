@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [11.2.0] - 2022-12-23
 ### Changed
 - Update cucumber-messages requirement from ~> 19.1, >= 19.1.2 to >= 19.1.2, < 22.0 in /ruby ([#28](https://github.com/cucumber/compatibility-kit/pull/28))
 
@@ -105,7 +107,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - First release
 
-[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v11.1.0...main
+[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v11.2.0...main
+[11.2.0]: https://github.com/cucumber/compatibility-kit/compare/v11.1.0...main
 [11.1.0]: https://github.com/cucumber/compatibility-kit/compare/v11.0.1...main
 [11.0.1]: https://github.com/cucumber/compatibility-kit/compare/v11.0.0...main
 [11.0.0]: https://github.com/cucumber/compatibility-kit/compare/v10.0.0...v11.0.0
