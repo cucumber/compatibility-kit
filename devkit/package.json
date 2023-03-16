@@ -34,6 +34,6 @@
     "shx": "^0.3.4",
     "stream-buffers": "^3.0.2",
     "ts-node": "^10.8.1",
-    "typescript": "^4.7.4"
+    "typescript": "^5.0.0"
   }
 }
