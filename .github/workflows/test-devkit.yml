@@ -10,7 +10,7 @@ on:
       - main
 
 jobs:
-  test-devkit:
+  validation:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -22,4 +22,18 @@ jobs:
           cache-dependency-path: devkit/package-lock.json
 
       - run: npm install-ci-test
+        working-directory: devkit
+
+  generation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+          cache: "npm"
+          cache-dependency-path: devkit/package-lock.json
+
+      - run: npm ci && npm run generate-ndjson
         working-directory: devkit
