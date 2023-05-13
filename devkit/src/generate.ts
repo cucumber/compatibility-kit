@@ -1,7 +1,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import {execSync} from 'node:child_process'
-import {globby} from 'globby'
+import globby from 'globby'
 
 /*
 Define environment variables to emulate a CI environment (GitHub Actions in this case)
