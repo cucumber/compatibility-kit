@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Changed
+- Updated reference data to include `sourceReference` on `parameterType` messages ([#33](https://github.com/cucumber/compatibility-kit/pull/33))
 
 ## [11.2.0] - 2022-12-23
 ### Changed
