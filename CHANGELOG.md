@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [11.3.0] - 2023-05-13
 ### Changed
 - Updated reference data to include `sourceReference` on `parameterType` messages ([#33](https://github.com/cucumber/compatibility-kit/pull/33))
 
@@ -109,7 +111,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - First release
 
-[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v11.2.0...main
+[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v11.3.0...main
+[11.3.0]: https://github.com/cucumber/compatibility-kit/compare/v11.2.0...main
 [11.2.0]: https://github.com/cucumber/compatibility-kit/compare/v11.1.0...main
 [11.1.0]: https://github.com/cucumber/compatibility-kit/compare/v11.0.1...main
 [11.0.1]: https://github.com/cucumber/compatibility-kit/compare/v11.0.0...main
