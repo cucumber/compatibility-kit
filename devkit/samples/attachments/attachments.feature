@@ -39,3 +39,6 @@ Feature: Attachments
     Examples:
       | image        |
       | cucumber.png |
+
+  Scenario: Attaching a document with a filename
+    When a PDF document is attached with a filename
