@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Changed
+- Add scenario for attached document with filename ([#35](https://github.com/cucumber/compatibility-kit/pull/35))
 
 ## [11.3.0] - 2023-05-13
 ### Changed
