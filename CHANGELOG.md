@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [12.0.0] - 2023-07-08
 ### Changed
 - Add scenario for attached document with filename ([#35](https://github.com/cucumber/compatibility-kit/pull/35))
 
@@ -113,7 +115,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - First release
 
-[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v11.3.0...main
+[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v12.0.0...main
+[12.0.0]: https://github.com/cucumber/compatibility-kit/compare/v11.3.0...main
 [11.3.0]: https://github.com/cucumber/compatibility-kit/compare/v11.2.0...main
 [11.2.0]: https://github.com/cucumber/compatibility-kit/compare/v11.1.0...main
 [11.1.0]: https://github.com/cucumber/compatibility-kit/compare/v11.0.1...main
