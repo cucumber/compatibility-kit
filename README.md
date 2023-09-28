@@ -15,7 +15,7 @@ The kit is composed of features, step definitions, and messages:
 - **features**, once executed, emit an exhaustive set of Messages as specified by the protocol
 - **step definitions** that are used in conjunction with the features to generate the Messages, and also serve as reference step definitions for implementations adopting the kit
 - **Messages**, serialized as `.ndjson` files, are the reference: a given feature
-  from the kit, executed using its dedicated step definitions, must emit the
+  from the kit, executed using its dedicated step definitions, **must** emit the
   corresponding Messages
 
 The Messages from the kit are generated using
@@ -24,11 +24,11 @@ as a reference implementation of the Messages protocol.
 
 ## Adoption
 
-To adopt the compatibility kit when writing a Cucumber implementation:
+To adopt the compatibility kit when writing a Cucumber implementation, an implementer must:
 
 ### Prerequisites
 
-First, make sure your implementation is sufficiently testable - you should be able to execute a test run programatically for a given set of feature files and step definitions, and get a handle on the Messages output (via a formatter or some other means) to make assertions on.
+First, make sure your implementation is sufficiently testable - you should be able to execute a test run programatically for a given set of feature files and step definitions, and obtain the Messages output (via a formatter or some other means) to make assertions on.
 
 ### Setup
 
@@ -52,7 +52,7 @@ When we say "matches" above, that's heavily qualified - there are many individua
 
 A small minority of features also have an `.arguments.txt` that specify additional arguments/options that are pertinent to the feature - see `retry` for an example. You can adapt these how you see fit - they may or may not line up directly with your CLI options schema.
 
-There may be some features in the CCK suite that cover functionality that your implementation doesn't have. For example, there's one for `retry` which only a subset of Cucumbers support. You can filter these out of your test until/unless you're ready to support them.
+There may be some features in the CCK suite that cover functionality that your implementation doesn't have. For example, there's one for `retry` which only a subset of Cucumber implementations support. You can filter these out of your test until/unless you're ready to support them.
 
 ### Existing implementations
 

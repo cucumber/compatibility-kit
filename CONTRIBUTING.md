@@ -1,7 +1,7 @@
 # Contributing
 
 This repo is composed of a [devkit](./devkit/), and packages to deliver the kit
-using managers like NPM or rubygem.
+using managers like NPM or rubygems.
 
 ## The devkit
 
