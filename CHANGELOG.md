@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 ### Fixed
 - [Ruby] The `meta` key was being erroneously checked when running CCK tests ([#43](https://github.com/cucumber/compatibility-kit/pull/43))
+- [Ruby] All messages were being analysed as `attachment` when running CCK tests ([#45](https://github.com/cucumber/compatibility-kit/pull/45))
 
 ## [12.0.0] - 2023-07-08
 ### Changed
