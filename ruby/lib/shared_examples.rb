@@ -45,7 +45,10 @@ def parse_ndjson(ndjson)
 end
 
 def message_type(message)
-  message.to_h.keys.first
+  # TODO: This is duplicate code - from messages_comparator:45 - It should live in a common helper methods module
+  message.to_h.each do |key, value|
+    return key unless value.nil?
+  end
 end
 
 def debug_lists(expected, obtained)
