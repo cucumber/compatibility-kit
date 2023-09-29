@@ -17,7 +17,6 @@ jobs:
     needs: [pre-release-check, test-ruby]
     runs-on: ubuntu-latest
     environment: Release
-
     steps:
       - uses: actions/checkout@v4
       - uses: ruby/setup-ruby@v1
