@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Fixed
+- [Ruby] The `meta` key was being erroneously checked when running CCK tests ([#43](https://github.com/cucumber/compatibility-kit/pull/43))
 
 ## [12.0.0] - 2023-07-08
 ### Changed
@@ -23,16 +25,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [11.0.1] - 2022-07-11
 ### Fixed
-- `body` was sometime missing in `attachments.feature.ndjson` ([PR#17](https://github.com/cucumber/compatibility-kit/pull/17/))
+- `body` was sometime missing in `attachments.feature.ndjson` ([#17](https://github.com/cucumber/compatibility-kit/pull/17))
 - Fix messages for `retry.feature.ndjson` to include multiple attempts ([#18](https://github.com/cucumber/compatibility-kit/pull/18))
 
 ## [11.0.0] - 2022-06-28
 ### Added
-- Fake CI data in messages have been added back to the samples ndjson ([PR#9](https://github.com/cucumber/compatibility-kit/pull/9))
+- Fake CI data in messages have been added back to the samples ndjson ([#9](https://github.com/cucumber/compatibility-kit/pull/9))
 
 ### Changed
 - Creation of a devkit, impacting step definition messages: URI are now beginning with `samples` and not `features` [#4](https://github.com/cucumber/compatibility-kit/pull/4)
-- [JavaScript] Remove all dependencies from the package ([PR#8](https://github.com/cucumber/compatibility-kit/pull/8))
+- [JavaScript] Remove all dependencies from the package ([#8](https://github.com/cucumber/compatibility-kit/pull/8))
 
 ## [10.0.0] - 2022-06-09
 ### Changed
@@ -48,19 +50,19 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [9.1.2] - 2021-10-20
 ### Fixed
-- [Ruby] Fix the `Skipped` support code to match the JavaScript implementation ([PR#1805](https://github.com/cucumber/common/pull/1805))
+- [Ruby] Fix the `Skipped` support code to match the JavaScript implementation ([#1805](https://github.com/cucumber/common/pull/1805))
 
 ## [9.1.1] - 2021-10-19
 ### Fixed
-- [Ruby] Ignores messages related to an actual CI ([PR#1803](https://github.com/cucumber/common/pull/1803))
+- [Ruby] Ignores messages related to an actual CI ([#1803](https://github.com/cucumber/common/pull/1803))
 
 ## [9.1.0] - 2021-10-19
 ### Added
-- [Ruby] The compatibility kit is now available for Ruby as a gem ([PR#1773](https://github.com/cucumber/common/pull/1773))
+- [Ruby] The compatibility kit is now available for Ruby as a gem ([#1773](https://github.com/cucumber/common/pull/1773))
 
 ## [9.0.0] - 2021-10-01
 ### Changed
-- Pending results are now properly reported as failures ([PR#1751](https://github.com/cucumber/common/pull/1751))
+- Pending results are now properly reported as failures ([#1751](https://github.com/cucumber/common/pull/1751))
 
 ## [8.0.0] - 2021-09-02
 ### Added
