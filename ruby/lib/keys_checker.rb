@@ -12,11 +12,13 @@ module CCK
 
       return errors if found_keys.sort == expected_keys.sort
 
-      missing_keys = (expected_keys - found_keys)
-
-      extra_keys = (found_keys - expected_keys).reject { |key|
+      missing_keys = (expected_keys - found_keys).reject do |key|
         ENV['CI'] && found.class == Cucumber::Messages::Meta && key == :ci
-      }
+      end
+
+      extra_keys = (found_keys - expected_keys).reject do |key|
+        ENV['CI'] && found.class == Cucumber::Messages::Meta && key == :ci
+      end
 
       errors << "Found extra keys in message #{found.class.name}: #{extra_keys}" unless extra_keys.empty?
       errors << "Missing keys in message #{found.class.name}: #{missing_keys}" unless missing_keys.empty?
