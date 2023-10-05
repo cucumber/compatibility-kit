@@ -6,6 +6,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Added
+- [Ruby] Initial rubocop gems and basic compliance added (More work to come) ([#49](https://github.com/cucumber/compatibility-kit/pull/49))
+
 ### Changed
 - [Ruby] Minimum ruby version is now bumped from 2.3 to 2.5 ([#47](https://github.com/cucumber/compatibility-kit/pull/47))
 
