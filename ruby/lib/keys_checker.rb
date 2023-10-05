@@ -19,8 +19,8 @@ module CCK
       missing_keys = (expected_keys - detected_keys).reject { |key| meta_message? && key == :ci }
       extra_keys = (detected_keys - expected_keys).reject { |key| meta_message? && key == :ci }
 
-      errors << "Detected extra keys in message #{detected.class.name}: #{extra_keys}" unless extra_keys.empty?
-      errors << "Missing keys in message #{detected.class.name}: #{missing_keys}" unless missing_keys.empty?
+      errors << "Detected extra keys in message #{message_name}: #{extra_keys}" unless extra_keys.empty?
+      errors << "Missing keys in message #{message_name}: #{missing_keys}" unless missing_keys.empty?
       errors
     rescue StandardError => e
       ["Unexpected error: #{e.message}"]
@@ -42,6 +42,10 @@ module CCK
 
     def meta_message?
       detected.instance_of?(Cucumber::Messages::Meta)
+    end
+
+    def message_name
+      detected.class.name
     end
 
     def errors
