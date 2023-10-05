@@ -16,15 +16,11 @@ describe CCK::KeysChecker do
     end
 
     let(:missing_data_table) do
-      Cucumber::Messages::PickleStepArgument.new(
-        doc_string: '1'
-      )
+      Cucumber::Messages::PickleStepArgument.new(doc_string: '1')
     end
 
     let(:missing_doc_string) do
-      Cucumber::Messages::PickleStepArgument.new(
-        data_table: '12'
-      )
+      Cucumber::Messages::PickleStepArgument.new(data_table: '12')
     end
 
     let(:wrong_values) do
@@ -66,9 +62,7 @@ describe CCK::KeysChecker do
       end
 
       let(:default_not_set) do
-        Cucumber::Messages::Duration.new(
-          nanos: 12
-        )
+        Cucumber::Messages::Duration.new(nanos: 12)
       end
 
       it 'does not raise an exception' do
@@ -77,26 +71,19 @@ describe CCK::KeysChecker do
     end
 
     context 'when executed as part of a CI' do
-      before do
-        allow(ENV).to receive(:[]).with('CI').and_return(true)
-      end
+      before { allow(ENV).to receive(:[]).with('CI').and_return(true) }
 
       it 'ignores actual CI related messages' do
-        detected = Cucumber::Messages::Meta.new(
-          ci: Cucumber::Messages::Ci.new(name: 'Some CI')
-        )
-
+        detected = Cucumber::Messages::Meta.new(ci: Cucumber::Messages::Ci.new(name: 'Some CI'))
         expected = Cucumber::Messages::Meta.new
 
         expect(subject.compare(detected, expected)).to be_empty
       end
     end
 
-    context 'when an unexcpected error occurs' do
+    context 'when an unexpected error occurs' do
       it 'does not raise error' do
-        expect {
-          subject.compare(nil, nil)
-        }.not_to raise_error
+        expect { subject.compare(nil, nil) }.not_to raise_error
       end
 
       it 'returns the error' do
