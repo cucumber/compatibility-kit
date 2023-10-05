@@ -124,11 +124,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - First release
 
 [Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v12.0.0...main
-[12.0.0]: https://github.com/cucumber/compatibility-kit/compare/v11.3.0...main
-[11.3.0]: https://github.com/cucumber/compatibility-kit/compare/v11.2.0...main
-[11.2.0]: https://github.com/cucumber/compatibility-kit/compare/v11.1.0...main
-[11.1.0]: https://github.com/cucumber/compatibility-kit/compare/v11.0.1...main
-[11.0.1]: https://github.com/cucumber/compatibility-kit/compare/v11.0.0...main
+[12.0.0]: https://github.com/cucumber/compatibility-kit/compare/v11.3.0...v12.0.0
+[11.3.0]: https://github.com/cucumber/compatibility-kit/compare/v11.2.0...v11.3.0
+[11.2.0]: https://github.com/cucumber/compatibility-kit/compare/v11.1.0...v11.2.0
+[11.1.0]: https://github.com/cucumber/compatibility-kit/compare/v11.0.1...v11.1.0
+[11.0.1]: https://github.com/cucumber/compatibility-kit/compare/v11.0.0...v11.0.1
 [11.0.0]: https://github.com/cucumber/compatibility-kit/compare/v10.0.0...v11.0.0
 [10.0.0]: https://github.com/cucumber/compatibility-kit/compare/v9.2.1...v10.0.0
 [9.2.1]: https://github.com/cucumber/compatibility-kit/compare/v9.2.0...v9.2.1
