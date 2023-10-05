@@ -29,7 +29,7 @@ module CCK
       detected_by_type.keys.each do |type|
         compare_list(detected_by_type[type], expected_by_type[type])
       rescue StandardError => e
-        @all_errors << "Error whild comparing #{type}: #{e.message}"
+        @all_errors << "Error while comparing #{type}: #{e.message}"
       end
     end
 
@@ -59,15 +59,22 @@ module CCK
 
     def compare_message(detected, expected)
       return unless detected.is_a?(Cucumber::Messages::Message)
-      return if detected.is_a?(Cucumber::Messages::GherkinDocument)
-      return if detected.is_a?(Cucumber::Messages::Pickle)
-      return if detected.is_a?(Cucumber::Messages::Timestamp) && expected.is_a?(Cucumber::Messages::Timestamp)
-      return if detected.is_a?(Cucumber::Messages::Duration) && expected.is_a?(Cucumber::Messages::Duration)
+      return if ignorable_large_message?(detected)
+      return if ignorable_time_message?(detected, expected)
       return if ENV['CI'] && detected.is_a?(Cucumber::Messages::Ci) && expected.nil?
 
       @compared << detected.class.name
       @all_errors << @validator.compare(detected, expected)
       compare_sub_messages(detected, expected)
+    end
+
+    def ignorable_large_message?(detected)
+      detected.is_a?(Cucumber::Messages::GherkinDocument) || detected.is_a?(Cucumber::Messages::Pickle)
+    end
+
+    def ignorable_time_message?(detected, expected)
+      (detected.is_a?(Cucumber::Messages::Timestamp) && expected.is_a?(Cucumber::Messages::Timestamp)) ||
+        (detected.is_a?(Cucumber::Messages::Duration) && expected.is_a?(Cucumber::Messages::Duration))
     end
 
     def compare_sub_messages(detected, expected)
