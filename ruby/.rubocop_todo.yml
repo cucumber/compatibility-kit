@@ -181,15 +181,15 @@ Performance/UnfreezeString:
   Exclude:
     - 'spec/capture_warnings.rb'
 
-# Offense count: 8
-# Cop supports --auto-correct.
-# Configuration parameters: SkipBlocks, EnforcedStyle.
-# SupportedStyles: described_class, explicit
-RSpec/DescribedClass:
-  Exclude:
-    - 'spec/cucumber-compatibility-kit_spec.rb'
-    - 'spec/keys_checker_spec.rb'
-    - 'spec/messages_comparator_spec.rb'
+## Offense count: 8
+## Cop supports --auto-correct.
+## Configuration parameters: SkipBlocks, EnforcedStyle.
+## SupportedStyles: described_class, explicit
+#RSpec/DescribedClass:
+#  Exclude:
+#    - 'spec/cucumber-compatibility-kit_spec.rb'
+#    - 'spec/keys_checker_spec.rb'
+#    - 'spec/messages_comparator_spec.rb'
 
 # Offense count: 2
 # Configuration parameters: Max.
