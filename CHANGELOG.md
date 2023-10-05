@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Changed
 - [Ruby] Minimum ruby version is now bumped from 2.3 to 2.5 ([#47](https://github.com/cucumber/compatibility-kit/pull/47))
+- [Ruby] Refactored `KeysChecker#compare` to be a lot less complex and slightly more performant ([#51](https://github.com/cucumber/compatibility-kit/pull/51))
 
 ### Fixed
 - [Ruby] The `meta` key was being erroneously checked when running CCK tests ([#43](https://github.com/cucumber/compatibility-kit/pull/43))
