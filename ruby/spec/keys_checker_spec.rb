@@ -42,14 +42,14 @@ describe CCK::KeysChecker do
 
     it 'finds extra keys' do
       expect(subject.compare(complete, missing_doc_string)).to eq(
-        ['Found extra keys in message Cucumber::Messages::PickleStepArgument: [:doc_string]']
+        ['Detected extra keys in message Cucumber::Messages::PickleStepArgument: [:doc_string]']
       )
     end
 
     it 'finds extra and missing' do
       expect(subject.compare(missing_doc_string, missing_data_table)).to contain_exactly(
         'Missing keys in message Cucumber::Messages::PickleStepArgument: [:doc_string]',
-        'Found extra keys in message Cucumber::Messages::PickleStepArgument: [:data_table]'
+        'Detected extra keys in message Cucumber::Messages::PickleStepArgument: [:data_table]'
       )
     end
 
@@ -82,13 +82,13 @@ describe CCK::KeysChecker do
       end
 
       it 'ignores actual CI related messages' do
-        found = Cucumber::Messages::Meta.new(
+        detected = Cucumber::Messages::Meta.new(
           ci: Cucumber::Messages::Ci.new(name: 'Some CI')
         )
 
         expected = Cucumber::Messages::Meta.new
 
-        expect(subject.compare(found, expected)).to be_empty
+        expect(subject.compare(detected, expected)).to be_empty
       end
     end
 

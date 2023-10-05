@@ -2,25 +2,25 @@
 
 module CCK
   class KeysChecker
-    def self.compare(found, expected)
-      new(found, expected).compare
+    def self.compare(detected, expected)
+      new(detected, expected).compare
     end
 
-    attr_reader :found, :expected
+    attr_reader :detected, :expected
 
-    def initialize(found, expected)
-      @found = found
+    def initialize(detected, expected)
+      @detected = detected
       @expected = expected
     end
 
     def compare
       return [] if identical_keys?
 
-      missing_keys = (expected_keys - found_keys).reject { |key| meta_message? && key == :ci }
-      extra_keys = (found_keys - expected_keys).reject { |key| meta_message? && key == :ci }
+      missing_keys = (expected_keys - detected_keys).reject { |key| meta_message? && key == :ci }
+      extra_keys = (detected_keys - expected_keys).reject { |key| meta_message? && key == :ci }
 
-      errors << "Found extra keys in message #{found.class.name}: #{extra_keys}" unless extra_keys.empty?
-      errors << "Missing keys in message #{found.class.name}: #{missing_keys}" unless missing_keys.empty?
+      errors << "Detected extra keys in message #{detected.class.name}: #{extra_keys}" unless extra_keys.empty?
+      errors << "Missing keys in message #{detected.class.name}: #{missing_keys}" unless missing_keys.empty?
       errors
     rescue StandardError => e
       ["Unexpected error: #{e.message}"]
@@ -28,8 +28,8 @@ module CCK
 
     private
 
-    def found_keys
-      @found_keys ||= found.to_h(reject_nil_values: true).keys.sort
+    def detected_keys
+      @detected_keys ||= detected.to_h(reject_nil_values: true).keys.sort
     end
 
     def expected_keys
@@ -37,11 +37,11 @@ module CCK
     end
 
     def identical_keys?
-      found_keys == expected_keys
+      detected_keys == expected_keys
     end
 
     def meta_message?
-      found.instance_of?(Cucumber::Messages::Meta)
+      detected.instance_of?(Cucumber::Messages::Meta)
     end
 
     def errors
