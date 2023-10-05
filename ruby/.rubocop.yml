@@ -10,7 +10,7 @@ inherit_mode:
     - Exclude
 
 AllCops:
-  TargetRubyVersion: 2.3
+  TargetRubyVersion: 2.5
   NewCops: enable
 
 # Disabled on our repo's to enable polyglot-release
