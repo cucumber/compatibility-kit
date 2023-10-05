@@ -28,6 +28,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Update cucumber-messages requirement from ~> 19.1, >= 19.1.2 to >= 19.1.2, < 22.0 in /ruby ([#28](https://github.com/cucumber/compatibility-kit/pull/28))
 
 ## [11.1.0] - 2022-12-17
+### Added
+- cdata feature has been added ([#24](https://github.com/cucumber/compatibility-kit/pull/24))
+
+### Changed
+- All tests now pick up exception messages provided from latest version of cucumber-messages [#27](https://github.com/cucumber/compatibility-kit/pull/27)
 
 ## [11.0.1] - 2022-07-11
 ### Fixed
