@@ -5,52 +5,33 @@ require 'cucumber/messages'
 require_relative '../lib/keys_checker'
 
 describe CCK::KeysChecker do
-  let(:subject) { described_class }
-
   describe '#compare' do
-    let(:complete) do
-      Cucumber::Messages::PickleStepArgument.new(
-        doc_string: '1',
-        data_table: '12'
-      )
-    end
-
-    let(:missing_data_table) do
-      Cucumber::Messages::PickleStepArgument.new(doc_string: '1')
-    end
-
-    let(:missing_doc_string) do
-      Cucumber::Messages::PickleStepArgument.new(data_table: '12')
-    end
-
-    let(:wrong_values) do
-      Cucumber::Messages::PickleStepArgument.new(
-        doc_string: '123',
-        data_table: '456'
-      )
-    end
+    let(:complete) { Cucumber::Messages::PickleStepArgument.new(doc_string: '1', data_table: '12') }
+    let(:missing_data_table) { Cucumber::Messages::PickleStepArgument.new(doc_string: '1') }
+    let(:missing_doc_string) { Cucumber::Messages::PickleStepArgument.new(data_table: '12') }
+    let(:wrong_values) { Cucumber::Messages::PickleStepArgument.new(doc_string: '123', data_table: '456') }
 
     it 'finds missing key' do
-      expect(subject.compare(missing_data_table, complete)).to eq(
+      expect(described_class.compare(missing_data_table, complete)).to eq(
         ['Missing keys in message Cucumber::Messages::PickleStepArgument: [:data_table]']
       )
     end
 
     it 'finds extra keys' do
-      expect(subject.compare(complete, missing_doc_string)).to eq(
+      expect(described_class.compare(complete, missing_doc_string)).to eq(
         ['Detected extra keys in message Cucumber::Messages::PickleStepArgument: [:doc_string]']
       )
     end
 
     it 'finds extra and missing' do
-      expect(subject.compare(missing_doc_string, missing_data_table)).to contain_exactly(
+      expect(described_class.compare(missing_doc_string, missing_data_table)).to contain_exactly(
         'Missing keys in message Cucumber::Messages::PickleStepArgument: [:doc_string]',
         'Detected extra keys in message Cucumber::Messages::PickleStepArgument: [:data_table]'
       )
     end
 
     it 'does not care about the values' do
-      expect(subject.compare(complete, wrong_values)).to be_empty
+      expect(described_class.compare(complete, wrong_values)).to be_empty
     end
 
     context 'when default values are omitted' do
@@ -60,13 +41,10 @@ describe CCK::KeysChecker do
           nanos: 12
         )
       end
-
-      let(:default_not_set) do
-        Cucumber::Messages::Duration.new(nanos: 12)
-      end
+      let(:default_not_set) { Cucumber::Messages::Duration.new(nanos: 12) }
 
       it 'does not raise an exception' do
-        expect(subject.compare(default_set, default_not_set)).to be_empty
+        expect(described_class.compare(default_set, default_not_set)).to be_empty
       end
     end
 
@@ -77,17 +55,17 @@ describe CCK::KeysChecker do
         detected = Cucumber::Messages::Meta.new(ci: Cucumber::Messages::Ci.new(name: 'Some CI'))
         expected = Cucumber::Messages::Meta.new
 
-        expect(subject.compare(detected, expected)).to be_empty
+        expect(described_class.compare(detected, expected)).to be_empty
       end
     end
 
     context 'when an unexpected error occurs' do
       it 'does not raise error' do
-        expect { subject.compare(nil, nil) }.not_to raise_error
+        expect { described_class.compare(nil, nil) }.not_to raise_error
       end
 
       it 'returns the error' do
-        expect(subject.compare(nil, nil))
+        expect(described_class.compare(nil, nil))
           .to eq(['Unexpected error: wrong number of arguments (given 1, expected 0)'])
       end
     end
