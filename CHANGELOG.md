@@ -6,9 +6,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Changed
+- [Ruby] Minimum ruby version is now bumped from 2.3 to 2.5 ([#47](https://github.com/cucumber/compatibility-kit/pull/47))
+
 ### Fixed
 - [Ruby] The `meta` key was being erroneously checked when running CCK tests ([#43](https://github.com/cucumber/compatibility-kit/pull/43))
 - [Ruby] All messages were being analysed as `attachment` when running CCK tests ([#45](https://github.com/cucumber/compatibility-kit/pull/45))
+- [Ruby] Added in missing step definition for `Attaching a document with a filename` ([#48](https://github.com/cucumber/compatibility-kit/pull/48))
+  - NB: This is currently not "permissible" in the ruby flavour of cucumber, but will be enabled shortly
 
 ## [12.0.0] - 2023-07-08
 ### Changed
