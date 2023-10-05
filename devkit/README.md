@@ -6,6 +6,9 @@ been changed.
 
 ## Getting Started
 
+This project is designed to be ran on Node 18 LTS or higher, with NPM v9+. Using anything
+lower than this will likely lead to issues when running the NPM commands
+
 As any NPM project, you first need to run `npm install`. To make sure everything
 is going well, run `npm test`.
 
