@@ -2,7 +2,7 @@
 
 require 'rspec'
 require 'cucumber/messages'
-require_relative '../lib/keys_checker'
+require_relative '../lib/ib/keys_checker'
 
 describe CCK::KeysChecker do
   describe '#compare' do
