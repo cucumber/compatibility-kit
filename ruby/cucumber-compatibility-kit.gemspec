@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.homepage    = 'https://github.com/cucumber/compatibility-kit'
   s.platform    = Gem::Platform::RUBY
   s.license     = 'MIT'
-  s.required_ruby_version = '>= 2.3'
+  s.required_ruby_version = '>= 2.5'
 
   s.metadata = {
     'bug_tracker_uri' => 'https://github.com/cucumber/compatibility-kit/issues',
@@ -22,14 +22,14 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'cucumber-messages', '>= 19.1.2', '< 22.1'
   s.add_dependency 'rake', '~> 13.0', '>= 13.0.6'
-  s.add_dependency 'rspec', '~> 3.11', '>= 3.11.0'
+  s.add_dependency 'rspec', '~> 3.12'
   s.add_dependency 'rubocop', '~> 0.81.0'
   s.add_dependency 'rubocop-performance', '~> 1.5.0'
   s.add_dependency 'rubocop-rake', '~> 0.5.0'
   s.add_dependency 'rubocop-rspec', '~> 1.41.0'
 
   s.executables      = []
-  s.rubygems_version = '>= 1.6.1', '~> 0.8'
+  s.rubygems_version = '>= 3.0.0'
   s.files            = Dir[
     'README.md',
     'LICENSE',
