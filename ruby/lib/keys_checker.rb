@@ -29,11 +29,11 @@ module CCK
     private
 
     def detected_keys
-      @detected_keys ||= detected.to_h(reject_nil_values: true).keys.sort
+      @detected_keys ||= ordered_uniq_hash_keys(detected)
     end
 
     def expected_keys
-      @expected_keys ||= expected.to_h(reject_nil_values: true).keys.sort
+      @expected_keys ||= ordered_uniq_hash_keys(expected)
     end
 
     def identical_keys?
@@ -46,6 +46,10 @@ module CCK
 
     def message_name
       detected.class.name
+    end
+
+    def ordered_uniq_hash_keys(object)
+      object.to_h(reject_nil_values: true).keys.sort
     end
 
     def errors
