@@ -6,6 +6,8 @@
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
+# TODO: Oct '23 -> 25 files inspected, 145 offenses detected, 96 offenses auto-correctable
+
 # Offense count: 1
 # Cop supports --auto-correct.
 Layout/EmptyLineAfterGuardClause:
