@@ -45,7 +45,7 @@ When('a stream with {int} bytes are attached as {string}') do |size, media_type|
 end
 
 When('a JPEG image is attached') do
-  attach_or_embed(self, File.open("#{__dir__}/cucumber.png"), 'image/png')
+  attach_or_embed(self, File.open("#{__dir__}/cucumber.jpeg"), 'image/jpeg')
 end
 
 When('the {word} png is attached') do |filename|
