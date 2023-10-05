@@ -3,8 +3,17 @@
 module CCK
   class KeysChecker
     def self.compare(found, expected)
-      errors = []
+      new(found, expected).compare
+    end
 
+    attr_reader :found, :expected
+
+    def initialize(found, expected)
+      @found = found
+      @expected = expected
+    end
+
+    def compare
       found_keys = found.to_h(reject_nil_values: true).keys
       expected_keys = expected.to_h(reject_nil_values: true).keys
 
@@ -23,6 +32,12 @@ module CCK
       errors
     rescue StandardError => e
       ["Unexpected error: #{e.message}"]
+    end
+
+    private
+
+    def errors
+      @errors ||= []
     end
   end
 end
