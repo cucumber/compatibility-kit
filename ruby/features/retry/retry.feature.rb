@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Given('a step that always passes') do
   # no-op
 end

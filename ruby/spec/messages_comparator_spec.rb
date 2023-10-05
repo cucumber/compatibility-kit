@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rspec'
 require 'cucumber/messages'
 require_relative '../lib/messages_comparator'
