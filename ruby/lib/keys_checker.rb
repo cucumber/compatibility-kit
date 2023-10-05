@@ -14,15 +14,10 @@ module CCK
     end
 
     def compare
-      return errors if identical_keys?
+      return [] if identical_keys?
 
-      missing_keys = (expected_keys - found_keys).reject do |key|
-        found.instance_of?(Cucumber::Messages::Meta) && key == :ci
-      end
-
-      extra_keys = (found_keys - expected_keys).reject do |key|
-        found.instance_of?(Cucumber::Messages::Meta) && key == :ci
-      end
+      missing_keys = (expected_keys - found_keys).reject { |key| meta_message? && key == :ci }
+      extra_keys = (found_keys - expected_keys).reject { |key| meta_message? && key == :ci }
 
       errors << "Found extra keys in message #{found.class.name}: #{extra_keys}" unless extra_keys.empty?
       errors << "Missing keys in message #{found.class.name}: #{missing_keys}" unless missing_keys.empty?
@@ -43,6 +38,10 @@ module CCK
 
     def identical_keys?
       found_keys == expected_keys
+    end
+
+    def meta_message?
+      found.instance_of?(Cucumber::Messages::Meta)
     end
 
     def errors
