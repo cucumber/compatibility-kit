@@ -16,11 +16,8 @@ module CCK
     def compare
       return [] if identical_keys?
 
-      missing_keys = (expected_keys - detected_keys).reject { |key| meta_message? && key == :ci }
-      extra_keys = (detected_keys - expected_keys).reject { |key| meta_message? && key == :ci }
-
-      errors << "Detected extra keys in message #{message_name}: #{extra_keys}" unless extra_keys.empty?
-      errors << "Missing keys in message #{message_name}: #{missing_keys}" unless missing_keys.empty?
+      errors << "Detected extra keys in message #{message_name}: #{extra_keys}" if extra_keys.any?
+      errors << "Missing keys in message #{message_name}: #{missing_keys}" if missing_keys.any?
       errors
     rescue StandardError => e
       ["Unexpected error: #{e.message}"]
@@ -38,6 +35,14 @@ module CCK
 
     def identical_keys?
       detected_keys == expected_keys
+    end
+
+    def missing_keys
+      (expected_keys - detected_keys).reject { |key| meta_message? && key == :ci }
+    end
+
+    def extra_keys
+      (detected_keys - expected_keys).reject { |key| meta_message? && key == :ci }
     end
 
     def meta_message?
