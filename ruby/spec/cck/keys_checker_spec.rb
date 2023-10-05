@@ -2,45 +2,39 @@
 
 require 'rspec'
 require 'cucumber/messages'
-require_relative '../lib/ib/keys_checker'
+require_relative '../../lib/keys_checker'
 
 describe CCK::KeysChecker do
   describe '#compare' do
-    let(:complete) { Cucumber::Messages::PickleStepArgument.new(doc_string: '1', data_table: '12') }
-    let(:missing_data_table) { Cucumber::Messages::PickleStepArgument.new(doc_string: '1') }
-    let(:missing_doc_string) { Cucumber::Messages::PickleStepArgument.new(data_table: '12') }
-    let(:wrong_values) { Cucumber::Messages::PickleStepArgument.new(doc_string: '123', data_table: '456') }
+    let(:expected_values) { Cucumber::Messages::Attachment.new(url: 'https://foo.com', file_name: 'file.extension') }
+    let(:erroneous_values) { Cucumber::Messages::Attachment.new(source: '1', test_step_id: '123') }
+    let(:wrong_values) { Cucumber::Messages::Attachment.new(url: 'https://otherfoo.com', file_name: 'file.other') }
 
-    it 'finds missing key' do
-      expect(described_class.compare(missing_data_table, complete)).to eq(
-        ['Missing keys in message Cucumber::Messages::PickleStepArgument: [:data_table]']
+    it 'finds missing keys' do
+      expect(described_class.compare(erroneous_values, expected_values)).to include(
+        'Missing keys in message Cucumber::Messages::Attachment: [:file_name, :url]'
       )
     end
 
     it 'finds extra keys' do
-      expect(described_class.compare(complete, missing_doc_string)).to eq(
-        ['Detected extra keys in message Cucumber::Messages::PickleStepArgument: [:doc_string]']
+      expect(described_class.compare(erroneous_values, expected_values)).to include(
+        'Detected extra keys in message Cucumber::Messages::Attachment: [:source, :test_step_id]'
       )
     end
 
-    it 'finds extra and missing' do
-      expect(described_class.compare(missing_doc_string, missing_data_table)).to contain_exactly(
-        'Missing keys in message Cucumber::Messages::PickleStepArgument: [:doc_string]',
-        'Detected extra keys in message Cucumber::Messages::PickleStepArgument: [:data_table]'
+    it 'finds extra and missing keys' do
+      expect(described_class.compare(erroneous_values, expected_values)).to contain_exactly(
+        'Missing keys in message Cucumber::Messages::Attachment: [:file_name, :url]',
+        'Detected extra keys in message Cucumber::Messages::Attachment: [:source, :test_step_id]'
       )
     end
 
     it 'does not care about the values' do
-      expect(described_class.compare(complete, wrong_values)).to be_empty
+      expect(described_class.compare(expected_values, wrong_values)).to be_empty
     end
 
     context 'when default values are omitted' do
-      let(:default_set) do
-        Cucumber::Messages::Duration.new(
-          seconds: 0,
-          nanos: 12
-        )
-      end
+      let(:default_set) { Cucumber::Messages::Duration.new(seconds: 0, nanos: 12) }
       let(:default_not_set) { Cucumber::Messages::Duration.new(nanos: 12) }
 
       it 'does not raise an exception' do
