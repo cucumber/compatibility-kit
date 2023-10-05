@@ -17,28 +17,21 @@ jobs:
     needs: [pre-release-check, test-ruby]
     runs-on: ubuntu-latest
     environment: Release
-
     steps:
       - uses: actions/checkout@v4
-
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
+      - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: "3.0"
+          ruby-version: '3.2'
           bundler-cache: true
           working-directory: ruby
-
       - uses: actions/setup-node@v3
         with:
-          cache: "npm"
+          cache: 'npm'
           cache-dependency-path: devkit/package-lock.json
-
       - name: Copy the samples to ruby/features
         run: npm ci && npm run copy-to:ruby
         working-directory: devkit
-
-      - name: Publish ruby gem
-        uses: cucumber/action-publish-rubygem@v1.0.0
+      - uses: cucumber/action-publish-rubygem@v1.0.0
         with:
           working_directory: ruby
           rubygems_api_key: ${{ secrets.RUBYGEMS_API_KEY }}
