@@ -355,15 +355,15 @@ Style/SignalException:
 Style/SpecialGlobalVars:
   EnforcedStyle: use_perl_names
 
-# Offense count: 9
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, ConsistentQuotesInMultiline.
-# SupportedStyles: single_quotes, double_quotes
-Style/StringLiterals:
-  Exclude:
-    - 'Rakefile'
-    - 'lib/shared_examples.rb'
-    - 'spec/capture_warnings.rb'
+## Offense count: 9
+## Cop supports --auto-correct.
+## Configuration parameters: EnforcedStyle, ConsistentQuotesInMultiline.
+## SupportedStyles: single_quotes, double_quotes
+#Style/StringLiterals:
+#  Exclude:
+#    - 'Rakefile'
+#    - 'lib/shared_examples.rb'
+#    - 'spec/capture_warnings.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.
