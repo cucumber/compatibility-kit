@@ -20,4 +20,3 @@ Given('{flight} has been delayed {int} minutes') do |flight, delay|
   expect(flight.to).to eq('CDG')
   expect(delay).to eq(45)
 end
-

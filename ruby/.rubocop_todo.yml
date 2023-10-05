@@ -63,19 +63,19 @@ Layout/SpaceInsideStringInterpolation:
   Exclude:
     - 'spec/capture_warnings.rb'
 
-# Offense count: 7
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: final_newline, final_blank_line
-Layout/TrailingEmptyLines:
-  Exclude:
-    - 'features/minimal/minimal.feature.rb'
-    - 'features/parameter-types/parameter-types.feature.rb'
-    - 'features/pending/pending.feature.rb'
-    - 'features/skipped/skipped.feature.rb'
-    - 'features/undefined/undefined.feature.rb'
-    - 'features/unknown-parameter-type/unknown-parameter-type.feature.rb'
-    - 'spec/cucumber-compatibility-kit_spec.rb'
+## Offense count: 7
+## Cop supports --auto-correct.
+## Configuration parameters: EnforcedStyle.
+## SupportedStyles: final_newline, final_blank_line
+#Layout/TrailingEmptyLines:
+#  Exclude:
+#    - 'features/minimal/minimal.feature.rb'
+#    - 'features/parameter-types/parameter-types.feature.rb'
+#    - 'features/pending/pending.feature.rb'
+#    - 'features/skipped/skipped.feature.rb'
+#    - 'features/undefined/undefined.feature.rb'
+#    - 'features/unknown-parameter-type/unknown-parameter-type.feature.rb'
+#    - 'spec/cucumber-compatibility-kit_spec.rb'
 
 # Offense count: 1
 # Configuration parameters: AllowComments, AllowEmptyLambdas.
