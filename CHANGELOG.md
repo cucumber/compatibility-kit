@@ -28,7 +28,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [11.2.0] - 2022-12-23
 ### Changed
-- Update cucumber-messages requirement from ~> 19.1, >= 19.1.2 to >= 19.1.2, < 22.0 in /ruby ([#28](https://github.com/cucumber/compatibility-kit/pull/28))
+- [Ruby] Update cucumber-messages requirement from `~> 19.1, >= 19.1.2` to `>= 19.1.2, < 22.0` ([#28](https://github.com/cucumber/compatibility-kit/pull/28))
 
 ## [11.1.0] - 2022-12-17
 
