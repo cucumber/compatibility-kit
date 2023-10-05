@@ -3,10 +3,6 @@
 module CCK
   class KeysChecker
     def self.compare(found, expected)
-      KeysChecker.new.compare(found, expected)
-    end
-
-    def compare(found, expected)
       errors = []
 
       found_keys = found.to_h(reject_nil_values: true).keys
