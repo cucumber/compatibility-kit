@@ -52,7 +52,6 @@ When('the {word} png is attached') do |filename|
   attach_or_embed(self, File.open("#{__dir__}/#{filename}"), 'image/png')
 end
 
-When('a PDF document is attached with a filename') do
-  # TODO: Chicken and egg situation - Needs fixing in cucumber-ruby: https://github.com/cucumber/cucumber-ruby/pull/1738
-  attach_or_embed(self, File.open("#{__dir__}/document.pdf"), 'document/pdf', 'document.pdf')
+When('a PDF document is attached and renamed') do
+  attach_or_embed(self, File.open("#{__dir__}/document.pdf"), 'document/pdf', 'renamed.pdf')
 end
