@@ -69,6 +69,6 @@ module CaptureWarnings
   end
 
   def capture_system_exit
-    @system_exit = $!
+    @system_exit = $ERROR_INFO
   end
 end

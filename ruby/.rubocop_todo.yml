@@ -348,12 +348,12 @@ Style/SignalException:
     - 'lib/shared_examples.rb'
     - 'spec/capture_warnings.rb'
 
-# Offense count: 2
-# Cop supports --auto-correct.
-# Configuration parameters: .
-# SupportedStyles: use_perl_names, use_english_names
-Style/SpecialGlobalVars:
-  EnforcedStyle: use_perl_names
+## Offense count: 2
+## Cop supports --auto-correct.
+## Configuration parameters: .
+## SupportedStyles: use_perl_names, use_english_names
+#Style/SpecialGlobalVars:
+#  EnforcedStyle: use_perl_names
 
 ## Offense count: 9
 ## Cop supports --auto-correct.
