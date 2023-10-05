@@ -2,31 +2,63 @@
 
 module CCK
   class KeysChecker
-    def self.compare(found, expected)
-      KeysChecker.new.compare(found, expected)
+    def self.compare(detected, expected)
+      new(detected, expected).compare
     end
 
-    def compare(found, expected)
-      errors = []
+    attr_reader :detected, :expected
 
-      found_keys = found.to_h(reject_nil_values: true).keys
-      expected_keys = expected.to_h(reject_nil_values: true).keys
+    def initialize(detected, expected)
+      @detected = detected
+      @expected = expected
+    end
 
-      return errors if found_keys.sort == expected_keys.sort
+    def compare
+      return [] if identical_keys?
 
-      missing_keys = (expected_keys - found_keys).reject do |key|
-        found.instance_of?(Cucumber::Messages::Meta) && key == :ci
-      end
-
-      extra_keys = (found_keys - expected_keys).reject do |key|
-        found.instance_of?(Cucumber::Messages::Meta) && key == :ci
-      end
-
-      errors << "Found extra keys in message #{found.class.name}: #{extra_keys}" unless extra_keys.empty?
-      errors << "Missing keys in message #{found.class.name}: #{missing_keys}" unless missing_keys.empty?
+      errors << "Detected extra keys in message #{message_name}: #{extra_keys}" if extra_keys.any?
+      errors << "Missing keys in message #{message_name}: #{missing_keys}" if missing_keys.any?
       errors
     rescue StandardError => e
       ["Unexpected error: #{e.message}"]
+    end
+
+    private
+
+    def detected_keys
+      @detected_keys ||= ordered_uniq_hash_keys(detected)
+    end
+
+    def expected_keys
+      @expected_keys ||= ordered_uniq_hash_keys(expected)
+    end
+
+    def identical_keys?
+      detected_keys == expected_keys
+    end
+
+    def missing_keys
+      (expected_keys - detected_keys).reject { |key| meta_message? && key == :ci }
+    end
+
+    def extra_keys
+      (detected_keys - expected_keys).reject { |key| meta_message? && key == :ci }
+    end
+
+    def meta_message?
+      detected.instance_of?(Cucumber::Messages::Meta)
+    end
+
+    def message_name
+      detected.class.name
+    end
+
+    def ordered_uniq_hash_keys(object)
+      object.to_h(reject_nil_values: true).keys.sort
+    end
+
+    def errors
+      @errors ||= []
     end
   end
 end
