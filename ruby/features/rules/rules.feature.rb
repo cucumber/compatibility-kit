@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Given('there are {int} {float} coins inside') do |count, coin_type|
   expect(count).not_to be_nil
   expect(coin_type.to_s).not_to be_empty

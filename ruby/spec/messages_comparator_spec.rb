@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 require 'rspec'
 require 'cucumber/messages'
 require_relative '../lib/messages_comparator'
 
 describe CCK::MessagesComparator do
-  subject() { CCK::MessagesComparator }
+  subject() { described_class }
 
   context 'when executed as part of a CI' do
     before do

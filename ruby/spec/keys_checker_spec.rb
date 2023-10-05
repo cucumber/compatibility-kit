@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 require 'rspec'
 require 'cucumber/messages'
 require_relative '../lib/keys_checker'
 
 describe CCK::KeysChecker do
-  let(:subject) { CCK::KeysChecker }
+  let(:subject) { described_class }
 
   describe '#compare' do
     let(:complete) do

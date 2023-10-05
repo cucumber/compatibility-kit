@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'json'
 require 'rspec'
 require 'cucumber/messages'
@@ -10,8 +12,8 @@ RSpec.shared_examples 'cucumber compatibility kit' do
   # let(:example) {  } # the name of the example to test
   # let(:messages) {  } # the messages to validate
 
-  let(:example) { raise "`example` missing: add `let(:example) { example_name }` to your spec" }
-  let(:messages) { raise "`messages` missing: add `let(:messages) { ndjson }` to your spec" }
+  let(:example) { raise '`example` missing: add `let(:example) { example_name }` to your spec' }
+  let(:messages) { raise '`messages` missing: add `let(:messages) { ndjson }` to your spec' }
 
   let(:example_path) { Cucumber::CompatibilityKit.example_path(example) }
 

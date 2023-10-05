@@ -6,6 +6,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Added
+- [Ruby] Initial rubocop gems and basic compliance added (More work to come) ([#49](https://github.com/cucumber/compatibility-kit/pull/49))
+
 ### Changed
 - [Ruby] Minimum ruby version is now bumped from 2.3 to 2.5 ([#47](https://github.com/cucumber/compatibility-kit/pull/47))
 
@@ -25,7 +28,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [11.2.0] - 2022-12-23
 ### Changed
-- Update cucumber-messages requirement from ~> 19.1, >= 19.1.2 to >= 19.1.2, < 22.0 in /ruby ([#28](https://github.com/cucumber/compatibility-kit/pull/28))
+- [Ruby] Update cucumber-messages requirement from `~> 19.1, >= 19.1.2` to `>= 19.1.2, < 22.0` ([#28](https://github.com/cucumber/compatibility-kit/pull/28))
 
 ## [11.1.0] - 2022-12-17
 

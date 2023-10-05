@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 When('the following table is transposed:') do |table|
   @transposed = table.transpose
 end

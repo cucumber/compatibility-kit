@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'stringio'
 
 # Cucumber-JVM needs to use a Before hook in order to create attachments

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Given('there are {int} cucumbers') do |initial_count|
   @count = initial_count
 end

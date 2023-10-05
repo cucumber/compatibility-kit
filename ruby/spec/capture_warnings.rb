@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # With thanks to @myronmarston
 # https://github.com/vcr/vcr/blob/master/spec/capture_warnings.rb
 
@@ -18,14 +19,14 @@ module CaptureWarnings
     end
 
     # Until they fix https://bugs.ruby-lang.org/issues/10661
-    if RUBY_VERSION == "2.2.0"
+    if RUBY_VERSION == '2.2.0'
       project_warnings = project_warnings.reject { |w| w =~ /warning: possible reference to past scope/ }
     end
 
     if project_warnings.any?
       puts "#{ project_warnings.count } warnings detected"
       print_warnings('cucumber-expressions', project_warnings)
-      fail "Please remove all cucumber-expressions warnings."
+      fail 'Please remove all cucumber-expressions warnings.'
     end
 
     ensure_system_exit_if_required
@@ -56,11 +57,11 @@ module CaptureWarnings
 
   def print_warnings(type, warnings)
     puts
-    puts "-" * 30 + " #{type} warnings: " + "-" * 30
+    puts '-' * 30 + " #{type} warnings: " + '-' * 30
     puts
     puts warnings.join("\n")
     puts
-    puts "-" * 75
+    puts '-' * 75
     puts
   end
 
@@ -69,6 +70,6 @@ module CaptureWarnings
   end
 
   def capture_system_exit
-    @system_exit = $!
+    @system_exit = $ERROR_INFO
   end
 end

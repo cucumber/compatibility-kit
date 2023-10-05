@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'shared_examples'
 
 module Cucumber::CompatibilityKit
