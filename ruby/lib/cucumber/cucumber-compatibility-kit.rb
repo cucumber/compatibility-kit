@@ -16,7 +16,7 @@ module Cucumber::CompatibilityKit
 
           file != '.' && file != '..' &&
             File.directory?(folder) &&
-            is_gherkin_example?(folder)
+            gherkin_example?(folder)
         end
     end
 
@@ -28,7 +28,7 @@ module Cucumber::CompatibilityKit
 
         file != '.' && file != '..' &&
           File.directory?(folder) &&
-          is_markdown_example?(folder)
+          markdown_example?(folder)
       end
     end
 
@@ -46,11 +46,11 @@ module Cucumber::CompatibilityKit
 
     private
 
-    def is_gherkin_example?(example_folder)
+    def gherkin_example?(example_folder)
       Dir.entries(example_folder).select { |file| File.extname(file) == '.feature' }.count > 0
     end
 
-    def is_markdown_example?(example_folder)
+    def markdown_example?(example_folder)
       Dir.entries(example_folder).select { |file| File.extname(file) == '.md' }.count > 0
     end
   end
