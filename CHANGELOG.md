@@ -31,6 +31,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - [Ruby] Update cucumber-messages requirement from `~> 19.1, >= 19.1.2` to `>= 19.1.2, < 22.0` ([#28](https://github.com/cucumber/compatibility-kit/pull/28))
 
 ## [11.1.0] - 2022-12-17
+### Added
+- cdata feature has been added ([#24](https://github.com/cucumber/compatibility-kit/pull/24))
+
+### Changed
+- All tests now pick up exception messages provided from latest version of cucumber-messages [#27](https://github.com/cucumber/compatibility-kit/pull/27)
 
 ## [11.0.1] - 2022-07-11
 ### Fixed
@@ -127,11 +132,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - First release
 
 [Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v12.0.0...main
-[12.0.0]: https://github.com/cucumber/compatibility-kit/compare/v11.3.0...main
-[11.3.0]: https://github.com/cucumber/compatibility-kit/compare/v11.2.0...main
-[11.2.0]: https://github.com/cucumber/compatibility-kit/compare/v11.1.0...main
-[11.1.0]: https://github.com/cucumber/compatibility-kit/compare/v11.0.1...main
-[11.0.1]: https://github.com/cucumber/compatibility-kit/compare/v11.0.0...main
+[12.0.0]: https://github.com/cucumber/compatibility-kit/compare/v11.3.0...v12.0.0
+[11.3.0]: https://github.com/cucumber/compatibility-kit/compare/v11.2.0...v11.3.0
+[11.2.0]: https://github.com/cucumber/compatibility-kit/compare/v11.1.0...v11.2.0
+[11.1.0]: https://github.com/cucumber/compatibility-kit/compare/v11.0.1...v11.1.0
+[11.0.1]: https://github.com/cucumber/compatibility-kit/compare/v11.0.0...v11.0.1
 [11.0.0]: https://github.com/cucumber/compatibility-kit/compare/v10.0.0...v11.0.0
 [10.0.0]: https://github.com/cucumber/compatibility-kit/compare/v9.2.1...v10.0.0
 [9.2.1]: https://github.com/cucumber/compatibility-kit/compare/v9.2.0...v9.2.1
