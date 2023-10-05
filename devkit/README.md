@@ -9,9 +9,9 @@ been changed.
 As any NPM project, you first need to run `npm install`. To make sure everything
 is going well, run `npm test`.
 
-## Contributing to the Compability Kit
+## Contributing to the Compatibility Kit
 
-The files delivered as part ot fhe kit - the feature files and the ndjson files -
+The files delivered as part of the kit - the feature files and the ndjson files -
 can be found in the [`samples`](./samples) folder.
 
 The [`src`](.src) folder contains source code used by the NPM scripts of the devkit.
