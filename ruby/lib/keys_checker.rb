@@ -14,10 +14,7 @@ module CCK
     end
 
     def compare
-      found_keys = found.to_h(reject_nil_values: true).keys
-      expected_keys = expected.to_h(reject_nil_values: true).keys
-
-      return errors if found_keys.sort == expected_keys.sort
+      return errors if identical_keys?
 
       missing_keys = (expected_keys - found_keys).reject do |key|
         found.instance_of?(Cucumber::Messages::Meta) && key == :ci
@@ -35,6 +32,18 @@ module CCK
     end
 
     private
+
+    def found_keys
+      @found_keys ||= found.to_h(reject_nil_values: true).keys.sort
+    end
+
+    def expected_keys
+      @expected_keys ||= expected.to_h(reject_nil_values: true).keys.sort
+    end
+
+    def identical_keys?
+      found_keys == expected_keys
+    end
 
     def errors
       @errors ||= []
