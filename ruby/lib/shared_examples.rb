@@ -32,9 +32,7 @@ RSpec.shared_examples 'cucumber compatibility kit' do
     comparator = CCK::MessagesComparator.new(CCK::KeysChecker, parsed_generated, parsed_original)
     comparator.debug if ENV['VERBOSE']
 
-    if comparator.errors.any?
-      fail "There were comparison errors: #{comparator.errors}"
-    end
+    expect(comparator.errors).to be_empty, "There were comparison errors: #{comparator.errors}"
   end
 end
 
