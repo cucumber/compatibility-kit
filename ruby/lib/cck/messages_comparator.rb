@@ -16,10 +16,6 @@ module CCK
       @all_errors.flatten
     end
 
-    def debug
-      puts errors.uniq.join("\n")
-    end
-
     private
 
     def compare(detected, expected)
