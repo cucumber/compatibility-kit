@@ -24,7 +24,6 @@ RSpec.shared_examples 'cucumber compatibility kit' do
   let(:generated_messages_types) { parsed_generated.map { |msg| message_type(msg) } }
 
   it 'generates valid message types' do
-    debug_lists(original_messages_types, generated_messages_types)
     expect(generated_messages_types).to contain_exactly(*original_messages_types)
   end
 
@@ -48,19 +47,5 @@ def message_type(message)
   # TODO: This is duplicate code - from messages_comparator:45 - It should live in a common helper methods module
   message.to_h.each do |key, value|
     return key unless value.nil?
-  end
-end
-
-def debug_lists(expected, obtained)
-  return unless ENV['VERBOSE']
-  return if expected.sort == obtained.sort
-
-  to_read = expected.count > obtained.count ? expected : obtained
-  columnize = "\t\t\t\t | \t\t\t\t"
-
-  puts "    | Expected #{columnize} GOT"
-  to_read.each_with_index do |_, index|
-    ok = expected[index] == obtained[index] ? 'v' : 'x'
-    puts "[#{ok}] | #{expected[index]} #{columnize} #{obtained[index]}"
   end
 end
