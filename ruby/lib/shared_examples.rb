@@ -32,19 +32,19 @@ RSpec.shared_examples 'cucumber compatibility kit' do
 
     expect(comparator.errors).to be_empty, "There were comparison errors: #{comparator.errors}"
   end
-end
 
-def parse_ndjson_file(path)
-  parse_ndjson(File.read(path))
-end
+  def parse_ndjson_file(path)
+    parse_ndjson(File.read(path))
+  end
 
-def parse_ndjson(ndjson)
-  Cucumber::Messages::NdjsonToMessageEnumerator.new(ndjson)
-end
+  def parse_ndjson(ndjson)
+    Cucumber::Messages::NdjsonToMessageEnumerator.new(ndjson)
+  end
 
-def message_type(message)
-  # TODO: This is duplicate code - from messages_comparator:45 - It should live in a common helper methods module
-  message.to_h.each do |key, value|
-    return key unless value.nil?
+  def message_type(message)
+    # TODO: This is duplicate code - from messages_comparator:45 - It should live in a common helper methods module
+    message.to_h.each do |key, value|
+      return key unless value.nil?
+    end
   end
 end
