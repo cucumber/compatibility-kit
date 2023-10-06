@@ -24,7 +24,7 @@ as a reference implementation of the Messages protocol.
 
 ## Adoption
 
-To adopt the compatibility kit when writing a Cucumber implementation, an implementer must:
+To adopt the compatibility kit when writing a Cucumber implementation, an implementer must have some prerequisites, do some setup in the implementation project and then write a dynamic test that is fed by the kit.
 
 ### Prerequisites
 
@@ -48,7 +48,9 @@ Now you can build your CCK test. For each feature in the CCK suite, it should:
 
 ### Notes and exceptions
 
-When we say "matches" above, that's heavily qualified - there are many individual fields that will vary from run to run, like generated identifiers, timestamps, durations and file URLs. You can freely exclude these fields from your assertion - the key thing to capture is the number and order of the messages, and the content that would be consistent across runs. It's also not unheard of for implementations to fix up the order of messages so it matches the CCK, although it's best to try to match it naturally if you can.
+When we say "matches" above, that's heavily qualified - there are many individual fields that will vary from run to run, like generated identifiers, timestamps, durations and file URLs. You can freely exclude these fields from your assertion - the key thing to capture is the number, type and order of the messages, and the content that would be consistent across runs. It's also not unheard of for implementations to fix up the order of messages so it matches the CCK, although it's best to try to match it naturally if you can.
+
+Bear in mind that if you, for example, omit or mis-type a step definition, the failure you get might be non-obvious e.g. a discrepancy between actual and expected messages. Many of the features in the CCK represent a test run that fails, so this is not something that should cause your test to fail, although you might find it useful to capture the stderr (or equivalent) output for debugging purposes.
 
 A small minority of features also have an `.arguments.txt` that specify additional arguments/options that are pertinent to the feature - see `retry` for an example. You can adapt these how you see fit - they may or may not line up directly with your CLI options schema.
 
