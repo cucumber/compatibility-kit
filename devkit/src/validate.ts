@@ -1,9 +1,10 @@
-import Ajv from "ajv/dist/2020"
+import Ajv from 'ajv/dist/2020.js'
 import * as messageStreams from '@cucumber/message-streams'
 import * as messages from '@cucumber/messages'
 import {pipeline as asyncPipeline, Writable} from 'stream'
 import {promisify} from 'util'
 import fs from 'fs'
+import {fileURLToPath} from 'url';
 
 const pipeline = promisify(asyncPipeline)
 
@@ -48,6 +49,7 @@ ${JSON.stringify(envelope, null, 2)}
 }
 
 function loadSchema(name: string) {
+  const __dirname = fileURLToPath(new URL('.', import.meta.url));
   return JSON.parse(fs.readFileSync(`${__dirname}/../node_modules/@cucumber/messages/schema/${name}`, 'utf-8'));
 }
 
