@@ -8,6 +8,8 @@ require 'messages_comparator'
 require 'keys_checker'
 
 RSpec.shared_examples 'cucumber compatibility kit' do
+  include CCK::Helpers
+
   # Note: to use those examples, you need to define:
   # let(:example) {  } # the name of the example to test
   # let(:messages) {  } # the messages to validate
@@ -39,12 +41,5 @@ RSpec.shared_examples 'cucumber compatibility kit' do
 
   def parse_ndjson(ndjson)
     Cucumber::Messages::NdjsonToMessageEnumerator.new(ndjson)
-  end
-
-  def message_type(message)
-    # TODO: This is duplicate code - from messages_comparator:45 - It should live in a common helper methods module
-    message.to_h.each do |key, value|
-      return key unless value.nil?
-    end
   end
 end
