@@ -7,9 +7,9 @@ Before do
   # no-op
 end
 
-def attach_or_embed(world, data, media_type)
+def attach_or_embed(world, data, media_type, filename = nil)
   # Backward compatibility as the steps are also used by cucumber-ruby 3 which does not support `attach`
-  world.respond_to?(:attach) ? attach(data, media_type) : embed(data, media_type)
+  world.respond_to?(:attach) ? attach(data, media_type, filename) : embed(data, media_type)
 end
 
 When('the string {string} is attached as {string}') do |text, media_type|
