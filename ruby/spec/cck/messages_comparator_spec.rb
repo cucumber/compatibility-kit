@@ -2,7 +2,7 @@
 
 require 'rspec'
 require 'cucumber/messages'
-require_relative '../lib/ib/messages_comparator'
+require_relative '../../lib/messages_comparator'
 
 describe CCK::MessagesComparator do
   context 'when executed as part of a CI' do
