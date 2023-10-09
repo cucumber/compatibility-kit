@@ -40,5 +40,5 @@ Feature: Attachments
       | image        |
       | cucumber.png |
 
-  Scenario: Attaching a document with a filename
-    When a PDF document is attached with a filename
+  Scenario: Attaching a document with a different filename
+    When a PDF document is attached and renamed
