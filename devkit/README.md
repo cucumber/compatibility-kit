@@ -15,7 +15,7 @@ The files delivered as part ot fhe kit - the feature files and the ndjson files 
 can be found in the [`samples`](./samples) folder.
 
 The [`src`](.src) folder contains source code used by the NPM scripts of the devkit.
-For example it contains a [`validate.ts`](./samples/validate.ts) file which is
+For example it contains a [`validate.mts`](./samples/validate.ts) file which is
 used by the `test` NPM script. That `test` script make sure the `.ndjson` files
 are valid regarding the schema of the Cucumber Messages protocol.
 
