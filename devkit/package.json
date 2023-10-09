@@ -1,8 +1,8 @@
 {
   "name": "cck-devkit",
-  "version": "11.0.0",
+  "version": "0.0.0",
   "description": "Development kit for the cucumber compatibility kit packages",
-  "main": "index.js",
+  "type": "module",
   "scripts": {
     "build": "tsc --build",
     "pretest": "npm run build",
