@@ -3,7 +3,7 @@
 require 'cucumber-compatibility-kit'
 
 describe Cucumber::CompatibilityKit do
-  let(:features_path) { File.expand_path("#{File.dirname(__FILE__)}/../features") }
+  let(:features_path) { File.expand_path("#{File.dirname(__FILE__)}/../../features") }
   let(:gherkin_examples) do
     [
       'attachments',
