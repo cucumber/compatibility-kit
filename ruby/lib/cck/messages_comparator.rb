@@ -1,9 +1,12 @@
 # frozen_string_literal: true
 
 require_relative 'keys_checker'
+require_relative 'helpers'
 
 module CCK
   class MessagesComparator
+    include Helpers
+
     def initialize(validator, detected, expected)
       @all_errors = []
       @compared = []
@@ -14,10 +17,6 @@ module CCK
 
     def errors
       @all_errors.flatten
-    end
-
-    def debug
-      puts errors.uniq.join("\n")
     end
 
     private
@@ -39,12 +38,6 @@ module CCK
         by_type[message_type(msg)] << remove_envelope(msg)
       end
       by_type
-    end
-
-    def message_type(message)
-      message.to_h.each do |key, value|
-        return key unless value.nil?
-      end
     end
 
     def remove_envelope(message)

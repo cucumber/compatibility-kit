@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Removed
+[Ruby] A bunch of debugging methods are no longer needed ([#59](https://github.com/cucumber/compatibility-kit/pull/59))
+
+### Changed
+- [Ruby] Improved a bunch of the manual fix cops ([#58](https://github.com/cucumber/compatibility-kit/pull/58))
 
 ## [13.0.0] - 2023-10-09
 ### Added
