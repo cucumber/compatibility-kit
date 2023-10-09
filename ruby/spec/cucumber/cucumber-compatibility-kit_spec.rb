@@ -4,7 +4,7 @@ require 'cucumber-compatibility-kit'
 
 describe Cucumber::CompatibilityKit do
   let(:features_path) { File.expand_path("#{File.dirname(__FILE__)}/../features") }
-  let(:gherkin_examples) {
+  let(:gherkin_examples) do
     [
       'attachments',
       'cdata',
@@ -21,47 +21,38 @@ describe Cucumber::CompatibilityKit do
       'undefined',
       'unknown-parameter-type'
     ]
-  }
-  let(:markdown_examples) {
-    [
-      'markdown'
-    ]
-  }
+  end
+  let(:markdown_examples) { ['markdown'] }
 
   describe '#examples_path' do
     it 'returns the path of the features folder' do
-      expect(described_class.examples_path)
-        .to eq(features_path)
+      expect(described_class.examples_path).to eq(features_path)
     end
   end
 
   describe '#example_path' do
     context 'with an existing example' do
       it 'returns the path of the folder of the example' do
-        expect(described_class.example_path('hooks'))
-          .to eq("#{features_path}/hooks")
+        expect(described_class.example_path('hooks')).to eq("#{features_path}/hooks")
       end
     end
 
-    context 'with an unexisting example' do
+    context 'with an non-existent example' do
       it 'raises ArgumentError' do
-        expect { described_class.example_path('should-not-exists') }
-          .to raise_error(ArgumentError)
+        expect { described_class.example_path('should-not-exists') }.to raise_error(ArgumentError)
       end
     end
   end
 
   describe '#gherkin_examples' do
     it 'returns the list of gherkin examples' do
-      expect(described_class.gherkin_examples)
-        .to match_array(gherkin_examples)
+      expect(described_class.gherkin_examples).to match_array(gherkin_examples)
     end
   end
 
   describe '#markdown_examples' do
     it 'returns the list of markdown examples' do
-      expect(described_class.markdown_examples)
-        .to match_array(markdown_examples)
+      expect(described_class.markdown_examples).to match_array(markdown_examples)
     end
   end
 
