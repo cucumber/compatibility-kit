@@ -13,4 +13,4 @@ Feature: Undefined steps
 
   Scenario: Steps after undefined steps are skipped
     Given a step that is yet to be defined
-    And a step that we expect to be skipped
+    And a step that will be skipped
