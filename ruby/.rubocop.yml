@@ -14,8 +14,12 @@ AllCops:
   NewCops: enable
 
 # Disabled on our repo's to enable polyglot-release
-# TODO: Re-enable once rubocop > 1.40
+# TODO: Uncomment once rubocop > 1.40
 #Gemspec/RequireMFA:
+#  Enabled: false
+
+# TODO: Re-enable cop (true), once rubocop-rspec > 2.11
+#Metrics/BlockLength:
 #  Enabled: false
 
 Layout/LineLength:
