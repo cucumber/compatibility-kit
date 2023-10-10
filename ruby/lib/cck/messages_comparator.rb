@@ -51,14 +51,18 @@ module CCK
     end
 
     def compare_message(detected, expected)
-      return unless detected.is_a?(Cucumber::Messages::Message)
+      return if not_message?(detected)
       return if ignorable_large_message?(detected)
       return if ignorable_time_message?(detected, expected)
-      return if ENV['CI'] && detected.is_a?(Cucumber::Messages::Ci) && expected.nil?
+      return if ci_message?(detected, expected)
 
       @compared << detected.class.name
       @all_errors << @validator.compare(detected, expected)
       compare_sub_messages(detected, expected)
+    end
+
+    def not_message?(detected)
+      !detected.is_a?(Cucumber::Messages::Message)
     end
 
     def ignorable_large_message?(detected)
@@ -68,6 +72,15 @@ module CCK
     def ignorable_time_message?(detected, expected)
       (detected.is_a?(Cucumber::Messages::Timestamp) && expected.is_a?(Cucumber::Messages::Timestamp)) ||
         (detected.is_a?(Cucumber::Messages::Duration) && expected.is_a?(Cucumber::Messages::Duration))
+    end
+
+    def ci_message?(detected, expected)
+      if detected.is_a?(Cucumber::Messages::Ci)
+        p "detected is: #{detected}"
+        p "expected is: #{expected}"
+        p "ENV['CI'] is: #{ENV['CI']}"
+        p(ENV['CI'] && detected.is_a?(Cucumber::Messages::Ci) && expected.nil?)
+      end
     end
 
     def compare_sub_messages(detected, expected)
