@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Before('@skip') do
-  'skipped'
+  skip_this_scenario('')
 end
 
 Given('a step that does not skip') do
@@ -13,5 +13,5 @@ Given('a step that is skipped') do
 end
 
 Given('I skip a step') do
-  'skipped'
+  skip_this_scenario('')
 end
