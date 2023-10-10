@@ -79,13 +79,8 @@ module CCK
       ENV['CI'] && detected.is_a?(Cucumber::Messages::Ci) && expected.nil?
     end
 
-    def git_message?(detected, expected)
-      if detected.is_a?(Cucumber::Messages::Git)
-        p "we got a git!!!"
-        p "detected is: #{detected.inspect}"
-        p "expected is: #{expected.inspect}"
-        true
-      end
+    def git_message?(detected, _expected)
+      detected.is_a?(Cucumber::Messages::Git)
     end
 
     def compare_sub_messages(detected, expected)
