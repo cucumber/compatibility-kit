@@ -4,14 +4,14 @@ Before('@skip') do
   'skipped'
 end
 
-Given('an implemented step') do
+Given('a step that does not skip') do
   # no-op
 end
 
-Given('a step that we expect to be skipped') do
+Given('a step that is skipped') do
   # no-op
 end
 
-Given('a step that skips') do
+Given('I skip a step') do
   'skipped'
 end

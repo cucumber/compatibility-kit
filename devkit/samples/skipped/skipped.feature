@@ -8,12 +8,12 @@ Feature: Skipping scenarios
 
   @skip
   Scenario: Skipping from a Before hook
-    Given a step that we expect to be skipped
+    Given a step that is skipped
 
   Scenario: Skipping from a step doesn't affect the previous steps
-    Given an implemented step
-    When a step that skips
+    Given a step that does not skip
+    And I skip a step
 
   Scenario: Skipping from a step causes the rest of the scenario to be skipped
-    Given a step that skips
-    When a step that we expect to be skipped
+    Given I skip a step
+    And a step that is skipped
