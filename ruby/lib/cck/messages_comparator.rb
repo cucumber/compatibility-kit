@@ -56,9 +56,9 @@ module CCK
       return if ignorable_time_message?(detected, expected)
       return if ci_message?(detected, expected)
       return if git_message?(detected, expected)
-
-      @compared << detected.class.name
+      
       @all_errors << @validator.compare(detected, expected)
+      @compared << detected.class.name
       compare_sub_messages(detected, expected)
     end
 
