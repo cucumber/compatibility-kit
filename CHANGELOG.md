@@ -13,6 +13,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - [Ruby] Improved a bunch of the manual fix cops ([#58](https://github.com/cucumber/compatibility-kit/pull/58))
 
+### Fixed
+- [Ruby] Fix the message comparison to ignore `Ci` nested properties and all `Git` properties ([#66](https://github.com/cucumber/compatibility-kit/pull/66))
+
 ## [13.0.0] - 2023-10-09
 ### Added
 - [Ruby] Initial rubocop gems and basic compliance added (More work to come) ([#49](https://github.com/cucumber/compatibility-kit/pull/49))
