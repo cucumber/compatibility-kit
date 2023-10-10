@@ -52,10 +52,8 @@ module CCK
 
     def compare_message(detected, expected)
       return if not_message?(detected)
-      return if ignorable_large_message?(detected)
-      return if ignorable_time_message?(detected, expected)
-      return if ci_message?(detected, expected)
-      return if git_message?(detected, expected)
+      return if ignorable?(detected, expected)
+      return if incomparable?(detected)
 
       @all_errors << @validator.compare(detected, expected)
       @compared << detected.class.name
@@ -66,21 +64,23 @@ module CCK
       !detected.is_a?(Cucumber::Messages::Message)
     end
 
-    def ignorable_large_message?(detected)
+    # These messages we need to ignore because they are too large or they feature timestamps which always vary
+    def ignorable?(detected, expected)
+      too_large_message?(detected) || time_message?(detected, expected)
+    end
+
+    def too_large_message?(detected)
       detected.is_a?(Cucumber::Messages::GherkinDocument) || detected.is_a?(Cucumber::Messages::Pickle)
     end
 
-    def ignorable_time_message?(detected, expected)
+    def time_message?(detected, expected)
       (detected.is_a?(Cucumber::Messages::Timestamp) && expected.is_a?(Cucumber::Messages::Timestamp)) ||
         (detected.is_a?(Cucumber::Messages::Duration) && expected.is_a?(Cucumber::Messages::Duration))
     end
 
-    def ci_message?(detected, expected)
-      detected.is_a?(Cucumber::Messages::Ci)
-    end
-
-    def git_message?(detected, _expected)
-      detected.is_a?(Cucumber::Messages::Git)
+    # These messages we need to ignore because they are often not of identical shape/value
+    def incomparable?(detected)
+      detected.is_a?(Cucumber::Messages::Ci) || detected.is_a?(Cucumber::Messages::Git)
     end
 
     def compare_sub_messages(detected, expected)
