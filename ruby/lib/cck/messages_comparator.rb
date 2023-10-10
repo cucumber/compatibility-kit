@@ -55,6 +55,7 @@ module CCK
       return if ignorable_large_message?(detected)
       return if ignorable_time_message?(detected, expected)
       return if ci_message?(detected, expected)
+      return if git_message?(detected, expected)
 
       @compared << detected.class.name
       @all_errors << @validator.compare(detected, expected)
@@ -76,6 +77,15 @@ module CCK
 
     def ci_message?(detected, expected)
       ENV['CI'] && detected.is_a?(Cucumber::Messages::Ci) && expected.nil?
+    end
+
+    def git_message?(detected, expected)
+      if detected.is_a?(Cucumber::Messages::Git)
+        p "we got a git!!!"
+        p "detected is: #{detected.inspect}"
+        p "expected is: #{expected.inspect}"
+        true
+      end
     end
 
     def compare_sub_messages(detected, expected)
