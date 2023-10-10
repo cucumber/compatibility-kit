@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 ### Removed
-[Ruby] A bunch of debugging methods are no longer needed ([#59](https://github.com/cucumber/compatibility-kit/pull/59))
+- [Ruby] A bunch of debugging methods are no longer needed ([#59](https://github.com/cucumber/compatibility-kit/pull/59))
 
 ### Changed
 - [Ruby] Improved a bunch of the manual fix cops ([#58](https://github.com/cucumber/compatibility-kit/pull/58))
