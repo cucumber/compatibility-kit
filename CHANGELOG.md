@@ -140,8 +140,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - First release
 
-[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v13.0.0...main
-[13.0.0]: https://github.com/cucumber/compatibility-kit/compare/v12.0.0...main
+[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v13.0.0...HEAD
+[13.0.0]: https://github.com/cucumber/compatibility-kit/compare/v12.0.0...v13.0.0
 [12.0.0]: https://github.com/cucumber/compatibility-kit/compare/v11.3.0...v12.0.0
 [11.3.0]: https://github.com/cucumber/compatibility-kit/compare/v11.2.0...v11.3.0
 [11.2.0]: https://github.com/cucumber/compatibility-kit/compare/v11.1.0...v11.2.0
