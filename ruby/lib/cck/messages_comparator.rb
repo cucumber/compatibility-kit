@@ -75,12 +75,7 @@ module CCK
     end
 
     def ci_message?(detected, expected)
-      if detected.is_a?(Cucumber::Messages::Ci)
-        p "detected is: #{detected}"
-        p "expected is: #{expected}"
-        p "ENV['CI'] is: #{ENV['CI']}"
-        p(ENV['CI'] && detected.is_a?(Cucumber::Messages::Ci) && expected.nil?)
-      end
+      ENV['CI'] && detected.is_a?(Cucumber::Messages::Ci) && expected.nil?
     end
 
     def compare_sub_messages(detected, expected)
