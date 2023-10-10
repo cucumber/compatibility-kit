@@ -1,10 +1,10 @@
 Feature: Skipping scenarios
 
   Hooks and step definitions are able to signal at runtime that the scenario should
-  be skipped by returning or throwing a particular value.
+  be skipped by raising a particular kind of exception status (For example PENDING or SKIPPED).
 
-  This can be useful when e.g. the current environment doesn't have the right conditions
-  for running the scenario.
+  This can be useful in certain situations e.g. the current environment doesn't have
+  the right conditions for running a particular scenario.
 
   @skip
   Scenario: Skipping from a Before hook
