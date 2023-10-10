@@ -3,9 +3,7 @@
 require 'stringio'
 
 # Cucumber-JVM needs to use a Before hook in order to create attachments
-Before do
-  # no-op
-end
+Before { nil }
 
 When('the string {string} is attached as {string}') do |text, media_type|
   attach(text, media_type)
@@ -15,12 +13,12 @@ When('the string {string} is logged') do |text|
   log(text)
 end
 
-When('the following string is attached as {string}:') do |media_type, doc_string|
-  attach(doc_string, media_type)
-end
-
 When('text with ANSI escapes is logged') do
   log("This displays a \x1b[31mr\x1b[0m\x1b[91ma\x1b[0m\x1b[33mi\x1b[0m\x1b[32mn\x1b[0m\x1b[34mb\x1b[0m\x1b[95mo\x1b[0m\x1b[35mw\x1b[0m")
+end
+
+When('the following string is attached as {string}:') do |media_type, doc_string|
+  attach(doc_string, media_type)
 end
 
 When('an array with {int} bytes is attached as {string}') do |size, media_type|
