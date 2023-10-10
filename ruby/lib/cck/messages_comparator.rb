@@ -52,7 +52,7 @@ module CCK
 
     def compare_message(detected, expected)
       return if not_message?(detected)
-      return if ignorable?(detected, expected)
+      return if ignorable?(detected)
       return if incomparable?(detected)
 
       @all_errors << @validator.compare(detected, expected)
@@ -65,17 +65,16 @@ module CCK
     end
 
     # These messages we need to ignore because they are too large or they feature timestamps which always vary
-    def ignorable?(detected, expected)
-      too_large_message?(detected) || time_message?(detected, expected)
+    def ignorable?(detected)
+      too_large_message?(detected) || time_message?(detected)
     end
 
     def too_large_message?(detected)
       detected.is_a?(Cucumber::Messages::GherkinDocument) || detected.is_a?(Cucumber::Messages::Pickle)
     end
 
-    def time_message?(detected, expected)
-      (detected.is_a?(Cucumber::Messages::Timestamp) && expected.is_a?(Cucumber::Messages::Timestamp)) ||
-        (detected.is_a?(Cucumber::Messages::Duration) && expected.is_a?(Cucumber::Messages::Duration))
+    def time_message?(detected)
+      detected.is_a?(Cucumber::Messages::Timestamp) || detected.is_a?(Cucumber::Messages::Duration)
     end
 
     # These messages we need to ignore because they are often not of identical shape/value
