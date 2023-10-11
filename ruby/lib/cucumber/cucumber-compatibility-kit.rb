@@ -22,8 +22,8 @@ module Cucumber::CompatibilityKit
 
     def markdown_examples
       Dir
-      .entries(examples_path)
-      .select do |file|
+        .entries(examples_path)
+        .select do |file|
         folder = File.join(examples_path, file)
 
         file != '.' && file != '..' &&
