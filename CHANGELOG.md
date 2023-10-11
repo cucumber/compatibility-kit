@@ -6,17 +6,19 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
-### Removed
-- [Ruby] A bunch of debugging methods are no longer needed ([#59](https://github.com/cucumber/compatibility-kit/pull/59))
-- [Ruby] A bunch of legacy code relating to cucumber 4 and lower ([#63](https://github.com/cucumber/compatibility-kit/pull/63))
 
+## [13.0.1] - 2023-10-11
 ### Changed
 - [Ruby] Improved a bunch of the manual fix cops ([#58](https://github.com/cucumber/compatibility-kit/pull/58))
 
 ### Fixed
 - [Ruby] Fix the message comparison to ignore `Ci` nested properties and all `Git` properties ([#66](https://github.com/cucumber/compatibility-kit/pull/66))
 - Reconciled the `unknown-parameter-type`, `undefined`, `stack-traces` and `skipped` scenarios
-  ([#61](https://github.com/cucumber/compatibility-kit/pull/61) [#62](https://github.com/cucumber/compatibility-kit/pull/62) [#64](https://github.com/cucumber/compatibility-kit/pull/64) [#65](https://github.com/cucumber/compatibility-kit/pull/65))
+([#61](https://github.com/cucumber/compatibility-kit/pull/61) [#62](https://github.com/cucumber/compatibility-kit/pull/62) [#64](https://github.com/cucumber/compatibility-kit/pull/64) [#65](https://github.com/cucumber/compatibility-kit/pull/65))
+
+### Removed
+- [Ruby] A bunch of debugging methods are no longer needed ([#59](https://github.com/cucumber/compatibility-kit/pull/59))
+- [Ruby] A bunch of legacy code relating to cucumber 4 and lower ([#63](https://github.com/cucumber/compatibility-kit/pull/63))
 
 ## [13.0.0] - 2023-10-09
 ### Added
@@ -146,7 +148,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - First release
 
-[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v13.0.0...HEAD
+[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v13.0.1...HEAD
+[13.0.1]: https://github.com/cucumber/compatibility-kit/compare/v13.0.0...v13.0.1
 [13.0.0]: https://github.com/cucumber/compatibility-kit/compare/v12.0.0...v13.0.0
 [12.0.0]: https://github.com/cucumber/compatibility-kit/compare/v11.3.0...v12.0.0
 [11.3.0]: https://github.com/cucumber/compatibility-kit/compare/v11.2.0...v11.3.0
