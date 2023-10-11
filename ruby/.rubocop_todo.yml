@@ -15,11 +15,11 @@ Lint/EmptyBlock:
   Exclude:
     - 'features/minimal/minimal.feature.rb'
 
-# Offense count: 1
-# Cop supports --auto-correct.
-Lint/NonDeterministicRequireOrder:
-  Exclude:
-    - 'Rakefile'
+## Offense count: 1
+## Cop supports --auto-correct.
+#Lint/NonDeterministicRequireOrder:
+#  Exclude:
+#    - 'Rakefile'
 
 # Offense count: 3
 # Configuration parameters: CountComments, CountAsOne, ExcludedMethods, IgnoredMethods.

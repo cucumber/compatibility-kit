@@ -6,7 +6,7 @@ Bundler::GemHelper.install_tasks
 
 $LOAD_PATH.unshift File.expand_path('../lib', __FILE__)
 
-Dir['./rake/*.rb'].each do |f|
+Dir['./rake/*.rb'].sort.each do |f|
   require f
 end
 
