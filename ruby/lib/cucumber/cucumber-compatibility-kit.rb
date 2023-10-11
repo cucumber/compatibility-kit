@@ -42,7 +42,7 @@ module Cucumber
 
         return path if File.directory?(path)
 
-        raise ArgumentError.new
+        raise ArgumentError
       end
 
       private
