@@ -10,7 +10,7 @@ require 'keys_checker'
 RSpec.shared_examples 'cucumber compatibility kit' do
   include CCK::Helpers
 
-  # Note: to use those examples, you need to define:
+  # NOTE: to use those examples, you need to define:
   # let(:example) {  } # the name of the example to test
   # let(:messages) {  } # the messages to validate
 

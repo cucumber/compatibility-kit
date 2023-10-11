@@ -25,7 +25,7 @@ module CCK
       detected_by_type = messages_by_type(detected)
       expected_by_type = messages_by_type(expected)
 
-      detected_by_type.keys.each do |type|
+      detected_by_type.each_key do |type|
         compare_list(detected_by_type[type], expected_by_type[type])
       rescue StandardError => e
         @all_errors << "Error while comparing #{type}: #{e.message}"
@@ -84,7 +84,8 @@ module CCK
 
     def compare_sub_messages(detected, expected)
       return unless expected.respond_to? :to_h
-      expected.to_h.keys.each do |key|
+
+      expected.to_h.each_key do |key|
         value = expected.send(key)
         if value.is_a?(Array)
           compare_list(detected.send(key), value)

@@ -7,9 +7,9 @@ describe 'Cucumber Compatibility Kit' do
   let(:cucumber_common_args) { '--publish-quiet --profile none --format message' }
   let(:cucumber_command) { "#{cucumber_bin} #{cucumber_common_args}" }
 
-  examples = Cucumber::CompatibilityKit.gherkin_examples.reject { |example|
+  examples = Cucumber::CompatibilityKit.gherkin_examples.reject do |example|
     example == 'retry'
-  }
+  end
 
   examples.each do |example_name|
     describe "'#{example_name}' example" do
