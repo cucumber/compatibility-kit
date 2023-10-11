@@ -5,21 +5,21 @@ require 'cucumber-compatibility-kit'
 describe Cucumber::CompatibilityKit do
   let(:features_path) { File.expand_path("#{File.dirname(__FILE__)}/../../features") }
   let(:gherkin_examples) do
-    [
-      'attachments',
-      'cdata',
-      'data-tables',
-      'examples-tables',
-      'hooks',
-      'minimal',
-      'parameter-types',
-      'pending',
-      'retry',
-      'rules',
-      'skipped',
-      'stack-traces',
-      'undefined',
-      'unknown-parameter-type'
+    %w[
+      attachments
+      cdata
+      data-tables
+      examples-tables
+      hooks
+      minimal
+      parameter-types
+      pending
+      retry
+      rules
+      skipped
+      stack-traces
+      undefined
+      unknown-parameter-type
     ]
   end
   let(:markdown_examples) { ['markdown'] }
