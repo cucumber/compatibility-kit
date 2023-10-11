@@ -84,6 +84,7 @@ module CCK
 
     def compare_sub_messages(detected, expected)
       return unless expected.respond_to? :to_h
+
       expected.to_h.keys.each do |key|
         value = expected.send(key)
         if value.is_a?(Array)
