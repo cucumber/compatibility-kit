@@ -25,8 +25,8 @@ When('a JPEG image is attached') do
   attach(File.open("#{__dir__}/cucumber.jpeg"), 'image/jpeg')
 end
 
-When('the {word} png is attached') do |filename|
-  attach(File.open("#{__dir__}/#{filename}"), 'image/png')
+When('a PNG image is attached') do
+  attach(File.open("#{__dir__}/cucumber.png"), 'image/png')
 end
 
 When('a PDF document is attached and renamed') do

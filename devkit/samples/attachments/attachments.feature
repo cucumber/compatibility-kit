@@ -30,11 +30,11 @@ Feature: Attachments
   Scenario: Byte arrays are base64-encoded regardless of media type
     When an array with 10 bytes is attached as "text/plain"
 
-  Scenario: Streams are always base64-encoded
+  Scenario: Attaching JPEG images
     When a JPEG image is attached
 
-  Scenario: Attaching images in examples
-    When the cucumber.png png is attached
+  Scenario: Attaching PNG images
+    When a PNG image is attached
 
-  Scenario: Attaching a document with a different filename
+  Scenario: Attaching PDFs with a different filename
     When a PDF document is attached and renamed
