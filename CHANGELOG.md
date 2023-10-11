@@ -15,6 +15,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Fixed
 - [Ruby] Fix the message comparison to ignore `Ci` nested properties and all `Git` properties ([#66](https://github.com/cucumber/compatibility-kit/pull/66))
+- Reconciled the `unknown-parameter-type`, `undefined`, `stack-traces` and `skipped` scenarios
+  ([#61](https://github.com/cucumber/compatibility-kit/pull/61) [#62](https://github.com/cucumber/compatibility-kit/pull/62) [#64](https://github.com/cucumber/compatibility-kit/pull/64) [#65](https://github.com/cucumber/compatibility-kit/pull/65))
 
 ## [13.0.0] - 2023-10-09
 ### Added
