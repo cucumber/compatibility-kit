@@ -7,17 +7,13 @@ end
 second_time_pass = 0
 Given('a step that passes the second time') do
   second_time_pass += 1
-  if second_time_pass < 2
-    raise StandardError, 'Exception in step'
-  end
+  raise StandardError, 'Exception in step' if second_time_pass < 2
 end
 
 third_time_pass = 0
 Given('a step that passes the third time') do
   third_time_pass += 1
-  if third_time_pass < 3
-    raise StandardError, 'Exception in step'
-  end
+  raise StandardError, 'Exception in step' if third_time_pass < 3
 end
 
 Given('a step that always fails') do
