@@ -1,17 +1,17 @@
 # frozen_string_literal: true
 
 Before('@skip') do
-  'skipped'
+  skip_this_scenario('')
 end
 
-Given('an implemented step') do
+Given('a step that does not skip') do
   # no-op
 end
 
-Given('a step that we expect to be skipped') do
+Given('a step that is skipped') do
   # no-op
 end
 
-Given('a step that skips') do
-  'skipped'
+Given('I skip a step') do
+  skip_this_scenario('')
 end
