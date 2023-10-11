@@ -34,11 +34,7 @@ Feature: Attachments
     When a JPEG image is attached
 
   Scenario: Attaching images in examples
-    When the <image> png is attached
-
-    Examples:
-      | image        |
-      | cucumber.png |
+    When the cucumber.png png is attached
 
   Scenario: Attaching a document with a different filename
     When a PDF document is attached and renamed
