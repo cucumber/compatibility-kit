@@ -47,11 +47,11 @@ module Cucumber::CompatibilityKit
     private
 
     def gherkin_example?(example_folder)
-      Dir.entries(example_folder).count { |file| File.extname(file) == '.feature' } > 0
+      Dir.entries(example_folder).count { |file| File.extname(file) == '.feature' }.positive?
     end
 
     def markdown_example?(example_folder)
-      Dir.entries(example_folder).count { |file| File.extname(file) == '.md' } > 0
+      Dir.entries(example_folder).count { |file| File.extname(file) == '.md' }.positive?
     end
   end
 end
