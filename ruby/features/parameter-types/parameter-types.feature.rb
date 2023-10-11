@@ -12,7 +12,7 @@ end
 ParameterType(
   name: 'flight',
   regexp: /([A-Z]{3})-([A-Z]{3})/,
-  transformer: -> (from, to) { Flight.new(from, to) }
+  transformer: ->(from, to) { Flight.new(from, to) }
 )
 
 Given('{flight} has been delayed {int} minutes') do |flight, delay|
