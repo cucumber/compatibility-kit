@@ -15,17 +15,17 @@ Feature: Attachments
 
     When the string "hello" is attached as "application/octet-stream"
 
+  Scenario: Log text
+    When the string "hello" is logged
+
+  Scenario: Log ANSI coloured text
+    When text with ANSI escapes is logged
+
   Scenario: Log JSON
      When the following string is attached as "application/json":
        ```
        {"message": "The <b>big</b> question", "foo": "bar"}
        ```
-
-  Scenario: Log text
-    When the string "hello" is logged
-
-  Scenario: Log ANSI coloured text
-     When text with ANSI escapes is logged
 
   Scenario: Byte arrays are base64-encoded regardless of media type
     When an array with 10 bytes is attached as "text/plain"
