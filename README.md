@@ -36,6 +36,8 @@ Pull in the latest version of the CCK package for your platform. If there isn't 
 
 Next, for each feature in the CCK suite, write step definitions that work with your implementation - these should be _equivalent_ to the reference step definitions from the devkit, but with the appropriate language, syntax etc.
 
+NB: For some flavours of cucumber, how you write code to do certain actions can vary **heavily!** Ensure the steps are equivalent!
+
 ### Testing
 
 Now you can build your CCK test. For each feature in the CCK suite, it should:
