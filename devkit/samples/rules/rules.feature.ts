@@ -7,7 +7,7 @@ Given('the customer has {int} cents', function (money) {
 })
 
 When('the customer tries to buy a {int} cent chocolate bar', function (price) {
-  if(this.money > cost) {
+  if(this.money > price) {
     this.chocolates.push('Mars')
   }
 })
