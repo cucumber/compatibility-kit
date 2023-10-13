@@ -1,33 +1,21 @@
 import assert from 'assert'
 import { Given, When, Then } from '@cucumber/fake-cucumber'
 
-Given('there are {int} {float} coins inside', function (count, denomination) {
-  // TODO: implement this
-  assert(count)
-  assert(denomination)
+Given('the customer has {int} cents', function (money) {
+  this.money = money
+  this.chocolates = []
 })
 
-Given('there are no chocolates inside', function () {
-  // TODO: implement this
-})
-
-Given('there are {int} chocolates inside', function (chocolateCount) {
-  // TODO: implement this
-  assert(chocolateCount)
-})
-
-When('the customer tries to buy a {float} chocolate with a {float} coin', function (price, paid) {
-  // TODO: implement this
-  assert(price)
-  assert(paid)
+When('the customer tries to buy a {int} cent chocolate bar', function (price) {
+  if(this.money > cost) {
+    this.chocolates.push('Mars')
+  }
 })
 
 Then('the sale should not happen', function () {
-  // TODO: implement this
+  assert(this.chocolates.length).toBe(0)
 })
 
-Then("the customer's change should be {int} {float} coin(s)", function (count, denomination) {
-  // TODO: implement this
-  assert(count)
-  assert(denomination)
+Then('the sale should happen', function () {
+  assert(this.chocolates.length).notToBe(0)
 })
