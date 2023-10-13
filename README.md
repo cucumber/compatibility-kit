@@ -5,7 +5,7 @@ The Cucumber Compatibility Kit (CCK) aims to validate a Cucumber implementation'
 
 For example, [cucumber-ruby](https://github.com/cucumber/cucumber-ruby/blob/main/spec/cck/cck_spec.rb)
 and [cucumber-js](https://github.com/cucumber/cucumber-js/blob/main/compatibility/cck_spec.ts)
-are using it to make sure they emmit well-formed Messages when executing the
+are using it to make sure they emit well-formed Messages when executing the
 features from the kit.
 
 ## Overview
