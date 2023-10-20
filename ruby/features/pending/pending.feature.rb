@@ -9,5 +9,5 @@ Given('an implemented step that is skipped') do
 end
 
 Given('an unimplemented pending step') do
-  'pending'
+  pending('')
 end
