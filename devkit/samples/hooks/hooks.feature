@@ -13,9 +13,9 @@ Feature: Hooks
     When a step does not exist
 
   @some-tag
-  Scenario: With a tag and a passed step
+  Scenario: With a tag, a failure in the hook and a passed step
     When a step passes
 
   @with-attachment
-  Scenario: With an tag, an attachment in the hook and a passed step
+  Scenario: With an tag, an valid attachment in the hook and a passed step
     When a step passes
