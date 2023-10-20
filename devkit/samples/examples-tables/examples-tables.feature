@@ -1,10 +1,9 @@
 Feature: Examples Tables
-  Sometimes it can be desireable to run the same scenario multiple times
-  with different data each time. This can be done by placing an Examples
-  section with an Examples Table underneath a Scenario, and use <placeholders>
-  in the Scenario, matching the table headers.
+  Sometimes it can be desirable to run the same scenario multiple times with
+  different data each time - this can be done by placing an Examples table underneath
+  a Scenario, and use <placeholders> in the Scenario which match the table headers.
 
-  Scenario Outline: eating cucumbers
+  Scenario Outline: Eating cucumbers
     Given there are <start> cucumbers
     When I eat <eat> cucumbers
     Then I should have <left> cucumbers
