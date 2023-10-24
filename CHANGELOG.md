@@ -6,12 +6,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [13.0.2] - 2023-10-24
 ### Changed
 - [Ruby] Fixed all autofix cops ([#71](https://github.com/cucumber/compatibility-kit/pull/71))
 
 ### Fixed
 - Reconciled the `data-tables`, `examples-tables`, `minimal` and `retry` scenarios
-  ([#70](https://github.com/cucumber/compatibility-kit/pull/70) [#72](https://github.com/cucumber/compatibility-kit/pull/72) [#73](https://github.com/cucumber/compatibility-kit/pull/73) [#79](https://github.com/cucumber/compatibility-kit/pull/79))
+([#70](https://github.com/cucumber/compatibility-kit/pull/70) [#72](https://github.com/cucumber/compatibility-kit/pull/72) [#73](https://github.com/cucumber/compatibility-kit/pull/73) [#79](https://github.com/cucumber/compatibility-kit/pull/79))
 
 ## [13.0.1] - 2023-10-11
 ### Changed
@@ -154,7 +156,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - First release
 
-[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v13.0.1...HEAD
+[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v13.0.2...HEAD
+[13.0.2]: https://github.com/cucumber/compatibility-kit/compare/v13.0.1...v13.0.2
 [13.0.1]: https://github.com/cucumber/compatibility-kit/compare/v13.0.0...v13.0.1
 [13.0.0]: https://github.com/cucumber/compatibility-kit/compare/v12.0.0...v13.0.0
 [12.0.0]: https://github.com/cucumber/compatibility-kit/compare/v11.3.0...v12.0.0
