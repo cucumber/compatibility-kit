@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - [Ruby] Fixed all autofix cops ([#71](https://github.com/cucumber/compatibility-kit/pull/71))
 
+### Fixed
+- Reconciled the `data-tables`, `examples-tables`, `minimal` and `retry` scenarios
+  ([#70](https://github.com/cucumber/compatibility-kit/pull/70) [#72](https://github.com/cucumber/compatibility-kit/pull/72) [#73](https://github.com/cucumber/compatibility-kit/pull/73) [#79](https://github.com/cucumber/compatibility-kit/pull/79))
+
 ## [13.0.1] - 2023-10-11
 ### Changed
 - [Ruby] Improved a bunch of the manual fix cops ([#58](https://github.com/cucumber/compatibility-kit/pull/58))
