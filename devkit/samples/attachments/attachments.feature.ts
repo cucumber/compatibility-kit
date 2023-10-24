@@ -1,6 +1,10 @@
 import { Before, When } from '@cucumber/fake-cucumber'
 import fs from 'fs'
 
+// Cucumber-JVM needs to use a Before hook in order to create attachments
+// NB: We should probably try to remove this
+Before(() => undefined)
+
 When('the string {string} is attached as {string}', function (text: string, mediaType: string) {
   this.attach(text, mediaType)
 })
