@@ -7,7 +7,7 @@ module CCK
   class MessagesComparator
     include Helpers
 
-    def initialize(validator, detected, expected)
+    def initialize(detected, expected)
       compare(detected, expected)
     end
 

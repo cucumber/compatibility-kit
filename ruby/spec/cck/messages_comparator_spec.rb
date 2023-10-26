@@ -15,13 +15,13 @@ describe CCK::MessagesComparator do
     let(:meta_message_envelope) { Cucumber::Messages::Envelope.new(meta: blank_meta_message) }
 
     it 'ignores any detected CI messages' do
-      comparator = described_class.new(CCK::KeysChecker, [ci_message_envelope], [meta_message_envelope])
+      comparator = described_class.new([ci_message_envelope], [meta_message_envelope])
 
       expect(comparator.errors).to be_empty
     end
 
     it 'ignores any expected CI messages' do
-      comparator = described_class.new(CCK::KeysChecker, [meta_message_envelope], [ci_message_envelope])
+      comparator = described_class.new([meta_message_envelope], [ci_message_envelope])
 
       expect(comparator.errors).to be_empty
     end
