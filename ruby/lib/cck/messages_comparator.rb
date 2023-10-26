@@ -9,7 +9,6 @@ module CCK
 
     def initialize(validator, detected, expected)
       @all_errors = []
-      @compared = []
 
       compare(detected, expected)
     end
@@ -55,7 +54,6 @@ module CCK
       return if incomparable?(detected)
 
       @all_errors << CCK::KeysChecker.compare(detected, expected)
-      @compared << detected.class.name
       compare_sub_messages(detected, expected)
     end
 
