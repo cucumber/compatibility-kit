@@ -8,13 +8,11 @@ module CCK
     include Helpers
 
     def initialize(validator, detected, expected)
-      @all_errors = []
-
       compare(detected, expected)
     end
 
     def errors
-      @all_errors.flatten
+      all_errors.flatten
     end
 
     private
@@ -26,7 +24,7 @@ module CCK
       detected_by_type.each_key do |type|
         compare_list(detected_by_type[type], expected_by_type[type])
       rescue StandardError => e
-        @all_errors << "Error while comparing #{type}: #{e.message}"
+        all_errors << "Error while comparing #{type}: #{e.message}"
       end
     end
 
@@ -53,7 +51,7 @@ module CCK
       return if ignorable?(detected)
       return if incomparable?(detected)
 
-      @all_errors << CCK::KeysChecker.compare(detected, expected)
+      all_errors << CCK::KeysChecker.compare(detected, expected)
       compare_sub_messages(detected, expected)
     end
 
@@ -90,6 +88,10 @@ module CCK
           compare_message(detected.send(key), value)
         end
       end
+    end
+
+    def all_errors
+      @all_errors ||= []
     end
   end
 end
