@@ -48,11 +48,11 @@ module Cucumber
       private
 
       def gherkin_example?(example_folder)
-        Dir.entries(example_folder).count { |file| File.extname(file) == '.feature' }.positive?
+        Dir.entries(example_folder).any? { |file| File.extname(file) == '.feature' }
       end
 
       def markdown_example?(example_folder)
-        Dir.entries(example_folder).count { |file| File.extname(file) == '.md' }.positive?
+        Dir.entries(example_folder).any? { |file| File.extname(file) == '.md' }
       end
     end
   end
