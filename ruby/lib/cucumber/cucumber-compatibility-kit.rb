@@ -48,11 +48,15 @@ module Cucumber
       private
 
       def gherkin_example?(example_folder)
-        Dir.entries(example_folder).any? { |file| File.extname(file) == '.feature' }
+        files_types_in_folder('.feature', example_folder)
       end
 
       def markdown_example?(example_folder)
-        Dir.entries(example_folder).any? { |file| File.extname(file) == '.md' }
+        files_types_in_folder('.md', example_folder)
+      end
+
+      def files_types_in_folder(extension, folder)
+        Dir.entries(folder).any? { |file| File.extname(file) == extension }
       end
     end
   end
