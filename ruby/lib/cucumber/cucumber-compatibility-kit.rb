@@ -34,7 +34,7 @@ module Cucumber
 
         return path if File.directory?(path)
 
-        raise ArgumentError
+        raise ArgumentError, "No CCK example exists for #{example_name}"
       end
 
       private
