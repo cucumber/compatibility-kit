@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Changed
+- [Ruby] Optimised the `MessageComparator` class and the feature detection methods ([#84](https://github.com/cucumber/compatibility-kit/pull/84))
 
 ## [13.0.2] - 2023-10-24
 ### Changed
