@@ -10,26 +10,18 @@ module Cucumber
       end
 
       def gherkin_examples
-        Dir
-          .entries(examples_path)
-          .select do |file|
-            folder = File.join(examples_path, file)
+        Dir.entries(examples_path).select do |file_or_folder|
+          next if file_or_folder.start_with?('.')
 
-            file != '.' && file != '..' &&
-              File.directory?(folder) &&
-              gherkin_example?(folder)
-          end
+          gherkin_example?(File.join(examples_path, file_or_folder))
+        end
       end
 
       def markdown_examples
-        Dir
-          .entries(examples_path)
-          .select do |file|
-          folder = File.join(examples_path, file)
+        Dir.entries(examples_path).select do |file_or_folder|
+          next if file_or_folder.start_with?('.')
 
-          file != '.' && file != '..' &&
-            File.directory?(folder) &&
-            markdown_example?(folder)
+          markdown_example?(File.join(examples_path, file_or_folder))
         end
       end
 
@@ -42,17 +34,21 @@ module Cucumber
 
         return path if File.directory?(path)
 
-        raise ArgumentError
+        raise ArgumentError, "No CCK example exists for #{example_name}"
       end
 
       private
 
       def gherkin_example?(example_folder)
-        Dir.entries(example_folder).count { |file| File.extname(file) == '.feature' }.positive?
+        file_type_in_folder?('.feature', example_folder)
       end
 
       def markdown_example?(example_folder)
-        Dir.entries(example_folder).count { |file| File.extname(file) == '.md' }.positive?
+        file_type_in_folder?('.md', example_folder)
+      end
+
+      def file_type_in_folder?(extension, folder)
+        Dir.entries(folder).any? { |file| File.extname(file) == extension }
       end
     end
   end

@@ -30,7 +30,7 @@ RSpec.shared_examples 'cucumber compatibility kit' do
   end
 
   it 'generates valid message structure' do
-    comparator = CCK::MessagesComparator.new(CCK::KeysChecker, parsed_generated, parsed_original)
+    comparator = CCK::MessagesComparator.new(parsed_generated, parsed_original)
 
     expect(comparator.errors).to be_empty, "There were comparison errors: #{comparator.errors}"
   end
