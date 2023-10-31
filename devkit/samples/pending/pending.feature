@@ -1,5 +1,4 @@
 Feature: Pending steps
-
   During development, step definitions can signal at runtime that they are
   not yet implemented (or "pending") by returning or throwing a particular
   value.

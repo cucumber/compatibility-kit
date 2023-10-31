@@ -13,12 +13,12 @@ When('a step passes', function () {
   // no-op
 })
 
-When('a step throws an exception', function () {
+When('a step fails', function () {
   throw new Error('Exception in step')
 })
 
 After(function () {
-  throw new Error('Exception in hook')
+  // no-op
 })
 
 After('@some-tag or @some-other-tag', function () {

@@ -12,16 +12,16 @@ When('a step passes') do
   # no-op
 end
 
-When('a step throws an exception') do
-  raise StandardError, 'Exception in step'
+When('a step fails') do
+  raise 'Exception in step'
 end
 
 After do
-  raise StandardError, 'Exception in hook'
+  # no-op
 end
 
 After('@some-tag or @some-other-tag') do
-  raise StandardError, 'Exception in conditional hook'
+  raise 'Exception in conditional hook'
 end
 
 After('@with-attachment') do
