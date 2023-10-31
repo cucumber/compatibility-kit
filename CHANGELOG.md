@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - [Ruby] Optimised the `MessageComparator` class and the feature detection methods ([#84](https://github.com/cucumber/compatibility-kit/pull/84))
 
+### Fixed
+- Reconciled the `attachment`, `cdata`, `parameter-types` and `pending` scenarios
+  ([#69](https://github.com/cucumber/compatibility-kit/pull/69) [#68](https://github.com/cucumber/compatibility-kit/pull/68) [#74](https://github.com/cucumber/compatibility-kit/pull/74) [#77](https://github.com/cucumber/compatibility-kit/pull/77))
+
 ## [13.0.2] - 2023-10-24
 ### Changed
 - [Ruby] Fixed all autofix cops ([#71](https://github.com/cucumber/compatibility-kit/pull/71))
