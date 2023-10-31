@@ -14,15 +14,15 @@ Given('there are no chocolate bars in stock', function () {
 })
 
 When('the customer tries to buy a {int} cent chocolate bar', function (price) {
-  if(this.money > price) {
-    this.chocolate = this.stock.pop
+  if(this.money >= price) {
+    this.chocolate = this.stock.pop()
   }
 })
 
 Then('the sale should not happen', function () {
-  assert(this.chocolate).toBe(null)
+  assert.strictEqual(this.chocolate, undefined)
 })
 
 Then('the sale should happen', function () {
-  assert(this.chocolate).notToBe(null)
+  assert.ok(this.chocolate)
 })
