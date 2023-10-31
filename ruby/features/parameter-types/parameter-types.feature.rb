@@ -15,8 +15,7 @@ ParameterType(
   transformer: ->(from, to) { Flight.new(from, to) }
 )
 
-Given('{flight} has been delayed {int} minutes') do |flight, delay|
+Given('{flight} has been delayed') do |flight|
   expect(flight.from).to eq('LHR')
   expect(flight.to).to eq('CDG')
-  expect(delay).to eq(45)
 end

@@ -13,8 +13,7 @@ ParameterType({
   },
 })
 
-Given('{flight} has been delayed {int} minutes', function (flight: Flight, delay: number) {
+Given('{flight} has been delayed', function (flight: Flight) {
   assert.strictEqual(flight.from, 'LHR')
   assert.strictEqual(flight.to, 'CDG')
-  assert.strictEqual(delay, 45)
 })
