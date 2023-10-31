@@ -1,28 +1,25 @@
 # frozen_string_literal: true
 
-Given('there are {int} {float} coins inside') do |count, coin_type|
-  expect(count).not_to be_nil
-  expect(coin_type.to_s).not_to be_empty
+Given('the customer has {int} cents') do |money|
+  @money = money
 end
 
-When('the customer tries to buy a {float} chocolate with a {int} coin') do |count, coin_type|
-  expect(count).not_to be_nil
-  expect(coin_type.to_s).not_to be_empty
+Given('there are chocolate bars in stock') do
+  @stock = ['Mars']
+end
+
+Given('there are no chocolate bars in stock') do
+  @stock = []
+end
+
+When('the customer tries to buy a {int} cent chocolate bar') do |price|
+  @chocolate << @stock.pop if @money >= price
 end
 
 Then('the sale should not happen') do
-  true
+  expect(@chocolate).to be_nil
 end
 
-Given('there are {int} chocolates inside') do |count|
-  expect(count).not_to be_nil
-end
-
-Then("the customer's change should be {int} {float} coin") do |count, coin_type|
-  expect(count).not_to be_nil
-  expect(coin_type.to_s).not_to be_empty
-end
-
-Given('there are no chocolates inside') do
-  true
+Then('the sale should happen') do
+  expect(@chocolate).not_to be_nil
 end
