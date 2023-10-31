@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
-require 'stringio'
-
 # Cucumber-JVM needs to use a Before hook in order to create attachments
+# NB: We should probably try to remove this
 Before { nil }
 
 When('the string {string} is attached as {string}') do |text, media_type|
@@ -26,19 +25,12 @@ When('an array with {int} bytes is attached as {string}') do |size, media_type|
   attach(data, media_type)
 end
 
-When('a stream with {int} bytes are attached as {string}') do |size, media_type|
-  stream = StringIO.new
-  stream.puts (0..size).map(&:to_s).join('')
-  stream.seek(0)
-  attach(stream, media_type)
-end
-
 When('a JPEG image is attached') do
   attach(File.open("#{__dir__}/cucumber.jpeg"), 'image/jpeg')
 end
 
-When('the {word} png is attached') do |filename|
-  attach(File.open("#{__dir__}/#{filename}"), 'image/png')
+When('a PNG image is attached') do
+  attach(File.open("#{__dir__}/cucumber.png"), 'image/png')
 end
 
 When('a PDF document is attached and renamed') do
