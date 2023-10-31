@@ -8,12 +8,14 @@ Feature: Usage of a `Rule`
     # Unhappy path
     Example: Not enough money
       Given the customer has 100 cents
+      And there are chocolate bars in stock
       When the customer tries to buy a 125 cent chocolate bar
       Then the sale should not happen
 
     # Happy path
     Example: Enough money
       Given the customer has 100 cents
+      And there are chocolate bars in stock
       When the customer tries to buy a 75 cent chocolate bar
       Then the sale should happen
 
@@ -21,6 +23,7 @@ Feature: Usage of a `Rule`
   Rule: a sale cannot happen if there is no stock
     # Unhappy path
     Example: No chocolates left
-      Given the customer has 0 cents
+      Given the customer has 100 cents
+      And there are no chocolate bars in stock
       When the customer tries to buy a 1 cent chocolate bar
       Then the sale should not happen
