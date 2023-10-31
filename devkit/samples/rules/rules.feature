@@ -18,7 +18,7 @@ Feature: Usage of a `Rule`
       Then the sale should happen
 
   @some-tag
-  Rule: a sale cannot happen the customer has no money money
+  Rule: a sale cannot happen if there is no stock
     # Unhappy path
     Example: No chocolates left
       Given the customer has 0 cents
