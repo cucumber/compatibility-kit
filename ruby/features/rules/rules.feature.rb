@@ -13,7 +13,7 @@ Given('there are no chocolate bars in stock') do
 end
 
 When('the customer tries to buy a {int} cent chocolate bar') do |price|
-  @chocolate << @stock.pop if @money >= price
+  @chocolate = @stock.pop if @money >= price
 end
 
 Then('the sale should not happen') do
