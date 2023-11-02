@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Fixed
+- [Ruby] Fixed an incorrectly written step for a `rules` scenario ([#87](https://github.com/cucumber/compatibility-kit/pull/87))
 
 ## [14.0.0] - 2023-11-01
 ### Changed
