@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [14.1.0] - 2023-11-10
 ### Added
 - Add `message` on pending step result ([#91](https://github.com/cucumber/compatibility-kit/pull/91))
 
@@ -170,7 +172,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - First release
 
-[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v14.0.0...HEAD
+[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v14.1.0...HEAD
+[14.1.0]: https://github.com/cucumber/compatibility-kit/compare/v14.0.0...v14.1.0
 [14.0.0]: https://github.com/cucumber/compatibility-kit/compare/v13.0.2...v14.0.0
 [13.0.2]: https://github.com/cucumber/compatibility-kit/compare/v13.0.1...v13.0.2
 [13.0.1]: https://github.com/cucumber/compatibility-kit/compare/v13.0.0...v13.0.1
