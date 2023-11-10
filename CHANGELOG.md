@@ -6,6 +6,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Added
+- Add `message` on pending step result ([#91](https://github.com/cucumber/compatibility-kit/pull/91))
+
 ### Fixed
 - [Ruby] Fixed an incorrectly written step for a `rules` scenario ([#87](https://github.com/cucumber/compatibility-kit/pull/87))
 
