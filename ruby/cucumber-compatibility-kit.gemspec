@@ -13,6 +13,7 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.license     = 'MIT'
   s.required_ruby_version = '>= 2.6'
+  s.required_rubygems_version = '>= 3.0.0'
 
   s.metadata = {
     'bug_tracker_uri' => 'https://github.com/cucumber/compatibility-kit/issues',
@@ -32,14 +33,13 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rubocop-rspec', '~> 2.15.0'
 
   s.executables      = []
-  s.rubygems_version = '>= 3.0.0'
+
   s.files            = Dir[
     'README.md',
     'LICENSE',
     'lib/**/*',
     'features/**/*'
   ]
-  s.test_files       = Dir['spec/**/*']
   s.rdoc_options     = ['--charset=UTF-8']
   s.require_path     = 'lib'
 end
