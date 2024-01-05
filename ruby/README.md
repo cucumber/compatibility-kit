@@ -67,7 +67,7 @@ It can be a valuable tool if you are developing integration with cucumber, or yo
 Join us on [github/cucumber/compatibility-kit](https://github.com/cucumber/compatibility-kit)
 to get more help if you need to.
 
-You can also take a look on [cucumber-ruby](https://github.com/cucumber/cucumber-ruby/blob/v8.0.0/spec/cck/cck_spec.rb)
+You can also take a look on [cucumber-ruby](https://github.com/cucumber/cucumber-ruby/blob/v9.2.0/compatibility/cck_spec.rb)
 to see how the kit is used there.
 
 ## Development
@@ -76,6 +76,6 @@ Before building this project locally, the samples must be copied from the `devki
 
 ```
 cd ../devkit
-npm run copy-samples
+npm ci && npm run copy-to:ruby
 cd ../ruby
 ```
