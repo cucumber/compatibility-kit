@@ -33,5 +33,5 @@ jobs:
         run: npm ci && npm run copy-to:ruby
         working-directory: devkit
       - name: Run tests
-        run: bundle exec rake
+        run: bundle exec rspec
         working-directory: ruby
