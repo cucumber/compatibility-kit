@@ -14,15 +14,10 @@ AllCops:
 Gemspec/RequireMFA:
   Enabled: false
 
-Layout/LineLength:
-  Max: 200
+# This is a leftover issue due the name of the gem. Just ignore it in this one file.
+Naming/FileName:
+  Exclude:
+    - lib/cucumber-compatibility-kit.rb
 
 Style/Documentation:
   Enabled: false
-
-Style/RegexpLiteral:
-  EnforcedStyle: slashes
-  AllowInnerSlashes: true
-
-RSpec/MessageSpies:
-  EnforcedStyle: receive
