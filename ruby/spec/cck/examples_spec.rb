@@ -49,10 +49,4 @@ describe CCK::Examples do
       expect(described_class.markdown).to match_array(markdown_examples)
     end
   end
-
-  describe '#all' do
-    it 'returns the list of all available examples' do
-      expect(described_class.all).to match_array(gherkin_examples + markdown_examples)
-    end
-  end
 end

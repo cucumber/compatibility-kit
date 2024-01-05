@@ -3,10 +3,6 @@
 module CCK
   module Examples
     class << self
-      def all
-        gherkin + markdown
-      end
-
       def gherkin
         Dir.entries(features_folder_location).select do |file_or_folder|
           next if file_or_folder.start_with?('.')
