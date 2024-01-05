@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.license     = 'MIT'
   s.required_ruby_version = '>= 2.6'
-  s.required_rubygems_version = '>= 3.0.0'
+  s.required_rubygems_version = '>= 3.0.9'
 
   s.metadata = {
     'bug_tracker_uri' => 'https://github.com/cucumber/compatibility-kit/issues',
@@ -27,19 +27,12 @@ Gem::Specification.new do |s|
   s.add_dependency 'rake', '~> 13.0'
   s.add_dependency 'rspec', '~> 3.12'
 
-  s.add_development_dependency 'rubocop', '~> 1.33.0'
-  s.add_development_dependency 'rubocop-performance', '~> 1.14.0'
+  s.add_development_dependency 'rubocop', '~> 1.50.2'
+  s.add_development_dependency 'rubocop-performance', '~> 1.17.1'
   s.add_development_dependency 'rubocop-rake', '~> 0.6.0'
-  s.add_development_dependency 'rubocop-rspec', '~> 2.15.0'
+  s.add_development_dependency 'rubocop-rspec', '~> 2.20.0'
 
-  s.executables      = []
-
-  s.files            = Dir[
-    'README.md',
-    'LICENSE',
-    'lib/**/*',
-    'features/**/*'
-  ]
+  s.files            = Dir['README.md', 'LICENSE', 'lib/**/*', 'features/**/*']
   s.rdoc_options     = ['--charset=UTF-8']
   s.require_path     = 'lib'
 end
