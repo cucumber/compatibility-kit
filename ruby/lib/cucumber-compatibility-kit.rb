@@ -1,3 +1,3 @@
 # frozen_string_literal: true
 
-require_relative 'cucumber/cucumber-compatibility-kit'
+require_relative 'cck/examples'
