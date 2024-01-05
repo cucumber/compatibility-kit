@@ -23,12 +23,12 @@ module CCK
         end
       end
 
-      def supporting_code_for(example_name)
+      def feature_code_for(example_name)
         path = File.join(features_folder_location, example_name)
 
         return path if File.directory?(path)
 
-        raise ArgumentError, "No supporting code directory found locally for CCK example: #{example_name}"
+        raise ArgumentError, "No feature code directory found in gem for CCK example: #{example_name}"
       end
 
       private
