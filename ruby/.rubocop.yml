@@ -1,36 +1,23 @@
 require:
   - rubocop-performance
-  - rubocop-rake
   - rubocop-rspec
-
-inherit_from: .rubocop_todo.yml
 
 inherit_mode:
   merge:
     - Exclude
 
 AllCops:
-  TargetRubyVersion: 2.5
+  TargetRubyVersion: 2.6
   NewCops: enable
 
 # Disabled on our repo's to enable polyglot-release
-# TODO: Uncomment once rubocop > 1.40
-#Gemspec/RequireMFA:
-#  Enabled: false
+Gemspec/RequireMFA:
+  Enabled: false
 
-# TODO: Re-enable cop (true), once rubocop-rspec > 2.11
-#Metrics/BlockLength:
-#  Enabled: false
-
-Layout/LineLength:
-  Max: 200
+# This is a leftover issue due the name of the gem. Just ignore it in this one file.
+Naming/FileName:
+  Exclude:
+    - lib/cucumber-compatibility-kit.rb
 
 Style/Documentation:
   Enabled: false
-
-Style/RegexpLiteral:
-  EnforcedStyle: slashes
-  AllowInnerSlashes: true
-
-RSpec/MessageSpies:
-  EnforcedStyle: receive

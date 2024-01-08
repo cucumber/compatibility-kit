@@ -6,16 +6,15 @@ It aims to validate an implementation of the
 
 ## Overview
 
-The kit is composed of features and messages:
+This kit (gem), consists of a set of features, miscellaneous files and messages:
 
-- features, once executed, emit an exhaustive set of Messages as specified by
-  the protocol
-- Messages - serialized as `.ndjson` files - are the reference: a given feature
-  from the kit, executed using its dedicated step definitions, must emit the
-  corresponding Messages
-
-The ruby gem also provides some tools to help in the validation of messages issued
-from the execution of the CCK's features.
+- Each area will contain one feature, which, once executed, will emit an exhaustive set of messages
+as specified by the protocol
+- Some of these areas may "also" require miscellaneous files to be used when testing functions
+such as attaching images or documents or reading data from files
+- Each area will contain a set of messages - serialized as a single `.ndjson` file
+This is the reference for the CCK, that a given feature from the kit, when executed using any dedicated
+step definitions, must emit the **exact** corresponding messages
 
 ## Installation and Usage
 
@@ -27,56 +26,48 @@ install it:
 Then add a spec that could look like this:
 
 ```ruby
-# spec/cck_spec.rb
+# spec/my_compatibility_checks_spec.rb
 require 'cucumber-compatibility-kit'
 
-describe 'Cucumber Compatibility Kit' do
-  let(:cucumber_bin) { './bin/cucumber' }
-  let(:cucumber_common_args) { '--publish-quiet --profile none --format message' }
-  let(:cucumber_command) { "#{cucumber_bin} #{cucumber_common_args}" }
+describe 'Cucumber Compatibility Kit', type: :feature do
+  let(:cucumber_command) { 'bundle exec cucumber --publish-quiet --profile none --format message' }
 
-  examples = Cucumber::CompatibilityKit.gherkin_examples.reject { |example|
-    example == 'retry'
-  }
+  # Don't run the retry or skipped CCK Examples (For whatever reason)
+  examples = CCK::Examples.gherkin.reject { |example| example == 'retry' || example == 'skipped' }
 
   examples.each do |example_name|
     describe "'#{example_name}' example" do
       include_examples 'cucumber compatibility kit' do
         let(:example) { example_name }
-        let(:messages) { `#{cucumber_command} --require #{example_path} #{example_path}` }
+        # You will need to specify the relative support code and cck paths
+        let(:messages) { `#{cucumber_command} --require #{support_code_path} #{cck_path}` }
       end
     end
   end
 end
-
 ```
 
-`Cucumber::CompatibilityKit.gherkin_examples` returns an array that list all the
-gherkin examples available within the CCK. Here, we want to execute all of them with
-the exception of the `retry` one.
+`CCK::Examples.gherkin` will return an array that lists all the gherkin examples available within the CCK.
+Here, we want to execute all of them with the exception of the `retry` and `skipped` ones.
 
-`let(:messages)` executes the cucumber command. `example_path` is provided by the
-CCK. It is the path to the folder which contains the feature, and the support code
-required to execute the given example. As we use the `--format message` formatter,
-`messages` will then contain the messages as a `ndjson` document.
+`let(:messages)` will execute the cucumber command. As we are using the `message` formatter, `messages` will
+then contain the messages as a `ndjson` document with one message per line.
 
-You can use `gem open cucumber-compatibility-kit` in order to take a look on the
-features, their support code, and the expected messages.They are available in the
-`features` folder within the gem.
+You can use `gem open cucumber-compatibility-kit` in order to take a look at the features and the
+expected messages they should produce. They are available in the `features` folder within the gem.
 
 ## More info
 
 The Cucumber Compatibility Kit is part of the development tools of [Cucumber](https://cucumber.io).
 It allows us to make sure that all our implementations are properly supporting our internal protocol
-and thus are compabitle with each other and with our common tools like the [html-formatter](https://github.com/cucumber/html-formatter).
+and thus are compatible (and consistent), with each other and our common tools like the [html-formatter](https://github.com/cucumber/html-formatter).
 
-It can be a valuable tool if you are developing integration with cucumber, or your
-own implementation of it.
+It can be a valuable tool if you are developing integration with cucumber, or your own implementation of it.
 
 Join us on [github/cucumber/compatibility-kit](https://github.com/cucumber/compatibility-kit)
 to get more help if you need to.
 
-You can also take a look on [cucumber-ruby](https://github.com/cucumber/cucumber-ruby/blob/v8.0.0/spec/cck/cck_spec.rb)
+You can also take a look on [cucumber-ruby](https://github.com/cucumber/cucumber-ruby/blob/v9.2.0/compatibility/cck_spec.rb)
 to see how the kit is used there.
 
 ## Development
@@ -85,6 +76,6 @@ Before building this project locally, the samples must be copied from the `devki
 
 ```
 cd ../devkit
-npm run copy-samples
+npm ci && npm run copy-to:ruby
 cd ../ruby
 ```
