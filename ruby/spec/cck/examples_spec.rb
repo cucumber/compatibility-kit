@@ -33,7 +33,7 @@ describe CCK::Examples do
 
     context 'with an example that does not exist' do
       it 'raises ArgumentError' do
-        expect { described_class.feature_code_for('should-not-exists') }.to raise_error(ArgumentError)
+        expect { described_class.feature_code_for('nonexistent-example') }.to raise_error(ArgumentError)
       end
     end
   end
