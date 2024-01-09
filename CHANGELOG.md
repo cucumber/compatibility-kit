@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Fixed
+- [Ruby] Fixed a duplicate conflicting method that caused the CCK not to load feature paths ([#95](https://github.com/cucumber/compatibility-kit/pull/95))
 
 ## [15.0.0] - 2024-01-08
 ### Changed
