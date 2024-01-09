@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [15.0.0] - 2024-01-08
 ### Changed
 - [Ruby] Remove all step definition and support code from the package ([#94](https://github.com/cucumber/compatibility-kit/pull/94))
+- [Ruby] Minimum ruby version is now bumped from 2.5 to 2.6 ([#94](https://github.com/cucumber/compatibility-kit/pull/94))
 
 ## [14.1.0] - 2023-11-10
 ### Added
