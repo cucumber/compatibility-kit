@@ -6,6 +6,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Added
+-  Add example with parameterized Scenario Outline ([#98](https://github.com/cucumber/compatibility-kit/pull/98))
+
 ### Fixed
 - [Ruby] Fixed a duplicate conflicting method that caused the CCK not to load feature paths ([#95](https://github.com/cucumber/compatibility-kit/pull/95))
 
