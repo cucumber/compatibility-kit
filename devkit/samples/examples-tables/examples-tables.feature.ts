@@ -12,3 +12,12 @@ When('I eat {int} cucumbers', function (eatCount) {
 Then('I should have {int} cucumbers', function (expectedCount) {
   assert.strictEqual(this.count, expectedCount)
 })
+
+Given('there are {int} friends', function (initialFriends) {
+  this.friends = initialFriends
+})
+
+Then('each person can eat {int} cucumbers', function (expectedShare) {
+  let share = Math.floor(this.count / (1 + this.friends));
+  assert.strictEqual(share, expectedShare)
+})

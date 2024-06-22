@@ -1,7 +1,12 @@
 Feature: Examples Tables
   Sometimes it can be desirable to run the same scenario multiple times with
-  different data each time - this can be done by placing an Examples table underneath
-  a Scenario, and use <placeholders> in the Scenario which match the table headers.
+  different data each time - this can be done by placing an Examples table
+  underneath a Scenario, and use <placeholders> in the Scenario which match the
+  table headers.
+
+  The Scenario Outline name can also be parameterized. The name of the resulting
+  pickle will have the <placeholder> replaced with the value from the examples
+  table.
 
   Scenario Outline: Eating cucumbers
     Given there are <start> cucumbers
@@ -25,3 +30,14 @@ Feature: Examples Tables
       | start | eat    | left  |
       |    12 | banana |    12 |
       |     0 |      1 | apple |
+
+  Scenario Outline: Eating cucumbers with <friends> friends
+    Given there are <friends> friends
+    When there are <start> cucumbers
+    Then each person can eat <share> cucumbers
+
+    Examples:
+      | start | friends | share |
+      |    12 |      11 |     1 |
+      |     4 |       1 |     2 |
+      |     4 |       0 |     4 |
