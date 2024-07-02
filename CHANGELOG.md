@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Changed
+- [Ruby] Permit messages in v25 ([#100](https://github.com/cucumber/compatibility-kit/pull/100))
 
 ## [15.1.0] - 2024-06-22
 ### Added
