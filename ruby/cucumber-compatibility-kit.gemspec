@@ -1,10 +1,8 @@
 # frozen_string_literal: true
 
-version = File.read(File.expand_path('VERSION', __dir__)).strip
-
 Gem::Specification.new do |s|
   s.name        = 'cucumber-compatibility-kit'
-  s.version     = version
+  s.version     = File.read(File.expand_path('VERSION', __dir__)).strip
   s.authors     = ['Aurélien Reeves', 'Aslak Hellesøy', 'Vincent Prêtre', 'Luke Hill', 'Cucumber Ltd']
   s.description = 'Kit to check compatibility with official cucumber ruby implementation'
   s.summary     = "#{s.name}-#{s.version}"
