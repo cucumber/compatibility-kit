@@ -17,25 +17,20 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-node@v4
         with:
           cache: "npm"
           cache-dependency-path: devkit/package-lock.json
-
-      - name: Copy the samples to javascripts/features
+      - name: Copy the samples to javascript/features
         run: npm ci && npm run copy-to:javascript
         working-directory: devkit
-
       - uses: actions/setup-node@v4
         with:
           node-version: "18"
           cache: "npm"
           cache-dependency-path: javascript/package-lock.json
-
       - run: npm install-ci-test
         working-directory: javascript
-
       - uses: cucumber/action-publish-npm@v1.1.1
         with:
           npm-token: ${{ secrets.NPM_TOKEN }}

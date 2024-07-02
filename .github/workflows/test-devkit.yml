@@ -14,13 +14,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-node@v4
         with:
           node-version: 18.x
-          cache: "npm"
+          cache: 'npm'
           cache-dependency-path: devkit/package-lock.json
-
       - run: npm install-ci-test
         working-directory: devkit
 
@@ -28,12 +26,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-node@v4
         with:
           node-version: 18.x
-          cache: "npm"
+          cache: 'npm'
           cache-dependency-path: devkit/package-lock.json
-
       - run: npm ci && npm run generate-ndjson
         working-directory: devkit
