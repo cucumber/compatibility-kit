@@ -1,12 +1,10 @@
 # frozen_string_literal: true
 
-version = File.read(File.expand_path('VERSION', __dir__)).strip
-
 Gem::Specification.new do |s|
   s.name        = 'cucumber-compatibility-kit'
-  s.version     = version
+  s.version     = File.read(File.expand_path('VERSION', __dir__)).strip
   s.authors     = ['Aurélien Reeves', 'Aslak Hellesøy', 'Vincent Prêtre', 'Luke Hill', 'Cucumber Ltd']
-  s.description = 'Kit to check compatibility with official cucumber implementation'
+  s.description = 'Kit to check compatibility with official cucumber ruby implementation'
   s.summary     = "#{s.name}-#{s.version}"
   s.email       = 'cukebot@cucumber.io'
   s.homepage    = 'https://github.com/cucumber/compatibility-kit'
@@ -23,9 +21,9 @@ Gem::Specification.new do |s|
     'source_code_uri' => 'https://github.com/cucumber/compatibility-kit/blob/main/ruby'
   }
 
-  s.add_dependency 'cucumber-messages', '> 20', '< 25'
+  s.add_dependency 'cucumber-messages', '> 20', '< 26'
 
-  s.add_development_dependency 'rspec', '~> 3.12'
+  s.add_development_dependency 'rspec', '~> 3.13'
   s.add_development_dependency 'rubocop', '~> 1.50.2'
   s.add_development_dependency 'rubocop-performance', '~> 1.17.1'
   s.add_development_dependency 'rubocop-rspec', '~> 2.20.0'
