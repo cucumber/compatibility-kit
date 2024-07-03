@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [15.2.0] - 2024-07-03
 ### Changed
 - Permit messages in v25 ([#100](https://github.com/cucumber/compatibility-kit/pull/100))
 
@@ -186,7 +188,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - First release
 
-[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v15.1.0...HEAD
+[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v15.2.0...HEAD
+[15.2.0]: https://github.com/cucumber/compatibility-kit/compare/v15.1.0...v15.2.0
 [15.1.0]: https://github.com/cucumber/compatibility-kit/compare/v15.0.0...v15.1.0
 [15.0.0]: https://github.com/cucumber/compatibility-kit/compare/v14.1.0...v15.0.0
 [14.1.0]: https://github.com/cucumber/compatibility-kit/compare/v14.0.0...v14.1.0
