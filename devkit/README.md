@@ -28,7 +28,8 @@ To add a new feature in the kit, create a new folder in [`samples`](./samples).
 Put the feature here, and its step definitions implemented in TypeScript, and
 any required assets like pictures that would be used as attachments for example.
 
-If you need to provide extra arguments to fake-cucumber for your suite, you can add a `{name}.arguments.txt` file to the directory too - see [the retry suite](./samples/retry/retry.arguments.txt) for an example.
+If you need to provide extra arguments to fake-cucumber for your suite, you can add
+a `{name}.arguments.txt` file to the directory too - see [the retry suite](./samples/retry/retry.arguments.txt) for an example.
 
 Once your feature is ready, you can generate the messages.
 
