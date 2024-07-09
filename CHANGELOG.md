@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Changed
+- Removed the blank before hook in the `attachments.feature` example ([#102](https://github.com/cucumber/compatibility-kit/pull/102))
 
 ## [15.2.0] - 2024-07-03
 ### Changed
