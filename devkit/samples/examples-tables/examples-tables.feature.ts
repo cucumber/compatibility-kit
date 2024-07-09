@@ -5,16 +5,16 @@ Given('there are {int} cucumbers', function (initialCount) {
   this.count = initialCount
 })
 
+Given('there are {int} friends', function (initialFriends) {
+  this.friends = initialFriends
+})
+
 When('I eat {int} cucumbers', function (eatCount) {
   this.count -= eatCount
 })
 
 Then('I should have {int} cucumbers', function (expectedCount) {
   assert.strictEqual(this.count, expectedCount)
-})
-
-Given('there are {int} friends', function (initialFriends) {
-  this.friends = initialFriends
 })
 
 Then('each person can eat {int} cucumbers', function (expectedShare) {
