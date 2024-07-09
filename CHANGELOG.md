@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [16.0.0] - 2024-07-09
 ### Changed
 - Removed the blank before hook in the `attachments.feature` example ([#102](https://github.com/cucumber/compatibility-kit/pull/102))
 - [Ruby] Minimum ruby version is now bumped from 2.6 to 3.0 ([#105](https://github.com/cucumber/compatibility-kit/pull/105))
@@ -195,7 +197,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - First release
 
-[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v15.2.0...HEAD
+[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v16.0.0...HEAD
+[16.0.0]: https://github.com/cucumber/compatibility-kit/compare/v15.2.0...v16.0.0
 [15.2.0]: https://github.com/cucumber/compatibility-kit/compare/v15.1.0...v15.2.0
 [15.1.0]: https://github.com/cucumber/compatibility-kit/compare/v15.0.0...v15.1.0
 [15.0.0]: https://github.com/cucumber/compatibility-kit/compare/v14.1.0...v15.0.0
