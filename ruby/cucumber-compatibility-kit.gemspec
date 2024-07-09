@@ -10,8 +10,8 @@ Gem::Specification.new do |s|
   s.homepage    = 'https://github.com/cucumber/compatibility-kit'
   s.platform    = Gem::Platform::RUBY
   s.license     = 'MIT'
-  s.required_ruby_version = '>= 2.6'
-  s.required_rubygems_version = '>= 3.0.9'
+  s.required_ruby_version = '>= 3.0'
+  s.required_rubygems_version = '>= 3.2.8'
 
   s.metadata = {
     'bug_tracker_uri' => 'https://github.com/cucumber/compatibility-kit/issues',
