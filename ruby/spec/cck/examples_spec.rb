@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'cucumber-compatibility-kit'
+require 'cck/examples'
 
 describe CCK::Examples do
   let(:features_path) { File.expand_path("#{File.dirname(__FILE__)}/../../features") }
