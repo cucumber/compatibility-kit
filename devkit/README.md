@@ -33,10 +33,10 @@ a `{name}.arguments.txt` file to the directory too - see [the retry suite](./sam
 
 Once your feature is ready, you can generate the messages.
 
-### Regenerating the Messages
+### Generating the Messages
 
 Once you have added a new feature or updated an existing one, or if you need
-to regenerate the Messages due to an update in the Messages protocol, run the
+to (re)generate the Messages due to an update in the Messages protocol, run the
 following script:
 
     npm run generate-ndjson
