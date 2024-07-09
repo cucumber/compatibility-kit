@@ -24,7 +24,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'cucumber-messages', '> 20', '< 26'
 
   s.add_development_dependency 'rspec', '~> 3.13'
-  s.add_development_dependency 'rubocop', '~> 1.50.2'
+  s.add_development_dependency 'rubocop', '~> 1.64.1'
   s.add_development_dependency 'rubocop-performance', '~> 1.17.1'
   s.add_development_dependency 'rubocop-rspec', '~> 2.20.0'
 
