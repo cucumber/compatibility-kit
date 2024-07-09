@@ -17,11 +17,3 @@ Gemspec/DevelopmentDependencies:
 # Disabled on our repo's to enable polyglot-release
 Gemspec/RequireMFA:
   Enabled: false
-
-# This is a leftover issue due the name of the gem. Just ignore it in this one file.
-Naming/FileName:
-  Exclude:
-    - lib/cucumber-compatibility-kit.rb
-
-Style/Documentation:
-  Enabled: false
