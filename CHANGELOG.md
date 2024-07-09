@@ -8,10 +8,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 ### Changed
 - Removed the blank before hook in the `attachments.feature` example ([#102](https://github.com/cucumber/compatibility-kit/pull/102))
-- [Ruby] Minimum ruby version is now bumped from 2.6 to 3.0
+- [Ruby] Minimum ruby version is now bumped from 2.6 to 3.0 ([#105](https://github.com/cucumber/compatibility-kit/pull/105))
+- [Ruby] **Breaking Change** - Removed the "shim" file that redirected to the gem helpers ([#105](https://github.com/cucumber/compatibility-kit/pull/105))
 
 ### Fixed
-- Fixed a sample reporting incorrect step type
+- Fixed a sample reporting incorrect step type ([#104](https://github.com/cucumber/compatibility-kit/pull/104))
 
 ## [15.2.0] - 2024-07-03
 ### Changed
