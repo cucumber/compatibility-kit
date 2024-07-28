@@ -49,4 +49,3 @@ Feature: Attachments
 
   Scenario: Attaching URIs
     When a link to "https://cucumber.io" is attached
-    When a link to "https://cucumber.io" is attached with name "Cucumber website"

@@ -43,7 +43,3 @@ When('a PDF document is attached and renamed', async function () {
 When('a link to {string} is attached', async function (uri: string) {
     await this.attach(uri, 'text/uri-list')
 })
-
-When('a link to {string} is attached with name {string}', async function (uri: string, name: string) {
-    await this.attach(uri, 'text/uri-list', name)
-})
