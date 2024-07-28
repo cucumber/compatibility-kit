@@ -46,3 +46,7 @@ Feature: Attachments
 
   Scenario: Attaching PDFs with a different filename
     When a PDF document is attached and renamed
+
+  Scenario: Attaching URIs
+    When a link to "https://cucumber.io" is attached
+    When a link to "https://cucumber.io" is attached with name "Cucumber website"

@@ -39,3 +39,11 @@ When('a PNG image is attached', async function () {
 When('a PDF document is attached and renamed', async function () {
   await this.attach(fs.createReadStream(__dirname + '/document.pdf'), 'application/pdf', 'renamed.pdf')
 })
+
+When('a link to {string} is attached', async function (uri: string) {
+    await this.attach(uri, 'text/uri-list')
+})
+
+When('a link to {string} is attached with name {string}', async function (uri: string, name: string) {
+    await this.attach(uri, 'text/uri-list', name)
+})
