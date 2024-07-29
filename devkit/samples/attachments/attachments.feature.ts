@@ -41,5 +41,5 @@ When('a PDF document is attached and renamed', async function () {
 })
 
 When('a link to {string} is attached', async function (uri: string) {
-    await this.attach(uri, 'text/uri-list')
+    await this.link(uri)
 })
