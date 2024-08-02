@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Added
+- Add `text/uri-list` attachment samples ([#106](https://github.com/cucumber/compatibility-kit/pull/106))
 
 ## [16.0.0] - 2024-07-09
 ### Changed
