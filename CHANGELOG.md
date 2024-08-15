@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 ### Changed
-- [Ruby] Permit messages up to v28 ([#10x](https://github.com/cucumber/compatibility-kit/pull/10x))
+- [Ruby] Permit messages up to v28 ([#107](https://github.com/cucumber/compatibility-kit/pull/107))
 
 ## [16.1.0] - 2024-08-02
 ### Added
