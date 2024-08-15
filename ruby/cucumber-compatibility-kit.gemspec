@@ -21,12 +21,12 @@ Gem::Specification.new do |s|
     'source_code_uri' => 'https://github.com/cucumber/compatibility-kit/blob/main/ruby'
   }
 
-  s.add_dependency 'cucumber-messages', '> 20', '< 26'
+  s.add_dependency 'cucumber-messages', '> 20', '< 28'
 
   s.add_development_dependency 'rspec', '~> 3.13'
-  s.add_development_dependency 'rubocop', '~> 1.64.1'
+  s.add_development_dependency 'rubocop', '~> 1.65.1'
   s.add_development_dependency 'rubocop-performance', '~> 1.21.1'
-  s.add_development_dependency 'rubocop-rspec', '~> 3.0.2'
+  s.add_development_dependency 'rubocop-rspec', '~> 3.0.4'
 
   s.files            = Dir['README.md', 'LICENSE', 'lib/**/*', 'features/**/*']
   s.rdoc_options     = ['--charset=UTF-8']
