@@ -9,8 +9,23 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - Add example for empty scenario ([#103](https://github.com/cucumber/compatibility-kit/pull/103))
 
+## [16.2.0] - 2024-08-15
+### Changed
+- [Ruby] Permit messages up to v28 ([#107](https://github.com/cucumber/compatibility-kit/pull/107))
+
+## [16.1.0] - 2024-08-02
+### Added
+- Add `text/uri-list` attachment samples ([#106](https://github.com/cucumber/compatibility-kit/pull/106))
+
+## [16.0.0] - 2024-07-09
+>>>>>>> main
 ### Changed
 - Removed the blank before hook in the `attachments.feature` example ([#102](https://github.com/cucumber/compatibility-kit/pull/102))
+- [Ruby] Minimum ruby version is now bumped from 2.6 to 3.0 ([#105](https://github.com/cucumber/compatibility-kit/pull/105))
+- [Ruby] **Breaking Change** - Removed the "shim" file that redirected to the gem helpers ([#105](https://github.com/cucumber/compatibility-kit/pull/105))
+
+### Fixed
+- Fixed a sample reporting incorrect step type ([#104](https://github.com/cucumber/compatibility-kit/pull/104))
 
 ## [15.2.0] - 2024-07-03
 ### Changed
@@ -193,7 +208,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - First release
 
-[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v15.2.0...HEAD
+[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v16.2.0...HEAD
+[16.2.0]: https://github.com/cucumber/compatibility-kit/compare/v16.1.0...v16.2.0
+[16.1.0]: https://github.com/cucumber/compatibility-kit/compare/v16.0.0...v16.1.0
+[16.0.0]: https://github.com/cucumber/compatibility-kit/compare/v15.2.0...v16.0.0
 [15.2.0]: https://github.com/cucumber/compatibility-kit/compare/v15.1.0...v15.2.0
 [15.1.0]: https://github.com/cucumber/compatibility-kit/compare/v15.0.0...v15.1.0
 [15.0.0]: https://github.com/cucumber/compatibility-kit/compare/v14.1.0...v15.0.0

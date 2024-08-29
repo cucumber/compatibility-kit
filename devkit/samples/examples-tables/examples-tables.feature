@@ -33,11 +33,11 @@ Feature: Examples Tables
 
   Scenario Outline: Eating cucumbers with <friends> friends
     Given there are <friends> friends
-    When there are <start> cucumbers
+    And there are <start> cucumbers
     Then each person can eat <share> cucumbers
 
     Examples:
-      | start | friends | share |
-      |    12 |      11 |     1 |
-      |     4 |       1 |     2 |
-      |     4 |       0 |     4 |
+      | friends | start | share |
+      |      11 |    12 |     1 |
+      |       1 |     4 |     2 |
+      |       0 |     4 |     4 |
