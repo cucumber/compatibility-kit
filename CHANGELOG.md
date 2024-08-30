@@ -18,7 +18,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Add `text/uri-list` attachment samples ([#106](https://github.com/cucumber/compatibility-kit/pull/106))
 
 ## [16.0.0] - 2024-07-09
->>>>>>> main
 ### Changed
 - Removed the blank before hook in the `attachments.feature` example ([#102](https://github.com/cucumber/compatibility-kit/pull/102))
 - [Ruby] Minimum ruby version is now bumped from 2.6 to 3.0 ([#105](https://github.com/cucumber/compatibility-kit/pull/105))
