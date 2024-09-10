@@ -59,11 +59,11 @@ Now you can build your CCK test. For each feature in the CCK suite, it should:
 
 When we say "matches" above, that's heavily qualified - there are many individual fields that will vary from
 run to run, like generated identifiers, timestamps, durations and file URLs. You can freely exclude these
-fields from your assertion - the key thing to capture is the number, type and order of the messages, and the content
-that would be consistent across runs. It's also not unheard of for implementations to fix up the order of
-messages so it matches the CCK, although it's best to try to match it naturally if you can.
+fields from your assertion - the key thing to capture is the number, type and order<sup>*</sup> of the messages, and the
+content that would be consistent across runs. It's also not unheard of for implementations to fix up the order of
+messages, so it matches the CCK, although it's best to try to match it naturally if you can.
 
-Bear in mind that if you, for example, omit or mis-type a step definition, the failure you get might be
+Bear in mind that if you, for example, omit or miss-type a step definition, the failure you get might be
 non-obvious e.g. a discrepancy between actual and expected messages. Many of the features in the CCK represent a test
 run that fails, so this is not something that should cause your test to fail, although you might find it useful to
 capture the stderr (or equivalent) output for debugging purposes.
@@ -75,6 +75,31 @@ line up directly with your CLI options schema.
 There may be some features in the CCK suite that cover functionality that your implementation doesn't have.
 For example, there's one for `retry` which only a subset of Cucumber implementations support. You can filter these
 out of your test until/unless you're ready to support them.
+
+#### _*_ Ordering
+
+While the samples provide a strictly ordered set of messages. Messages themselves are only
+[partially ordered](https://en.wikipedia.org/wiki/Partially_ordered_set). But this is rather hard to capture with approval
+testing.
+
+For example when executing scenarios in parallel, the messages from different scenarios are allowed to interleave while
+still retaining their order for each scenario. Likewise, feature files may be processed in parallel. So while for a
+single feature file, the derived `Source`, `GherkinDocument`, `Pickles`, `TestCase` and `TestStep`, ect, ect may come in
+order, these may interleave with the same messages from another feature file.
+
+Finally, some orderings are not specified at all. While `TestRunStarted` is typically the first message, it could also
+be `StepDefinition`, `Source` or another message without dependencies.
+
+So at best we have the following guidelines:
+* `{TestRun,TestCase,TestStep}Started` messages are emitted before their `{TestRun,TestCase,TestStep}Finished`
+  counterparts.
+* `TestCase{Started,Finished}` are bookended by `TestRun{Started,Finished}`.
+* `TestStep{Started,Finished}` are bookended by `TestCase{Started,Finished}`.
+* `Attachment` messages are bookended by `TestStep{Started,Finished}`.
+* In general, prior to emitting a message all messages it references or depends on should have been emitted.
+
+When in doubt, keep in mind that that applications should be able to process the events in a streaming manner.
+
 
 ### Existing implementations
 
