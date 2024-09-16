@@ -23,9 +23,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install poetry
           poetry install
+        working-directory: python
 
       - name: Run Tests
         run: poetry run pytest
+        working-directory: python
 
   copy-samples:
     name: Copy Samples
