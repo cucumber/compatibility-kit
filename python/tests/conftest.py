@@ -9,7 +9,7 @@ PROJECT_ROOT = CURRENT_FILE.parent.parent
 PYTHON_MODULE_ROOT = PROJECT_ROOT / "python"
 TEST_ROOT = PYTHON_MODULE_ROOT / "tests"
 SAMPLES_DIR = PROJECT_ROOT / "devkit" / "samples"
-DEST_DIR = PYTHON_MODULE_ROOT / "features"
+FEATURES_DIR = PYTHON_MODULE_ROOT / "features"
 
 
 @pytest.fixture
@@ -25,7 +25,7 @@ def features_path():
     """
     Fixture to return the path of the features directory.
     """
-    return Path(__file__).resolve().parent.parent / 'features'
+    return FEATURES_DIR
 
 
 @pytest.fixture
@@ -69,11 +69,11 @@ def samples():
     copied_dirs = []
 
     # Ensure the destination directory exists
-    DEST_DIR.mkdir(parents=True, exist_ok=True)
+    FEATURES_DIR.mkdir(parents=True, exist_ok=True)
 
     # Remove existing copied directories, but keep the .gitignore file
-    if DEST_DIR.exists():
-        for item in DEST_DIR.iterdir():
+    if FEATURES_DIR.exists():
+        for item in FEATURES_DIR.iterdir():
             if item.is_dir():
                 # Remove each copied directory
                 shutil.rmtree(item)
@@ -81,11 +81,11 @@ def samples():
     # Copy directories and files from SAMPLES_DIR to DEST_DIR
     for src_item in SAMPLES_DIR.iterdir():
         if src_item.is_dir():  # Copy directories
-            dest_item = DEST_DIR / src_item.name
+            dest_item = FEATURES_DIR / src_item.name
             shutil.copytree(src_item, dest_item)
             copied_dirs.append(dest_item)
         else:  # Copy files
-            shutil.copy2(src_item, DEST_DIR / src_item.name)
+            shutil.copy2(src_item, FEATURES_DIR / src_item.name)
 
     # Yield to allow tests to run
     yield
