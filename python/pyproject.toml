@@ -26,8 +26,11 @@ classifiers = [
 ]
 
 packages = [
-    { include = "cck", from = "src" },
-    { include = "features", format = "dir", from = "." }
+    { include = "cck", from = "src" }
+]
+
+include = [
+    "features/**/*"
 ]
 
 [tool.poetry.dependencies]

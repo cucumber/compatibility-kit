@@ -2,7 +2,7 @@ import shutil
 from pathlib import Path
 import pytest
 
-from python.src.cck.examples import Examples
+from cck.examples import Examples
 
 CURRENT_FILE = Path(__file__).parent
 PROJECT_ROOT = CURRENT_FILE.parent.parent
