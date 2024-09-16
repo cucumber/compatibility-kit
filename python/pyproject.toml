@@ -1,0 +1,41 @@
+[tool.poetry]
+name = "cucumber-compatability-kit"
+version = "16.2.0"
+description = "Test data used to validate a Cucumber implementation"
+authors = ["Jason Allen <jsa34@noreply.github.com>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/cucumber/compatibility-kit"
+keywords = ["BDD", "testing", "cucumber", "compatibility", "kit"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: POSIX",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: MacOS :: MacOS X",
+    "Topic :: Software Development :: Testing",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Utilities",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+
+[tool.poetry.dependencies]
+python = ">=3.8"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.0"
+
+[tool.poetry.package]
+include = [
+    { path = "src/cck", format = "sdist" }
+]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

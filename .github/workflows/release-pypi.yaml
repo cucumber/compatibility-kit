@@ -1,0 +1,72 @@
+name: Release Python Package
+
+on:
+  push:
+    branches:
+      - release/*
+
+jobs:
+  pre-release-checks:
+    name: Pre-Release Checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.8"
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install poetry
+          poetry install
+
+      - name: Run Tests
+        run: poetry run pytest
+
+  copy-samples:
+    name: Copy Samples
+    needs: pre-release-checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js (for copying samples)
+        uses: actions/setup-node@v4
+        with:
+          cache: 'npm'
+          cache-dependency-path: devkit/package-lock.json
+
+      - name: Install Node.js dependencies
+        run: npm ci
+        working-directory: devkit
+
+      - name: Copy the samples to python/features
+        run: npm run copy-to:python
+        working-directory: devkit
+
+  publish-pypi:
+    name: Publish to PyPI
+    needs: [pre-release-checks, copy-samples]
+    runs-on: ubuntu-latest
+    environment: Release
+    permissions:
+      id-token: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.8"
+
+      - name: Publish to PyPI
+        uses: cucumber/action-publish-pypi@v1.1.0
+        with:
+          working_directory: "python"
+
