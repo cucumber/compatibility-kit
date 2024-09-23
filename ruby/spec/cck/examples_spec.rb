@@ -9,6 +9,7 @@ describe CCK::Examples do
       attachments
       cdata
       data-tables
+      empty
       examples-tables
       hooks
       minimal
