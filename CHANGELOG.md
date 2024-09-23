@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [16.3.0] - 2024-09-23
 ### Added
 - Add example for empty scenario ([#103](https://github.com/cucumber/compatibility-kit/pull/103))
 
@@ -210,7 +212,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - First release
 
-[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v16.2.0...HEAD
+[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v16.3.0...HEAD
+[16.3.0]: https://github.com/cucumber/compatibility-kit/compare/v16.2.0...v16.3.0
 [16.2.0]: https://github.com/cucumber/compatibility-kit/compare/v16.1.0...v16.2.0
 [16.1.0]: https://github.com/cucumber/compatibility-kit/compare/v16.0.0...v16.1.0
 [16.0.0]: https://github.com/cucumber/compatibility-kit/compare/v15.2.0...v16.0.0
