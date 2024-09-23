@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - Add example for empty scenario ([#103](https://github.com/cucumber/compatibility-kit/pull/103))
 
+### Removed
+- [Ruby] The reference to the messages gem is no longer required
+
 ## [16.2.0] - 2024-08-15
 ### Changed
 - [Ruby] Permit messages up to v28 ([#107](https://github.com/cucumber/compatibility-kit/pull/107))
