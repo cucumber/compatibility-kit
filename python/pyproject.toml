@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "cucumber-compatability-kit"
+name = "cucumber-compatibility-kit"
 version = "16.2.0"
 description = "Test data used to validate a Cucumber implementation"
 authors = ["Jason Allen <jsa34@noreply.github.com>"]
