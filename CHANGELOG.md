@@ -6,6 +6,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Added
+- Add `TestRunStarted.id`, `TestCase.testRunStartedId` and `TestRunFinished.testRunStartedId` to reference messages
+- Add `Hook.type` to reference messages
 
 ## [16.3.0] - 2024-09-23
 ### Added
