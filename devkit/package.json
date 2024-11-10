@@ -35,5 +35,8 @@
     "stream-buffers": "^3.0.2",
     "ts-node": "^10.8.1",
     "typescript": "^5.0.0"
+  },
+  "overrides": {
+    "@cucumber/messages": "27.0.0"
   }
 }
