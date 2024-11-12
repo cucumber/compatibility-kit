@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [17.0.0] - 2024-11-12
 ### Added
 - Add `TestRunStarted.id`, `TestCase.testRunStartedId` and `TestRunFinished.testRunStartedId` to reference messages
 - Add `Hook.type` to reference messages
@@ -215,7 +217,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - First release
 
-[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v16.3.0...HEAD
+[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v17.0.0...HEAD
+[17.0.0]: https://github.com/cucumber/compatibility-kit/compare/v16.3.0...v17.0.0
 [16.3.0]: https://github.com/cucumber/compatibility-kit/compare/v16.2.0...v16.3.0
 [16.2.0]: https://github.com/cucumber/compatibility-kit/compare/v16.1.0...v16.2.0
 [16.1.0]: https://github.com/cucumber/compatibility-kit/compare/v16.0.0...v16.1.0
