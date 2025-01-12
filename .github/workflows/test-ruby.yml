@@ -12,8 +12,6 @@ on:
 
 jobs:
   test-ruby:
-    defaults:
-      working-directory: ruby
     strategy:
       fail-fast: false
       matrix:
@@ -27,5 +25,14 @@ jobs:
           ruby-version: ${{ matrix.ruby }}
           bundler-cache: true
           rubygems: latest
+          working-directory: ruby
+      - uses: actions/setup-node@v4
+        with:
+          cache: 'npm'
+          cache-dependency-path: devkit/package-lock.json
+      - name: Copy the samples to ruby/features
+        run: npm ci && npm run copy-to:ruby
+        working-directory: devkit
       - name: Run tests
         run: bundle exec rspec
+        working-directory: ruby
