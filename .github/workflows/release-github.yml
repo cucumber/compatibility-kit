@@ -1,4 +1,4 @@
-name: Release on github
+name: Release on GitHub
 
 on:
   push:
@@ -16,7 +16,6 @@ jobs:
     environment: Release
     permissions:
       contents: write
-
     steps:
       - uses: actions/checkout@v4
       - uses: cucumber/action-create-github-release@v1.1.1

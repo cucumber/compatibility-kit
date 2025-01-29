@@ -1,4 +1,4 @@
-name: Release npm module
+name: Release JavaScript
 
 on:
   push:
@@ -14,7 +14,6 @@ jobs:
     needs: [pre-release-check]
     runs-on: ubuntu-latest
     environment: Release
-
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
