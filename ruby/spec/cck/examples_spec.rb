@@ -23,7 +23,6 @@ describe CCK::Examples do
       unknown-parameter-type
     ]
   end
-  let(:markdown_examples) { ['markdown'] }
 
   describe '#feature_code_for' do
     context 'with an example that exists' do
@@ -33,8 +32,10 @@ describe CCK::Examples do
     end
 
     context 'with an example that does not exist' do
-      it 'raises ArgumentError' do
-        expect { described_class.feature_code_for('nonexistent-example') }.to raise_error(ArgumentError)
+      it 'raises an ArgumentError' do
+        expect { described_class.feature_code_for('nonexistent-example') }
+          .to raise_error(ArgumentError)
+          .with_message('No feature code directory found in gem for CCK example: nonexistent-example')
       end
     end
   end
@@ -47,7 +48,7 @@ describe CCK::Examples do
 
   describe '#markdown' do
     it 'returns the list of markdown examples' do
-      expect(described_class.markdown).to match_array(markdown_examples)
+      expect(described_class.markdown).to eq(['markdown'])
     end
   end
 end
