@@ -12,6 +12,10 @@ lower than this will likely lead to issues when running the NPM commands
 As any NPM project, you first need to run `npm install`. To make sure everything
 is going well, run `npm test`.
 
+Once you've done all this you'll likely need to copy the existing devkit samples to your
+directory of choice. To do this run `npm copy-samples` or `npm copy-to:LANG` where `LANG`
+is the name of the folder you wish to copy to
+
 ## Contributing to the Compatibility Kit
 
 The files delivered as part of the kit - the feature files and the ndjson files -
@@ -67,9 +71,9 @@ devkit will be automatically copied there.
 
 The main NPM scripts available are:
 
-- build: it build TypeScript files in `src` into JavaScript files in `dist`
-- test: validate each `.ndjson` file against json schema of the Messages protocol
-- generate-ndjson: generate messages and serialize them as `.ndjson` for the
+- `build`: it build TypeScript files in `src` into JavaScript files in `dist`
+- `test`: validate each `.ndjson` file against json schema of the Messages protocol
+- `generate-ndjson`: generate messages and serialize them as `.ndjson` for the
   features and using the step definitions of the `samples` folder
-- copy-samples: copy the samples into the packages. Will also copy the step
-  definition into the JavaScript package
+- `copy-samples`: copy the samples into the packages. Will also copy the step
+  definition into each language
