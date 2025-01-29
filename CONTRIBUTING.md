@@ -10,10 +10,9 @@ extend the kit, or to update it after the protocol has been changed.
 
 ## The packages
 
-At the moment, there are two packages: a npm one, and a ruby gem.
+At the moment, there are two packages: a NPM one, and a Ruby gem.
 
-- the [npm package](./javascript/) bundles the kit with step definitions
-  implemented in TypeScript.
-- the [ruby gem](./ruby), in addition of the kit and its step definitions
-  written in ruby, also provides a few helpers to make it easier to work with
-  the CCK.
+- The [NPM package](./javascript/) bundles the features and NDJSON lines and expects step definitions
+  implemented in TypeScript for whatever the consumer is
+- The [Ruby gem](./ruby) bundles the features and NDJSON lines and expects step definitions
+  implemented in Ruby for whatever the consumer is - it also provides a few helpers for the CCK
