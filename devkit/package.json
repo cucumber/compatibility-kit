@@ -26,7 +26,7 @@
   "homepage": "https://github.com/cucumber/compatibility-kit#readme",
   "devDependencies": {
     "@cucumber/fake-cucumber": "18.0.0",
-    "@cucumber/messages": "27.1.0",
+    "@cucumber/messages": "27.2.0",
     "@types/node": "^22.0.0",
     "ajv": "^8.11.0",
     "globby": "^11.1.0",
@@ -37,6 +37,6 @@
     "typescript": "^5.0.0"
   },
   "overrides": {
-    "@cucumber/messages": "27.1.0"
+    "@cucumber/messages": "27.2.0"
   }
 }
