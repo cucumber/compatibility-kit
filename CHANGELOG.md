@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Changed
+- [Devkit] Slice hook and attachment samples more thinly ([#122](https://github.com/cucumber/compatibility-kit/pull/122))
 
 ## [17.0.1] - 2025-01-29
 ### Fixed
