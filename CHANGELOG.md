@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [18.0.0] - 2025-02-24
 ### Changed
 - [Devkit] Slice hook and attachment samples more thinly ([#122](https://github.com/cucumber/compatibility-kit/pull/122))
 
@@ -223,7 +225,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - First release
 
-[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v17.0.1...HEAD
+[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v18.0.0...HEAD
+[18.0.0]: https://github.com/cucumber/compatibility-kit/compare/v17.0.1...v18.0.0
 [17.0.1]: https://github.com/cucumber/compatibility-kit/compare/v17.0.0...v17.0.1
 [17.0.0]: https://github.com/cucumber/compatibility-kit/compare/v16.3.0...v17.0.0
 [16.3.0]: https://github.com/cucumber/compatibility-kit/compare/v16.2.0...v16.3.0
