@@ -11,7 +11,11 @@ describe CCK::Examples do
       data-tables
       empty
       examples-tables
+      examples-tables-attachment
       hooks
+      hooks-attachment
+      hooks-conditional
+      hooks-named
       minimal
       parameter-types
       pending
