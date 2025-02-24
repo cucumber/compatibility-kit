@@ -1,6 +1,6 @@
 {
   "name": "@cucumber/compatibility-kit",
-  "version": "18.0.1",
+  "version": "18.0.2",
   "description": "Test data used to validate a Cucumber implementation",
   "files": [
     "features"

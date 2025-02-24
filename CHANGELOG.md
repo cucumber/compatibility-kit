@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [18.0.2] - 2025-02-25
 ### Fixed
 - [Devkit] Do not allow git to change line endings in SVG images ([#125](https://github.com/cucumber/compatibility-kit/pull/125))
 
@@ -231,7 +233,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - First release
 
-[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v18.0.1...HEAD
+[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v18.0.2...HEAD
+[18.0.2]: https://github.com/cucumber/compatibility-kit/compare/v18.0.1...v18.0.2
 [18.0.1]: https://github.com/cucumber/compatibility-kit/compare/v18.0.0...v18.0.1
 [18.0.0]: https://github.com/cucumber/compatibility-kit/compare/v17.0.1...v18.0.0
 [17.0.1]: https://github.com/cucumber/compatibility-kit/compare/v17.0.0...v17.0.1
