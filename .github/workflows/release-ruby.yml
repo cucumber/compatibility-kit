@@ -31,7 +31,5 @@ jobs:
       - name: Copy the samples to ruby/features
         run: npm ci && npm run copy-to:ruby
         working-directory: devkit
-      - uses: cucumber/action-publish-rubygem@v1.0.0
-        with:
-          working_directory: ruby
-          rubygems_api_key: ${{ secrets.RUBYGEMS_API_KEY }}
+      - uses: rubygems/release-gem@v1
+        working-directory: ruby
