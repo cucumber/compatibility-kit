@@ -1,4 +1,4 @@
-Feature: Hooks - With attachments
+Feature: Hooks - Attachments
   Hooks are special steps that run before or after each scenario's steps.
 
   Like regular steps, it is possible to attach a file to the output.
