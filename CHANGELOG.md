@@ -6,6 +6,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+- [Devkit] Update Markdown sample ([#128](https://github.com/cucumber/compatibility-kit/pull/128))
 
 ## [18.0.2] - 2025-02-25
 ### Fixed
