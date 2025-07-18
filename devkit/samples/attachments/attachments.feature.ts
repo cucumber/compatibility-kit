@@ -28,14 +28,6 @@ When(
   }
 )
 
-When('a JPEG image is attached', async function () {
-  await this.attach(fs.createReadStream(__dirname + '/cucumber.jpeg'), 'image/jpeg')
-})
-
-When('a PNG image is attached', async function () {
-  await this.attach(fs.createReadStream(__dirname + '/cucumber.png'), 'image/png')
-})
-
 When('a PDF document is attached and renamed', async function () {
   await this.attach(fs.createReadStream(__dirname + '/document.pdf'), 'application/pdf', 'renamed.pdf')
 })

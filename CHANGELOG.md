@@ -6,6 +6,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Changed
+- [Devkit] Remove duplicate scenarios from `attachments` that are now covered in the table variant ([#127](https://github.com/cucumber/compatibility-kit/pull/127))
+
 ### Fixed
 - [Ruby] Fixed some metadata links for gem
 - [Ruby] Avoided need to constantly update one test each time the CCK gains features
