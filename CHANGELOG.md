@@ -8,6 +8,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 
 ## [18.0.3] - 2025-06-03
+### Changed
+- [Devkit] Update Markdown sample ([#128](https://github.com/cucumber/compatibility-kit/pull/128))
 
 ## [18.0.2] - 2025-02-25
 ### Fixed
