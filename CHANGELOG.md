@@ -6,6 +6,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Fixed
+- [Ruby] Fixed some metadata links for gem
+- [Ruby] Avoided need to constantly update one test each time the CCK gains features
 
 ## [18.0.3] - 2025-06-03
 ### Changed
