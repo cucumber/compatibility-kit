@@ -50,8 +50,8 @@ Please ensure that the steps are equivalent!
 Now you can build your CCK test. For each feature in the CCK suite, it should:
 
 1. Execute a test run, scoped to:
-  - Only the feature file in question
-  - Only the step definition file that you wrote for this feature
+   - Only the feature file in question
+   - Only the step definition file that you wrote for this feature
 2. Capture the Messages output of that test run
 3. Load the reference messages from the `.ndjson` file and assert that the output you captured matches it
 
