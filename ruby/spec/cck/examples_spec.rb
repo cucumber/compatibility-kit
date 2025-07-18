@@ -4,29 +4,6 @@ require 'cck/examples'
 
 describe CCK::Examples do
   let(:features_path) { File.expand_path("#{File.dirname(__FILE__)}/../../features") }
-  let(:gherkin_examples) do
-    %w[
-      attachments
-      cdata
-      data-tables
-      empty
-      examples-tables
-      examples-tables-attachment
-      hooks
-      hooks-attachment
-      hooks-conditional
-      hooks-named
-      minimal
-      parameter-types
-      pending
-      retry
-      rules
-      skipped
-      stack-traces
-      undefined
-      unknown-parameter-type
-    ]
-  end
 
   describe '#feature_code_for' do
     context 'with an example that exists' do
@@ -46,7 +23,8 @@ describe CCK::Examples do
 
   describe '#gherkin' do
     it 'returns the list of gherkin examples' do
-      expect(described_class.gherkin).to match_array(gherkin_examples)
+      # Maintaining this list is cumbersome, so we just include a few here
+      expect(described_class.gherkin).to include(*%w[attachments empty examples-tables hooks minimal rules])
     end
   end
 
