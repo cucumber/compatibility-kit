@@ -1,6 +1,5 @@
-import Ajv from "ajv/dist/2020"
+import Ajv from "ajv/dist/2020.js"
 import * as messageStreams from '@cucumber/message-streams'
-import * as messages from '@cucumber/messages'
 import {pipeline as asyncPipeline, Writable} from 'stream'
 import {promisify} from 'util'
 import fs from 'fs'
@@ -24,7 +23,7 @@ async function main() {
     new messageStreams.NdjsonToMessageStream(line => JSON.parse(line)),
     new Writable({
       objectMode: true,
-      write(envelope: messages.Envelope, _, callback) {
+      write(envelope, _, callback) {
         if (Object.keys(envelope).length) {
           isEmpty = false
         }
@@ -47,8 +46,8 @@ ${JSON.stringify(envelope, null, 2)}
   }
 }
 
-function loadSchema(name: string) {
-  return JSON.parse(fs.readFileSync(`${__dirname}/../node_modules/@cucumber/messages/schema/${name}`, 'utf-8'));
+function loadSchema(name) {
+  return JSON.parse(fs.readFileSync(`${import.meta.dirname}/node_modules/@cucumber/messages/schema/${name}`, 'utf-8'));
 }
 
 main().catch(err => {

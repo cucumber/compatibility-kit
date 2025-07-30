@@ -4,11 +4,8 @@
   "description": "Development kit for the cucumber compatibility kit packages",
   "main": "index.js",
   "scripts": {
-    "build": "tsc --build",
-    "pretest": "npm run build",
-    "test": "run-for-every-file --src 'samples/**/*.ndjson' --run 'npx shx cat {{src-file}} | node dist/validate.js'",
-    "generate-ndjson": "node ./dist/generate.js",
-    "pregenerate-ndjson": "npm run build",
+    "test": "run-for-every-file --src 'samples/**/*.ndjson' --run 'npx shx cat {{src-file}} | node ./validate.mjs'",
+    "generate-ndjson": "node ./generate.mjs",
     "postgenerate-ndjson": "npm test && npm run copy-samples",
     "copy-samples": "npm run copy-to:javascript && npm run copy-to:ruby",
     "copy-to:javascript": "shx cp -r samples/* ../javascript/features",
