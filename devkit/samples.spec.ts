@@ -2,7 +2,7 @@ import path from 'node:path'
 import fs from 'node:fs'
 import {execFile} from 'node:child_process'
 
-import { describe, expect, it } from 'vitest'
+import {describe, expect, it} from 'vitest'
 import globby from "globby";
 
 describe('Samples', async () => {
@@ -14,7 +14,9 @@ describe('Samples', async () => {
       const args = [feature, '--predictable-ids']
       const argumentsPath = path.resolve(process.cwd(), `samples/${suite}/${suite}.arguments.txt`)
       if (fs.existsSync(argumentsPath)) {
-        args.push(fs.readFileSync(argumentsPath, {encoding: 'utf-8'}).trim())
+        args.push(...fs.readFileSync(argumentsPath, {encoding: 'utf-8'})
+            .trim()
+            .split(' '))
       }
 
       const [stdout, stderr] = await run(args)
