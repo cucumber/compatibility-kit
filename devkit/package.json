@@ -2,12 +2,13 @@
   "name": "cck-devkit",
   "version": "11.0.0",
   "description": "Development kit for the cucumber compatibility kit packages",
-  "main": "lib/index.js",
+  "main": "src/index.ts",
   "scripts": {
     "build": "tsc",
-    "test": "run-for-every-file --src 'samples/**/*.ndjson' --run 'npx shx cat {{src-file}} | node ./validate.mjs'",
-    "generate-ndjson": "node ./generate.mjs",
-    "postgenerate-ndjson": "npm test && npm run copy-samples",
+    "test": "vitest",
+    "validate": "run-for-every-file --src 'samples/**/*.ndjson' --run 'npx shx cat {{src-file}} | node ./validate.mjs'",
+    "generate-ndjson": "vitest run --update",
+    "postgenerate-ndjson": "npm run validate && npm run copy-samples",
     "copy-samples": "npm run copy-to:javascript && npm run copy-to:ruby",
     "copy-to:javascript": "shx cp -r samples/* ../javascript/features",
     "copy-to:ruby": "shx cp -r samples/* ../ruby/features && rm -rf ../ruby/features/**/*.ts"
@@ -34,11 +35,9 @@
     "@cucumber/query": "^13.5.0",
     "@cucumber/tag-expressions": "^6.1.0",
     "glob": "11.0.3",
-    "source-map-support": "0.5.21",
     "stack-utils": "2.0.6"
   },
   "devDependencies": {
-    "@tsconfig/node20": "^20.1.6",
     "@tsconfig/node22": "^22.0.2",
     "@types/glob": "9.0.0",
     "@types/node": "^22.0.0",
@@ -48,7 +47,8 @@
     "run-for-every-file": "^1.1.0",
     "shx": "^0.4.0",
     "stream-buffers": "^3.0.2",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.8.3"
+    "tsx": "^4.20.3",
+    "typescript": "^5.8.3",
+    "vitest": "^3.2.4"
   }
 }

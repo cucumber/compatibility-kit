@@ -3,8 +3,8 @@
   "include": ["src"],
   "compilerOptions": {
     "declaration": true,
+    "inlineSourceMap": true,
     "module": "Node16",
-    "outDir": "lib",
-    "inlineSourceMap": true
+    "noEmit": true
   }
 }

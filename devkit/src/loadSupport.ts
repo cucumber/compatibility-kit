@@ -14,17 +14,7 @@ export async function loadSupport(
 ) {
   state.coreBuilder = buildSupportCode({ newId })
   const supportCodePaths = await findSupportCodePaths(sourcePaths)
-  let tsNodeRegistered = false
   for (const supportCodePath of supportCodePaths) {
-    if (supportCodePath.endsWith('.ts') && !tsNodeRegistered) {
-      // eslint-disable-next-line @typescript-eslint/no-require-imports
-      const tsnode = require('ts-node')
-      tsnode.register({
-        transpileOnly: true,
-      })
-      tsNodeRegistered = true
-    }
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
     require(supportCodePath)
   }
   const supportCodeLibrary = state.coreBuilder.build()
