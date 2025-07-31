@@ -25,5 +25,5 @@ for (const feature of features) {
     if (fs.existsSync(argumentsPath)) {
         args.push(fs.readFileSync(argumentsPath, {encoding: 'utf-8'}).trim())
     }
-    execSync(`npx @cucumber/fake-cucumber ${args.join(' ')} ${feature} | jq -cS > ${feature}.ndjson`, {env})
+    execSync(`node ./lib/cli.js ${args.join(' ')} ${feature} | jq -cS > ${feature}.ndjson`, {env})
 }
