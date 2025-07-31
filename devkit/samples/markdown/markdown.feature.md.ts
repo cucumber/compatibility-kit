@@ -1,4 +1,4 @@
-import assert from 'assert'
+import assert from 'node:assert'
 import { Given, When, Then } from '../../'
 
 Given('some TypeScript code:', function (dataTable: string[][]) {
@@ -11,9 +11,9 @@ Given('some classic Gherkin:', function (gherkin: string) {
 
 When(
   'we use a data table and attach something and then {word}',
-  function (word: string, dataTable: string[][]) {
+  async function (word: string, dataTable: string[][]) {
     assert(dataTable)
-    this.log(`We are logging some plain text (${word})`)
+    await this.log(`We are logging some plain text (${word})`)
     if (word === 'fail') {
       throw new Error('You asked me to fail')
     }

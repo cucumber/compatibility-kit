@@ -1,6 +1,6 @@
 import { Before, Given } from '../../'
 
-Before('@skip', function () {
+Before({tags: '@skip'}, function () {
   return 'skipped'
 })
 

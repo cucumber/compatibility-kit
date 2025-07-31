@@ -33,4 +33,7 @@ export interface World {
   ): Promise<void>
   log(text: string): Promise<void>
   link(url: string, title?: string): Promise<void>
+  [key: string]: any
 }
+
+export type HookOrStepFunction = (this: World, ...args: any[]) => any | Promise<any>;

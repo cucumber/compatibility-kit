@@ -1,13 +1,9 @@
-import { NewParameterType, SupportCodeFunction } from '@cucumber/core'
+import {NewHook, NewParameterType} from '@cucumber/core'
 
 import { state } from './state'
 import {SourceReference} from "@cucumber/messages";
 import StackUtils from "stack-utils";
-
-interface HookOptions {
-  name?: string
-  tagExpression?: string
-}
+import {HookOrStepFunction} from "./types";
 
 export { DataTable } from '@cucumber/core'
 
@@ -21,44 +17,28 @@ export function ParameterType(
 }
 
 export function Before(
-  arg1: string | HookOptions | SupportCodeFunction,
-  arg2: SupportCodeFunction
+  options: Omit<NewHook, 'fn' |'sourceReference'>,
+  fn: HookOrStepFunction
 ): void {
-  let options: HookOptions = {}
-  if (typeof arg1 === 'string') {
-    options.tagExpression = arg1
-  } else if (typeof arg1 === 'object') {
-    options = arg1
-  }
-  const fn = arg2 ?? (arg1 as SupportCodeFunction)
   state.coreBuilder.beforeHook({
-    name: options.name,
-    tags: options.tagExpression,
+    ...options,
     fn,
     sourceReference: makeSourceReference(),
   })
 }
 
 export function After(
-  arg1: string | HookOptions | SupportCodeFunction,
-  arg2: SupportCodeFunction
+    options: Omit<NewHook, 'fn' |'sourceReference'>,
+    fn: HookOrStepFunction
 ): void {
-  let options: HookOptions = {}
-  if (typeof arg1 === 'string') {
-    options.tagExpression = arg1
-  } else if (typeof arg1 === 'object') {
-    options = arg1
-  }
-  const fn = arg2 ?? (arg1 as SupportCodeFunction)
   state.coreBuilder.afterHook({
-    name: options.name,
-    tags: options.tagExpression,
+    ...options,
     fn,
     sourceReference: makeSourceReference(),
   })
 }
 
-export function Given(pattern: string | RegExp, fn: SupportCodeFunction) {
+export function Given(pattern: string | RegExp, fn: HookOrStepFunction) {
   state.coreBuilder.step({
     pattern,
     fn,
@@ -66,7 +46,7 @@ export function Given(pattern: string | RegExp, fn: SupportCodeFunction) {
   })
 }
 
-export function When(pattern: string | RegExp, fn: SupportCodeFunction) {
+export function When(pattern: string | RegExp, fn: HookOrStepFunction) {
   state.coreBuilder.step({
     pattern,
     fn,
@@ -74,7 +54,7 @@ export function When(pattern: string | RegExp, fn: SupportCodeFunction) {
   })
 }
 
-export function Then(pattern: string | RegExp, fn: SupportCodeFunction) {
+export function Then(pattern: string | RegExp, fn: HookOrStepFunction) {
   state.coreBuilder.step({
     pattern,
     fn,

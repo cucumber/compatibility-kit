@@ -1,11 +1,10 @@
-import { When, Then } from '../../'
-// TODO: Figure out a better way to export this
-import DataTable from '@cucumber/fake-cucumber/dist/src/DataTable'
+import assert from 'node:assert'
+import { DataTable, When, Then } from '../../'
 
 When('the following table is transposed:', function (table: DataTable) {
   this.transposed = table.transpose()
 })
 
 Then('it should be:', function (expected: DataTable) {
-  this.transposed.diff(expected)
+  assert.deepStrictEqual(this.transposed.raw(), expected.raw())
 })
