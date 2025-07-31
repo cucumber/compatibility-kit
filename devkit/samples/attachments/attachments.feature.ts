@@ -1,4 +1,4 @@
-import { Before, When } from '@cucumber/fake-cucumber'
+import { Before, When } from '../../'
 import fs from 'fs'
 
 When('the string {string} is attached as {string}', function (text: string, mediaType: string) {

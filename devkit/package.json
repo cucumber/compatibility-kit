@@ -2,7 +2,7 @@
   "name": "cck-devkit",
   "version": "11.0.0",
   "description": "Development kit for the cucumber compatibility kit packages",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "build": "tsc",
     "test": "run-for-every-file --src 'samples/**/*.ndjson' --run 'npx shx cat {{src-file}} | node ./validate.mjs'",

@@ -1,5 +1,5 @@
 import assert from 'assert'
-import { Given, When, Then } from '@cucumber/fake-cucumber'
+import { Given, When, Then } from '../../'
 
 Given('there are {int} cucumbers', function (initialCount) {
   this.count = initialCount

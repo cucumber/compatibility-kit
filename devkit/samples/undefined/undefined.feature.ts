@@ -1,4 +1,4 @@
-import { Given } from '@cucumber/fake-cucumber'
+import { Given } from '../../'
 
 Given('an implemented step', function () {
   // no-op

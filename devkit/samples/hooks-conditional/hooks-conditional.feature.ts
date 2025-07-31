@@ -1,4 +1,4 @@
-import { When, Before, After } from '@cucumber/fake-cucumber'
+import { When, Before, After } from '../../'
 
 Before('@passing-hook', async function () {
   // no-op

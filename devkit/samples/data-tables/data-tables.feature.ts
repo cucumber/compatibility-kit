@@ -1,4 +1,4 @@
-import { When, Then } from '@cucumber/fake-cucumber'
+import { When, Then } from '../../'
 // TODO: Figure out a better way to export this
 import DataTable from '@cucumber/fake-cucumber/dist/src/DataTable'
 

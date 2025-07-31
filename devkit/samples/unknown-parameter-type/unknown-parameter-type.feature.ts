@@ -1,4 +1,4 @@
-import { Given } from '@cucumber/fake-cucumber'
+import { Given } from '../../'
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 Given('{airport} is closed because of a strike', function (airport) {

@@ -1,5 +1,5 @@
 import assert from 'assert'
-import { Given, When, Then } from '@cucumber/fake-cucumber'
+import { Given, When, Then } from '../../'
 
 Given('the customer has {int} cents', function (money) {
   this.money = money
