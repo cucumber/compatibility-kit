@@ -4,9 +4,6 @@ import {run} from './run'
 async function main() {
     const {positionals: paths, values} = parseArgs({
         options: {
-            'predictable-ids': {
-                type: 'boolean',
-            },
             require: {
                 type: 'string',
                 short: 'r',
@@ -18,7 +15,6 @@ async function main() {
         allowPositionals: true,
         strict: false,
     })
-    const predictableIds = values['predictable-ids'] as boolean
     const require = values['require'] as string
     const retry = values['retry'] as string
 
@@ -29,7 +25,6 @@ async function main() {
         paths,
         requirePaths,
         allowedRetries,
-        predictableIds,
     })
 }
 

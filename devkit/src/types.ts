@@ -2,16 +2,6 @@ import { Readable } from 'node:stream'
 
 import { GherkinDocument, Pickle } from '@cucumber/messages'
 
-export type FormatStackTrace = (error: Error, sourceFrame: string) => string
-
-export interface Clock {
-  now(): number
-}
-
-export interface Stopwatch {
-  now(): number
-}
-
 export type PickledDocument = {
   gherkinDocument: GherkinDocument
   pickles: ReadonlyArray<Pickle>

@@ -1,10 +1,4 @@
-import {
-  AmbiguousError,
-  AssembledTestCase,
-  AssembledTestPlan,
-  AssembledTestStep,
-  UndefinedError,
-} from '@cucumber/core'
+import {AmbiguousError, AssembledTestCase, AssembledTestPlan, AssembledTestStep, UndefinedError,} from '@cucumber/core'
 import {
   Envelope,
   IdGenerator,
@@ -14,8 +8,10 @@ import {
   TimeConversion,
 } from '@cucumber/messages'
 
-import { Clock, FormatStackTrace, Stopwatch, TestRun } from './types'
-import { WorldImpl } from './WorldImpl'
+import {TestRun} from './types'
+import {WorldImpl} from './WorldImpl'
+import {Clock} from "./Clock";
+import {Stopwatch} from "./Stopwatch";
 
 const NON_SUCCESS_STATUSES = new Set<TestStepResultStatus>([
   TestStepResultStatus.PENDING,
@@ -31,7 +27,6 @@ export class TestRunImpl implements TestRun {
     private readonly newId: IdGenerator.NewId,
     private readonly clock: Clock,
     private readonly stopwatch: Stopwatch,
-    private readonly formatStackTrace: FormatStackTrace,
     private readonly onMessage: (envelope: Envelope) => void,
     private readonly allowedRetries: number,
     private readonly testRunStartedId: string,
@@ -209,14 +204,13 @@ export class TestRunImpl implements TestRun {
     const sourceFrame = `${sourceReference.uri}:${sourceReference.location?.line}`
     const type = error.name || 'Error'
     const message = error.message
-    const stackTrace = this.formatStackTrace(error, sourceFrame)
 
     return {
-      message: message + '\n' + stackTrace,
+      message: message + '\n' + sourceFrame,
       exception: {
         type,
         message,
-        stackTrace,
+        stackTrace: sourceFrame,
       },
     }
   }

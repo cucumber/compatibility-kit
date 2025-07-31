@@ -3,18 +3,16 @@ import { Envelope, IdGenerator } from '@cucumber/messages'
 
 import { TestRunImpl } from './TestRunImpl'
 import {
-  Clock,
-  FormatStackTrace,
   PickledDocument,
-  Stopwatch,
   TestRun,
 } from './types'
+import {Clock} from "./Clock";
+import {Stopwatch} from "./Stopwatch";
 
 export function prepareTestRun(
   newId: IdGenerator.NewId,
   clock: Clock,
   stopwatch: Stopwatch,
-  formatStackTrace: FormatStackTrace,
   onMessage: (envelope: Envelope) => void,
   allowedRetries: number,
   pickledDocuments: ReadonlyArray<PickledDocument>,
@@ -38,7 +36,6 @@ export function prepareTestRun(
     newId,
     clock,
     stopwatch,
-    formatStackTrace,
     onMessage,
     allowedRetries,
     testRunStartedId,
