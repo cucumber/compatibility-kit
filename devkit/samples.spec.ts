@@ -2,7 +2,7 @@ import path from 'node:path'
 import fs from 'node:fs'
 import {execFile} from 'node:child_process'
 
-import {describe, expect, it} from 'vitest'
+import {describe, it} from 'vitest'
 import globby from "globby";
 
 describe('Samples', async () => {
@@ -10,7 +10,7 @@ describe('Samples', async () => {
   for (const feature of features) {
     const [, suite, file] = feature.split(path.sep)
 
-    it(suite, async function () {
+    it.concurrent(suite, async function ({expect}) {
       const args = [feature, '--predictable-ids']
       const argumentsPath = path.resolve(process.cwd(), `samples/${suite}/${suite}.arguments.txt`)
       if (fs.existsSync(argumentsPath)) {
