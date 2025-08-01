@@ -4,11 +4,11 @@
 {"pickle":{"id":"10","uri":"samples/hooks-conditional/hooks-conditional.feature","astNodeIds":["2"],"tags":[{"name":"@fail-before","astNodeId":"1"}],"name":"A failure in the before hook and a skipped step","language":"en","steps":[{"id":"9","text":"a step passes","type":"Action","astNodeIds":["0"]}]}}
 {"pickle":{"id":"12","uri":"samples/hooks-conditional/hooks-conditional.feature","astNodeIds":["5"],"tags":[{"name":"@fail-after","astNodeId":"4"}],"name":"A failure in the after hook and a passed step","language":"en","steps":[{"id":"11","text":"a step passes","type":"Action","astNodeIds":["3"]}]}}
 {"pickle":{"id":"14","uri":"samples/hooks-conditional/hooks-conditional.feature","astNodeIds":["8"],"tags":[{"name":"@passing-hook","astNodeId":"7"}],"name":"With an tag, a passed step and hook","language":"en","steps":[{"id":"13","text":"a step passes","type":"Action","astNodeIds":["6"]}]}}
-{"stepDefinition":{"id":"17","pattern":{"type":"CUCUMBER_EXPRESSION","source":"a step passes"},"sourceReference":{"uri":"samples/hooks-conditional/hooks-conditional.feature.ts","location":{"line":11}}}}
-{"hook":{"id":"15","type":"BEFORE_TEST_CASE","tagExpression":"@passing-hook","sourceReference":{"uri":"samples/hooks-conditional/hooks-conditional.feature.ts","location":{"line":3}}}}
-{"hook":{"id":"16","type":"BEFORE_TEST_CASE","tagExpression":"@fail-before","sourceReference":{"uri":"samples/hooks-conditional/hooks-conditional.feature.ts","location":{"line":7}}}}
-{"hook":{"id":"18","type":"AFTER_TEST_CASE","tagExpression":"@fail-after","sourceReference":{"uri":"samples/hooks-conditional/hooks-conditional.feature.ts","location":{"line":15}}}}
-{"hook":{"id":"19","type":"AFTER_TEST_CASE","tagExpression":"@passing-hook","sourceReference":{"uri":"samples/hooks-conditional/hooks-conditional.feature.ts","location":{"line":19}}}}
+{"stepDefinition":{"id":"17","pattern":{"type":"CUCUMBER_EXPRESSION","source":"a step passes"},"sourceReference":{"uri":"samples/hooks-conditional/hooks-conditional.ts","location":{"line":11}}}}
+{"hook":{"id":"15","type":"BEFORE_TEST_CASE","tagExpression":"@passing-hook","sourceReference":{"uri":"samples/hooks-conditional/hooks-conditional.ts","location":{"line":3}}}}
+{"hook":{"id":"16","type":"BEFORE_TEST_CASE","tagExpression":"@fail-before","sourceReference":{"uri":"samples/hooks-conditional/hooks-conditional.ts","location":{"line":7}}}}
+{"hook":{"id":"18","type":"AFTER_TEST_CASE","tagExpression":"@fail-after","sourceReference":{"uri":"samples/hooks-conditional/hooks-conditional.ts","location":{"line":15}}}}
+{"hook":{"id":"19","type":"AFTER_TEST_CASE","tagExpression":"@passing-hook","sourceReference":{"uri":"samples/hooks-conditional/hooks-conditional.ts","location":{"line":19}}}}
 {"testRunStarted":{"id":"20","timestamp":{"seconds":0,"nanos":0}}}
 {"testCase":{"id":"21","pickleId":"10","testSteps":[{"id":"22","hookId":"16"},{"id":"23","pickleStepId":"9","stepDefinitionIds":["17"],"stepMatchArgumentsLists":[{"stepMatchArguments":[]}]}],"testRunStartedId":"20"}}
 {"testCase":{"id":"24","pickleId":"12","testSteps":[{"id":"25","pickleStepId":"11","stepDefinitionIds":["17"],"stepMatchArgumentsLists":[{"stepMatchArguments":[]}]},{"id":"26","hookId":"18"}],"testRunStartedId":"20"}}

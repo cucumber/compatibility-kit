@@ -6,10 +6,10 @@
 {"pickle":{"id":"15","uri":"samples/retry/retry.feature","astNodeIds":["5"],"tags":[],"name":"Test cases that fail will continue to retry up to the --retry limit","language":"en","steps":[{"id":"14","text":"a step that passes the third time","type":"Context","astNodeIds":["4"]}]}}
 {"pickle":{"id":"17","uri":"samples/retry/retry.feature","astNodeIds":["7"],"tags":[],"name":"Test cases won't retry after failing more than the --retry limit","language":"en","steps":[{"id":"16","text":"a step that always fails","type":"Context","astNodeIds":["6"]}]}}
 {"pickle":{"id":"19","uri":"samples/retry/retry.feature","astNodeIds":["9"],"tags":[],"name":"Test cases won't retry when the status is UNDEFINED","language":"en","steps":[{"id":"18","text":"a non-existent step","type":"Context","astNodeIds":["8"]}]}}
-{"stepDefinition":{"id":"20","pattern":{"type":"CUCUMBER_EXPRESSION","source":"a step that always passes"},"sourceReference":{"uri":"samples/retry/retry.feature.ts","location":{"line":3}}}}
-{"stepDefinition":{"id":"21","pattern":{"type":"CUCUMBER_EXPRESSION","source":"a step that passes the second time"},"sourceReference":{"uri":"samples/retry/retry.feature.ts","location":{"line":8}}}}
-{"stepDefinition":{"id":"22","pattern":{"type":"CUCUMBER_EXPRESSION","source":"a step that passes the third time"},"sourceReference":{"uri":"samples/retry/retry.feature.ts","location":{"line":16}}}}
-{"stepDefinition":{"id":"23","pattern":{"type":"CUCUMBER_EXPRESSION","source":"a step that always fails"},"sourceReference":{"uri":"samples/retry/retry.feature.ts","location":{"line":23}}}}
+{"stepDefinition":{"id":"20","pattern":{"type":"CUCUMBER_EXPRESSION","source":"a step that always passes"},"sourceReference":{"uri":"samples/retry/retry.ts","location":{"line":3}}}}
+{"stepDefinition":{"id":"21","pattern":{"type":"CUCUMBER_EXPRESSION","source":"a step that passes the second time"},"sourceReference":{"uri":"samples/retry/retry.ts","location":{"line":8}}}}
+{"stepDefinition":{"id":"22","pattern":{"type":"CUCUMBER_EXPRESSION","source":"a step that passes the third time"},"sourceReference":{"uri":"samples/retry/retry.ts","location":{"line":16}}}}
+{"stepDefinition":{"id":"23","pattern":{"type":"CUCUMBER_EXPRESSION","source":"a step that always fails"},"sourceReference":{"uri":"samples/retry/retry.ts","location":{"line":23}}}}
 {"testRunStarted":{"id":"24","timestamp":{"seconds":0,"nanos":0}}}
 {"testCase":{"id":"25","pickleId":"11","testSteps":[{"id":"26","pickleStepId":"10","stepDefinitionIds":["20"],"stepMatchArgumentsLists":[{"stepMatchArguments":[]}]}],"testRunStartedId":"24"}}
 {"testCase":{"id":"27","pickleId":"13","testSteps":[{"id":"28","pickleStepId":"12","stepDefinitionIds":["21"],"stepMatchArgumentsLists":[{"stepMatchArguments":[]}]}],"testRunStartedId":"24"}}

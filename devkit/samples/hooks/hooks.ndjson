@@ -4,10 +4,10 @@
 {"pickle":{"id":"7","uri":"samples/hooks/hooks.feature","astNodeIds":["1"],"tags":[],"name":"No tags and a passed step","language":"en","steps":[{"id":"6","text":"a step passes","type":"Action","astNodeIds":["0"]}]}}
 {"pickle":{"id":"9","uri":"samples/hooks/hooks.feature","astNodeIds":["3"],"tags":[],"name":"No tags and a failed step","language":"en","steps":[{"id":"8","text":"a step fails","type":"Action","astNodeIds":["2"]}]}}
 {"pickle":{"id":"11","uri":"samples/hooks/hooks.feature","astNodeIds":["5"],"tags":[],"name":"No tags and a undefined step","language":"en","steps":[{"id":"10","text":"a step does not exist","type":"Action","astNodeIds":["4"]}]}}
-{"stepDefinition":{"id":"13","pattern":{"type":"CUCUMBER_EXPRESSION","source":"a step passes"},"sourceReference":{"uri":"samples/hooks/hooks.feature.ts","location":{"line":7}}}}
-{"stepDefinition":{"id":"14","pattern":{"type":"CUCUMBER_EXPRESSION","source":"a step fails"},"sourceReference":{"uri":"samples/hooks/hooks.feature.ts","location":{"line":11}}}}
-{"hook":{"id":"12","type":"BEFORE_TEST_CASE","sourceReference":{"uri":"samples/hooks/hooks.feature.ts","location":{"line":3}}}}
-{"hook":{"id":"15","type":"AFTER_TEST_CASE","sourceReference":{"uri":"samples/hooks/hooks.feature.ts","location":{"line":15}}}}
+{"stepDefinition":{"id":"13","pattern":{"type":"CUCUMBER_EXPRESSION","source":"a step passes"},"sourceReference":{"uri":"samples/hooks/hooks.ts","location":{"line":7}}}}
+{"stepDefinition":{"id":"14","pattern":{"type":"CUCUMBER_EXPRESSION","source":"a step fails"},"sourceReference":{"uri":"samples/hooks/hooks.ts","location":{"line":11}}}}
+{"hook":{"id":"12","type":"BEFORE_TEST_CASE","sourceReference":{"uri":"samples/hooks/hooks.ts","location":{"line":3}}}}
+{"hook":{"id":"15","type":"AFTER_TEST_CASE","sourceReference":{"uri":"samples/hooks/hooks.ts","location":{"line":15}}}}
 {"testRunStarted":{"id":"16","timestamp":{"seconds":0,"nanos":0}}}
 {"testCase":{"id":"17","pickleId":"7","testSteps":[{"id":"18","hookId":"12"},{"id":"19","pickleStepId":"6","stepDefinitionIds":["13"],"stepMatchArgumentsLists":[{"stepMatchArguments":[]}]},{"id":"20","hookId":"15"}],"testRunStartedId":"16"}}
 {"testCase":{"id":"21","pickleId":"9","testSteps":[{"id":"22","hookId":"12"},{"id":"23","pickleStepId":"8","stepDefinitionIds":["14"],"stepMatchArgumentsLists":[{"stepMatchArguments":[]}]},{"id":"24","hookId":"15"}],"testRunStartedId":"16"}}

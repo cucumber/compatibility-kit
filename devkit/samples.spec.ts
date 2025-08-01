@@ -6,13 +6,19 @@ import {describe, it} from 'vitest'
 import globby from "globby";
 
 describe('Samples', async () => {
-  const features = await globby(['samples/**/*.feature', 'samples/**/*.feature.md'])
-  for (const feature of features) {
-    const [, suite, file] = feature.split(path.sep)
+  const directories = await globby(['samples/*/'], { onlyDirectories: true })
+  for (const directory of directories) {
+    const suite = path.basename(directory)
 
     it.concurrent(suite, async function ({expect}) {
-      const args = [feature]
-      const argumentsPath = path.resolve(process.cwd(), `samples/${suite}/${suite}.arguments.txt`)
+        const featurePaths = (await globby(['*.feature', '*.feature.md'], {cwd: directory})).map(filename => path.join(directory, filename))
+        const args = [...featurePaths]
+        const argumentsPath = path.join(
+            process.cwd(),
+            'samples',
+            suite,
+            suite + '.arguments.txt'
+        )
       if (fs.existsSync(argumentsPath)) {
         args.push(...fs.readFileSync(argumentsPath, {encoding: 'utf-8'})
             .trim()
@@ -27,7 +33,7 @@ describe('Samples', async () => {
               process.cwd(),
               'samples',
               suite,
-              file + '.ndjson'
+              suite + '.ndjson'
           )
       )
     })

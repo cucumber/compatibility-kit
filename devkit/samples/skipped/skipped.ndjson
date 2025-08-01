@@ -4,10 +4,10 @@
 {"pickle":{"id":"10","uri":"samples/skipped/skipped.feature","astNodeIds":["2"],"tags":[{"name":"@skip","astNodeId":"1"}],"name":"Skipping from a Before hook","language":"en","steps":[{"id":"9","text":"a step that is skipped","type":"Context","astNodeIds":["0"]}]}}
 {"pickle":{"id":"13","uri":"samples/skipped/skipped.feature","astNodeIds":["5"],"tags":[],"name":"Skipping from a step doesn't affect the previous steps","language":"en","steps":[{"id":"11","text":"a step that does not skip","type":"Context","astNodeIds":["3"]},{"id":"12","text":"I skip a step","type":"Context","astNodeIds":["4"]}]}}
 {"pickle":{"id":"16","uri":"samples/skipped/skipped.feature","astNodeIds":["8"],"tags":[],"name":"Skipping from a step causes the rest of the scenario to be skipped","language":"en","steps":[{"id":"14","text":"I skip a step","type":"Context","astNodeIds":["6"]},{"id":"15","text":"a step that is skipped","type":"Context","astNodeIds":["7"]}]}}
-{"stepDefinition":{"id":"18","pattern":{"type":"CUCUMBER_EXPRESSION","source":"a step that does not skip"},"sourceReference":{"uri":"samples/skipped/skipped.feature.ts","location":{"line":7}}}}
-{"stepDefinition":{"id":"19","pattern":{"type":"CUCUMBER_EXPRESSION","source":"a step that is skipped"},"sourceReference":{"uri":"samples/skipped/skipped.feature.ts","location":{"line":11}}}}
-{"stepDefinition":{"id":"20","pattern":{"type":"CUCUMBER_EXPRESSION","source":"I skip a step"},"sourceReference":{"uri":"samples/skipped/skipped.feature.ts","location":{"line":15}}}}
-{"hook":{"id":"17","type":"BEFORE_TEST_CASE","tagExpression":"@skip","sourceReference":{"uri":"samples/skipped/skipped.feature.ts","location":{"line":3}}}}
+{"stepDefinition":{"id":"18","pattern":{"type":"CUCUMBER_EXPRESSION","source":"a step that does not skip"},"sourceReference":{"uri":"samples/skipped/skipped.ts","location":{"line":7}}}}
+{"stepDefinition":{"id":"19","pattern":{"type":"CUCUMBER_EXPRESSION","source":"a step that is skipped"},"sourceReference":{"uri":"samples/skipped/skipped.ts","location":{"line":11}}}}
+{"stepDefinition":{"id":"20","pattern":{"type":"CUCUMBER_EXPRESSION","source":"I skip a step"},"sourceReference":{"uri":"samples/skipped/skipped.ts","location":{"line":15}}}}
+{"hook":{"id":"17","type":"BEFORE_TEST_CASE","tagExpression":"@skip","sourceReference":{"uri":"samples/skipped/skipped.ts","location":{"line":3}}}}
 {"testRunStarted":{"id":"21","timestamp":{"seconds":0,"nanos":0}}}
 {"testCase":{"id":"22","pickleId":"10","testSteps":[{"id":"23","hookId":"17"},{"id":"24","pickleStepId":"9","stepDefinitionIds":["19"],"stepMatchArgumentsLists":[{"stepMatchArguments":[]}]}],"testRunStartedId":"21"}}
 {"testCase":{"id":"25","pickleId":"13","testSteps":[{"id":"26","pickleStepId":"11","stepDefinitionIds":["18"],"stepMatchArgumentsLists":[{"stepMatchArguments":[]}]},{"id":"27","pickleStepId":"12","stepDefinitionIds":["20"],"stepMatchArgumentsLists":[{"stepMatchArguments":[]}]}],"testRunStartedId":"21"}}
