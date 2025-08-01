@@ -11,7 +11,7 @@ describe('Samples', async () => {
     const [, suite, file] = feature.split(path.sep)
 
     it.concurrent(suite, async function ({expect}) {
-      const args = [feature, '--predictable-ids']
+      const args = [feature]
       const argumentsPath = path.resolve(process.cwd(), `samples/${suite}/${suite}.arguments.txt`)
       if (fs.existsSync(argumentsPath)) {
         args.push(...fs.readFileSync(argumentsPath, {encoding: 'utf-8'})
