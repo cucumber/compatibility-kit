@@ -1,4 +1,4 @@
-import { When, Before, After } from '../../'
+import { When, Before, After } from '@cucumber/fake-cucumber'
 
 Before({name: 'A named before hook'}, function () {
   // no-op

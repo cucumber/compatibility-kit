@@ -1,4 +1,4 @@
-import { When } from '../../'
+import { When } from '@cucumber/fake-cucumber'
 import fs from 'node:fs'
 
 When('the string {string} is attached as {string}', async function (text: string, mediaType: string) {

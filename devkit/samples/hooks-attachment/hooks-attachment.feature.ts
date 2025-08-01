@@ -1,4 +1,4 @@
-import { When, Before, After } from '../../'
+import { When, Before, After } from '@cucumber/fake-cucumber'
 import fs from 'node:fs'
 
 Before({}, async function () {

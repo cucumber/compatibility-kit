@@ -1,5 +1,5 @@
 import assert from 'node:assert'
-import { Given, ParameterType } from '../../'
+import { Given, ParameterType } from '@cucumber/fake-cucumber'
 
 class Flight {
   constructor(public readonly from: string, public readonly to: string) {}

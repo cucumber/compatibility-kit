@@ -1,4 +1,4 @@
-import { When } from '../../'
+import { When } from '@cucumber/fake-cucumber'
 import fs from 'node:fs'
 
 When('a JPEG image is attached', async function () {

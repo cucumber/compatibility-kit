@@ -1,4 +1,4 @@
-import { Before, Given } from '../../'
+import { Before, Given } from '@cucumber/fake-cucumber'
 
 Before({tags: '@skip'}, function () {
   return 'skipped'

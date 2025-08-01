@@ -27,6 +27,7 @@
     "@cucumber/ci-environment": "^10.0.1",
     "@cucumber/core": "^0.3.0",
     "@cucumber/cucumber-expressions": "^18.0.0",
+    "@cucumber/fake-cucumber": "file:./",
     "@cucumber/gherkin": "^33.0.0",
     "@cucumber/gherkin-streams": "^5.0.1",
     "@cucumber/gherkin-utils": "^9.0.0",
