@@ -1,5 +1,13 @@
 import {parseArgs} from 'node:util'
-import {run} from './run'
+import {Envelope, IdGenerator} from "@cucumber/messages";
+import {Clock} from "./Clock";
+import {Stopwatch} from "./Stopwatch";
+import {MessageToNdjsonStream} from "@cucumber/message-streams";
+import {meta} from "./meta";
+import {loadSources} from "./loadSources";
+import {loadSupport} from "./loadSupport";
+import {makeTestPlan} from "@cucumber/core";
+import {Runner} from "./Runner";
 
 async function main() {
     const {positionals: paths, values} = parseArgs({
@@ -13,10 +21,41 @@ async function main() {
     })
     const allowedRetries = Number(values['retry'] ?? 0)
 
-    await run(
-        paths,
-        allowedRetries
-    )
+    const newId = IdGenerator.incrementing()
+    const clock = new Clock()
+    const stopwatch = new Stopwatch()
+
+    const messagesWriter = new MessageToNdjsonStream()
+    const onMessage = (envelope: Envelope) => messagesWriter.write(envelope)
+    messagesWriter.pipe(process.stdout)
+
+    onMessage({ meta })
+    const pickledDocuments = await loadSources(newId, paths, onMessage)
+    const supportCodeLibrary = await loadSupport(newId, paths, onMessage)
+
+    const testRunStartedId = newId()
+    const plans = pickledDocuments.map(({ gherkinDocument, pickles }) =>
+        makeTestPlan(
+            {
+                testRunStartedId,
+                gherkinDocument,
+                pickles,
+                supportCodeLibrary,
+            },
+            {
+                newId,
+            }
+        ))
+
+    await new Runner(
+        newId,
+        clock,
+        stopwatch,
+        onMessage,
+        allowedRetries,
+        testRunStartedId,
+        plans
+    ).run()
 }
 
 main().catch((err) => {
