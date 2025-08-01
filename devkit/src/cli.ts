@@ -4,10 +4,6 @@ import {run} from './run'
 async function main() {
     const {positionals: paths, values} = parseArgs({
         options: {
-            require: {
-                type: 'string',
-                short: 'r',
-            },
             retry: {
                 type: 'string',
             },
@@ -15,17 +11,12 @@ async function main() {
         allowPositionals: true,
         strict: false,
     })
-    const require = values['require'] as string
-    const retry = values['retry'] as string
+    const allowedRetries = Number(values['retry'] ?? 0)
 
-    const requirePaths = require ? require.split(':') : paths
-    const allowedRetries = retry ? Number(retry) : 0
-
-    await run({
+    await run(
         paths,
-        requirePaths,
-        allowedRetries,
-    })
+        allowedRetries
+    )
 }
 
 main().catch((err) => {

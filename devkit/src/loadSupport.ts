@@ -1,11 +1,10 @@
-import fs from 'node:fs'
 import path from 'node:path'
 
-import { buildSupportCode } from '@cucumber/core'
-import { Envelope, IdGenerator } from '@cucumber/messages'
-import { glob } from 'glob'
+import {buildSupportCode} from '@cucumber/core'
+import {Envelope, IdGenerator} from '@cucumber/messages'
 
-import { state } from './state'
+import {state} from './state'
+import globby from "globby";
 
 export async function loadSupport(
   newId: IdGenerator.NewId,
@@ -13,46 +12,24 @@ export async function loadSupport(
   onMessage: (envelope: Envelope) => void
 ) {
   state.coreBuilder = buildSupportCode({ newId })
-  const supportCodePaths = await findSupportCodePaths(sourcePaths)
-  for (const supportCodePath of supportCodePaths) {
-    require(supportCodePath)
+  for (const supportPath of await findSupportPaths(sourcePaths)) {
+    require(supportPath)
   }
   const supportCodeLibrary = state.coreBuilder.build()
   supportCodeLibrary.toEnvelopes().forEach((envelope) => onMessage(envelope))
   return supportCodeLibrary
 }
 
-async function findSupportCodePaths(
+async function findSupportPaths(
   sourcePaths: ReadonlyArray<string>
 ): Promise<ReadonlyArray<string>> {
-  const files = new Set<string>()
+  const supportPaths = new Set<string>()
   for (const sourcePath of sourcePaths) {
-    const stats = fs.lstatSync(sourcePath)
-    if (stats.isDirectory()) {
-      const codePaths = await globCode(sourcePath)
-      for (const codePath of codePaths) {
-        files.add(path.resolve(codePath))
-      }
-    } else if (stats.isFile()) {
-      const ext = path.extname(sourcePath)
-      if (['.js', '.ts'].includes(ext)) {
-        files.add(path.resolve(sourcePath))
-      } else {
-        const dir = path.dirname(sourcePath)
-        const codePaths = await globCode(dir)
-        for (const codePath of codePaths) {
-          files.add(path.resolve(codePath))
-        }
-      }
-    } else {
-      throw new Error(
-        `Can't load ${sourcePath} - it is not a regular file or directory`
-      )
-    }
+    const directory = path.dirname(sourcePath)
+    const found = await globby([`${directory}/**/*.{js,ts}`], {
+      absolute: true
+    })
+    found.forEach((file) => supportPaths.add(file))
   }
-  return Array.from(files).sort()
-}
-
-function globCode(dir: string) {
-  return glob(`${dir}/**/*.{js,ts}`, { posix: true, dotRelative: true })
+  return Array.from(supportPaths).sort()
 }

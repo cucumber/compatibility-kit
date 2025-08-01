@@ -8,15 +8,10 @@ import { loadSupport } from './loadSupport'
 import { meta } from './meta'
 import { prepareTestRun } from './prepareTestRun'
 
-export async function run({
-  paths,
-  requirePaths,
-  allowedRetries,
-}: {
-  paths: ReadonlyArray<string>
-  requirePaths: ReadonlyArray<string>
+export async function run(
+  paths: ReadonlyArray<string>,
   allowedRetries: number
-}) {
+) {
   const newId = IdGenerator.incrementing()
   const clock = new Clock()
   const stopwatch = new Stopwatch()
@@ -27,7 +22,7 @@ export async function run({
 
   onMessage({ meta })
   const pickledDocuments = await loadSources(newId, paths, onMessage)
-  const supportCodeLibrary = await loadSupport(newId, requirePaths, onMessage)
+  const supportCodeLibrary = await loadSupport(newId, paths, onMessage)
 
   const testRun = prepareTestRun(
     newId,
