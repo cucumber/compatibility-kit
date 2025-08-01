@@ -1,9 +1,9 @@
 import {NewHook, NewParameterType} from '@cucumber/core'
 
-import { state } from './state'
+import {state} from './state'
 import {SourceReference} from "@cucumber/messages";
 import StackUtils from "stack-utils";
-import {HookOrStepFunction} from "./types";
+import {World} from "./World";
 
 export { DataTable } from '@cucumber/core'
 
@@ -18,7 +18,7 @@ export function ParameterType(
 
 export function Before(
   options: Omit<NewHook, 'fn' |'sourceReference'>,
-  fn: HookOrStepFunction
+  fn: (this: World) => any | Promise<any>
 ): void {
   state.coreBuilder.beforeHook({
     ...options,
@@ -29,7 +29,7 @@ export function Before(
 
 export function After(
     options: Omit<NewHook, 'fn' |'sourceReference'>,
-    fn: HookOrStepFunction
+    fn: (this: World) => any | Promise<any>
 ): void {
   state.coreBuilder.afterHook({
     ...options,
@@ -38,7 +38,7 @@ export function After(
   })
 }
 
-export function Given(pattern: string | RegExp, fn: HookOrStepFunction) {
+export function Given(pattern: string | RegExp, fn: (this: World, ...args: any[]) => any | Promise<any>) {
   state.coreBuilder.step({
     pattern,
     fn,
@@ -46,7 +46,7 @@ export function Given(pattern: string | RegExp, fn: HookOrStepFunction) {
   })
 }
 
-export function When(pattern: string | RegExp, fn: HookOrStepFunction) {
+export function When(pattern: string | RegExp, fn: (this: World, ...args: any[]) => any | Promise<any>) {
   state.coreBuilder.step({
     pattern,
     fn,
@@ -54,7 +54,7 @@ export function When(pattern: string | RegExp, fn: HookOrStepFunction) {
   })
 }
 
-export function Then(pattern: string | RegExp, fn: HookOrStepFunction) {
+export function Then(pattern: string | RegExp, fn: (this: World, ...args: any[]) => any | Promise<any>) {
   state.coreBuilder.step({
     pattern,
     fn,

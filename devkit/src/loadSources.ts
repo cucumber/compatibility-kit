@@ -1,17 +1,15 @@
-import {
-  GherkinStreams,
-  IGherkinStreamOptions,
-} from '@cucumber/gherkin-streams'
-import { Query as GherkinQuery } from '@cucumber/gherkin-utils'
-import { Envelope, IdGenerator } from '@cucumber/messages'
-
-import { PickledDocument } from './types'
+import {GherkinStreams, IGherkinStreamOptions,} from '@cucumber/gherkin-streams'
+import {Query as GherkinQuery} from '@cucumber/gherkin-utils'
+import {Envelope, GherkinDocument, IdGenerator, Pickle} from '@cucumber/messages'
 
 export async function loadSources(
   newId: IdGenerator.NewId,
   paths: ReadonlyArray<string>,
   onMessage: (envelope: Envelope) => void
-): Promise<ReadonlyArray<PickledDocument>> {
+): Promise<ReadonlyArray<{
+  gherkinDocument: GherkinDocument
+  pickles: ReadonlyArray<Pickle>
+}>> {
   const gherkinQuery = new GherkinQuery()
   await gherkinFromPaths(
     paths,

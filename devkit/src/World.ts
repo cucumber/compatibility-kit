@@ -1,12 +1,10 @@
-import { AttachmentContentEncoding, Envelope } from '@cucumber/messages'
-import { Readable } from 'stream'
-
-import { AttachmentOptions, World } from './types'
+import {AttachmentContentEncoding, Envelope} from '@cucumber/messages'
+import {Readable} from 'stream'
 
 const LOG_MEDIA_TYPE = 'text/x.cucumber.log+plain'
 const LINK_MEDIA_TYPE = 'text/uri-list'
 
-export class WorldImpl implements World {
+export class World {
   public testStepId: string | undefined
 
   constructor(
@@ -16,7 +14,10 @@ export class WorldImpl implements World {
 
   async attach(
     data: Readable | Buffer | string,
-    optionsOrMediaType: AttachmentOptions | string
+    optionsOrMediaType: {
+      mediaType: string
+      fileName?: string
+    } | string
   ): Promise<void> {
     const options =
       typeof optionsOrMediaType === 'string'

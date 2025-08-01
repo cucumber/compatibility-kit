@@ -1,12 +1,13 @@
-import { MessageToNdjsonStream } from '@cucumber/message-streams'
-import { Envelope, IdGenerator } from '@cucumber/messages'
+import {MessageToNdjsonStream} from '@cucumber/message-streams'
+import {Envelope, IdGenerator} from '@cucumber/messages'
 
-import { Clock } from './Clock'
-import { Stopwatch } from './Stopwatch'
-import { loadSources } from './loadSources'
-import { loadSupport } from './loadSupport'
-import { meta } from './meta'
-import { prepareTestRun } from './prepareTestRun'
+import {Clock} from './Clock'
+import {Stopwatch} from './Stopwatch'
+import {loadSources} from './loadSources'
+import {loadSupport} from './loadSupport'
+import {meta} from './meta'
+import {makeTestPlan} from "@cucumber/core";
+import {Runner} from "./Runner";
 
 export async function run(
   paths: ReadonlyArray<string>,
@@ -24,14 +25,27 @@ export async function run(
   const pickledDocuments = await loadSources(newId, paths, onMessage)
   const supportCodeLibrary = await loadSupport(newId, paths, onMessage)
 
-  const testRun = prepareTestRun(
-    newId,
-    clock,
-    stopwatch,
-    onMessage,
-    allowedRetries,
-    pickledDocuments,
-    supportCodeLibrary
-  )
-  await testRun.execute()
+  const testRunStartedId = newId()
+  const plans = pickledDocuments.map(({ gherkinDocument, pickles }) =>
+      makeTestPlan(
+          {
+              testRunStartedId,
+              gherkinDocument,
+              pickles,
+              supportCodeLibrary,
+          },
+          {
+              newId,
+          }
+      ))
+
+  await new Runner(
+      newId,
+      clock,
+      stopwatch,
+      onMessage,
+      allowedRetries,
+      testRunStartedId,
+      plans
+  ).run()
 }

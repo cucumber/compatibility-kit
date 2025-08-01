@@ -8,8 +8,7 @@ import {
   TimeConversion,
 } from '@cucumber/messages'
 
-import {TestRun} from './types'
-import {WorldImpl} from './WorldImpl'
+import {World} from './World'
 import {Clock} from "./Clock";
 import {Stopwatch} from "./Stopwatch";
 
@@ -20,7 +19,7 @@ const NON_SUCCESS_STATUSES = new Set<TestStepResultStatus>([
   TestStepResultStatus.FAILED,
 ])
 
-export class TestRunImpl implements TestRun {
+export class Runner {
   private readonly statuses = new Set<TestStepResultStatus>()
 
   constructor(
@@ -33,7 +32,7 @@ export class TestRunImpl implements TestRun {
     private readonly plans: ReadonlyArray<AssembledTestPlan>
   ) {}
 
-  async execute() {
+  async run() {
     this.onMessage({
       testRunStarted: {
         id: this.testRunStartedId,
@@ -107,7 +106,7 @@ export class TestRunImpl implements TestRun {
     testCaseStartedId: string
   ) {
     const statuses = new Set<TestStepResultStatus>()
-    const world = new WorldImpl(this.onMessage, testCaseStartedId)
+    const world = new World(this.onMessage, testCaseStartedId)
     let outcomeKnown = false
 
     for (const testStep of testCase.testSteps) {
