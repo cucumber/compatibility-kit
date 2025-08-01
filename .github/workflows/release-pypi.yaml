@@ -1,0 +1,36 @@
+name: Release Python Package
+
+on:
+  push:
+    branches:
+      - release/*
+
+jobs:
+  pre-release-check:
+    uses: cucumber/.github/.github/workflows/prerelease-checks.yml@main
+
+  test-python:
+    uses: ./.github/workflows/test-python.yml
+
+  publish-pypi:
+    name: Publish to PyPI
+    needs: [pre-release-check, test-python]
+    runs-on: ubuntu-latest
+    environment: Release
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.8"
+      - uses: actions/setup-node@v4
+        with:
+          cache: 'npm'
+          cache-dependency-path: devkit/package-lock.json
+      - name: Copy the samples to python/features
+        run: npm ci && npm run copy-to:python
+        working-directory: devkit
+      - uses: cucumber/action-publish-pypi@v3.0.0
+        with:
+          working-directory: python
