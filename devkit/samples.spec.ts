@@ -19,7 +19,7 @@ describe('Samples', async () => {
             .split(' '))
       }
 
-      const [stdout, stderr] = await run(args)
+      const [stdout, stderr] = await execute(args)
 
       console.error(stderr)
       await expect(stdout).toMatchFileSnapshot(
@@ -34,7 +34,7 @@ describe('Samples', async () => {
   }
 })
 
-async function run(args: string[]): Promise<[string, string]> {
+async function execute(args: string[]): Promise<[string, string]> {
   return new Promise((resolve, reject) => {
     execFile(
         'npx',
