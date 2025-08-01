@@ -43,17 +43,7 @@ async function run(args: string[]): Promise<[string, string]> {
           './src/cli.ts',
           ...args,
         ],
-        {
-          env: {
-            ...process.env,
-            GITHUB_SERVER_URL: 'https://github.com',
-            GITHUB_REPOSITORY: 'cucumber-ltd/shouty.rb',
-            GITHUB_RUN_ID: '154666429',
-            GITHUB_SHA: '99684bcacf01d95875834d87903dcb072306c9ad',
-            GITHUB_REF: 'refs/heads/main',
-            GITHUB_HEAD_REF: 'main'
-          }
-        },
+        {},
         (error, stdout, stderr) => {
           if (error) {
             reject(error)

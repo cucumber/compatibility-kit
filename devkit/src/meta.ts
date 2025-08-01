@@ -18,5 +18,12 @@ export const meta: Meta = {
     name: 'Node.js',
     version: '24.4.1',
   },
-  ci: detectCiEnvironment(process.env),
+  ci: detectCiEnvironment({
+    GITHUB_SERVER_URL: 'https://github.com',
+    GITHUB_REPOSITORY: 'cucumber-ltd/shouty.rb',
+    GITHUB_RUN_ID: '154666429',
+    GITHUB_SHA: '99684bcacf01d95875834d87903dcb072306c9ad',
+    GITHUB_REF: 'refs/heads/main',
+    GITHUB_HEAD_REF: 'main'
+  }),
 }
