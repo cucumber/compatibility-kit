@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Changed
+- BREAKING CHANGE: Change naming convention of sample files ([#141](https://github.com/cucumber/compatibility-kit/pull/141))
 
 ## [19.0.0] - 2025-07-21
 ### Added
