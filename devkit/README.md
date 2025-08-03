@@ -22,7 +22,7 @@ can be found in the [`samples`](./samples) folder.
 
 The [`src`](./src) folder contains a barebones reference implementation of Cucumber
 which is used to generate the reference messages. This is commonly referred to as
-"fake-cucumber" (it used to be a standalone module but is now embedded here).
+"fake-cucumber" (it used to be a standalone package but is now embedded here).
 
 ### Adding a feature
 
