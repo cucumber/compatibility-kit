@@ -292,4 +292,3 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 [3.0.0]: https://github.com/cucumber/compatibility-kit/compare/v2.0.0...v3.0.0
 [2.0.0]: https://github.com/cucumber/compatibility-kit/compare/v1.0.0...v2.0.0
 [1.0.0]: https://github.com/cucumber/common/releases/tag/v1.0.0...v0.0.1
-.0...v0.0.1
