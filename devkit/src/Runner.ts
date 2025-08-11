@@ -211,7 +211,7 @@ export class Runner {
     const message = error.message
 
     return {
-      message: message + '\n' + sourceFrame,
+      message: type + ': ' + message + '\n' + sourceFrame,
       exception: {
         type,
         message,
