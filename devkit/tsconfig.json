@@ -1,12 +1,10 @@
 {
+  "extends": "@tsconfig/node22/tsconfig.json",
+  "include": ["src"],
   "compilerOptions": {
-    "target": "es2020",
-    "module": "CommonJS",
-    "esModuleInterop": true,
-    "outDir": "dist",
-    "lib": ["ES2020"],
-    "moduleResolution": "node",
-    "types": ["node"]
-  },
-  "files": ["src/generate.ts", "src/validate.ts"]
+    "declaration": true,
+    "inlineSourceMap": true,
+    "module": "Node16",
+    "noEmit": true
+  }
 }
