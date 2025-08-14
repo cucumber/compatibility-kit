@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Changed
+- Include type and message in stackTrace ([#144](https://github.com/cucumber/compatibility-kit/pull/144))
 
 ## [20.0.0] - 2025-08-12
 ### Changed
