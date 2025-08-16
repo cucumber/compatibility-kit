@@ -211,7 +211,7 @@ export class Runner {
     const message = error.message
     const stackTrace = type + ': ' + message + '\n' + sourceFrame
     return {
-      message: stackTrace,
+      message,
       exception: {
         type,
         message,
