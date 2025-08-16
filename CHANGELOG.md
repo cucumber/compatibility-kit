@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [20.1.0] - 2025-08-16
 ### Changed
 - Include type and message in stackTrace ([#144](https://github.com/cucumber/compatibility-kit/pull/144))
 
@@ -254,7 +256,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - First release
 
-[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v20.0.0...HEAD
+[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v20.1.0...HEAD
+[20.1.0]: https://github.com/cucumber/compatibility-kit/compare/v20.0.0...v20.1.0
 [20.0.0]: https://github.com/cucumber/compatibility-kit/compare/v19.0.0...v20.0.0
 [19.0.0]: https://github.com/cucumber/compatibility-kit/compare/v18.0.3...v19.0.0
 [18.0.3]: https://github.com/cucumber/compatibility-kit/compare/v18.0.2...v18.0.3
