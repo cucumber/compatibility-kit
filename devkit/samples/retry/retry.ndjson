@@ -22,7 +22,7 @@
 {"testCaseFinished":{"testCaseStartedId":"35","timestamp":{"seconds":0,"nanos":4000000},"willBeRetried":false}}
 {"testCaseStarted":{"id":"36","testCaseId":"27","timestamp":{"seconds":0,"nanos":5000000},"attempt":0}}
 {"testStepStarted":{"testCaseStartedId":"36","testStepId":"28","timestamp":{"seconds":0,"nanos":6000000}}}
-{"testStepFinished":{"testCaseStartedId":"36","testStepId":"28","testStepResult":{"message":"Error: Exception in step\nsamples/retry/retry.feature:12","exception":{"type":"Error","message":"Exception in step","stackTrace":"samples/retry/retry.feature:12"},"status":"FAILED","duration":{"seconds":0,"nanos":1000000}},"timestamp":{"seconds":0,"nanos":7000000}}}
+{"testStepFinished":{"testCaseStartedId":"36","testStepId":"28","testStepResult":{"message":"Exception in step","exception":{"type":"Error","message":"Exception in step","stackTrace":"Error: Exception in step\nsamples/retry/retry.feature:12"},"status":"FAILED","duration":{"seconds":0,"nanos":1000000}},"timestamp":{"seconds":0,"nanos":7000000}}}
 {"testCaseFinished":{"testCaseStartedId":"36","timestamp":{"seconds":0,"nanos":8000000},"willBeRetried":true}}
 {"testCaseStarted":{"id":"37","testCaseId":"27","timestamp":{"seconds":0,"nanos":9000000},"attempt":1}}
 {"testStepStarted":{"testCaseStartedId":"37","testStepId":"28","timestamp":{"seconds":0,"nanos":10000000}}}
@@ -30,11 +30,11 @@
 {"testCaseFinished":{"testCaseStartedId":"37","timestamp":{"seconds":0,"nanos":12000000},"willBeRetried":false}}
 {"testCaseStarted":{"id":"38","testCaseId":"29","timestamp":{"seconds":0,"nanos":13000000},"attempt":0}}
 {"testStepStarted":{"testCaseStartedId":"38","testStepId":"30","timestamp":{"seconds":0,"nanos":14000000}}}
-{"testStepFinished":{"testCaseStartedId":"38","testStepId":"30","testStepResult":{"message":"Error: Exception in step\nsamples/retry/retry.feature:15","exception":{"type":"Error","message":"Exception in step","stackTrace":"samples/retry/retry.feature:15"},"status":"FAILED","duration":{"seconds":0,"nanos":1000000}},"timestamp":{"seconds":0,"nanos":15000000}}}
+{"testStepFinished":{"testCaseStartedId":"38","testStepId":"30","testStepResult":{"message":"Exception in step","exception":{"type":"Error","message":"Exception in step","stackTrace":"Error: Exception in step\nsamples/retry/retry.feature:15"},"status":"FAILED","duration":{"seconds":0,"nanos":1000000}},"timestamp":{"seconds":0,"nanos":15000000}}}
 {"testCaseFinished":{"testCaseStartedId":"38","timestamp":{"seconds":0,"nanos":16000000},"willBeRetried":true}}
 {"testCaseStarted":{"id":"39","testCaseId":"29","timestamp":{"seconds":0,"nanos":17000000},"attempt":1}}
 {"testStepStarted":{"testCaseStartedId":"39","testStepId":"30","timestamp":{"seconds":0,"nanos":18000000}}}
-{"testStepFinished":{"testCaseStartedId":"39","testStepId":"30","testStepResult":{"message":"Error: Exception in step\nsamples/retry/retry.feature:15","exception":{"type":"Error","message":"Exception in step","stackTrace":"samples/retry/retry.feature:15"},"status":"FAILED","duration":{"seconds":0,"nanos":1000000}},"timestamp":{"seconds":0,"nanos":19000000}}}
+{"testStepFinished":{"testCaseStartedId":"39","testStepId":"30","testStepResult":{"message":"Exception in step","exception":{"type":"Error","message":"Exception in step","stackTrace":"Error: Exception in step\nsamples/retry/retry.feature:15"},"status":"FAILED","duration":{"seconds":0,"nanos":1000000}},"timestamp":{"seconds":0,"nanos":19000000}}}
 {"testCaseFinished":{"testCaseStartedId":"39","timestamp":{"seconds":0,"nanos":20000000},"willBeRetried":true}}
 {"testCaseStarted":{"id":"40","testCaseId":"29","timestamp":{"seconds":0,"nanos":21000000},"attempt":2}}
 {"testStepStarted":{"testCaseStartedId":"40","testStepId":"30","timestamp":{"seconds":0,"nanos":22000000}}}
@@ -42,15 +42,15 @@
 {"testCaseFinished":{"testCaseStartedId":"40","timestamp":{"seconds":0,"nanos":24000000},"willBeRetried":false}}
 {"testCaseStarted":{"id":"41","testCaseId":"31","timestamp":{"seconds":0,"nanos":25000000},"attempt":0}}
 {"testStepStarted":{"testCaseStartedId":"41","testStepId":"32","timestamp":{"seconds":0,"nanos":26000000}}}
-{"testStepFinished":{"testCaseStartedId":"41","testStepId":"32","testStepResult":{"message":"Error: Exception in step\nsamples/retry/retry.feature:18","exception":{"type":"Error","message":"Exception in step","stackTrace":"samples/retry/retry.feature:18"},"status":"FAILED","duration":{"seconds":0,"nanos":1000000}},"timestamp":{"seconds":0,"nanos":27000000}}}
+{"testStepFinished":{"testCaseStartedId":"41","testStepId":"32","testStepResult":{"message":"Exception in step","exception":{"type":"Error","message":"Exception in step","stackTrace":"Error: Exception in step\nsamples/retry/retry.feature:18"},"status":"FAILED","duration":{"seconds":0,"nanos":1000000}},"timestamp":{"seconds":0,"nanos":27000000}}}
 {"testCaseFinished":{"testCaseStartedId":"41","timestamp":{"seconds":0,"nanos":28000000},"willBeRetried":true}}
 {"testCaseStarted":{"id":"42","testCaseId":"31","timestamp":{"seconds":0,"nanos":29000000},"attempt":1}}
 {"testStepStarted":{"testCaseStartedId":"42","testStepId":"32","timestamp":{"seconds":0,"nanos":30000000}}}
-{"testStepFinished":{"testCaseStartedId":"42","testStepId":"32","testStepResult":{"message":"Error: Exception in step\nsamples/retry/retry.feature:18","exception":{"type":"Error","message":"Exception in step","stackTrace":"samples/retry/retry.feature:18"},"status":"FAILED","duration":{"seconds":0,"nanos":1000000}},"timestamp":{"seconds":0,"nanos":31000000}}}
+{"testStepFinished":{"testCaseStartedId":"42","testStepId":"32","testStepResult":{"message":"Exception in step","exception":{"type":"Error","message":"Exception in step","stackTrace":"Error: Exception in step\nsamples/retry/retry.feature:18"},"status":"FAILED","duration":{"seconds":0,"nanos":1000000}},"timestamp":{"seconds":0,"nanos":31000000}}}
 {"testCaseFinished":{"testCaseStartedId":"42","timestamp":{"seconds":0,"nanos":32000000},"willBeRetried":true}}
 {"testCaseStarted":{"id":"43","testCaseId":"31","timestamp":{"seconds":0,"nanos":33000000},"attempt":2}}
 {"testStepStarted":{"testCaseStartedId":"43","testStepId":"32","timestamp":{"seconds":0,"nanos":34000000}}}
-{"testStepFinished":{"testCaseStartedId":"43","testStepId":"32","testStepResult":{"message":"Error: Exception in step\nsamples/retry/retry.feature:18","exception":{"type":"Error","message":"Exception in step","stackTrace":"samples/retry/retry.feature:18"},"status":"FAILED","duration":{"seconds":0,"nanos":1000000}},"timestamp":{"seconds":0,"nanos":35000000}}}
+{"testStepFinished":{"testCaseStartedId":"43","testStepId":"32","testStepResult":{"message":"Exception in step","exception":{"type":"Error","message":"Exception in step","stackTrace":"Error: Exception in step\nsamples/retry/retry.feature:18"},"status":"FAILED","duration":{"seconds":0,"nanos":1000000}},"timestamp":{"seconds":0,"nanos":35000000}}}
 {"testCaseFinished":{"testCaseStartedId":"43","timestamp":{"seconds":0,"nanos":36000000},"willBeRetried":false}}
 {"testCaseStarted":{"id":"44","testCaseId":"33","timestamp":{"seconds":0,"nanos":37000000},"attempt":0}}
 {"testStepStarted":{"testCaseStartedId":"44","testStepId":"34","timestamp":{"seconds":0,"nanos":38000000}}}

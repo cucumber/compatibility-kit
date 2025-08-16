@@ -17,7 +17,7 @@
 {"testStepFinished":{"testCaseStartedId":"39","testStepId":"31","testStepResult":{"status":"PASSED","duration":{"seconds":0,"nanos":1000000}},"timestamp":{"seconds":0,"nanos":5000000}}}
 {"testStepStarted":{"testCaseStartedId":"39","testStepId":"32","timestamp":{"seconds":0,"nanos":6000000}}}
 {"attachment":{"testCaseStartedId":"39","testStepId":"32","body":"We are logging some plain text (fail)","contentEncoding":"IDENTITY","mediaType":"text/x.cucumber.log+plain"}}
-{"testStepFinished":{"testCaseStartedId":"39","testStepId":"32","testStepResult":{"message":"Error: You asked me to fail\nsamples/markdown/markdown.feature.md:24","exception":{"type":"Error","message":"You asked me to fail","stackTrace":"samples/markdown/markdown.feature.md:24"},"status":"FAILED","duration":{"seconds":0,"nanos":1000000}},"timestamp":{"seconds":0,"nanos":7000000}}}
+{"testStepFinished":{"testCaseStartedId":"39","testStepId":"32","testStepResult":{"message":"You asked me to fail","exception":{"type":"Error","message":"You asked me to fail","stackTrace":"Error: You asked me to fail\nsamples/markdown/markdown.feature.md:24"},"status":"FAILED","duration":{"seconds":0,"nanos":1000000}},"timestamp":{"seconds":0,"nanos":7000000}}}
 {"testStepStarted":{"testCaseStartedId":"39","testStepId":"33","timestamp":{"seconds":0,"nanos":8000000}}}
 {"testStepFinished":{"testCaseStartedId":"39","testStepId":"33","testStepResult":{"status":"SKIPPED","duration":{"seconds":0,"nanos":0}},"timestamp":{"seconds":0,"nanos":9000000}}}
 {"testCaseFinished":{"testCaseStartedId":"39","timestamp":{"seconds":0,"nanos":10000000},"willBeRetried":false}}

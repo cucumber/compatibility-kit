@@ -209,13 +209,13 @@ export class Runner {
     const sourceFrame = `${sourceReference.uri}:${sourceReference.location?.line}`
     const type = error.name || 'Error'
     const message = error.message
-
+    const stackTrace = type + ': ' + message + '\n' + sourceFrame
     return {
-      message: type + ': ' + message + '\n' + sourceFrame,
+      message,
       exception: {
         type,
         message,
-        stackTrace: sourceFrame,
+        stackTrace,
       },
     }
   }
