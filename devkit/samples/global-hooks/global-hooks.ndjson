@@ -8,14 +8,18 @@
 {"hook":{"id":"8","type":"BEFORE_TEST_RUN","sourceReference":{"uri":"samples/global-hooks/global-hooks.ts","location":{"line":3}}}}
 {"hook":{"id":"11","type":"AFTER_TEST_RUN","sourceReference":{"uri":"samples/global-hooks/global-hooks.ts","location":{"line":15}}}}
 {"testRunStarted":{"id":"12","timestamp":{"seconds":0,"nanos":0}}}
-{"testCase":{"id":"13","pickleId":"5","testSteps":[{"id":"14","pickleStepId":"4","stepDefinitionIds":["9"],"stepMatchArgumentsLists":[{"stepMatchArguments":[]}]}],"testRunStartedId":"12"}}
-{"testCase":{"id":"15","pickleId":"7","testSteps":[{"id":"16","pickleStepId":"6","stepDefinitionIds":["10"],"stepMatchArgumentsLists":[{"stepMatchArguments":[]}]}],"testRunStartedId":"12"}}
-{"testCaseStarted":{"id":"17","testCaseId":"13","timestamp":{"seconds":0,"nanos":1000000},"attempt":0}}
-{"testStepStarted":{"testCaseStartedId":"17","testStepId":"14","timestamp":{"seconds":0,"nanos":2000000}}}
-{"testStepFinished":{"testCaseStartedId":"17","testStepId":"14","testStepResult":{"status":"PASSED","duration":{"seconds":0,"nanos":1000000}},"timestamp":{"seconds":0,"nanos":3000000}}}
-{"testCaseFinished":{"testCaseStartedId":"17","timestamp":{"seconds":0,"nanos":4000000},"willBeRetried":false}}
-{"testCaseStarted":{"id":"18","testCaseId":"15","timestamp":{"seconds":0,"nanos":5000000},"attempt":0}}
-{"testStepStarted":{"testCaseStartedId":"18","testStepId":"16","timestamp":{"seconds":0,"nanos":6000000}}}
-{"testStepFinished":{"testCaseStartedId":"18","testStepId":"16","testStepResult":{"message":"Exception in step","exception":{"type":"Error","message":"Exception in step","stackTrace":"Error: Exception in step\nsamples/global-hooks/global-hooks.feature:8"},"status":"FAILED","duration":{"seconds":0,"nanos":1000000}},"timestamp":{"seconds":0,"nanos":7000000}}}
-{"testCaseFinished":{"testCaseStartedId":"18","timestamp":{"seconds":0,"nanos":8000000},"willBeRetried":false}}
-{"testRunFinished":{"testRunStartedId":"12","timestamp":{"seconds":0,"nanos":9000000},"success":false}}
+{"testRunHookStarted":{"testRunStartedId":"12","id":"13","hookId":"8","timestamp":{"seconds":0,"nanos":1000000}}}
+{"testRunHookFinished":{"testRunHookStartedId":"12","timestamp":{"seconds":0,"nanos":2000000},"result":{"status":"PASSED","duration":{"seconds":0,"nanos":1000000}}}}
+{"testCase":{"id":"14","pickleId":"5","testSteps":[{"id":"15","pickleStepId":"4","stepDefinitionIds":["9"],"stepMatchArgumentsLists":[{"stepMatchArguments":[]}]}],"testRunStartedId":"12"}}
+{"testCase":{"id":"16","pickleId":"7","testSteps":[{"id":"17","pickleStepId":"6","stepDefinitionIds":["10"],"stepMatchArgumentsLists":[{"stepMatchArguments":[]}]}],"testRunStartedId":"12"}}
+{"testCaseStarted":{"id":"18","testCaseId":"14","timestamp":{"seconds":0,"nanos":3000000},"attempt":0}}
+{"testStepStarted":{"testCaseStartedId":"18","testStepId":"15","timestamp":{"seconds":0,"nanos":4000000}}}
+{"testStepFinished":{"testCaseStartedId":"18","testStepId":"15","testStepResult":{"status":"PASSED","duration":{"seconds":0,"nanos":1000000}},"timestamp":{"seconds":0,"nanos":5000000}}}
+{"testCaseFinished":{"testCaseStartedId":"18","timestamp":{"seconds":0,"nanos":6000000},"willBeRetried":false}}
+{"testCaseStarted":{"id":"19","testCaseId":"16","timestamp":{"seconds":0,"nanos":7000000},"attempt":0}}
+{"testStepStarted":{"testCaseStartedId":"19","testStepId":"17","timestamp":{"seconds":0,"nanos":8000000}}}
+{"testStepFinished":{"testCaseStartedId":"19","testStepId":"17","testStepResult":{"message":"Exception in step","exception":{"type":"Error","message":"Exception in step","stackTrace":"Error: Exception in step\nsamples/global-hooks/global-hooks.feature:8"},"status":"FAILED","duration":{"seconds":0,"nanos":1000000}},"timestamp":{"seconds":0,"nanos":9000000}}}
+{"testCaseFinished":{"testCaseStartedId":"19","timestamp":{"seconds":0,"nanos":10000000},"willBeRetried":false}}
+{"testRunHookStarted":{"testRunStartedId":"12","id":"20","hookId":"11","timestamp":{"seconds":0,"nanos":11000000}}}
+{"testRunHookFinished":{"testRunHookStartedId":"12","timestamp":{"seconds":0,"nanos":12000000},"result":{"status":"PASSED","duration":{"seconds":0,"nanos":1000000}}}}
+{"testRunFinished":{"testRunStartedId":"12","timestamp":{"seconds":0,"nanos":13000000},"success":false}}

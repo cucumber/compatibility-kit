@@ -1,8 +1,8 @@
 import {
   AmbiguousError,
   AssembledTestCase,
-  AssembledTestPlan,
   AssembledTestStep,
+  DefinedTestRunHook,
   makeTestPlan,
   SupportCodeLibrary,
   UndefinedError,
@@ -58,9 +58,17 @@ export class Runner {
       },
     })
 
+    for (const hook of this.supportCodeLibrary.getAllBeforeAllHooks()) {
+      await this.executeGlobalHook(hook)
+    }
+
     const testCases = this.makeTestCases()
     for (const testCase of testCases) {
       await this.executeTestCase(testCase)
+    }
+
+    for (const hook of this.supportCodeLibrary.getAllAfterAllHooks()) {
+      await this.executeGlobalHook(hook)
     }
 
     this.onMessage({
@@ -94,6 +102,48 @@ export class Runner {
       .forEach((envelope) => this.onMessage(envelope))
 
     return plans.flatMap((plan) => plan.testCases)
+  }
+
+  private async executeGlobalHook(hook: DefinedTestRunHook) {
+    const testRunHookStartedId = this.newId()
+    this.onMessage({
+      testRunHookStarted: {
+        testRunStartedId: this.testRunStartedId,
+        id: testRunHookStartedId,
+        hookId: hook.id,
+        timestamp: TimeConversion.millisecondsSinceEpochToTimestamp(
+          this.clock.now()
+        ),
+      },
+    })
+
+    let mostOfResult: Omit<TestStepResult, 'duration'> = {
+      status: TestStepResultStatus.PASSED,
+    }
+    const startTime = this.stopwatch.now()
+    try {
+      const { fn } = hook
+      await fn()
+    } catch (error: unknown) {
+      mostOfResult = {
+        ...this.formatError(error as Error, hook.sourceReference),
+        status: TestStepResultStatus.FAILED,
+      }
+    }
+    const endTime = this.stopwatch.now()
+
+    this.onMessage({
+      testRunHookFinished: {
+        testRunHookStartedId: this.testRunStartedId,
+        timestamp: TimeConversion.millisecondsSinceEpochToTimestamp(
+          this.clock.now()
+        ),
+        result: {
+          ...mostOfResult,
+          duration: TimeConversion.millisecondsToDuration(endTime - startTime),
+        },
+      },
+    })
   }
 
   private async executeTestCase(testCase: AssembledTestCase) {
