@@ -67,6 +67,10 @@ export function Then(pattern: string | RegExp, fn: StepFunction) {
   })
 }
 
+export function BeforeAll(options: {}, fn: HookFunction): void {}
+
+export function AfterAll(options: {}, fn: HookFunction): void {}
+
 function makeSourceReference(): SourceReference {
   const error = new Error()
   if (!error.stack) {
