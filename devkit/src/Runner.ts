@@ -3,11 +3,15 @@ import {
   AssembledTestCase,
   AssembledTestPlan,
   AssembledTestStep,
+  makeTestPlan,
+  SupportCodeLibrary,
   UndefinedError,
 } from '@cucumber/core'
 import {
   Envelope,
+  GherkinDocument,
   IdGenerator,
+  Pickle,
   SourceReference,
   TestStepResult,
   TestStepResultStatus,
@@ -26,6 +30,7 @@ const NON_SUCCESS_STATUSES = new Set<TestStepResultStatus>([
 ])
 
 export class Runner {
+  private readonly testRunStartedId: string
   private readonly statuses = new Set<TestStepResultStatus>()
 
   constructor(
@@ -34,9 +39,14 @@ export class Runner {
     private readonly stopwatch: Stopwatch,
     private readonly onMessage: (envelope: Envelope) => void,
     private readonly allowedRetries: number,
-    private readonly testRunStartedId: string,
-    private readonly plans: ReadonlyArray<AssembledTestPlan>
-  ) {}
+    private readonly pickledDocuments: ReadonlyArray<{
+      gherkinDocument: GherkinDocument
+      pickles: ReadonlyArray<Pickle>
+    }>,
+    private readonly supportCodeLibrary: SupportCodeLibrary
+  ) {
+    this.testRunStartedId = this.newId()
+  }
 
   async run() {
     this.onMessage({
@@ -47,11 +57,8 @@ export class Runner {
         ),
       },
     })
-    this.plans
-      .flatMap((plan) => plan.toEnvelopes())
-      .forEach((envelope) => this.onMessage(envelope))
 
-    const testCases = this.plans.flatMap((plan) => plan.testCases)
+    const testCases = this.makeTestCases()
     for (const testCase of testCases) {
       await this.executeTestCase(testCase)
     }
@@ -65,6 +72,28 @@ export class Runner {
         success: this.statuses.isDisjointFrom(NON_SUCCESS_STATUSES),
       },
     })
+  }
+
+  private makeTestCases(): ReadonlyArray<AssembledTestCase> {
+    const plans = this.pickledDocuments.map(({ gherkinDocument, pickles }) =>
+      makeTestPlan(
+        {
+          testRunStartedId: this.testRunStartedId,
+          gherkinDocument,
+          pickles,
+          supportCodeLibrary: this.supportCodeLibrary,
+        },
+        {
+          newId: this.newId,
+        }
+      )
+    )
+
+    plans
+      .flatMap((plan) => plan.toEnvelopes())
+      .forEach((envelope) => this.onMessage(envelope))
+
+    return plans.flatMap((plan) => plan.testCases)
   }
 
   private async executeTestCase(testCase: AssembledTestCase) {
