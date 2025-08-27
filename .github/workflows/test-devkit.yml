@@ -21,3 +21,5 @@ jobs:
           cache-dependency-path: devkit/package-lock.json
       - run: npm install-ci-test
         working-directory: devkit
+      - run: npm run generate
+        working-directory: devkit
