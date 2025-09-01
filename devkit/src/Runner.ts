@@ -67,7 +67,9 @@ export class Runner {
       await this.executeTestCase(testCase)
     }
 
-    for (const hook of this.supportCodeLibrary.getAllAfterAllHooks()) {
+    for (const hook of this.supportCodeLibrary
+      .getAllAfterAllHooks()
+      .toReversed()) {
       await this.executeGlobalHook(hook)
     }
 
