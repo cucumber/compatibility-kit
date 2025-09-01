@@ -209,7 +209,7 @@ export class Runner {
     testCaseStartedId: string
   ) {
     const statuses = new Set<TestStepResultStatus>()
-    const world = new World(this.onMessage, testCaseStartedId)
+    const world = new World(this.clock, this.onMessage, testCaseStartedId)
     let outcomeKnown = false
 
     for (const testStep of testCase.testSteps) {

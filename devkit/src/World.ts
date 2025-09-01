@@ -1,5 +1,10 @@
-import { AttachmentContentEncoding, Envelope } from '@cucumber/messages'
+import {
+  AttachmentContentEncoding,
+  Envelope,
+  TimeConversion,
+} from '@cucumber/messages'
 import { Readable } from 'stream'
+import { Clock } from './Clock'
 
 const LOG_MEDIA_TYPE = 'text/x.cucumber.log+plain'
 const LINK_MEDIA_TYPE = 'text/uri-list'
@@ -8,6 +13,7 @@ export class World {
   public testStepId: string | undefined
 
   constructor(
+    private readonly clock: Clock,
     private readonly onMessage: (envelope: Envelope) => void,
     private readonly testCaseStartedId: string
   ) {}
@@ -50,6 +56,9 @@ export class World {
         contentEncoding,
         mediaType: options.mediaType,
         fileName: options.fileName,
+        timestamp: TimeConversion.millisecondsSinceEpochToTimestamp(
+          this.clock.now()
+        ),
       },
     })
   }
