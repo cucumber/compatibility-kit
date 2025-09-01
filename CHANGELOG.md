@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 ### Added
 - [Devkit] Add scenario with non-trivial regular expression ([#151](https://github.com/cucumber/compatibility-kit/pull/151))
+- [Devkit] Add samples for global hooks ([#147](https://github.com/cucumber/compatibility-kit/pull/147))
 
 ## [20.1.0] - 2025-08-16
 ### Changed
