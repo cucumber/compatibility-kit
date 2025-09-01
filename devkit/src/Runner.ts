@@ -1,13 +1,17 @@
 import {
   AmbiguousError,
   AssembledTestCase,
-  AssembledTestPlan,
   AssembledTestStep,
+  DefinedTestRunHook,
+  makeTestPlan,
+  SupportCodeLibrary,
   UndefinedError,
 } from '@cucumber/core'
 import {
   Envelope,
+  GherkinDocument,
   IdGenerator,
+  Pickle,
   SourceReference,
   TestStepResult,
   TestStepResultStatus,
@@ -26,6 +30,7 @@ const NON_SUCCESS_STATUSES = new Set<TestStepResultStatus>([
 ])
 
 export class Runner {
+  private readonly testRunStartedId: string
   private readonly statuses = new Set<TestStepResultStatus>()
 
   constructor(
@@ -34,11 +39,41 @@ export class Runner {
     private readonly stopwatch: Stopwatch,
     private readonly onMessage: (envelope: Envelope) => void,
     private readonly allowedRetries: number,
-    private readonly testRunStartedId: string,
-    private readonly plans: ReadonlyArray<AssembledTestPlan>
-  ) {}
+    private readonly pickledDocuments: ReadonlyArray<{
+      gherkinDocument: GherkinDocument
+      pickles: ReadonlyArray<Pickle>
+    }>,
+    private readonly supportCodeLibrary: SupportCodeLibrary
+  ) {
+    this.testRunStartedId = this.newId()
+  }
 
   async run() {
+    this.markTestRunStarted()
+
+    for (const hook of this.supportCodeLibrary.getAllBeforeAllHooks()) {
+      if (!(await this.executeGlobalHook(hook))) {
+        return this.markTestRunFinished()
+      }
+    }
+
+    const testCases = this.makeTestCases()
+    for (const testCase of testCases) {
+      await this.executeTestCase(testCase)
+    }
+
+    for (const hook of this.supportCodeLibrary
+      .getAllAfterAllHooks()
+      .toReversed()) {
+      if (!(await this.executeGlobalHook(hook))) {
+        return this.markTestRunFinished()
+      }
+    }
+
+    this.markTestRunFinished()
+  }
+
+  private markTestRunStarted() {
     this.onMessage({
       testRunStarted: {
         id: this.testRunStartedId,
@@ -47,15 +82,9 @@ export class Runner {
         ),
       },
     })
-    this.plans
-      .flatMap((plan) => plan.toEnvelopes())
-      .forEach((envelope) => this.onMessage(envelope))
+  }
 
-    const testCases = this.plans.flatMap((plan) => plan.testCases)
-    for (const testCase of testCases) {
-      await this.executeTestCase(testCase)
-    }
-
+  private markTestRunFinished() {
     this.onMessage({
       testRunFinished: {
         testRunStartedId: this.testRunStartedId,
@@ -65,6 +94,74 @@ export class Runner {
         success: this.statuses.isDisjointFrom(NON_SUCCESS_STATUSES),
       },
     })
+  }
+
+  private makeTestCases(): ReadonlyArray<AssembledTestCase> {
+    const plans = this.pickledDocuments.map(({ gherkinDocument, pickles }) =>
+      makeTestPlan(
+        {
+          testRunStartedId: this.testRunStartedId,
+          gherkinDocument,
+          pickles,
+          supportCodeLibrary: this.supportCodeLibrary,
+        },
+        {
+          newId: this.newId,
+        }
+      )
+    )
+
+    plans
+      .flatMap((plan) => plan.toEnvelopes())
+      .forEach((envelope) => this.onMessage(envelope))
+
+    return plans.flatMap((plan) => plan.testCases)
+  }
+
+  private async executeGlobalHook(hook: DefinedTestRunHook): Promise<boolean> {
+    const testRunHookStartedId = this.newId()
+    this.onMessage({
+      testRunHookStarted: {
+        testRunStartedId: this.testRunStartedId,
+        id: testRunHookStartedId,
+        hookId: hook.id,
+        timestamp: TimeConversion.millisecondsSinceEpochToTimestamp(
+          this.clock.now()
+        ),
+      },
+    })
+
+    let mostOfResult: Omit<TestStepResult, 'duration'> = {
+      status: TestStepResultStatus.PASSED,
+    }
+    const startTime = this.stopwatch.now()
+    try {
+      const { fn } = hook
+      await fn()
+    } catch (error: unknown) {
+      mostOfResult = {
+        ...this.formatError(error as Error, hook.sourceReference),
+        status: TestStepResultStatus.FAILED,
+      }
+    }
+    const endTime = this.stopwatch.now()
+
+    this.onMessage({
+      testRunHookFinished: {
+        testRunHookStartedId: this.testRunStartedId,
+        timestamp: TimeConversion.millisecondsSinceEpochToTimestamp(
+          this.clock.now()
+        ),
+        result: {
+          ...mostOfResult,
+          duration: TimeConversion.millisecondsToDuration(endTime - startTime),
+        },
+      },
+    })
+
+    this.statuses.add(mostOfResult.status)
+
+    return mostOfResult.status === TestStepResultStatus.PASSED
   }
 
   private async executeTestCase(testCase: AssembledTestCase) {
