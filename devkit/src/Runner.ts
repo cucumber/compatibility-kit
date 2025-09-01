@@ -52,7 +52,10 @@ export class Runner {
     this.markTestRunStarted()
 
     for (const hook of this.supportCodeLibrary.getAllBeforeAllHooks()) {
-      await this.executeGlobalHook(hook)
+      if (!(await this.executeGlobalHook(hook))) {
+        this.markTestRunFinished()
+        return
+      }
     }
 
     const testCases = this.makeTestCases()
@@ -114,7 +117,7 @@ export class Runner {
     return plans.flatMap((plan) => plan.testCases)
   }
 
-  private async executeGlobalHook(hook: DefinedTestRunHook) {
+  private async executeGlobalHook(hook: DefinedTestRunHook): Promise<boolean> {
     const testRunHookStartedId = this.newId()
     this.onMessage({
       testRunHookStarted: {
@@ -156,6 +159,8 @@ export class Runner {
     })
 
     this.statuses.add(mostOfResult.status)
+
+    return mostOfResult.status === TestStepResultStatus.PASSED
   }
 
   private async executeTestCase(testCase: AssembledTestCase) {
