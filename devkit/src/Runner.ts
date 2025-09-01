@@ -49,14 +49,7 @@ export class Runner {
   }
 
   async run() {
-    this.onMessage({
-      testRunStarted: {
-        id: this.testRunStartedId,
-        timestamp: TimeConversion.millisecondsSinceEpochToTimestamp(
-          this.clock.now()
-        ),
-      },
-    })
+    this.markTestRunStarted()
 
     for (const hook of this.supportCodeLibrary.getAllBeforeAllHooks()) {
       await this.executeGlobalHook(hook)
@@ -73,6 +66,21 @@ export class Runner {
       await this.executeGlobalHook(hook)
     }
 
+    this.markTestRunFinished()
+  }
+
+  private markTestRunStarted() {
+    this.onMessage({
+      testRunStarted: {
+        id: this.testRunStartedId,
+        timestamp: TimeConversion.millisecondsSinceEpochToTimestamp(
+          this.clock.now()
+        ),
+      },
+    })
+  }
+
+  private markTestRunFinished() {
     this.onMessage({
       testRunFinished: {
         testRunStartedId: this.testRunStartedId,
@@ -146,6 +154,8 @@ export class Runner {
         },
       },
     })
+
+    this.statuses.add(mostOfResult.status)
   }
 
   private async executeTestCase(testCase: AssembledTestCase) {

@@ -24,4 +24,4 @@
 {"testRunHookFinished":{"testRunHookStartedId":"10","timestamp":{"seconds":0,"nanos":12000000},"result":{"status":"PASSED","duration":{"seconds":0,"nanos":1000000}}}}
 {"testRunHookStarted":{"testRunStartedId":"10","id":"18","hookId":"8","timestamp":{"seconds":0,"nanos":13000000}}}
 {"testRunHookFinished":{"testRunHookStartedId":"10","timestamp":{"seconds":0,"nanos":14000000},"result":{"status":"PASSED","duration":{"seconds":0,"nanos":1000000}}}}
-{"testRunFinished":{"testRunStartedId":"10","timestamp":{"seconds":0,"nanos":15000000},"success":true}}
+{"testRunFinished":{"testRunStartedId":"10","timestamp":{"seconds":0,"nanos":15000000},"success":false}}
