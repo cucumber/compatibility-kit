@@ -53,8 +53,7 @@ export class Runner {
 
     for (const hook of this.supportCodeLibrary.getAllBeforeAllHooks()) {
       if (!(await this.executeGlobalHook(hook))) {
-        this.markTestRunFinished()
-        return
+        return this.markTestRunFinished()
       }
     }
 
@@ -66,7 +65,9 @@ export class Runner {
     for (const hook of this.supportCodeLibrary
       .getAllAfterAllHooks()
       .toReversed()) {
-      await this.executeGlobalHook(hook)
+      if (!(await this.executeGlobalHook(hook))) {
+        return this.markTestRunFinished()
+      }
     }
 
     this.markTestRunFinished()
