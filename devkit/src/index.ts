@@ -1,4 +1,8 @@
-import { NewHook, NewParameterType } from '@cucumber/core'
+import {
+  NewTestCaseHook,
+  NewParameterType,
+  NewTestRunHook,
+} from '@cucumber/core'
 import { SourceReference } from '@cucumber/messages'
 import StackUtils from 'stack-utils'
 
@@ -22,7 +26,7 @@ export function ParameterType(
 }
 
 export function Before(
-  options: Omit<NewHook, 'fn' | 'sourceReference'>,
+  options: Omit<NewTestCaseHook, 'fn' | 'sourceReference'>,
   fn: HookFunction
 ): void {
   state.coreBuilder.beforeHook({
@@ -33,7 +37,7 @@ export function Before(
 }
 
 export function After(
-  options: Omit<NewHook, 'fn' | 'sourceReference'>,
+  options: Omit<NewTestCaseHook, 'fn' | 'sourceReference'>,
   fn: HookFunction
 ): void {
   state.coreBuilder.afterHook({
@@ -62,6 +66,28 @@ export function When(pattern: string | RegExp, fn: StepFunction) {
 export function Then(pattern: string | RegExp, fn: StepFunction) {
   state.coreBuilder.step({
     pattern,
+    fn,
+    sourceReference: makeSourceReference(),
+  })
+}
+
+export function BeforeAll(
+  options: Omit<NewTestRunHook, 'fn' | 'sourceReference'>,
+  fn: HookFunction
+): void {
+  state.coreBuilder.beforeAllHook({
+    ...options,
+    fn,
+    sourceReference: makeSourceReference(),
+  })
+}
+
+export function AfterAll(
+  options: Omit<NewTestRunHook, 'fn' | 'sourceReference'>,
+  fn: HookFunction
+): void {
+  state.coreBuilder.afterAllHook({
+    ...options,
     fn,
     sourceReference: makeSourceReference(),
   })

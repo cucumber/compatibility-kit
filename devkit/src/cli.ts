@@ -35,29 +35,14 @@ async function main() {
   const pickledDocuments = await loadSources(newId, paths, onMessage)
   const supportCodeLibrary = await loadSupport(newId, paths, onMessage)
 
-  const testRunStartedId = newId()
-  const plans = pickledDocuments.map(({ gherkinDocument, pickles }) =>
-    makeTestPlan(
-      {
-        testRunStartedId,
-        gherkinDocument,
-        pickles,
-        supportCodeLibrary,
-      },
-      {
-        newId,
-      }
-    )
-  )
-
   await new Runner(
     newId,
     clock,
     stopwatch,
     onMessage,
     allowedRetries,
-    testRunStartedId,
-    plans
+    pickledDocuments,
+    supportCodeLibrary
   ).run()
 }
 
