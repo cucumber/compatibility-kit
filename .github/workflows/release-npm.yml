@@ -16,14 +16,14 @@ jobs:
     environment: Release
     steps:
       - uses: actions/checkout@v5
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           cache: "npm"
           cache-dependency-path: devkit/package-lock.json
       - name: Copy the samples to javascript/features
         run: npm ci && npm run copy-to:javascript
         working-directory: devkit
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           node-version: "22"
           cache: "npm"
