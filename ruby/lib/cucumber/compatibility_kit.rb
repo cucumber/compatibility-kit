@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-# CucumberCompatibilityKit contains a series of helper methods to determine paths for each relevant item(s)
-class CucumberCompatibilityKit
+# CompatibilityKit contains a series of helper methods to determine paths for each relevant item(s)
+class CompatibilityKit
   class << self
     # Return the paths for each example that is of 'gherkin' type
     def gherkin
@@ -37,7 +37,7 @@ class CucumberCompatibilityKit
     private
 
     def cck_features_folder_location
-      File.expand_path("#{File.dirname(__FILE__)}/../features/")
+      File.expand_path("#{File.dirname(__FILE__)}/../../features/")
     end
 
     def gherkin_example?(example_folder)

@@ -27,13 +27,13 @@ Then add a spec that could look like this:
 
 ```ruby
 # spec/my_compatibility_checks_spec.rb
-require 'cucumber_compatibility_kit'
+require 'cucumber/compatibility_kit'
 
-describe 'Cucumber Compatibility Kit', type: :feature do
+describe Cucumber::CompatibilityKit, type: :feature do
   let(:cucumber_command) { 'bundle exec cucumber --publish-quiet --profile none --format message' }
 
   # Don't run the retry or skipped CCK Examples (For whatever reason)
-  examples = CucumberCompatibilityKit.gherkin.reject { |example| example == 'retry' || example == 'skipped' }
+  examples = Cucumber::CompatibilityKit.gherkin.reject { |example| example == 'retry' || example == 'skipped' }
 
   examples.each do |example_name|
     describe "'#{example_name}' example" do

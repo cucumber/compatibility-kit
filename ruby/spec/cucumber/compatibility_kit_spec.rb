@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require 'cucumber_compatibility_kit'
+require 'cucumber/compatibility_kit'
 
-describe CucumberCompatibilityKit do
-  let(:features_path) { File.expand_path("#{File.dirname(__FILE__)}/../features") }
+describe CompatibilityKit do
+  let(:features_path) { File.expand_path("#{File.dirname(__FILE__)}/../../features") }
 
   describe '.feature_code_for' do
     context 'with an example that exists' do
