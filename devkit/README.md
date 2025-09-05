@@ -6,7 +6,7 @@ been changed.
 
 ## Getting Started
 
-You'll need [Node.js](https://nodejs.org/), specifically the active LTS version or higher.
+You'll need [Node.js](https://nodejs.org/), specifically LTS 22 or higher.
 
 As any npm project, you first need to run `npm install`. To make sure everything
 is going well, run `npm test`.
@@ -71,4 +71,3 @@ The npm scripts available are:
 
 - `test`: re-run the message generation with fake-cucumber, ensure the emitted messages still match the samples and validate against the schema
 - `generate`: re-run the message generation with fake-cucumber, overwrite the samples with the emitted messages, validate against the schema, and copy the updated samples to the language-specific packages.
-
