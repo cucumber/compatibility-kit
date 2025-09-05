@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Added
+- [Devkit] Add samples for backgrounds ([#160](https://github.com/cucumber/compatibility-kit/pull/160))
 
 ## [21.0.0] - 2025-09-01
 ### Added
