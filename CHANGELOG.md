@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - [Devkit] Add sample for global hooks attachments ([#162](https://github.com/cucumber/compatibility-kit/pull/162))
 
+### Changed
+- [Devkit] Update global hooks behaviour ([#155](https://github.com/cucumber/compatibility-kit/pull/155))
+
 ## [21.0.0] - 2025-09-01
 ### Added
 - [Devkit] Add scenario with non-trivial regular expression ([#151](https://github.com/cucumber/compatibility-kit/pull/151))
