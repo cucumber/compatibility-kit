@@ -26,7 +26,7 @@
   "homepage": "https://github.com/cucumber/compatibility-kit#readme",
   "dependencies": {
     "@cucumber/ci-environment": "^10.0.1",
-    "@cucumber/core": "^0.4.0",
+    "@cucumber/core": "^0.4.1",
     "@cucumber/cucumber-expressions": "^18.0.0",
     "@cucumber/fake-cucumber": "file:./",
     "@cucumber/gherkin": "^34.0.0",
