@@ -17,6 +17,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Changed
 - [Devkit] Update global hooks behaviour ([#155](https://github.com/cucumber/compatibility-kit/pull/155))
+- [Ruby] Minimum ruby version is now bumped from `3.0` to `3.1`
+- [Ruby] **Breaking change** altered namespacing (Updated README to reflect new structure)
 
 ## [21.0.0] - 2025-09-01
 ### Added
