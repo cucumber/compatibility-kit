@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Added
+- Add sample for unused steps ([#158](https://github.com/cucumber/compatibility-kit/pull/158))
 
 ## [21.0.0] - 2025-09-01
 ### Added
