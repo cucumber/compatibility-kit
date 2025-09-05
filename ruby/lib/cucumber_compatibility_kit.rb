@@ -37,7 +37,7 @@ class CucumberCompatibilityKit
     private
 
     def cck_features_folder_location
-      File.expand_path("#{File.dirname(__FILE__)}/../../features/")
+      File.expand_path("#{File.dirname(__FILE__)}/../features/")
     end
 
     def gherkin_example?(example_folder)
