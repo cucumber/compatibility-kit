@@ -7,5 +7,14 @@
 {"hook":{"id":"6","type":"AFTER_TEST_RUN","sourceReference":{"uri":"samples/global-hooks-attachments/global-hooks-attachments.ts","location":{"line":11}}}}
 {"testRunStarted":{"id":"7","timestamp":{"seconds":0,"nanos":0}}}
 {"testRunHookStarted":{"testRunStartedId":"7","id":"8","hookId":"4","timestamp":{"seconds":0,"nanos":1000000}}}
-{"testRunHookFinished":{"testRunHookStartedId":"7","timestamp":{"seconds":0,"nanos":2000000},"result":{"message":"this.attach is not a function","exception":{"type":"TypeError","message":"this.attach is not a function","stackTrace":"TypeError: this.attach is not a function\nsamples/global-hooks-attachments/global-hooks-attachments.ts:3"},"status":"FAILED","duration":{"seconds":0,"nanos":1000000}}}}
-{"testRunFinished":{"testRunStartedId":"7","timestamp":{"seconds":0,"nanos":3000000},"success":false}}
+{"attachment":{"testRunHookStartedId":"8","body":"Attachment from BeforeAll hook","contentEncoding":"IDENTITY","mediaType":"text/plain","timestamp":{"seconds":0,"nanos":2000000}}}
+{"testRunHookFinished":{"testRunHookStartedId":"7","timestamp":{"seconds":0,"nanos":3000000},"result":{"status":"PASSED","duration":{"seconds":0,"nanos":1000000}}}}
+{"testCase":{"id":"9","pickleId":"3","testSteps":[{"id":"10","pickleStepId":"2","stepDefinitionIds":["5"],"stepMatchArgumentsLists":[{"stepMatchArguments":[]}]}],"testRunStartedId":"7"}}
+{"testCaseStarted":{"id":"11","testCaseId":"9","timestamp":{"seconds":0,"nanos":4000000},"attempt":0}}
+{"testStepStarted":{"testCaseStartedId":"11","testStepId":"10","timestamp":{"seconds":0,"nanos":5000000}}}
+{"testStepFinished":{"testCaseStartedId":"11","testStepId":"10","testStepResult":{"status":"PASSED","duration":{"seconds":0,"nanos":1000000}},"timestamp":{"seconds":0,"nanos":6000000}}}
+{"testCaseFinished":{"testCaseStartedId":"11","timestamp":{"seconds":0,"nanos":7000000},"willBeRetried":false}}
+{"testRunHookStarted":{"testRunStartedId":"7","id":"12","hookId":"6","timestamp":{"seconds":0,"nanos":8000000}}}
+{"attachment":{"testRunHookStartedId":"12","body":"Attachment from AfterAll hook","contentEncoding":"IDENTITY","mediaType":"text/plain","timestamp":{"seconds":0,"nanos":9000000}}}
+{"testRunHookFinished":{"testRunHookStartedId":"7","timestamp":{"seconds":0,"nanos":10000000},"result":{"status":"PASSED","duration":{"seconds":0,"nanos":1000000}}}}
+{"testRunFinished":{"testRunStartedId":"7","timestamp":{"seconds":0,"nanos":11000000},"success":true}}
