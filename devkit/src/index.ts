@@ -1,6 +1,6 @@
 import {
-  NewTestCaseHook,
   NewParameterType,
+  NewTestCaseHook,
   NewTestRunHook,
 } from '@cucumber/core'
 import { SourceReference } from '@cucumber/messages'

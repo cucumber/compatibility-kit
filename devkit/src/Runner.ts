@@ -21,6 +21,7 @@ import {
 import { Clock } from './Clock'
 import { Stopwatch } from './Stopwatch'
 import { World } from './World'
+import { GlobalContext } from './GlobalContext'
 
 const NON_SUCCESS_STATUSES = new Set<TestStepResultStatus>([
   TestStepResultStatus.PENDING,
@@ -52,22 +53,21 @@ export class Runner {
     this.markTestRunStarted()
 
     for (const hook of this.supportCodeLibrary.getAllBeforeAllHooks()) {
-      if (!(await this.executeGlobalHook(hook))) {
-        return this.markTestRunFinished()
-      }
+      await this.executeGlobalHook(hook)
     }
 
-    const testCases = this.makeTestCases()
-    for (const testCase of testCases) {
-      await this.executeTestCase(testCase)
+    // only run tests if no failures from BeforeAll hooks
+    if (this.statuses.isDisjointFrom(NON_SUCCESS_STATUSES)) {
+      const testCases = this.makeTestCases()
+      for (const testCase of testCases) {
+        await this.executeTestCase(testCase)
+      }
     }
 
     for (const hook of this.supportCodeLibrary
       .getAllAfterAllHooks()
       .toReversed()) {
-      if (!(await this.executeGlobalHook(hook))) {
-        return this.markTestRunFinished()
-      }
+      await this.executeGlobalHook(hook)
     }
 
     this.markTestRunFinished()
@@ -118,8 +118,14 @@ export class Runner {
     return plans.flatMap((plan) => plan.testCases)
   }
 
-  private async executeGlobalHook(hook: DefinedTestRunHook): Promise<boolean> {
+  private async executeGlobalHook(hook: DefinedTestRunHook): Promise<void> {
     const testRunHookStartedId = this.newId()
+    const context = new GlobalContext(
+      this.clock,
+      this.onMessage,
+      testRunHookStartedId
+    )
+
     this.onMessage({
       testRunHookStarted: {
         testRunStartedId: this.testRunStartedId,
@@ -137,7 +143,7 @@ export class Runner {
     const startTime = this.stopwatch.now()
     try {
       const { fn } = hook
-      await fn()
+      await fn.call(context)
     } catch (error: unknown) {
       mostOfResult = {
         ...this.formatError(error as Error, hook.sourceReference),
@@ -160,8 +166,6 @@ export class Runner {
     })
 
     this.statuses.add(mostOfResult.status)
-
-    return mostOfResult.status === TestStepResultStatus.PASSED
   }
 
   private async executeTestCase(testCase: AssembledTestCase) {

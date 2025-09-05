@@ -1,6 +1,5 @@
 import { parseArgs } from 'node:util'
 
-import { makeTestPlan } from '@cucumber/core'
 import { MessageToNdjsonStream } from '@cucumber/message-streams'
 import { Envelope, IdGenerator } from '@cucumber/messages'
 
