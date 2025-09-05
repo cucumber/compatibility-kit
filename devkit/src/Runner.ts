@@ -283,6 +283,7 @@ export class Runner {
         return {
           status: TestStepResultStatus.AMBIGUOUS,
           duration: TimeConversion.millisecondsToDuration(0),
+          message: error.message,
         }
       } else if (error instanceof UndefinedError) {
         return {
