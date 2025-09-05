@@ -1,9 +1,9 @@
 import { Given } from '@cucumber/fake-cucumber'
 
-Given('a step with multiple definitions', function () {
+Given(/a (.*?) with (.*?)/, function () {
   // first one
 })
 
-Given('a step with multiple definitions', function () {
+Given(/a step with (.*)/, function () {
   // second one
 })
