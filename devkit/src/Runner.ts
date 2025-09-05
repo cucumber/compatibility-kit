@@ -21,6 +21,7 @@ import {
 import { Clock } from './Clock'
 import { Stopwatch } from './Stopwatch'
 import { World } from './World'
+import { GlobalContext } from './GlobalContext'
 
 const NON_SUCCESS_STATUSES = new Set<TestStepResultStatus>([
   TestStepResultStatus.PENDING,
@@ -28,6 +29,11 @@ const NON_SUCCESS_STATUSES = new Set<TestStepResultStatus>([
   TestStepResultStatus.AMBIGUOUS,
   TestStepResultStatus.FAILED,
 ])
+
+export type RunnerOptions = {
+  allowedRetries: number
+  order: string
+}
 
 export class Runner {
   private readonly testRunStartedId: string
@@ -38,7 +44,7 @@ export class Runner {
     private readonly clock: Clock,
     private readonly stopwatch: Stopwatch,
     private readonly onMessage: (envelope: Envelope) => void,
-    private readonly allowedRetries: number,
+    private readonly options: RunnerOptions,
     private readonly pickledDocuments: ReadonlyArray<{
       gherkinDocument: GherkinDocument
       pickles: ReadonlyArray<Pickle>
@@ -52,22 +58,21 @@ export class Runner {
     this.markTestRunStarted()
 
     for (const hook of this.supportCodeLibrary.getAllBeforeAllHooks()) {
-      if (!(await this.executeGlobalHook(hook))) {
-        return this.markTestRunFinished()
-      }
+      await this.executeGlobalHook(hook)
     }
 
-    const testCases = this.makeTestCases()
-    for (const testCase of testCases) {
-      await this.executeTestCase(testCase)
+    // only run tests if no failures from BeforeAll hooks
+    if (this.statuses.isDisjointFrom(NON_SUCCESS_STATUSES)) {
+      const testCases = this.makeTestCases()
+      for (const testCase of testCases) {
+        await this.executeTestCase(testCase)
+      }
     }
 
     for (const hook of this.supportCodeLibrary
       .getAllAfterAllHooks()
       .toReversed()) {
-      if (!(await this.executeGlobalHook(hook))) {
-        return this.markTestRunFinished()
-      }
+      await this.executeGlobalHook(hook)
     }
 
     this.markTestRunFinished()
@@ -97,7 +102,9 @@ export class Runner {
   }
 
   private makeTestCases(): ReadonlyArray<AssembledTestCase> {
-    const plans = this.pickledDocuments.map(({ gherkinDocument, pickles }) =>
+    const reordered = this.reorderPickledDocuments()
+
+    const plans = reordered.map(({ gherkinDocument, pickles }) =>
       makeTestPlan(
         {
           testRunStartedId: this.testRunStartedId,
@@ -118,8 +125,30 @@ export class Runner {
     return plans.flatMap((plan) => plan.testCases)
   }
 
-  private async executeGlobalHook(hook: DefinedTestRunHook): Promise<boolean> {
+  private reorderPickledDocuments() {
+    switch (this.options.order) {
+      case 'reverse':
+        return this.pickledDocuments
+          .toReversed()
+          .map(({ gherkinDocument, pickles }) => {
+            return {
+              gherkinDocument,
+              pickles: pickles.toReversed(),
+            }
+          })
+      default:
+        return this.pickledDocuments
+    }
+  }
+
+  private async executeGlobalHook(hook: DefinedTestRunHook): Promise<void> {
     const testRunHookStartedId = this.newId()
+    const context = new GlobalContext(
+      this.clock,
+      this.onMessage,
+      testRunHookStartedId
+    )
+
     this.onMessage({
       testRunHookStarted: {
         testRunStartedId: this.testRunStartedId,
@@ -137,7 +166,7 @@ export class Runner {
     const startTime = this.stopwatch.now()
     try {
       const { fn } = hook
-      await fn()
+      await fn.call(context)
     } catch (error: unknown) {
       mostOfResult = {
         ...this.formatError(error as Error, hook.sourceReference),
@@ -160,12 +189,10 @@ export class Runner {
     })
 
     this.statuses.add(mostOfResult.status)
-
-    return mostOfResult.status === TestStepResultStatus.PASSED
   }
 
   private async executeTestCase(testCase: AssembledTestCase) {
-    const allowedAttempts = this.allowedRetries + 1
+    const allowedAttempts = this.options.allowedRetries + 1
     let statuses = new Set<TestStepResultStatus>()
 
     for (let attempt = 1; attempt <= allowedAttempts; attempt++) {
