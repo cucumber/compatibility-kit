@@ -1,23 +1,19 @@
 import { Envelope } from '@cucumber/messages'
-
 import { Clock } from './Clock'
 import { ExecutionContext } from './ExecutionContext'
 
-export class World extends ExecutionContext {
-  public testStepId: string | undefined
-
+export class GlobalContext extends ExecutionContext {
   constructor(
     clock: Clock,
     onMessage: (envelope: Envelope) => void,
-    private readonly testCaseStartedId: string
+    private readonly testRunHookStartedId: string
   ) {
     super(clock, onMessage)
   }
 
   makeAttachmentRelations() {
     return {
-      testCaseStartedId: this.testCaseStartedId,
-      testStepId: this.testStepId,
+      testRunHookStartedId: this.testRunHookStartedId,
     }
   }
 }
