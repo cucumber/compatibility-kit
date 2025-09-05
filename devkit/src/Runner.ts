@@ -30,6 +30,11 @@ const NON_SUCCESS_STATUSES = new Set<TestStepResultStatus>([
   TestStepResultStatus.FAILED,
 ])
 
+export type RunnerOptions = {
+  allowedRetries: number
+  order: string
+}
+
 export class Runner {
   private readonly testRunStartedId: string
   private readonly statuses = new Set<TestStepResultStatus>()
@@ -39,7 +44,7 @@ export class Runner {
     private readonly clock: Clock,
     private readonly stopwatch: Stopwatch,
     private readonly onMessage: (envelope: Envelope) => void,
-    private readonly allowedRetries: number,
+    private readonly options: RunnerOptions,
     private readonly pickledDocuments: ReadonlyArray<{
       gherkinDocument: GherkinDocument
       pickles: ReadonlyArray<Pickle>
@@ -97,7 +102,9 @@ export class Runner {
   }
 
   private makeTestCases(): ReadonlyArray<AssembledTestCase> {
-    const plans = this.pickledDocuments.map(({ gherkinDocument, pickles }) =>
+    const reordered = this.reorderPickledDocuments()
+
+    const plans = reordered.map(({ gherkinDocument, pickles }) =>
       makeTestPlan(
         {
           testRunStartedId: this.testRunStartedId,
@@ -116,6 +123,22 @@ export class Runner {
       .forEach((envelope) => this.onMessage(envelope))
 
     return plans.flatMap((plan) => plan.testCases)
+  }
+
+  private reorderPickledDocuments() {
+    switch (this.options.order) {
+      case 'reverse':
+        return this.pickledDocuments
+          .toReversed()
+          .map(({ gherkinDocument, pickles }) => {
+            return {
+              gherkinDocument,
+              pickles: pickles.toReversed(),
+            }
+          })
+      default:
+        return this.pickledDocuments
+    }
   }
 
   private async executeGlobalHook(hook: DefinedTestRunHook): Promise<void> {
@@ -169,7 +192,7 @@ export class Runner {
   }
 
   private async executeTestCase(testCase: AssembledTestCase) {
-    const allowedAttempts = this.allowedRetries + 1
+    const allowedAttempts = this.options.allowedRetries + 1
     let statuses = new Set<TestStepResultStatus>()
 
     for (let attempt = 1; attempt <= allowedAttempts; attempt++) {

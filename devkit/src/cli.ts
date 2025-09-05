@@ -13,6 +13,9 @@ import { Stopwatch } from './Stopwatch'
 async function main() {
   const { positionals: paths, values } = parseArgs({
     options: {
+      order: {
+        type: 'string',
+      },
       retry: {
         type: 'string',
       },
@@ -21,6 +24,8 @@ async function main() {
     strict: false,
   })
   const allowedRetries = Number(values['retry'] ?? 0)
+  const order =
+    typeof values['order'] === 'string' ? values['order'] : 'defined'
 
   const newId = IdGenerator.incrementing()
   const clock = new Clock()
@@ -39,7 +44,10 @@ async function main() {
     clock,
     stopwatch,
     onMessage,
-    allowedRetries,
+    {
+      allowedRetries,
+      order,
+    },
     pickledDocuments,
     supportCodeLibrary
   ).run()
