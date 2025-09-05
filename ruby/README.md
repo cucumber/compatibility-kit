@@ -27,7 +27,7 @@ Then add a spec that could look like this:
 
 ```ruby
 # spec/my_compatibility_checks_spec.rb
-require 'cucumber-compatibility-kit'
+require 'cucumber_compatibility_kit'
 
 describe 'Cucumber Compatibility Kit', type: :feature do
   let(:cucumber_command) { 'bundle exec cucumber --publish-quiet --profile none --format message' }
