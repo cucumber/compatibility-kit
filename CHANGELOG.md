@@ -6,6 +6,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Added
+- [Devkit] Add sample with multiple features ([#161](https://github.com/cucumber/compatibility-kit/pull/161))
+- [Devkit] Add sample with reversed execution order ([#161](https://github.com/cucumber/compatibility-kit/pull/161))
 
 ## [21.0.0] - 2025-09-01
 ### Added
