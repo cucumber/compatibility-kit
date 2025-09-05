@@ -21,6 +21,7 @@ import {
 import { Clock } from './Clock'
 import { Stopwatch } from './Stopwatch'
 import { World } from './World'
+import { GlobalContext } from './GlobalContext'
 
 const NON_SUCCESS_STATUSES = new Set<TestStepResultStatus>([
   TestStepResultStatus.PENDING,
@@ -119,6 +120,12 @@ export class Runner {
 
   private async executeGlobalHook(hook: DefinedTestRunHook): Promise<void> {
     const testRunHookStartedId = this.newId()
+    const context = new GlobalContext(
+      this.clock,
+      this.onMessage,
+      testRunHookStartedId
+    )
+
     this.onMessage({
       testRunHookStarted: {
         testRunStartedId: this.testRunStartedId,
@@ -136,7 +143,7 @@ export class Runner {
     const startTime = this.stopwatch.now()
     try {
       const { fn } = hook
-      await fn()
+      await fn.call(context)
     } catch (error: unknown) {
       mostOfResult = {
         ...this.formatError(error as Error, hook.sourceReference),
