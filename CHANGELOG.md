@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [22.0.0] - 2025-09-06
 ### Added
 - [Devkit] Add sample for global hooks attachments ([#162](https://github.com/cucumber/compatibility-kit/pull/162))
 - [Devkit] Add sample for doc strings ([#157](https://github.com/cucumber/compatibility-kit/pull/157))
@@ -276,7 +278,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - First release
 
-[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v21.0.0...HEAD
+[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v22.0.0...HEAD
+[22.0.0]: https://github.com/cucumber/compatibility-kit/compare/v21.0.0...v22.0.0
 [21.0.0]: https://github.com/cucumber/compatibility-kit/compare/v20.1.0...v21.0.0
 [20.1.0]: https://github.com/cucumber/compatibility-kit/compare/v20.0.0...v20.1.0
 [20.0.0]: https://github.com/cucumber/compatibility-kit/compare/v19.0.0...v20.0.0
