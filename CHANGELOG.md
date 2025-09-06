@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - [Devkit] Add samples for backgrounds ([#160](https://github.com/cucumber/compatibility-kit/pull/160))
 - [Devkit] Add sample with multiple features ([#161](https://github.com/cucumber/compatibility-kit/pull/161))
 - [Devkit] Add sample with reversed execution order ([#161](https://github.com/cucumber/compatibility-kit/pull/161))
+- [Devkit] Add sample for ambiguous steps ([#156](https://github.com/cucumber/compatibility-kit/pull/156))
 
 ### Changed
 - [Devkit] Update global hooks behaviour ([#155](https://github.com/cucumber/compatibility-kit/pull/155))
