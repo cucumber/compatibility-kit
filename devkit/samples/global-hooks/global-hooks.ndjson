@@ -11,9 +11,9 @@
 {"hook":{"id":"13","type":"AFTER_TEST_RUN","sourceReference":{"uri":"samples/global-hooks/global-hooks.ts","location":{"line":23}}}}
 {"testRunStarted":{"id":"14","timestamp":{"seconds":0,"nanos":0}}}
 {"testRunHookStarted":{"testRunStartedId":"14","id":"15","hookId":"8","timestamp":{"seconds":0,"nanos":1000000}}}
-{"testRunHookFinished":{"testRunHookStartedId":"14","timestamp":{"seconds":0,"nanos":2000000},"result":{"status":"PASSED","duration":{"seconds":0,"nanos":1000000}}}}
+{"testRunHookFinished":{"testRunHookStartedId":"15","timestamp":{"seconds":0,"nanos":2000000},"result":{"status":"PASSED","duration":{"seconds":0,"nanos":1000000}}}}
 {"testRunHookStarted":{"testRunStartedId":"14","id":"16","hookId":"9","timestamp":{"seconds":0,"nanos":3000000}}}
-{"testRunHookFinished":{"testRunHookStartedId":"14","timestamp":{"seconds":0,"nanos":4000000},"result":{"status":"PASSED","duration":{"seconds":0,"nanos":1000000}}}}
+{"testRunHookFinished":{"testRunHookStartedId":"16","timestamp":{"seconds":0,"nanos":4000000},"result":{"status":"PASSED","duration":{"seconds":0,"nanos":1000000}}}}
 {"testCase":{"id":"17","pickleId":"5","testSteps":[{"id":"18","pickleStepId":"4","stepDefinitionIds":["10"],"stepMatchArgumentsLists":[{"stepMatchArguments":[]}]}],"testRunStartedId":"14"}}
 {"testCase":{"id":"19","pickleId":"7","testSteps":[{"id":"20","pickleStepId":"6","stepDefinitionIds":["11"],"stepMatchArgumentsLists":[{"stepMatchArguments":[]}]}],"testRunStartedId":"14"}}
 {"testCaseStarted":{"id":"21","testCaseId":"17","timestamp":{"seconds":0,"nanos":5000000},"attempt":0}}
@@ -25,7 +25,7 @@
 {"testStepFinished":{"testCaseStartedId":"22","testStepId":"20","testStepResult":{"message":"Exception in step","exception":{"type":"Error","message":"Exception in step","stackTrace":"Error: Exception in step\nsamples/global-hooks/global-hooks.feature:10"},"status":"FAILED","duration":{"seconds":0,"nanos":1000000}},"timestamp":{"seconds":0,"nanos":11000000}}}
 {"testCaseFinished":{"testCaseStartedId":"22","timestamp":{"seconds":0,"nanos":12000000},"willBeRetried":false}}
 {"testRunHookStarted":{"testRunStartedId":"14","id":"23","hookId":"13","timestamp":{"seconds":0,"nanos":13000000}}}
-{"testRunHookFinished":{"testRunHookStartedId":"14","timestamp":{"seconds":0,"nanos":14000000},"result":{"status":"PASSED","duration":{"seconds":0,"nanos":1000000}}}}
+{"testRunHookFinished":{"testRunHookStartedId":"23","timestamp":{"seconds":0,"nanos":14000000},"result":{"status":"PASSED","duration":{"seconds":0,"nanos":1000000}}}}
 {"testRunHookStarted":{"testRunStartedId":"14","id":"24","hookId":"12","timestamp":{"seconds":0,"nanos":15000000}}}
-{"testRunHookFinished":{"testRunHookStartedId":"14","timestamp":{"seconds":0,"nanos":16000000},"result":{"status":"PASSED","duration":{"seconds":0,"nanos":1000000}}}}
+{"testRunHookFinished":{"testRunHookStartedId":"24","timestamp":{"seconds":0,"nanos":16000000},"result":{"status":"PASSED","duration":{"seconds":0,"nanos":1000000}}}}
 {"testRunFinished":{"testRunStartedId":"14","timestamp":{"seconds":0,"nanos":17000000},"success":false}}
