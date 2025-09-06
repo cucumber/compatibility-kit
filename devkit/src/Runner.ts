@@ -177,7 +177,7 @@ export class Runner {
 
     this.onMessage({
       testRunHookFinished: {
-        testRunHookStartedId: this.testRunStartedId,
+        testRunHookStartedId,
         timestamp: TimeConversion.millisecondsSinceEpochToTimestamp(
           this.clock.now()
         ),
