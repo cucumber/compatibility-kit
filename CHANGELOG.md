@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Fixed
+- [Devkit] Fix identifier in TestRunHookFinished ([#166](https://github.com/cucumber/compatibility-kit/pull/166))
 
 ## [22.0.0] - 2025-09-06
 ### Added
