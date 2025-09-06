@@ -8,6 +8,6 @@
 {"testCase":{"id":"7","pickleId":"3","testSteps":[{"id":"8","pickleStepId":"2","stepDefinitionIds":["4","5"],"stepMatchArgumentsLists":[{"stepMatchArguments":[{"group":{"start":2,"value":"step","children":[]}},{"group":{"start":12,"value":"","children":[]}}]},{"stepMatchArguments":[{"group":{"start":12,"value":"multiple definitions","children":[]},"parameterTypeName":""}]}]}],"testRunStartedId":"6"}}
 {"testCaseStarted":{"id":"9","testCaseId":"7","timestamp":{"seconds":0,"nanos":1000000},"attempt":0}}
 {"testStepStarted":{"testCaseStartedId":"9","testStepId":"8","timestamp":{"seconds":0,"nanos":2000000}}}
-{"testStepFinished":{"testCaseStartedId":"9","testStepId":"8","testStepResult":{"status":"AMBIGUOUS","duration":{"seconds":0,"nanos":0},"message":"Multiple matching step definitions found for text \"a step with multiple definitions\":\n1) samples/ambiguous/ambiguous.ts:3:?\n2) samples/ambiguous/ambiguous.ts:7:?"},"timestamp":{"seconds":0,"nanos":3000000}}}
+{"testStepFinished":{"testCaseStartedId":"9","testStepId":"8","testStepResult":{"status":"AMBIGUOUS","duration":{"seconds":0,"nanos":0}},"timestamp":{"seconds":0,"nanos":3000000}}}
 {"testCaseFinished":{"testCaseStartedId":"9","timestamp":{"seconds":0,"nanos":4000000},"willBeRetried":false}}
 {"testRunFinished":{"testRunStartedId":"6","timestamp":{"seconds":0,"nanos":5000000},"success":false}}
