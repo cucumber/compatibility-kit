@@ -20,7 +20,7 @@ import {
 
 import { Clock } from './Clock'
 import { GlobalContext } from './GlobalContext'
-import { makeSnippet } from './makeSnippet'
+import { makeSnippets } from './makeSnippets'
 import { Stopwatch } from './Stopwatch'
 import { World } from './World'
 
@@ -317,7 +317,7 @@ export class Runner {
           suggestion: {
             id: this.newId(),
             pickleStepId: error.pickleStep.id,
-            snippets: [makeSnippet(error.pickleStep)],
+            snippets: makeSnippets(error.pickleStep, this.supportCodeLibrary),
           },
         })
         return {
