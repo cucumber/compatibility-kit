@@ -6,6 +6,8 @@ import {
   Snippet,
 } from '@cucumber/messages'
 
+const PRIMITIVE_TYPES = ['Number', 'String']
+
 const METHOD_BY_TYPE: Record<PickleStepType, string> = {
   [PickleStepType.CONTEXT]: 'Given',
   [PickleStepType.ACTION]: 'When',
@@ -23,7 +25,20 @@ export function makeSnippets(
     .getExpressionGenerator()
     .generateExpressions(pickleStep.text)
     .map((expression) => {
-      const code = `${method}(${JSON.stringify(expression.source)}, (${stepArgument}) => {
+      const allArguments = expression.parameterInfos.map((pi) => {
+        let result = pi.name + (pi.count === 1 ? '' : pi.count.toString())
+        if (pi.type) {
+          const sanitisedType = PRIMITIVE_TYPES.includes(pi.type)
+            ? pi.type.toLowerCase()
+            : pi.type
+          result += `: ${sanitisedType}`
+        }
+        return result
+      })
+      if (stepArgument) {
+        allArguments.push(stepArgument)
+      }
+      const code = `${method}(${JSON.stringify(expression.source)}, (${allArguments.join(', ')}) => {
   return "pending"
 })`
       return {
