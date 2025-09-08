@@ -19,9 +19,10 @@ import {
 } from '@cucumber/messages'
 
 import { Clock } from './Clock'
+import { GlobalContext } from './GlobalContext'
+import { makeSnippets } from './makeSnippets'
 import { Stopwatch } from './Stopwatch'
 import { World } from './World'
-import { GlobalContext } from './GlobalContext'
 
 const NON_SUCCESS_STATUSES = new Set<TestStepResultStatus>([
   TestStepResultStatus.PENDING,
@@ -312,6 +313,13 @@ export class Runner {
           duration: TimeConversion.millisecondsToDuration(0),
         }
       } else if (error instanceof UndefinedError) {
+        this.onMessage({
+          suggestion: {
+            id: this.newId(),
+            pickleStepId: error.pickleStep.id,
+            snippets: makeSnippets(error.pickleStep, this.supportCodeLibrary),
+          },
+        })
         return {
           status: TestStepResultStatus.UNDEFINED,
           duration: TimeConversion.millisecondsToDuration(0),
