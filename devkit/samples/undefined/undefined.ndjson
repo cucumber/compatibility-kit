@@ -12,18 +12,21 @@
 {"testCase":{"id":"24","pickleId":"15","testSteps":[{"id":"25","pickleStepId":"13","stepDefinitionIds":[],"stepMatchArgumentsLists":[]},{"id":"26","pickleStepId":"14","stepDefinitionIds":["17"],"stepMatchArgumentsLists":[{"stepMatchArguments":[]}]}],"testRunStartedId":"18"}}
 {"testCaseStarted":{"id":"27","testCaseId":"19","timestamp":{"seconds":0,"nanos":1000000},"attempt":0}}
 {"testStepStarted":{"testCaseStartedId":"27","testStepId":"20","timestamp":{"seconds":0,"nanos":2000000}}}
+{"suggestion":{"id":"28","pickleStepId":"8","snippets":[{"language":"typescript","code":"Given(\"a step that is yet to be defined\", () => {\n  return \"pending\"\n})"}]}}
 {"testStepFinished":{"testCaseStartedId":"27","testStepId":"20","testStepResult":{"status":"UNDEFINED","duration":{"seconds":0,"nanos":0}},"timestamp":{"seconds":0,"nanos":3000000}}}
 {"testCaseFinished":{"testCaseStartedId":"27","timestamp":{"seconds":0,"nanos":4000000},"willBeRetried":false}}
-{"testCaseStarted":{"id":"28","testCaseId":"21","timestamp":{"seconds":0,"nanos":5000000},"attempt":0}}
-{"testStepStarted":{"testCaseStartedId":"28","testStepId":"22","timestamp":{"seconds":0,"nanos":6000000}}}
-{"testStepFinished":{"testCaseStartedId":"28","testStepId":"22","testStepResult":{"status":"PASSED","duration":{"seconds":0,"nanos":1000000}},"timestamp":{"seconds":0,"nanos":7000000}}}
-{"testStepStarted":{"testCaseStartedId":"28","testStepId":"23","timestamp":{"seconds":0,"nanos":8000000}}}
-{"testStepFinished":{"testCaseStartedId":"28","testStepId":"23","testStepResult":{"status":"UNDEFINED","duration":{"seconds":0,"nanos":0}},"timestamp":{"seconds":0,"nanos":9000000}}}
-{"testCaseFinished":{"testCaseStartedId":"28","timestamp":{"seconds":0,"nanos":10000000},"willBeRetried":false}}
-{"testCaseStarted":{"id":"29","testCaseId":"24","timestamp":{"seconds":0,"nanos":11000000},"attempt":0}}
-{"testStepStarted":{"testCaseStartedId":"29","testStepId":"25","timestamp":{"seconds":0,"nanos":12000000}}}
-{"testStepFinished":{"testCaseStartedId":"29","testStepId":"25","testStepResult":{"status":"UNDEFINED","duration":{"seconds":0,"nanos":0}},"timestamp":{"seconds":0,"nanos":13000000}}}
-{"testStepStarted":{"testCaseStartedId":"29","testStepId":"26","timestamp":{"seconds":0,"nanos":14000000}}}
-{"testStepFinished":{"testCaseStartedId":"29","testStepId":"26","testStepResult":{"status":"SKIPPED","duration":{"seconds":0,"nanos":0}},"timestamp":{"seconds":0,"nanos":15000000}}}
-{"testCaseFinished":{"testCaseStartedId":"29","timestamp":{"seconds":0,"nanos":16000000},"willBeRetried":false}}
+{"testCaseStarted":{"id":"29","testCaseId":"21","timestamp":{"seconds":0,"nanos":5000000},"attempt":0}}
+{"testStepStarted":{"testCaseStartedId":"29","testStepId":"22","timestamp":{"seconds":0,"nanos":6000000}}}
+{"testStepFinished":{"testCaseStartedId":"29","testStepId":"22","testStepResult":{"status":"PASSED","duration":{"seconds":0,"nanos":1000000}},"timestamp":{"seconds":0,"nanos":7000000}}}
+{"testStepStarted":{"testCaseStartedId":"29","testStepId":"23","timestamp":{"seconds":0,"nanos":8000000}}}
+{"suggestion":{"id":"30","pickleStepId":"11","snippets":[{"language":"typescript","code":"Given(\"a step that is yet to be defined\", () => {\n  return \"pending\"\n})"}]}}
+{"testStepFinished":{"testCaseStartedId":"29","testStepId":"23","testStepResult":{"status":"UNDEFINED","duration":{"seconds":0,"nanos":0}},"timestamp":{"seconds":0,"nanos":9000000}}}
+{"testCaseFinished":{"testCaseStartedId":"29","timestamp":{"seconds":0,"nanos":10000000},"willBeRetried":false}}
+{"testCaseStarted":{"id":"31","testCaseId":"24","timestamp":{"seconds":0,"nanos":11000000},"attempt":0}}
+{"testStepStarted":{"testCaseStartedId":"31","testStepId":"25","timestamp":{"seconds":0,"nanos":12000000}}}
+{"suggestion":{"id":"32","pickleStepId":"13","snippets":[{"language":"typescript","code":"Given(\"a step that is yet to be defined\", () => {\n  return \"pending\"\n})"}]}}
+{"testStepFinished":{"testCaseStartedId":"31","testStepId":"25","testStepResult":{"status":"UNDEFINED","duration":{"seconds":0,"nanos":0}},"timestamp":{"seconds":0,"nanos":13000000}}}
+{"testStepStarted":{"testCaseStartedId":"31","testStepId":"26","timestamp":{"seconds":0,"nanos":14000000}}}
+{"testStepFinished":{"testCaseStartedId":"31","testStepId":"26","testStepResult":{"status":"SKIPPED","duration":{"seconds":0,"nanos":0}},"timestamp":{"seconds":0,"nanos":15000000}}}
+{"testCaseFinished":{"testCaseStartedId":"31","timestamp":{"seconds":0,"nanos":16000000},"willBeRetried":false}}
 {"testRunFinished":{"testRunStartedId":"18","timestamp":{"seconds":0,"nanos":17000000},"success":false}}

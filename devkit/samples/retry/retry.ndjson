@@ -69,6 +69,7 @@
 {"testCaseFinished":{"testCaseStartedId":"60","timestamp":{"seconds":0,"nanos":44000000},"willBeRetried":false}}
 {"testCaseStarted":{"id":"61","testCaseId":"48","timestamp":{"seconds":0,"nanos":45000000},"attempt":0}}
 {"testStepStarted":{"testCaseStartedId":"61","testStepId":"49","timestamp":{"seconds":0,"nanos":46000000}}}
+{"suggestion":{"id":"62","pickleStepId":"26","snippets":[{"language":"typescript","code":"Given(\"a non-existent step\", () => {\n  return \"pending\"\n})"}]}}
 {"testStepFinished":{"testCaseStartedId":"61","testStepId":"49","testStepResult":{"status":"UNDEFINED","duration":{"seconds":0,"nanos":0}},"timestamp":{"seconds":0,"nanos":47000000}}}
 {"testCaseFinished":{"testCaseStartedId":"61","timestamp":{"seconds":0,"nanos":48000000},"willBeRetried":false}}
 {"testRunFinished":{"testRunStartedId":"35","timestamp":{"seconds":0,"nanos":49000000},"success":false}}

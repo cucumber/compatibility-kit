@@ -32,6 +32,7 @@
 {"testStepStarted":{"testCaseStartedId":"31","testStepId":"26","timestamp":{"seconds":0,"nanos":18000000}}}
 {"testStepFinished":{"testCaseStartedId":"31","testStepId":"26","testStepResult":{"status":"PASSED","duration":{"seconds":0,"nanos":1000000}},"timestamp":{"seconds":0,"nanos":19000000}}}
 {"testStepStarted":{"testCaseStartedId":"31","testStepId":"27","timestamp":{"seconds":0,"nanos":20000000}}}
+{"suggestion":{"id":"32","pickleStepId":"10","snippets":[{"language":"typescript","code":"When(\"a step does not exist\", () => {\n  return \"pending\"\n})"}]}}
 {"testStepFinished":{"testCaseStartedId":"31","testStepId":"27","testStepResult":{"status":"UNDEFINED","duration":{"seconds":0,"nanos":0}},"timestamp":{"seconds":0,"nanos":21000000}}}
 {"testStepStarted":{"testCaseStartedId":"31","testStepId":"28","timestamp":{"seconds":0,"nanos":22000000}}}
 {"testStepFinished":{"testCaseStartedId":"31","testStepId":"28","testStepResult":{"status":"PASSED","duration":{"seconds":0,"nanos":1000000}},"timestamp":{"seconds":0,"nanos":23000000}}}

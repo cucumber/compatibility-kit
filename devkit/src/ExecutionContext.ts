@@ -1,4 +1,3 @@
-import { Clock } from './Clock'
 import {
   Attachment,
   AttachmentContentEncoding,
@@ -6,6 +5,8 @@ import {
   TimeConversion,
 } from '@cucumber/messages'
 import { Readable } from 'stream'
+
+import { Clock } from './Clock'
 
 const LOG_MEDIA_TYPE = 'text/x.cucumber.log+plain'
 const LINK_MEDIA_TYPE = 'text/uri-list'
