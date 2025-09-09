@@ -1,8 +1,8 @@
 Feature: Examples Tables - With Undefined Steps
   The replacement pattern used in scenario outlines does not influence how steps
   are matched. The replacement pattern is replaced, and step definitions are
-  matched against that text. Because of that the following results in 3
-  undefined steps and 3 suggestions to implement each step. 
+  matched against that text. Because of that the following results in one
+  undefined step for each example and a suggested snippet to implement it. 
 
   Scenario Outline: Eating cucumbers
     Given there are <start> cucumbers
