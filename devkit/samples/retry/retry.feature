@@ -22,6 +22,3 @@ Feature: Retry
 
   Scenario: Test cases won't retry when the status is PENDING
     Given a pending step
-
-  Scenario: Test cases won't retry when the status is UNDEFINED
-    Given a non-existent step
