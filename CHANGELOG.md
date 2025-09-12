@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Fixed
+- [Devkit] Add start and end markers to regular expression  ([#171](https://github.com/cucumber/compatibility-kit/pull/171))
+
+
 ### Added
 - [Devkit] Add Suggestions to undefined samples ([#167](https://github.com/cucumber/compatibility-kit/pull/167))
 - [Devkit] Add dedicated samples for undefined steps ([#169](https://github.com/cucumber/compatibility-kit/pull/169))
