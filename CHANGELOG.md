@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Added
 - [Devkit] Add Suggestions to undefined samples ([#167](https://github.com/cucumber/compatibility-kit/pull/167))
+- [Devkit] Add dedicated samples for undefined steps ([#169](https://github.com/cucumber/compatibility-kit/pull/169))
 
 ## [22.0.1] - 2025-09-06
 ### Fixed
