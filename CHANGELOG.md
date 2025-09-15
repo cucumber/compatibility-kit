@@ -6,13 +6,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
-### Fixed
-- [Devkit] Add start and end markers to regular expression  ([#171](https://github.com/cucumber/compatibility-kit/pull/171))
 
-
+## [23.0.0] - 2025-09-15
 ### Added
 - [Devkit] Add Suggestions to undefined samples ([#167](https://github.com/cucumber/compatibility-kit/pull/167))
 - [Devkit] Add dedicated samples for undefined steps ([#169](https://github.com/cucumber/compatibility-kit/pull/169))
+
+### Fixed
+- [Devkit] Add start and end markers to regular expression  ([#171](https://github.com/cucumber/compatibility-kit/pull/171))
 
 ## [22.0.1] - 2025-09-06
 ### Fixed
@@ -289,7 +290,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - First release
 
-[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v22.0.1...HEAD
+[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v23.0.0...HEAD
+[23.0.0]: https://github.com/cucumber/compatibility-kit/compare/v22.0.1...v23.0.0
 [22.0.1]: https://github.com/cucumber/compatibility-kit/compare/v22.0.0...v22.0.1
 [22.0.0]: https://github.com/cucumber/compatibility-kit/compare/v21.0.0...v22.0.0
 [21.0.0]: https://github.com/cucumber/compatibility-kit/compare/v20.1.0...v21.0.0
