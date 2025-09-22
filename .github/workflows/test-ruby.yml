@@ -5,10 +5,17 @@ on:
     branches:
       - main
       - renovate/**
+    paths:
+      - ruby/**
+      - devkit/**
+      - .github/**
   pull_request:
     branches:
       - main
-  workflow_call:
+    paths:
+      - ruby/**
+      - devkit/**
+      - .github/** 
 
 jobs:
   test-ruby:

@@ -5,9 +5,15 @@ on:
     branches:
       - main
       - renovate/**
+    paths:
+      - devkit/**
+      - .github/**
   pull_request:
     branches:
       - main
+    paths:
+      - devkit/**
+      - .github/**
 
 jobs:
   test:

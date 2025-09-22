@@ -1,25 +1,25 @@
-name: test-java
+name: Test Java
 
 on:
   push:
     branches:
       - main
       - renovate/**
+    paths:
+      - java/**
+      - devkit/**
+      - .github/**
   pull_request:
     branches:
       - main
-  workflow_call:
+    paths:
+      - java/**
+      - devkit/**
+      - .github/**
 
 jobs:
   test-java:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      fail-fast: false
-      matrix:
-        os:
-          - ubuntu-latest
-        java:
-          - "17"
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-node@v5
@@ -33,7 +33,7 @@ jobs:
       - uses: actions/setup-java@v5
         with:
           distribution: "zulu"
-          java-version: ${{ matrix.java }}
+          java-version: 17
           cache: "maven"
       - run: mvn verify
         working-directory: java
