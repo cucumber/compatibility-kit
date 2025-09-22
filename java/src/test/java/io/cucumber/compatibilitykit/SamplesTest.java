@@ -2,27 +2,19 @@ package io.cucumber.compatibilitykit;
 
 import org.junit.jupiter.api.Test;
 import org.junit.platform.commons.support.Resource;
-import org.junit.platform.commons.support.scanning.ClasspathScanner;
-import org.junit.platform.commons.support.scanning.DefaultClasspathScanner;
-import org.junit.platform.commons.util.ClassLoaderUtils;
-import org.junit.platform.commons.util.ReflectionUtils;
 
 import java.util.List;
 import java.util.function.Predicate;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.platform.commons.support.ReflectionSupport.findAllResourcesInPackage;
 
 class SamplesTest {
     
-    final ClasspathScanner classpathScanner = new DefaultClasspathScanner(
-            ClassLoaderUtils::getDefaultClassLoader, 
-            ReflectionUtils::tryToLoadClass
-    );
-    
     @Test
     void featuresHaveBeenCopied(){
-        List<Resource> resources = classpathScanner.scanForResourcesInPackage(
-                "io.cucumber.compatibilitykit",
+        List<Resource> resources = findAllResourcesInPackage(
+                "io.cucumber.compatibilitykit", 
                 hasFeatureExtension()
         );
         assertThat(resources).isNotEmpty();
@@ -30,7 +22,7 @@ class SamplesTest {
     
     @Test
     void ndjsonHasBeenCopied(){
-        List<Resource> resources = classpathScanner.scanForResourcesInPackage(
+        List<Resource> resources = findAllResourcesInPackage(
                 "io.cucumber.compatibilitykit",
                 hasNdJsonExtension()
         );
