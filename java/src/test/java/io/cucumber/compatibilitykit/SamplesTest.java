@@ -20,15 +20,28 @@ class SamplesTest {
     );
     
     @Test
-    void samplesHaveBeenCopied(){
+    void featuresHaveBeenCopied(){
         List<Resource> resources = classpathScanner.scanForResourcesInPackage(
                 "io.cucumber.compatibilitykit",
                 hasFeatureExtension()
         );
         assertThat(resources).isNotEmpty();
     }
+    
+    @Test
+    void ndjsonHasBeenCopied(){
+        List<Resource> resources = classpathScanner.scanForResourcesInPackage(
+                "io.cucumber.compatibilitykit",
+                hasNdJsonExtension()
+        );
+        assertThat(resources).isNotEmpty();
+    }
 
     private static Predicate<Resource> hasFeatureExtension() {
         return resource -> resource.getName().endsWith(".feature");
+    }
+
+    private static Predicate<Resource> hasNdJsonExtension() {
+        return resource -> resource.getName().endsWith(".ndjson");
     }
 }
