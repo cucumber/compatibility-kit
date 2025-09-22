@@ -1,0 +1,47 @@
+name: test-java
+
+on:
+  push:
+    branches:
+      - main
+      - renovate/**
+    paths:
+      - java/**
+      - testdata/**
+      - .github/**
+  pull_request:
+    branches:
+      - main
+    paths:
+      - java/**
+      - testdata/**
+      - .github/**
+  workflow_call:
+
+jobs:
+  test-java:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - ubuntu-latest
+        java: ["11", "17"]
+
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '24.x'
+          cache: "npm"
+          cache-dependency-path: devkit/package-lock.json
+      - name: Copy the samples to javascript/features
+        run: npm ci && npm run copy-to:javascript
+        working-directory: devkit
+      - uses: actions/setup-java@v5
+        with:
+          distribution: "zulu"
+          java-version: ${{ matrix.java }}
+          cache: "maven"
+      - run: mvn verify
+        working-directory: java
