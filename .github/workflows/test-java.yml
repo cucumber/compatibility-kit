@@ -27,8 +27,8 @@ jobs:
           node-version: '24.x'
           cache: "npm"
           cache-dependency-path: devkit/package-lock.json
-      - name: Copy the samples to javascript/features
-        run: npm ci && npm run copy-to:javascript
+      - name: Copy the samples to java/../features
+        run: npm ci && npm run copy-to:java
         working-directory: devkit
       - uses: actions/setup-java@v5
         with:
