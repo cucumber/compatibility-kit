@@ -1,4 +1,4 @@
-name: Test Devkit
+name: Test Java
 
 on:
   push:
@@ -6,24 +6,34 @@ on:
       - main
       - renovate/**
     paths:
+      - java/**
       - devkit/**
       - .github/**
   pull_request:
     branches:
       - main
     paths:
+      - java/**
       - devkit/**
       - .github/**
 
 jobs:
-  test:
+  test-java:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-node@v5
         with:
-          node-version: 22.x
-          cache: 'npm'
+          node-version: '24.x'
+          cache: "npm"
           cache-dependency-path: devkit/package-lock.json
-      - run: npm install-ci-test
+      - name: Copy the samples to java/../features
+        run: npm ci && npm run copy-to:java
         working-directory: devkit
+      - uses: actions/setup-java@v5
+        with:
+          distribution: "zulu"
+          java-version: 17
+          cache: "maven"
+      - run: mvn verify
+        working-directory: java

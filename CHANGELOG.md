@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Added
+- [Java] Add Java implementation ([#177](https://github.com/cucumber/compatibility-kit/pull/177))
 
 ## [23.0.0] - 2025-09-15
 ### Added
