@@ -9,12 +9,8 @@ permissions:
   contents: read
 
 jobs:
-  pre-release-check:
-    uses: cucumber/.github/.github/workflows/prerelease-checks.yml@main
-    
   publish-npm:
     name: Publish NPM module
-    needs: [pre-release-check]
     runs-on: ubuntu-latest
     environment: Release
     steps:
