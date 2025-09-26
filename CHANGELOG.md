@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [23.1.0] - 2025-09-27
 ### Added
 - [Java] Add Java implementation ([#177](https://github.com/cucumber/compatibility-kit/pull/177))
 
@@ -292,7 +294,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - First release
 
-[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v23.0.0...HEAD
+[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v23.1.0...HEAD
+[23.1.0]: https://github.com/cucumber/compatibility-kit/compare/v23.0.0...v23.1.0
 [23.0.0]: https://github.com/cucumber/compatibility-kit/compare/v22.0.1...v23.0.0
 [22.0.1]: https://github.com/cucumber/compatibility-kit/compare/v22.0.0...v22.0.1
 [22.0.0]: https://github.com/cucumber/compatibility-kit/compare/v21.0.0...v22.0.0
