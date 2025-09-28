@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [23.2.0] - 2025-09-28
 ### Fixed
 - [Java] Fix typo in artifact name
 
@@ -296,7 +298,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - First release
 
-[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v23.1.0...HEAD
+[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v23.2.0...HEAD
+[23.2.0]: https://github.com/cucumber/compatibility-kit/compare/v23.1.0...v23.2.0
 [23.1.0]: https://github.com/cucumber/compatibility-kit/compare/v23.0.0...v23.1.0
 [23.0.0]: https://github.com/cucumber/compatibility-kit/compare/v22.0.1...v23.0.0
 [22.0.1]: https://github.com/cucumber/compatibility-kit/compare/v22.0.0...v22.0.1
