@@ -32,8 +32,8 @@ jobs:
         working-directory: devkit
       - uses: actions/setup-java@v5
         with:
-          distribution: "zulu"
-          java-version: 17
-          cache: "maven"
+          distribution: 'temurin'
+          java-version: '17'
+          cache: 'maven'
       - run: mvn verify
         working-directory: java
