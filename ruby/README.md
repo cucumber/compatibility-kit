@@ -29,7 +29,7 @@ Then add a spec that could look like this:
 # spec/my_compatibility_checks_spec.rb
 require 'cucumber/compatibility_kit'
 
-describe Cucumber::CompatibilityKit, type: :feature do
+describe Cucumber::CompatibilityKit do
   let(:cucumber_command) { 'bundle exec cucumber --publish-quiet --profile none --format message' }
 
   # Don't run the retry or skipped CCK Examples (For whatever reason)
