@@ -47,7 +47,7 @@ describe Cucumber::CompatibilityKit, type: :feature do
 end
 ```
 
-`CucumberCompatibilityKit.gherkin` will return an array that lists all the gherkin examples available within the CCK.
+`Cucumber::CompatibilityKit.gherkin` will return an array that lists all the gherkin examples available within the CCK.
 Here, we want to execute all of them except the `retry` and `skipped` ones (For whatever reason).
 
 `let(:messages)` will execute the cucumber command. As we are using the `message` formatter, `messages` will
@@ -63,9 +63,6 @@ It allows us to make sure that all our implementations are properly supporting o
 and thus are compatible (and consistent), with each other and our common tools like the [html-formatter](https://github.com/cucumber/html-formatter).
 
 It can be a valuable tool if you are developing integration with cucumber, or your own implementation of it.
-
-Join us on [github/cucumber/compatibility-kit](https://github.com/cucumber/compatibility-kit)
-to get more help if you need to.
 
 You can also take a look on [cucumber-ruby](https://github.com/cucumber/cucumber-ruby/blob/v9.2.0/compatibility/cck_spec.rb)
 to see how the kit is used there.
