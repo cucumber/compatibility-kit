@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Fixed
+- [Ruby] **Breaking change** Actually fixed the namespacing that wasn't completed in v22
 
 ## [23.2.0] - 2025-09-28
 ### Fixed
