@@ -34,7 +34,7 @@
     "@cucumber/gherkin-streams": "^6.0.0",
     "@cucumber/gherkin-utils": "^10.0.0",
     "@cucumber/message-streams": "^4.0.1",
-    "@cucumber/messages": "^29.0.1",
+    "@cucumber/messages": "^30.0.0",
     "@cucumber/query": "^14.0.0",
     "@cucumber/tag-expressions": "^7.0.0",
     "globby": "^11.1.0",
