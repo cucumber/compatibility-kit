@@ -7,7 +7,7 @@ import { pipeline } from 'node:stream/promises'
 import { NdjsonToMessageStream } from '@cucumber/message-streams'
 import { Envelope } from '@cucumber/messages'
 import Ajv from 'ajv/dist/2020'
-import globby from 'globby'
+import {globby} from 'globby';
 import { describe, it } from 'vitest'
 
 describe('Samples', async () => {
