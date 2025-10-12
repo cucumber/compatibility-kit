@@ -13,13 +13,14 @@ on:
 jobs:
   test-python:
     defaults:
-      working-directory: python
+      run:
+        working-directory: python
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v4
         with:
-          python-version: '3.8'
+          python-version: "3.8"
       - name: Install Poetry
         run: |
           curl -sSL https://install.python-poetry.org | python3 -
