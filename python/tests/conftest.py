@@ -1,5 +1,6 @@
 import shutil
 from pathlib import Path
+
 import pytest
 
 from cucumber_compatibility_kit.examples import Examples
@@ -14,55 +15,46 @@ FEATURES_DIR = PYTHON_MODULE_ROOT / "features"
 
 @pytest.fixture
 def examples():
-    """
-    Fixture to create an instance of the Examples class.
-    """
+    """Fixture to create an instance of the Examples class."""
     return Examples()
 
 
 @pytest.fixture
 def features_path():
-    """
-    Fixture to return the path of the features directory.
-    """
+    """Fixture to return the path of the features directory."""
     return FEATURES_DIR
 
 
 @pytest.fixture
 def gherkin_examples():
-    """
-    Fixture to return the list of gherkin example folders.
-    """
+    """Fixture to return the list of gherkin example folders."""
     return [
-        'attachments',
-        'cdata',
-        'data-tables',
-        'examples-tables',
-        'hooks',
-        'minimal',
-        'parameter-types',
-        'pending',
-        'retry',
-        'rules',
-        'skipped',
-        'stack-traces',
-        'undefined',
-        'unknown-parameter-type'
+        "attachments",
+        "cdata",
+        "data-tables",
+        "examples-tables",
+        "hooks",
+        "minimal",
+        "parameter-types",
+        "pending",
+        "retry",
+        "rules",
+        "skipped",
+        "stack-traces",
+        "undefined",
+        "unknown-parameter-type",
     ]
 
 
 @pytest.fixture
 def markdown_examples():
-    """
-    Fixture to return the list of markdown example folders.
-    """
-    return ['markdown']
+    """Fixture to return the list of markdown example folders."""
+    return ["markdown"]
 
 
-@pytest.fixture(scope='session', autouse=True)
+@pytest.fixture(scope="session", autouse=True)
 def samples():
-    """
-    Fixture to copy directories and files (including nested ones) before tests and clean up afterward.
+    """Fixture to copy directories and files (including nested ones) before tests and clean up afterward.
     Only removes the copied directories and preserves the main directory and .gitignore file.
     """
     # Track the directories that were copied for cleanup

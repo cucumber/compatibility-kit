@@ -39,4 +39,24 @@ Issues = "https://github.com/cucumber/compatibility-kit/issues"
 Changelog = "https://github.com/cucumber/compatibility-kit/releases"
 
 [dependency-groups]
-dev = ["pytest>=7"]
+dev = ["pytest>=7", "ruff>=0.14.0"]
+
+[tool.ruff.lint]
+extend-select = [
+    "B",
+    "C4",
+    "FURB",
+    "I",
+    "ISC",
+    "N",
+    "PERF",
+    "PIE",
+    "RET",
+    "S",
+    "TID",
+    "UP",
+]
+
+[tool.ruff.lint.per-file-ignores]
+# Allow assert statements in tests
+"tests/**" = ["S101"]
