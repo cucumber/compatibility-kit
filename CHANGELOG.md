@@ -6,7 +6,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Added
 - [Devkit] Add sample for test run exception ([#178](https://github.com/cucumber/compatibility-kit/pull/178))
+- [Python] Python support ([#113](https://github.com/cucumber/compatibility-kit/pull/113))
 
 ## [23.2.0] - 2025-09-28
 ### Fixed
