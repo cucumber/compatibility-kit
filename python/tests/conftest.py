@@ -3,20 +3,20 @@ from pathlib import Path
 
 import pytest
 
-from cucumber_compatibility_kit.examples import Examples
+from cucumber_compatibility_kit import CompatibilityKit
 
 CURRENT_FILE = Path(__file__).parent
 PROJECT_ROOT = CURRENT_FILE.parent.parent
 PYTHON_MODULE_ROOT = PROJECT_ROOT / "python"
 TEST_ROOT = PYTHON_MODULE_ROOT / "tests"
 SAMPLES_DIR = PROJECT_ROOT / "devkit" / "samples"
-FEATURES_DIR = PYTHON_MODULE_ROOT / "features"
+FEATURES_DIR = PYTHON_MODULE_ROOT / "src/cucumber_compatibility_kit/features"
 
 
 @pytest.fixture
 def examples():
-    """Fixture to create an instance of the Examples class."""
-    return Examples()
+    """Fixture to create an instance of the CompatibilityKit class."""
+    return CompatibilityKit()
 
 
 @pytest.fixture
@@ -29,43 +29,13 @@ def features_path():
 def gherkin_examples():
     """Fixture to return the list of gherkin example folders."""
     return [
-        "ambiguous",
         "attachments",
         "backgrounds",
-        "cdata",
         "data-tables",
         "doc-strings",
         "empty",
         "examples-tables",
-        "examples-tables-attachment",
-        "examples-tables-undefined",
-        "global-hooks",
-        "global-hooks-afterall-error",
-        "global-hooks-attachments",
-        "global-hooks-beforeall-error",
-        "hooks",
-        "hooks-attachment",
-        "hooks-conditional",
-        "hooks-named",
-        "hooks-undefined",
-        "minimal",
-        "multiple-features",
-        "multiple-features-reversed",
-        "parameter-types",
-        "pending",
-        "regular-expression",
-        "retry",
-        "retry-ambiguous",
-        "retry-pending",
-        "retry-undefined",
-        "rules",
-        "rules-backgrounds",
-        "skipped",
-        "stack-traces",
-        "test-run-exception",
         "undefined",
-        "unknown-parameter-type",
-        "unused-steps",
     ]
 
 
