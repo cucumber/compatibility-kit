@@ -33,7 +33,7 @@ jobs:
           cache: "npm"
           cache-dependency-path: devkit/package-lock.json
 
-      - name: Copy the samples to python/features
+      - name: Copy the samples to the package
         run: npm ci && npm run copy-to:python
         working-directory: devkit
 

@@ -9,7 +9,7 @@
     "copy-to:javascript": "shx cp -r samples/* ../javascript/features",
     "copy-to:ruby": "shx cp -r samples/* ../ruby/features && rm -rf ../ruby/features/**/*.ts",
     "copy-to:java": "shx cp -r samples/* ../java/src/main/resources/io/cucumber/compatibilitykit/features && rm -rf ../java/src/main/resources/io/cucumber/compatibilitykit/features/**/*.ts",
-    "copy-to:python": "shx cp -r samples/* ../python/features && rm -rf ../python/features/**/*.ts",
+    "copy-to:python": "shx cp -r samples/* ../python/src/cucumber_compatibility_kit/features && rm -rf ../python/src/cucumber_compatibility_kit/features/**/*.ts",
     "fix": "eslint --max-warnings 0 src test --fix && prettier --write src test",
     "generate": "vitest run --update",
     "lint": "eslint --max-warnings 0 src test && prettier --check src test",
