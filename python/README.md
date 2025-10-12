@@ -16,69 +16,70 @@ This is the reference for the CCK: a given feature from the kit, when executed u
 
 1. Install the package using `pip`. You can do this by adding `cucumber-compatibility-kit` to your `requirements.txt` or using `pip` directly:
 
-    ```bash
-    pip install cucumber-compatibility-kit
-    ```
+   ```bash
+   pip install cucumber-compatibility-kit
+   ```
 
 2. Set up your test environment. Here's an example of how you might set up a test using `pytest`:
 
-    ```python
-    # tests/test_compatibility.py
-    import pytest
-    from cck.examples import Examples
+   ```python
+   # tests/test_compatibility.py
+   import pytest
+   from cucumber_compatibility_kit.examples import Examples
 
-    @pytest.fixture(scope='session')
-    def examples():
-        return Examples()
+   @pytest.fixture(scope='session')
+   def examples():
+       return Examples()
 
-    @pytest.mark.parametrize('example_name', [
-        'attachments',
-        'cdata',
-        'data-tables',
-        'examples-tables',
-        'hooks',
-        'minimal',
-        'parameter-types',
-        'pending',
-        'retry',
-        'rules',
-        'skipped',
-        'stack-traces',
-        'undefined',
-        'unknown-parameter-type',
-    ])
-    def test_feature_code_for_existing_example(examples, example_name):
-        """Test that the feature code for existing examples returns the correct path."""
-        path = examples.feature_code_for(example_name)
-        assert path.exists(), f"Feature code path does not exist for example: {example_name}"
+   @pytest.mark.parametrize('example_name', [
+       'attachments',
+       'cdata',
+       'data-tables',
+       'examples-tables',
+       'hooks',
+       'minimal',
+       'parameter-types',
+       'pending',
+       'retry',
+       'rules',
+       'skipped',
+       'stack-traces',
+       'undefined',
+       'unknown-parameter-type',
+   ])
+   def test_feature_code_for_existing_example(examples, example_name):
+       """Test that the feature code for existing examples returns the correct path."""
+       path = examples.feature_code_for(example_name)
+       assert path.exists(), f"Feature code path does not exist for example: {example_name}"
 
-    def test_gherkin_examples(examples):
-        """Test that the list of gherkin examples matches the expected examples."""
-        expected_examples = [
-            'attachments',
-            'cdata',
-            'data-tables',
-            'examples-tables',
-            'hooks',
-            'minimal',
-            'parameter-types',
-            'pending',
-            'retry',
-            'rules',
-            'skipped',
-            'stack-traces',
-            'undefined',
-            'unknown-parameter-type',
-        ]
-        assert sorted([e.name for e in examples.gherkin()]) == sorted(expected_examples)
+   def test_gherkin_examples(examples):
+       """Test that the list of gherkin examples matches the expected examples."""
+       expected_examples = [
+           'attachments',
+           'cdata',
+           'data-tables',
+           'examples-tables',
+           'hooks',
+           'minimal',
+           'parameter-types',
+           'pending',
+           'retry',
+           'rules',
+           'skipped',
+           'stack-traces',
+           'undefined',
+           'unknown-parameter-type',
+       ]
+       assert sorted([e.name for e in examples.gherkin()]) == sorted(expected_examples)
 
-    def test_markdown_examples(examples):
-        """Test that the list of markdown examples matches the expected examples."""
-        expected_examples = ['markdown']
-        assert sorted([e.name for e in examples.markdown()]) == sorted(expected_examples)
-    ```
+   def test_markdown_examples(examples):
+       """Test that the list of markdown examples matches the expected examples."""
+       expected_examples = ['markdown']
+       assert sorted([e.name for e in examples.markdown()]) == sorted(expected_examples)
+   ```
 
 In this example:
+
 - `Examples` is the class used to handle CCK features and their paths.
 - The `test_feature_code_for_existing_example` test ensures that the feature code path exists for known examples.
 - The `test_gherkin_examples` and `test_markdown_examples` tests verify that the list of examples returned matches the expected list.

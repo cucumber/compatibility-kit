@@ -2,7 +2,7 @@ import shutil
 from pathlib import Path
 import pytest
 
-from cck.examples import Examples
+from cucumber_compatibility_kit.examples import Examples
 
 CURRENT_FILE = Path(__file__).parent
 PROJECT_ROOT = CURRENT_FILE.parent.parent
