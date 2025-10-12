@@ -1,4 +1,4 @@
-name: Release on github
+name: Release on GitHub
 
 on:
   push:
@@ -6,19 +6,14 @@ on:
       - release/*
 
 jobs:
-  pre-release-check:
-    uses: cucumber/.github/.github/workflows/prerelease-checks.yml@main
-
   create-github-release:
     name: Create Git tag and GitHub Release
-    needs: [pre-release-check]
     runs-on: ubuntu-latest
     environment: Release
     permissions:
       contents: write
-
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: cucumber/action-create-github-release@v1.1.1
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}

@@ -1,26 +1,28 @@
-# Cucumber Compatibility Kit: the Devkit
+# Devkit
 
-This devkit is a set of NPM scripts to generate new Messages in order to
+The devkit is a set of npm scripts to generate new Messages in order to
 extend the Cucumber Compatibility Kit, or to update it after the protocol has
 been changed.
 
 ## Getting Started
 
-This project is designed to be ran on Node 18 LTS or higher, with NPM v9+. Using anything
-lower than this will likely lead to issues when running the NPM commands
+You'll need [Node.js](https://nodejs.org/), specifically LTS 22 or higher.
 
-As any NPM project, you first need to run `npm install`. To make sure everything
+As any npm project, you first need to run `npm install`. To make sure everything
 is going well, run `npm test`.
+
+Once you've done all this you'll likely need to copy the existing devkit samples to your
+directory of choice. To do this run `npm run copy-samples` or `npm run copy-to:LANG` where `LANG`
+is the name of the folder you wish to copy to
 
 ## Contributing to the Compatibility Kit
 
 The files delivered as part of the kit - the feature files and the ndjson files -
 can be found in the [`samples`](./samples) folder.
 
-The [`src`](.src) folder contains source code used by the NPM scripts of the devkit.
-For example it contains a [`validate.ts`](./samples/validate.ts) file which is
-used by the `test` NPM script. That `test` script make sure the `.ndjson` files
-are valid regarding the schema of the Cucumber Messages protocol.
+The [`src`](./src) folder contains a barebones reference implementation of Cucumber
+which is used to generate the reference messages. This is commonly referred to as
+"fake-cucumber" (it used to be a standalone package but is now embedded here).
 
 ### Adding a feature
 
@@ -39,7 +41,9 @@ Once you have added a new feature or updated an existing one, or if you need
 to (re)generate the Messages due to an update in the Messages protocol, run the
 following script:
 
-    npm run generate-ndjson
+```shell
+npm run generate
+```
 
 That will update the `.ndjson` files of the kit. It will also validate those
 files against the json schema of the Messages protocol, and copy all samples
@@ -48,8 +52,6 @@ in the packages.
 
 After reviewing the `git diff`, you can commit and push the changes into a new
 pull request for review.
-
-Note: You need to have `jq` available on your path.
 
 #### Note regarding the packages
 
@@ -63,13 +65,9 @@ However regarding the JavaScript package, you won't notice any changes either,
 and you won't have to report changes to the step definitions. The one from the
 devkit will be automatically copied there.
 
-### NPM scripts available
+### Commands
 
-The main NPM scripts available are:
+The npm scripts available are:
 
-- build: it build TypeScript files in `src` into JavaScript files in `dist`
-- test: validate each `.ndjson` file against json schema of the Messages protocol
-- generate-ndjson: generate messages and serialize them as `.ndjson` for the
-  features and using the step definitions of the `samples` folder
-- copy-samples: copy the samples into the packages. Will also copy the step
-  definition into the JavaScript package
+- `test`: re-run the message generation with fake-cucumber, ensure the emitted messages still match the samples and validate against the schema
+- `generate`: re-run the message generation with fake-cucumber, overwrite the samples with the emitted messages, validate against the schema, and copy the updated samples to the language-specific packages.

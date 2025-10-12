@@ -27,13 +27,13 @@ Then add a spec that could look like this:
 
 ```ruby
 # spec/my_compatibility_checks_spec.rb
-require 'cucumber-compatibility-kit'
+require 'cucumber/compatibility_kit'
 
-describe 'Cucumber Compatibility Kit', type: :feature do
+describe Cucumber::CompatibilityKit, type: :feature do
   let(:cucumber_command) { 'bundle exec cucumber --publish-quiet --profile none --format message' }
 
   # Don't run the retry or skipped CCK Examples (For whatever reason)
-  examples = CCK::Examples.gherkin.reject { |example| example == 'retry' || example == 'skipped' }
+  examples = Cucumber::CompatibilityKit.gherkin.reject { |example| example == 'retry' || example == 'skipped' }
 
   examples.each do |example_name|
     describe "'#{example_name}' example" do
@@ -47,8 +47,8 @@ describe 'Cucumber Compatibility Kit', type: :feature do
 end
 ```
 
-`CCK::Examples.gherkin` will return an array that lists all the gherkin examples available within the CCK.
-Here, we want to execute all of them with the exception of the `retry` and `skipped` ones.
+`CucumberCompatibilityKit.gherkin` will return an array that lists all the gherkin examples available within the CCK.
+Here, we want to execute all of them except the `retry` and `skipped` ones (For whatever reason).
 
 `let(:messages)` will execute the cucumber command. As we are using the `message` formatter, `messages` will
 then contain the messages as a `ndjson` document with one message per line.

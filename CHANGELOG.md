@@ -6,6 +6,93 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+- [Devkit] Add sample for test run exception ([#178](https://github.com/cucumber/compatibility-kit/pull/178))
+
+## [23.2.0] - 2025-09-28
+### Fixed
+- [Java] Fix typo in artifact name
+
+## [23.1.0] - 2025-09-27
+### Added
+- [Java] Add Java implementation ([#177](https://github.com/cucumber/compatibility-kit/pull/177))
+
+## [23.0.0] - 2025-09-15
+### Added
+- [Devkit] Add Suggestions to undefined samples ([#167](https://github.com/cucumber/compatibility-kit/pull/167))
+- [Devkit] Add dedicated samples for undefined steps ([#169](https://github.com/cucumber/compatibility-kit/pull/169))
+
+### Fixed
+- [Devkit] Add start and end markers to regular expression  ([#171](https://github.com/cucumber/compatibility-kit/pull/171))
+
+## [22.0.1] - 2025-09-06
+### Fixed
+- [Devkit] Fix identifier in TestRunHookFinished ([#166](https://github.com/cucumber/compatibility-kit/pull/166))
+
+## [22.0.0] - 2025-09-06
+### Added
+- [Devkit] Add sample for global hooks attachments ([#162](https://github.com/cucumber/compatibility-kit/pull/162))
+- [Devkit] Add sample for doc strings ([#157](https://github.com/cucumber/compatibility-kit/pull/157))
+- [Devkit] Add sample for unused steps ([#158](https://github.com/cucumber/compatibility-kit/pull/158))
+- [Devkit] Add ambiguous and pending cases for retry sample ([#159](https://github.com/cucumber/compatibility-kit/pull/159))
+- [Devkit] Add samples for backgrounds ([#160](https://github.com/cucumber/compatibility-kit/pull/160))
+- [Devkit] Add sample with multiple features ([#161](https://github.com/cucumber/compatibility-kit/pull/161))
+- [Devkit] Add sample with reversed execution order ([#161](https://github.com/cucumber/compatibility-kit/pull/161))
+- [Devkit] Add sample for ambiguous steps ([#156](https://github.com/cucumber/compatibility-kit/pull/156))
+
+### Changed
+- [Devkit] Update global hooks behaviour ([#155](https://github.com/cucumber/compatibility-kit/pull/155))
+- [Ruby] Minimum ruby version is now bumped from `3.0` to `3.1`
+- [Ruby] **Breaking change** altered namespacing (Updated README to reflect new structure)
+
+## [21.0.0] - 2025-09-01
+### Added
+- [Devkit] Add scenario with non-trivial regular expression ([#151](https://github.com/cucumber/compatibility-kit/pull/151))
+- [Devkit] Add samples for global hooks ([#147](https://github.com/cucumber/compatibility-kit/pull/147))
+- [Devkit] Add timestamp to attachments ([#152](https://github.com/cucumber/compatibility-kit/pull/152))
+
+## [20.1.0] - 2025-08-16
+### Changed
+- Include type and message in stackTrace ([#144](https://github.com/cucumber/compatibility-kit/pull/144))
+
+## [20.0.0] - 2025-08-12
+### Changed
+- BREAKING CHANGE: Change naming convention of sample files ([#141](https://github.com/cucumber/compatibility-kit/pull/141))
+
+## [19.0.0] - 2025-07-21
+### Added
+- [Devkit] Populate `Exception.stackTrace` ([#136](https://github.com/cucumber/compatibility-kit/pull/136))
+
+### Changed
+- [Devkit] Remove duplicate scenarios from `attachments` that are now covered in the table variant ([#127](https://github.com/cucumber/compatibility-kit/pull/127))
+
+### Fixed
+- [Ruby] Fixed some metadata links for gem
+- [Ruby] Avoided need to constantly update one test each time the CCK gains features
+
+## [18.0.3] - 2025-06-03
+### Changed
+- [Devkit] Update Markdown sample ([#128](https://github.com/cucumber/compatibility-kit/pull/128))
+
+## [18.0.2] - 2025-02-25
+### Fixed
+- [Devkit] Do not allow git to change line endings in SVG images ([#125](https://github.com/cucumber/compatibility-kit/pull/125))
+
+## [18.0.1] - 2025-02-24
+### Fixed
+- [Devkit] Fix hooks-attachment sample ([#122](https://github.com/cucumber/compatibility-kit/pull/122))
+
+## [18.0.0] - 2025-02-24
+### Changed
+- [Devkit] Slice hook and attachment samples more thinly ([#122](https://github.com/cucumber/compatibility-kit/pull/122))
+
+## [17.0.1] - 2025-01-29
+### Fixed
+- [Ruby] Fixed an issue where the CCK didn't release
+
+## [17.0.0] - 2024-11-12
+### Added
+- Add `TestRunStarted.id`, `TestCase.testRunStartedId` and `TestRunFinished.testRunStartedId` to reference messages
+- Add `Hook.type` to reference messages
 
 ## [16.3.0] - 2024-09-23
 ### Added
@@ -212,7 +299,22 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - First release
 
-[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v16.3.0...HEAD
+[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v23.2.0...HEAD
+[23.2.0]: https://github.com/cucumber/compatibility-kit/compare/v23.1.0...v23.2.0
+[23.1.0]: https://github.com/cucumber/compatibility-kit/compare/v23.0.0...v23.1.0
+[23.0.0]: https://github.com/cucumber/compatibility-kit/compare/v22.0.1...v23.0.0
+[22.0.1]: https://github.com/cucumber/compatibility-kit/compare/v22.0.0...v22.0.1
+[22.0.0]: https://github.com/cucumber/compatibility-kit/compare/v21.0.0...v22.0.0
+[21.0.0]: https://github.com/cucumber/compatibility-kit/compare/v20.1.0...v21.0.0
+[20.1.0]: https://github.com/cucumber/compatibility-kit/compare/v20.0.0...v20.1.0
+[20.0.0]: https://github.com/cucumber/compatibility-kit/compare/v19.0.0...v20.0.0
+[19.0.0]: https://github.com/cucumber/compatibility-kit/compare/v18.0.3...v19.0.0
+[18.0.3]: https://github.com/cucumber/compatibility-kit/compare/v18.0.2...v18.0.3
+[18.0.2]: https://github.com/cucumber/compatibility-kit/compare/v18.0.1...v18.0.2
+[18.0.1]: https://github.com/cucumber/compatibility-kit/compare/v18.0.0...v18.0.1
+[18.0.0]: https://github.com/cucumber/compatibility-kit/compare/v17.0.1...v18.0.0
+[17.0.1]: https://github.com/cucumber/compatibility-kit/compare/v17.0.0...v17.0.1
+[17.0.0]: https://github.com/cucumber/compatibility-kit/compare/v16.3.0...v17.0.0
 [16.3.0]: https://github.com/cucumber/compatibility-kit/compare/v16.2.0...v16.3.0
 [16.2.0]: https://github.com/cucumber/compatibility-kit/compare/v16.1.0...v16.2.0
 [16.1.0]: https://github.com/cucumber/compatibility-kit/compare/v16.0.0...v16.1.0

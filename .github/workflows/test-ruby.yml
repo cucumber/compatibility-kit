@@ -1,31 +1,45 @@
-name: Test ruby
+name: Test Ruby
 
 on:
   push:
     branches:
       - main
       - renovate/**
+    paths:
+      - ruby/**
+      - devkit/**
+      - .github/**
   pull_request:
     branches:
       - main
-  workflow_call:
+    paths:
+      - ruby/**
+      - devkit/**
+      - .github/** 
 
 jobs:
   test-ruby:
-    defaults:
-      working-directory: ruby
     strategy:
       fail-fast: false
       matrix:
         os: [ubuntu-latest]
-        ruby: ['3.0', '3.1', '3.2', '3.3']
+        ruby: ['3.1', '3.2', '3.3', '3.4', '3.5']
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby }}
           bundler-cache: true
           rubygems: latest
+          working-directory: ruby
+      - uses: actions/setup-node@v5
+        with:
+          cache: 'npm'
+          cache-dependency-path: devkit/package-lock.json
+      - name: Copy the samples to ruby/features
+        run: npm ci && npm run copy-to:ruby
+        working-directory: devkit
       - name: Run tests
         run: bundle exec rspec
+        working-directory: ruby

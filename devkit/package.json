@@ -1,39 +1,59 @@
 {
-  "name": "cck-devkit",
-  "version": "11.0.0",
+  "name": "@cucumber/devkit",
+  "version": "0.0.0",
   "description": "Development kit for the cucumber compatibility kit packages",
-  "main": "index.js",
+  "private": true,
+  "main": "src/index.ts",
   "scripts": {
-    "build": "tsc --build",
-    "pretest": "npm run build",
-    "test": "run-for-every-file --src 'samples/**/*.ndjson' --run 'npx shx cat {{src-file}} | node dist/validate.js'",
-    "generate-ndjson": "node ./dist/generate.js",
-    "pregenerate-ndjson": "npm run build",
-    "postgenerate-ndjson": "npm test && npm run copy-samples",
-    "copy-samples": "npm run copy-to:javascript && npm run copy-to:ruby",
+    "copy-samples": "npm run copy-to:javascript && npm run copy-to:ruby && npm run copy-to:java",
     "copy-to:javascript": "shx cp -r samples/* ../javascript/features",
-    "copy-to:ruby": "shx cp -r samples/* ../ruby/features && rm -rf ../ruby/features/**/*.ts"
+    "copy-to:ruby": "shx cp -r samples/* ../ruby/features && rm -rf ../ruby/features/**/*.ts",
+    "copy-to:java": "shx cp -r samples/* ../java/src/main/resources/io/cucumber/compatibilitykit/features && rm -rf ../java/src/main/resources/io/cucumber/compatibilitykit/features/**/*.ts",
+    "fix": "eslint --max-warnings 0 src test --fix && prettier --write src test",
+    "generate": "vitest run --update",
+    "lint": "eslint --max-warnings 0 src test && prettier --check src test",
+    "postgenerate": "npm run copy-samples",
+    "test": "vitest run"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cucumber/compatibility-kit.git"
   },
-  "author": "\"Aurelien Reeves (https://github.com/aurelien-reeves)",
+  "author": "Aurelien Reeves (https://github.com/aurelien-reeves)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/cucumber/compatibility-kit/issues"
   },
   "homepage": "https://github.com/cucumber/compatibility-kit#readme",
-  "devDependencies": {
-    "@cucumber/fake-cucumber": "^17.0.0",
-    "@cucumber/messages": "^26.0.0",
-    "@types/node": "^20.0.0",
-    "ajv": "^8.11.0",
+  "dependencies": {
+    "@cucumber/ci-environment": "^11.0.0",
+    "@cucumber/core": "^0.5.0",
+    "@cucumber/cucumber-expressions": "^18.0.0",
+    "@cucumber/fake-cucumber": "file:./",
+    "@cucumber/gherkin": "^35.0.0",
+    "@cucumber/gherkin-streams": "^6.0.0",
+    "@cucumber/gherkin-utils": "^10.0.0",
+    "@cucumber/message-streams": "^4.0.1",
+    "@cucumber/messages": "^30.0.0",
+    "@cucumber/query": "^14.0.0",
+    "@cucumber/tag-expressions": "^7.0.0",
     "globby": "^11.1.0",
-    "run-for-every-file": "^1.1.0",
-    "shx": "^0.3.4",
-    "stream-buffers": "^3.0.2",
-    "ts-node": "^10.8.1",
-    "typescript": "^5.0.0"
+    "stack-utils": "2.0.6"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.32.0",
+    "@tsconfig/node22": "^22.0.2",
+    "@types/node": "^22.0.0",
+    "@types/stack-utils": "2.0.3",
+    "ajv": "^8.11.0",
+    "eslint": "^9.32.0",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "globals": "^16.3.0",
+    "prettier": "^3.6.2",
+    "shx": "^0.4.0",
+    "tsx": "^4.20.3",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.38.0",
+    "vitest": "^3.2.4"
   }
 }
