@@ -13,6 +13,9 @@ import { Stopwatch } from './Stopwatch'
 async function main() {
   const { positionals: paths, values } = parseArgs({
     options: {
+      error: {
+        type: 'boolean',
+      },
       order: {
         type: 'string',
       },
@@ -24,6 +27,7 @@ async function main() {
     strict: false,
   })
   const allowedRetries = Number(values['retry'] ?? 0)
+  const contriveError = !!values['error']
   const order =
     typeof values['order'] === 'string' ? values['order'] : 'defined'
 
@@ -46,6 +50,7 @@ async function main() {
     onMessage,
     {
       allowedRetries,
+      contriveError,
       order,
     },
     pickledDocuments,

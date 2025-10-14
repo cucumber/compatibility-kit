@@ -15,7 +15,7 @@ jobs:
     environment: Release
     steps:
       - uses: actions/checkout@v5
-      - uses: actions/setup-node@v5
+      - uses: actions/setup-node@v6
         with:
           node-version: '24.x'
           cache: "npm"
@@ -23,7 +23,7 @@ jobs:
       - name: Copy the samples to javascript/features
         run: npm ci && npm run copy-to:javascript
         working-directory: devkit
-      - uses: actions/setup-node@v5
+      - uses: actions/setup-node@v6
         with:
           node-version: '24.x'
           cache: 'npm'
