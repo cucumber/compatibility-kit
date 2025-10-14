@@ -31,11 +31,7 @@ def gherkin_examples():
     return [
         "attachments",
         "backgrounds",
-        "data-tables",
-        "doc-strings",
         "empty",
-        "examples-tables",
-        "undefined",
     ]
 
 

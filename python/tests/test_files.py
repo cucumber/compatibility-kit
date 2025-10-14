@@ -23,7 +23,7 @@ def test_gherkin_examples(examples, gherkin_examples, samples):
     error = (
         f"Expected feature folder names {set(gherkin_examples) - set(gherkin_folders)} "
         f"not found in '{examples.cck_features_folder_location.relative_to(Path.cwd())}'"
-        ". Please ensure that the expected names in the Python test setup matches the "
+        ". Please ensure that the expected names in the Python test setup match the "
         "corresponding 'devkit' feature folder names."
     )
     assert set(gherkin_examples).issubset(set(gherkin_folders)), error
@@ -35,7 +35,7 @@ def test_markdown_examples(examples, markdown_examples, samples):
     error = (
         f"Expected feature folder names {set(markdown_examples) - set(markdown_folders)} "
         f"not found in '{examples.cck_features_folder_location.relative_to(Path.cwd())}'"
-        ". Please ensure that the expected names in the Python test setup matches the "
+        ". Please ensure that the expected names in the Python test setup match the "
         "corresponding 'devkit' feature folder names."
     )
     assert set(markdown_examples).issubset(set(markdown_folders)), error
