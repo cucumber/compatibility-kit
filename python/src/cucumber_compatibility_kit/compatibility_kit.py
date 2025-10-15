@@ -30,11 +30,11 @@ class CompatibilityKit:
             f"No feature code directory found for CCK example: {example_name}"
         )
 
-    def gherkin_example(self, example_folder: str) -> bool:
+    def gherkin_example(self, example_folder: Path) -> bool:
         """Check if the example folder contains a '.feature' file."""
         return self.file_type_in_folder(".feature", example_folder)
 
-    def markdown_example(self, example_folder: str) -> bool:
+    def markdown_example(self, example_folder: Path) -> bool:
         """Check if the example folder contains a '.md' file."""
         return self.file_type_in_folder(".md", example_folder)
 

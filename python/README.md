@@ -45,69 +45,27 @@ Available as [`cucumber-compatibility-kit`](https://pypi.org/project/cucumber-co
 pip install cucumber-compatibility-kit
 ```
 
-Set up your test environment. Here's an example of how you might set up a test using `pytest`.
+The compatibility kit packages gherkin files within a `features/` directory, that can be accessed over a Python interface.
 
 ```python
-import pytest
+>>> from cucumber_compatibility_kit import CompatibilityKit
+>>> cck = CompatibilityKit()
 
-from cucumber_compatibility_kit import CompatibilityKit
+# Access all samples paths containing feature files
+>>> cck.gherkin()
+[Path('/path/to/features/ambiguous'), ..., Path('/path/to/features/unused-steps')]
 
-@pytest.fixture(scope='session')
-def examples():
-    return CompatibilityKit()
+# Access the samples path for a feature code
+>>> cck.feature_code_for("ambiguous")
+Path('/path/to/features/ambiguous')
 
-@pytest.mark.parametrize('example_name', [
-    'attachments',
-    'cdata',
-    'data-tables',
-    'examples-tables',
-    'hooks',
-    'minimal',
-    'parameter-types',
-    'pending',
-    'retry',
-    'rules',
-    'skipped',
-    'stack-traces',
-    'undefined',
-    'unknown-parameter-type',
-])
-def test_feature_code_for_existing_example(examples, example_name):
-    """Test that the feature code for existing examples returns the correct path."""
-    path = examples.feature_code_for(example_name)
-    assert path.exists(), f"Feature code path does not exist for example: {example_name}"
-
-def test_gherkin_examples(examples):
-    """Test that the list of gherkin examples matches the expected examples."""
-    expected_examples = [
-        'attachments',
-        'cdata',
-        'data-tables',
-        'examples-tables',
-        'hooks',
-        'minimal',
-        'parameter-types',
-        'pending',
-        'retry',
-        'rules',
-        'skipped',
-        'stack-traces',
-        'undefined',
-        'unknown-parameter-type',
-    ]
-    assert sorted([e.name for e in examples.gherkin()]) == sorted(expected_examples)
-
-def test_markdown_examples(examples):
-    """Test that the list of markdown examples matches the expected examples."""
-    expected_examples = ['markdown']
-    assert sorted([e.name for e in examples.markdown()]) == sorted(expected_examples)
+# Directory contains a feature file
+>>> from pathlib import Path
+>>> cck.(Path('/path/to/features/ambiguous'))
+True
 ```
 
-In this example:
-
-- `CompatibilityKit` is the class used to handle CCK features and their paths.
-- The `test_feature_code_for_existing_example` test ensures that the feature code path exists for known examples.
-- The `test_gherkin_examples` and `test_markdown_examples` tests verify that the list of examples returned matches the expected list.
+More detailed documentation will be defined ([#193](https://github.com/cucumber/compatibility-kit/issues/193)).
 
 ## More Info
 
