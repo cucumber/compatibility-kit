@@ -19,7 +19,7 @@ jobs:
         with:
           enable-cache: true
           python-version: "3.14"
-          version: "0.9.1"
+          version: "0.9.3"
 
       - uses: actions/setup-node@v5
         with:
