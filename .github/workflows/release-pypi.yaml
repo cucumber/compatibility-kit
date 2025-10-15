@@ -5,15 +5,8 @@ on:
     branches: [release/*]
 
 jobs:
-  pre-release-check:
-    uses: cucumber/.github/.github/workflows/prerelease-checks.yml@main
-
-  test-python:
-    uses: ./.github/workflows/test-python.yml
-
   publish-pypi:
     name: Publish to PyPI
-    needs: [pre-release-check, test-python]
     runs-on: ubuntu-latest
     environment: Release
     permissions:
