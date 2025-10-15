@@ -1,0 +1,35 @@
+name: Release Python
+
+on:
+  push:
+    branches: [release/*]
+
+jobs:
+  publish-pypi:
+    name: Publish to PyPI
+    runs-on: ubuntu-latest
+    environment: Release
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Install uv and set the python version
+        uses: astral-sh/setup-uv@v7
+        with:
+          enable-cache: true
+          python-version: "3.14"
+          version: "0.9.1"
+
+      - uses: actions/setup-node@v5
+        with:
+          cache: "npm"
+          cache-dependency-path: devkit/package-lock.json
+
+      - name: Copy the samples to the package
+        run: npm ci && npm run copy-to:python
+        working-directory: devkit
+
+      - name: Publish package
+        working-directory: python
+        run: uv publish
