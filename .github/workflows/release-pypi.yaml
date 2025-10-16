@@ -30,6 +30,10 @@ jobs:
         run: npm ci && npm run copy-to:python
         working-directory: devkit
 
+      - name: Build package
+        working-directory: python
+        run: uv build
+
       - name: Publish package
         working-directory: python
         run: uv publish
