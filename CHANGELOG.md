@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [24.0.1] - 2025-10-27
 ### Fixed
 - [Java] Order messages in test runs without test run events
 
@@ -308,7 +310,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - First release
 
-[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v24.0.0...HEAD
+[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v24.0.1...HEAD
+[24.0.1]: https://github.com/cucumber/compatibility-kit/compare/v24.0.0...v24.0.1
 [24.0.0]: https://github.com/cucumber/compatibility-kit/compare/v23.2.0...v24.0.0
 [23.2.0]: https://github.com/cucumber/compatibility-kit/compare/v23.1.0...v23.2.0
 [23.1.0]: https://github.com/cucumber/compatibility-kit/compare/v23.0.0...v23.1.0
