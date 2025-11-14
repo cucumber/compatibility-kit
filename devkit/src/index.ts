@@ -6,8 +6,8 @@ import {
 import { SourceReference } from '@cucumber/messages'
 import StackUtils from 'stack-utils'
 
-import { state } from './state'
-import { World } from './World'
+import { state } from './state.js'
+import { World } from './World.js'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type HookFunction = (this: World) => any | Promise<any>
