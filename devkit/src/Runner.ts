@@ -18,11 +18,11 @@ import {
   TimeConversion,
 } from '@cucumber/messages'
 
-import { Clock } from './Clock'
-import { GlobalContext } from './GlobalContext'
-import { makeSnippets } from './makeSnippets'
-import { Stopwatch } from './Stopwatch'
-import { World } from './World'
+import { Clock } from './Clock.js'
+import { GlobalContext } from './GlobalContext.js'
+import { makeSnippets } from './makeSnippets.js'
+import { Stopwatch } from './Stopwatch.js'
+import { World } from './World.js'
 
 const NON_SUCCESS_STATUSES = new Set<TestStepResultStatus>([
   TestStepResultStatus.PENDING,
