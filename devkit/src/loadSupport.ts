@@ -2,7 +2,7 @@ import path from 'node:path'
 
 import { buildSupportCode } from '@cucumber/core'
 import { Envelope, IdGenerator } from '@cucumber/messages'
-import globby from 'globby'
+import { globby } from 'globby'
 
 import { state } from './state.js'
 
