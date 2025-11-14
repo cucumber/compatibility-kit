@@ -85,31 +85,34 @@ public final class MessageOrderer {
     private static List<Envelope> testCasesSubList(List<Envelope> messages) {
         int testRunStartedIndex = findTestRunStartedIndex(messages);
         int testRunFinishedIndex = findTestRunFinishedIndex(messages);
-
-        if (testRunStartedIndex >= testRunFinishedIndex) {
+        if (testRunStartedIndex == -1 || testRunFinishedIndex == -1) {
             return Collections.emptyList();
         }
-        
-        return messages.subList(testRunStartedIndex + 1, testRunFinishedIndex - 1);
+        int firstTestRunMessage = testRunStartedIndex + 1;
+        int lastTestRunMessage = testRunFinishedIndex - 1;
+        if (firstTestRunMessage >= lastTestRunMessage) {
+            return Collections.emptyList();
+        }
+        return messages.subList(firstTestRunMessage, lastTestRunMessage);
     }
 
     private static int findTestRunFinishedIndex(List<Envelope> messages) {
         int testRunFinishedIndex = messages.size() - 1;
         for (; testRunFinishedIndex >= 0; testRunFinishedIndex--) {
             if (messages.get(testRunFinishedIndex).getTestRunFinished().isPresent()) {
-                break;
+                return testRunFinishedIndex;
             }
         }
-        return testRunFinishedIndex;
+        return -1;
     }
 
     private static int findTestRunStartedIndex(List<Envelope> messages) {
         int testRunStartedIndex = 0;
         for (; testRunStartedIndex < messages.size(); testRunStartedIndex++) {
             if (messages.get(testRunStartedIndex).getTestRunStarted().isPresent()) {
-                break;
+                return testRunStartedIndex;
             }
         }
-        return testRunStartedIndex;
+        return -1;
     }
 }

@@ -33,6 +33,7 @@ const NON_SUCCESS_STATUSES = new Set<TestStepResultStatus>([
 
 export type RunnerOptions = {
   allowedRetries: number
+  contriveError: boolean
   order: string
 }
 
@@ -57,6 +58,10 @@ export class Runner {
 
   async run() {
     this.markTestRunStarted()
+
+    if (this.options.contriveError) {
+      return this.markTestRunFinished(new Error('Whoops!'))
+    }
 
     for (const hook of this.supportCodeLibrary.getAllBeforeAllHooks()) {
       await this.executeGlobalHook(hook)
@@ -90,16 +95,22 @@ export class Runner {
     })
   }
 
-  private markTestRunFinished() {
-    this.onMessage({
-      testRunFinished: {
-        testRunStartedId: this.testRunStartedId,
-        timestamp: TimeConversion.millisecondsSinceEpochToTimestamp(
-          this.clock.now()
-        ),
-        success: this.statuses.isDisjointFrom(NON_SUCCESS_STATUSES),
-      },
-    })
+  private markTestRunFinished(error?: Error) {
+    let testRunFinished = {
+      testRunStartedId: this.testRunStartedId,
+      timestamp: TimeConversion.millisecondsSinceEpochToTimestamp(
+        this.clock.now()
+      ),
+      success: this.statuses.isDisjointFrom(NON_SUCCESS_STATUSES),
+    }
+    if (error) {
+      testRunFinished = {
+        ...testRunFinished,
+        ...this.formatError(error),
+        success: false,
+      }
+    }
+    this.onMessage({ testRunFinished })
   }
 
   private makeTestCases(): ReadonlyArray<AssembledTestCase> {
@@ -337,8 +348,10 @@ export class Runner {
     }
   }
 
-  private formatError(error: Error, sourceReference: SourceReference) {
-    const sourceFrame = `${sourceReference.uri}:${sourceReference.location?.line}`
+  private formatError(error: Error, sourceReference?: SourceReference) {
+    const sourceFrame = sourceReference
+      ? `${sourceReference.uri}:${sourceReference.location?.line}`
+      : '<unknown>'
     const type = error.name || 'Error'
     const message = error.message
     const stackTrace = type + ': ' + message + '\n' + sourceFrame

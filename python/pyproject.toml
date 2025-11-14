@@ -1,0 +1,62 @@
+[build-system]
+build-backend = "uv_build"
+requires = ["uv_build>=0.9.0,<0.10.0"]
+
+[project]
+name = "cucumber-compatibility-kit"
+version = "24.0.1"
+description = "Test data used to validate a Cucumber implementation"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Jason Allen", email = "jsa34@noreply.github.com" }]
+keywords = ["BDD", "testing", "cucumber", "compatibility", "kit"]
+license = "MIT"
+license-files = ["LICENSE"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Python :: Implementation :: PyPy",
+    "Topic :: Software Development :: Testing",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Utilities",
+    # For compatibility with tooling such as pip-licenses"
+    "License :: OSI Approved :: MIT License",
+]
+
+[project.urls]
+Homepage = "https://github.com/cucumber/compatibility-kit"
+Repository = "https://github.com/cucumber/compatibility-kit.git"
+Download = "https://pypi.python.org/pypi/compatibility-kit"
+Issues = "https://github.com/cucumber/compatibility-kit/issues"
+Changelog = "https://github.com/cucumber/compatibility-kit/releases"
+
+[dependency-groups]
+dev = ["pytest>=7", "ruff>=0.14.0"]
+
+[tool.ruff.lint]
+extend-select = [
+    "B",
+    "C4",
+    "FURB",
+    "I",
+    "ISC",
+    "N",
+    "PERF",
+    "PIE",
+    "RET",
+    "S",
+    "TID",
+    "UP",
+]
+
+[tool.ruff.lint.per-file-ignores]
+# Allow assert statements in tests
+"tests/**" = ["S101"]

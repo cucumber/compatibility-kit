@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [24.0.1] - 2025-10-27
+### Fixed
+- [Java] Order messages in test runs without test run events
+
+## [24.0.0] - 2025-10-16
+### Added
+- [Devkit] Add sample for test run exception ([#178](https://github.com/cucumber/compatibility-kit/pull/178))
+- [Python] Python support ([#113](https://github.com/cucumber/compatibility-kit/pull/113))
+
+### Fixed
+- [Ruby] **Breaking change** Actually fixed the namespacing that wasn't completed in v22
+
 ## [23.2.0] - 2025-09-28
 ### Fixed
 - [Java] Fix typo in artifact name
@@ -298,7 +310,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - First release
 
-[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v23.2.0...HEAD
+[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v24.0.1...HEAD
+[24.0.1]: https://github.com/cucumber/compatibility-kit/compare/v24.0.0...v24.0.1
+[24.0.0]: https://github.com/cucumber/compatibility-kit/compare/v23.2.0...v24.0.0
 [23.2.0]: https://github.com/cucumber/compatibility-kit/compare/v23.1.0...v23.2.0
 [23.1.0]: https://github.com/cucumber/compatibility-kit/compare/v23.0.0...v23.1.0
 [23.0.0]: https://github.com/cucumber/compatibility-kit/compare/v22.0.1...v23.0.0

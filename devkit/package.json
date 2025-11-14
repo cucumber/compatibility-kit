@@ -5,10 +5,11 @@
   "private": true,
   "main": "src/index.ts",
   "scripts": {
-    "copy-samples": "npm run copy-to:javascript && npm run copy-to:ruby && copy-to:java",
+    "copy-samples": "npm run copy-to:javascript && npm run copy-to:ruby && npm run copy-to:java",
     "copy-to:javascript": "shx cp -r samples/* ../javascript/features",
     "copy-to:ruby": "shx cp -r samples/* ../ruby/features && rm -rf ../ruby/features/**/*.ts",
     "copy-to:java": "shx cp -r samples/* ../java/src/main/resources/io/cucumber/compatibilitykit/features && rm -rf ../java/src/main/resources/io/cucumber/compatibilitykit/features/**/*.ts",
+    "copy-to:python": "shx cp -r samples/* ../python/src/cucumber_compatibility_kit/features && rm -rf ../python/src/cucumber_compatibility_kit/features/**/*.ts",
     "fix": "eslint --max-warnings 0 src test --fix && prettier --write src test",
     "generate": "vitest run --update",
     "lint": "eslint --max-warnings 0 src test && prettier --check src test",
@@ -26,17 +27,17 @@
   },
   "homepage": "https://github.com/cucumber/compatibility-kit#readme",
   "dependencies": {
-    "@cucumber/ci-environment": "^10.0.1",
+    "@cucumber/ci-environment": "^12.0.0",
     "@cucumber/core": "^0.5.0",
     "@cucumber/cucumber-expressions": "^18.0.0",
     "@cucumber/fake-cucumber": "file:./",
-    "@cucumber/gherkin": "^35.0.0",
+    "@cucumber/gherkin": "^36.0.0",
     "@cucumber/gherkin-streams": "^6.0.0",
     "@cucumber/gherkin-utils": "^10.0.0",
     "@cucumber/message-streams": "^4.0.1",
-    "@cucumber/messages": "^29.0.1",
+    "@cucumber/messages": "^30.0.0",
     "@cucumber/query": "^14.0.0",
-    "@cucumber/tag-expressions": "^7.0.0",
+    "@cucumber/tag-expressions": "^8.0.0",
     "globby": "^15.0.0",
     "stack-utils": "2.0.6"
   },
@@ -54,6 +55,6 @@
     "tsx": "^4.20.3",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.38.0",
-    "vitest": "^3.2.4"
+    "vitest": "^4.0.0"
   }
 }

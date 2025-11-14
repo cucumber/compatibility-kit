@@ -2,7 +2,7 @@
 
 require 'cucumber/compatibility_kit'
 
-describe CompatibilityKit do
+describe Cucumber::CompatibilityKit do
   let(:features_path) { File.expand_path("#{File.dirname(__FILE__)}/../../features") }
 
   describe '.feature_code_for' do

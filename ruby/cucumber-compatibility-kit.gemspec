@@ -3,7 +3,7 @@
 Gem::Specification.new do |s|
   s.name        = 'cucumber-compatibility-kit'
   s.version     = File.read(File.expand_path('VERSION', __dir__)).strip
-  s.authors     = ['Aurélien Reeves', 'Aslak Hellesøy', 'Vincent Prêtre', 'Luke Hill', 'Cucumber Ltd']
+  s.authors     = ['Aurélien Reeves', 'Luke Hill', 'Aslak Hellesøy', 'Vincent Prêtre', 'Cucumber Ltd']
   s.description = 'Kit to check compatibility with official cucumber ruby implementation'
   s.summary     = "#{s.name}-#{s.version}"
   s.email       = 'cukebot@cucumber.io'
@@ -22,8 +22,8 @@ Gem::Specification.new do |s|
   }
 
   s.add_development_dependency 'rspec', '~> 3.13'
-  s.add_development_dependency 'rubocop', '~> 1.80.0'
-  s.add_development_dependency 'rubocop-performance', '~> 1.25.0'
+  s.add_development_dependency 'rubocop', '~> 1.81.0'
+  s.add_development_dependency 'rubocop-performance', '~> 1.26.0'
   s.add_development_dependency 'rubocop-rspec', '~> 3.7.0'
 
   s.files            = Dir['README.md', 'LICENSE', 'lib/**/*', 'features/**/*']
