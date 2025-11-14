@@ -31,8 +31,8 @@ class MessageOrdererTest {
     @Test
     void worksOnListsWithoutTestRunEvents(){
         List<Envelope> t = Arrays.asList(
-                Envelope.of(new TestRunStarted(new Timestamp(0L, 0L), "")),
-                Envelope.of(new TestRunFinished(null, false, new Timestamp(0L, 0L), null, ""))
+                Envelope.of(new TestRunStarted(new Timestamp(0L, 0), "")),
+                Envelope.of(new TestRunFinished(null, false, new Timestamp(0L, 0), null, ""))
         );
         assertDoesNotThrow(() -> originalOrder.accept(t));
         assertDoesNotThrow(() -> simulateParallelExecution.accept(t));
