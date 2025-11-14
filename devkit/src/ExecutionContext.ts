@@ -6,7 +6,7 @@ import {
 } from '@cucumber/messages'
 import { Readable } from 'stream'
 
-import { Clock } from './Clock'
+import { Clock } from './Clock.js'
 
 const LOG_MEDIA_TYPE = 'text/x.cucumber.log+plain'
 const LINK_MEDIA_TYPE = 'text/uri-list'

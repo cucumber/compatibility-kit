@@ -1,7 +1,7 @@
 import { Envelope } from '@cucumber/messages'
 
-import { Clock } from './Clock'
-import { ExecutionContext } from './ExecutionContext'
+import { Clock } from './Clock.js'
+import { ExecutionContext } from './ExecutionContext.js'
 
 export class World extends ExecutionContext {
   public testStepId: string | undefined

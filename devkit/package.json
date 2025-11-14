@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "description": "Development kit for the cucumber compatibility kit packages",
   "private": true,
+  "type": "module",
   "main": "src/index.ts",
   "scripts": {
     "copy-samples": "npm run copy-to:javascript && npm run copy-to:ruby && npm run copy-to:java",

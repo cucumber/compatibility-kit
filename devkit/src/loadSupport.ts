@@ -4,7 +4,7 @@ import { buildSupportCode } from '@cucumber/core'
 import { Envelope, IdGenerator } from '@cucumber/messages'
 import globby from 'globby'
 
-import { state } from './state'
+import { state } from './state.js'
 
 export async function loadSupport(
   newId: IdGenerator.NewId,
@@ -13,8 +13,7 @@ export async function loadSupport(
 ) {
   state.coreBuilder = buildSupportCode({ newId })
   for (const supportPath of await findSupportPaths(sourcePaths)) {
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
-    require(supportPath)
+    await import(supportPath)
   }
   const supportCodeLibrary = state.coreBuilder.build()
   supportCodeLibrary.toEnvelopes().forEach((envelope) => onMessage(envelope))

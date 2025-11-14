@@ -1,7 +1,7 @@
 import { Envelope } from '@cucumber/messages'
 
-import { Clock } from './Clock'
-import { ExecutionContext } from './ExecutionContext'
+import { Clock } from './Clock.js'
+import { ExecutionContext } from './ExecutionContext.js'
 
 export class GlobalContext extends ExecutionContext {
   constructor(

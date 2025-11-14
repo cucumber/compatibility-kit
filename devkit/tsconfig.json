@@ -5,6 +5,7 @@
     "declaration": true,
     "inlineSourceMap": true,
     "module": "Node16",
+    "moduleResolution": "Node16",
     "noEmit": true
   }
 }
