@@ -96,7 +96,7 @@ async function execute(args: string[]): Promise<[string, string]> {
   return new Promise((resolve, reject) => {
     execFile(
       'npx',
-      ['tsx', './src/cli.ts', ...args],
+      ['tsx', '--conditions=node', './src/cli.ts', ...args],
       {},
       (error, stdout, stderr) => {
         if (error) {
