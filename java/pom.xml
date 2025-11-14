@@ -9,7 +9,7 @@
     </parent>
 
     <artifactId>compatibility-kit</artifactId>
-    <version>24.0.2-SNAPSHOT</version>
+    <version>25.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>Compatibility Kit</name>
     <description>Test data used to validate a Cucumber implementation</description>
