@@ -35,6 +35,7 @@ jobs:
           working-directory: ruby
       - uses: actions/setup-node@v6
         with:
+          node-version: '24.x'
           cache: 'npm'
           cache-dependency-path: devkit/package-lock.json
       - name: Copy the samples to ruby/features

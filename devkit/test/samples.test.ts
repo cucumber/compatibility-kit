@@ -7,7 +7,7 @@ import { pipeline } from 'node:stream/promises'
 import { NdjsonToMessageStream } from '@cucumber/message-streams'
 import { Envelope } from '@cucumber/messages'
 import Ajv from 'ajv/dist/2020'
-import globby from 'globby'
+import { globby } from 'globby'
 import { describe, it } from 'vitest'
 
 describe('Samples', async () => {
@@ -96,7 +96,7 @@ async function execute(args: string[]): Promise<[string, string]> {
   return new Promise((resolve, reject) => {
     execFile(
       'npx',
-      ['tsx', './src/cli.ts', ...args],
+      ['tsx', '--conditions=node', './src/cli.ts', ...args],
       {},
       (error, stdout, stderr) => {
         if (error) {
