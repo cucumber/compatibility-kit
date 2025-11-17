@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [25.0.0] - 2025-11-17
 ### Added
 - Add new "hooks-skipped" sample ([#204](https://github.com/cucumber/compatibility-kit/pull/204))
 
@@ -315,7 +317,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - First release
 
-[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v24.0.1...HEAD
+[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v25.0.0...HEAD
+[25.0.0]: https://github.com/cucumber/compatibility-kit/compare/v24.0.1...v25.0.0
 [24.0.1]: https://github.com/cucumber/compatibility-kit/compare/v24.0.0...v24.0.1
 [24.0.0]: https://github.com/cucumber/compatibility-kit/compare/v23.2.0...v24.0.0
 [23.2.0]: https://github.com/cucumber/compatibility-kit/compare/v23.1.0...v23.2.0
