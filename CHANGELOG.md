@@ -6,6 +6,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Added
+- Add new "hooks-skipped" sample ([#204](https://github.com/cucumber/compatibility-kit/pull/204))
+- Remove hooks from existing "skipped" sample ([#204](https://github.com/cucumber/compatibility-kit/pull/204))
 
 ## [24.0.1] - 2025-10-27
 ### Fixed
