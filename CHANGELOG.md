@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Changed
+- Include `Pickle.location` in samples (requires messages v31.0.0) ([#207](https://github.com/cucumber/compatibility-kit/pull/207))
 
 ## [25.0.0] - 2025-11-17
 ### Added
