@@ -9,7 +9,7 @@
     </parent>
 
     <artifactId>compatibility-kit</artifactId>
-    <version>26.0.0</version>
+    <version>26.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>Compatibility Kit</name>
     <description>Test data used to validate a Cucumber implementation</description>
@@ -17,14 +17,14 @@
 
     <properties>
         <project.Automatic-Module-Name>io.cucumber.compatibilitykit</project.Automatic-Module-Name>
-        <project.build.outputTimestamp>1763892607</project.build.outputTimestamp>
+        <project.build.outputTimestamp>1763892614</project.build.outputTimestamp>
     </properties>
 
     <scm>
         <connection>scm:git:git://github.com/cucumber/compatibility-kit.git</connection>
         <developerConnection>scm:git:git@github.com:cucumber/compatibility-kit.git</developerConnection>
         <url>git://github.com/cucumber/compatibility-kit.git</url>
-        <tag>v26.0.0</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <dependencyManagement>
