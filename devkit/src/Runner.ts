@@ -2,6 +2,7 @@ import {
   AmbiguousError,
   AssembledTestCase,
   AssembledTestStep,
+  DataTable,
   DefinedTestRunHook,
   makeTestPlan,
   SupportCodeLibrary,
@@ -305,8 +306,14 @@ export class Runner {
     }
     const startTime = this.stopwatch.now()
     try {
-      const { fn, args } = testStep.prepare(world)
-      const result = await fn(...args)
+      const { fn, args, dataTable, docString } = testStep.prepare()
+      const fnArgs: Array<unknown> = args.map((arg) => arg.getValue(world))
+      if (dataTable) {
+        fnArgs.push(DataTable.from(dataTable))
+      } else if (docString) {
+        fnArgs.push(docString.content)
+      }
+      const result = await fn.apply(world, fnArgs)
       if (result === 'pending') {
         mostOfResult = {
           status: TestStepResultStatus.PENDING,
