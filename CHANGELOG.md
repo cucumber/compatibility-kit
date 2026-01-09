@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Include failure in attachments sample ([#217](https://github.com/cucumber/compatibility-kit/pull/217))
 
+### Fixed
+- Match method to keyword usage ([#219](https://github.com/cucumber/compatibility-kit/pull/219))
+
 ## [26.0.0] - 2025-11-23
 ### Changed
 - Include `Pickle.location` in samples (requires messages v31.0.0) ([#207](https://github.com/cucumber/compatibility-kit/pull/207))
