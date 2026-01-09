@@ -6,6 +6,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Changed
+- Include failure in attachments sample ([#217](https://github.com/cucumber/compatibility-kit/pull/217))
+
 ### Fixed
 - Match method to keyword usage ([#219](https://github.com/cucumber/compatibility-kit/pull/219))
 
