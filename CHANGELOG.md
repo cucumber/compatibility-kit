@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Fixed
 - Match method to keyword usage ([#219](https://github.com/cucumber/compatibility-kit/pull/219))
+- Consistently use regular expression in ambigious sample ([#221](https://github.com/cucumber/compatibility-kit/pull/221))
 
 ## [26.0.0] - 2025-11-23
 ### Changed
