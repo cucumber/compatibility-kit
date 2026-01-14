@@ -305,44 +305,46 @@ export class Runner {
       status: TestStepResultStatus.PASSED,
     }
     const startTime = this.stopwatch.now()
+    const prepared = testStep.prepare()
+    if (prepared.type === 'ambiguous') {
+      return {
+        status: TestStepResultStatus.AMBIGUOUS,
+        duration: TimeConversion.millisecondsToDuration(0),
+      }
+    }
+    if (prepared.type === 'undefined') {
+      this.onMessage({
+        suggestion: {
+          id: this.newId(),
+          pickleStepId: prepared.pickleStep.id,
+          snippets: makeSnippets(prepared.pickleStep, this.supportCodeLibrary),
+        },
+      })
+      return {
+        status: TestStepResultStatus.UNDEFINED,
+        duration: TimeConversion.millisecondsToDuration(0),
+      }
+    }
     try {
-      const { fn, args, dataTable, docString } = testStep.prepare()
+      const { fn, args, dataTable, docString } = prepared
       const fnArgs: Array<unknown> = args.map((arg) => arg.getValue(world))
       if (dataTable) {
         fnArgs.push(DataTable.from(dataTable))
       } else if (docString) {
         fnArgs.push(docString.content)
       }
-      const result = await fn.apply(world, fnArgs)
-      if (result === 'pending') {
+      const returned = await fn.apply(world, fnArgs)
+      if (returned === 'pending') {
         mostOfResult = {
           status: TestStepResultStatus.PENDING,
           message: 'TODO',
         }
-      } else if (result === 'skipped') {
+      } else if (returned === 'skipped') {
         mostOfResult = {
           status: TestStepResultStatus.SKIPPED,
         }
       }
     } catch (error: unknown) {
-      if (error instanceof AmbiguousError) {
-        return {
-          status: TestStepResultStatus.AMBIGUOUS,
-          duration: TimeConversion.millisecondsToDuration(0),
-        }
-      } else if (error instanceof UndefinedError) {
-        this.onMessage({
-          suggestion: {
-            id: this.newId(),
-            pickleStepId: error.pickleStep.id,
-            snippets: makeSnippets(error.pickleStep, this.supportCodeLibrary),
-          },
-        })
-        return {
-          status: TestStepResultStatus.UNDEFINED,
-          duration: TimeConversion.millisecondsToDuration(0),
-        }
-      }
       mostOfResult = {
         ...this.formatError(error as Error, testStep.sourceReference),
         status: TestStepResultStatus.FAILED,
