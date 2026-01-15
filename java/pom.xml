@@ -16,7 +16,6 @@
     <url>https://github.com/cucumber/compatibility-kit</url>
 
     <properties>
-        <project.Automatic-Module-Name>io.cucumber.compatibilitykit</project.Automatic-Module-Name>
         <project.build.outputTimestamp>1761581183</project.build.outputTimestamp>
     </properties>
 
