@@ -6,6 +6,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Added
+- Add sample with all statuses ([#222](https://github.com/cucumber/compatibility-kit/pull/222))
+
 ### Changed
 - Include failure in attachments sample ([#217](https://github.com/cucumber/compatibility-kit/pull/217))
 - Emit user code messages in definition order ([#220](https://github.com/cucumber/compatibility-kit/pull/220))
