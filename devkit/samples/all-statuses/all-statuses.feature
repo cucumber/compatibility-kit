@@ -1,5 +1,8 @@
 Feature: All statuses
 
+  This sample exercises all the possible result statuses, which is useful
+  for testing formatters and other tools.
+
   Scenario: Passing
     Given a step
     And a step
