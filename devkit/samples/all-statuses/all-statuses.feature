@@ -32,5 +32,3 @@ Feature: All statuses
     Given a step
     And an ambiguous step
     And a step
-
-
