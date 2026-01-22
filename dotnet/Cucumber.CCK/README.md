@@ -1,29 +1,14 @@
-<h1 align="center">
-  <img src="https://raw.githubusercontent.com/cucumber/cucumber-js/46a5a78107be27e99c6e044c69b6e8f885ce456c/docs/images/logo.svg" alt="Cucumber logo" width="75">
-  <br>
-  Cucumber Compatibility Kit
-</h1>
-<p align="center">
-  <b>Test data for validating compatibility of a Cucumber implementation</b>
-</p>
+# Cucumber Compatibility Kit
 
-<p align="center">
-<a href="https://www.nuget.org/packages/Cucumber.CCK">
-  <img src="https://img.shields.io/nuget/v/Cucumber.CCK.svg?color=dark-green" alt="nuget">
-</a>
-<a href="https://github.com/cucumber/compatibility-kit/actions/workflows/test-dotnet.yml">
-  <img src="https://github.com/cucumber/compatibility-kit/actions/workflows/test-dotnet.yml/badge.svg" alt="build">
-</a>
-  <a href="https://opencollective.com/cucumber">
-    <img src="https://opencollective.com/cucumber/backers/badge.svg" alt="backers">
-  </a>
-  <a href="https://opencollective.com/cucumber">
-    <img src="https://opencollective.com/cucumber/sponsors/badge.svg" alt="sponsors">
-  </a>
-  <a href="https://cucumber.io">
-    <img src="https://img.shields.io/badge/-docs-brightgreen?logo=cucumber&logoColor=bright%20green&labelColor=grey" alt="build">
-  </a>
-</p>
+![Cucumber logo](https://raw.githubusercontent.com/cucumber/cucumber-js/46a5a78107be27e99c6e044c69b6e8f885ce456c/docs/images/logo.svg)
+
+**Test data for validating compatibility of a Cucumber implementation**
+
+[![nuget](https://img.shields.io/nuget/v/Cucumber.CCK.svg?color=dark-green)](https://www.nuget.org/packages/Cucumber.CCK)
+[![build](https://github.com/cucumber/compatibility-kit/actions/workflows/test-dotnet.yml/badge.svg)](https://github.com/cucumber/compatibility-kit/actions/workflows/test-dotnet.yml)
+[![backers](https://opencollective.com/cucumber/backers/badge.svg)](https://opencollective.com/cucumber)
+[![sponsors](https://opencollective.com/cucumber/sponsors/badge.svg)](https://opencollective.com/cucumber)
+[![docs](https://img.shields.io/badge/-docs-brightgreen?logo=cucumber&logoColor=bright%20green&labelColor=grey)](https://cucumber.io)
 
 The CCK (Cucumber Compatibility Kit) is a set of features and messages. It aims to validate an implementation of the [Cucumber Messages protocol](https://github.com/cucumber/common/tree/main/messages#cucumber-messages).
 
@@ -51,9 +36,7 @@ Or via Package Manager Console:
 Install-Package Cucumber.CCK
 ```
 
-The compatibility kit packages gherkin files and sample data as content files that are automatically copied to your output directory when you reference the package. The files will be available in the `devkit/samples/` directory relative to your output folder.
-
-More detailed documentation will be defined ([#193](https://github.com/cucumber/compatibility-kit/issues/193)).
+The compatibility kit packages gherkin files and sample data as content files that are automatically copied to your output directory when you reference the package. The files will be available in the `cck/samples/` directory relative to your output folder.
 
 ## More Info
 
@@ -76,4 +59,4 @@ cd dotnet/Cucumber.CCK
 dotnet pack
 ```
 
-The package will include all files from `../../../devkit/samples` as contentFiles.
+The package will include all files from `../../devkit/samples` as contentFiles.
