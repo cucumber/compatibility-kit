@@ -7,6 +7,29 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [27.0.0] - 2026-01-16
+### Added
+- Add sample with all statuses ([#222](https://github.com/cucumber/compatibility-kit/pull/222))
+
+### Changed
+- Include failure in attachments sample ([#217](https://github.com/cucumber/compatibility-kit/pull/217))
+- Emit user code messages in definition order ([#220](https://github.com/cucumber/compatibility-kit/pull/220))
+
+### Fixed
+- Match method to keyword usage ([#219](https://github.com/cucumber/compatibility-kit/pull/219))
+- Consistently use regular expression in ambigious sample ([#221](https://github.com/cucumber/compatibility-kit/pull/221))
+
+## [26.0.0] - 2025-11-23
+### Changed
+- Include `Pickle.location` in samples (requires messages v31.0.0) ([#207](https://github.com/cucumber/compatibility-kit/pull/207))
+
+## [25.0.0] - 2025-11-17
+### Added
+- Add new "hooks-skipped" sample ([#204](https://github.com/cucumber/compatibility-kit/pull/204))
+
+### Changed
+- Remove hooks from existing "skipped" sample ([#204](https://github.com/cucumber/compatibility-kit/pull/204))
+
 ## [24.0.1] - 2025-10-27
 ### Fixed
 - [Java] Order messages in test runs without test run events
@@ -310,7 +333,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - First release
 
-[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v24.0.1...HEAD
+[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v27.0.0...HEAD
+[27.0.0]: https://github.com/cucumber/compatibility-kit/compare/v26.0.0...v27.0.0
+[26.0.0]: https://github.com/cucumber/compatibility-kit/compare/v25.0.0...v26.0.0
+[25.0.0]: https://github.com/cucumber/compatibility-kit/compare/v24.0.1...v25.0.0
 [24.0.1]: https://github.com/cucumber/compatibility-kit/compare/v24.0.0...v24.0.1
 [24.0.0]: https://github.com/cucumber/compatibility-kit/compare/v23.2.0...v24.0.0
 [23.2.0]: https://github.com/cucumber/compatibility-kit/compare/v23.1.0...v23.2.0

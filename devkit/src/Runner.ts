@@ -2,6 +2,7 @@ import {
   AmbiguousError,
   AssembledTestCase,
   AssembledTestStep,
+  DataTable,
   DefinedTestRunHook,
   makeTestPlan,
   SupportCodeLibrary,
@@ -18,11 +19,11 @@ import {
   TimeConversion,
 } from '@cucumber/messages'
 
-import { Clock } from './Clock'
-import { GlobalContext } from './GlobalContext'
-import { makeSnippets } from './makeSnippets'
-import { Stopwatch } from './Stopwatch'
-import { World } from './World'
+import { Clock } from './Clock.js'
+import { GlobalContext } from './GlobalContext.js'
+import { makeSnippets } from './makeSnippets.js'
+import { Stopwatch } from './Stopwatch.js'
+import { World } from './World.js'
 
 const NON_SUCCESS_STATUSES = new Set<TestStepResultStatus>([
   TestStepResultStatus.PENDING,
@@ -304,38 +305,46 @@ export class Runner {
       status: TestStepResultStatus.PASSED,
     }
     const startTime = this.stopwatch.now()
+    const prepared = testStep.prepare()
+    if (prepared.type === 'ambiguous') {
+      return {
+        status: TestStepResultStatus.AMBIGUOUS,
+        duration: TimeConversion.millisecondsToDuration(0),
+      }
+    }
+    if (prepared.type === 'undefined') {
+      this.onMessage({
+        suggestion: {
+          id: this.newId(),
+          pickleStepId: prepared.pickleStep.id,
+          snippets: makeSnippets(prepared.pickleStep, this.supportCodeLibrary),
+        },
+      })
+      return {
+        status: TestStepResultStatus.UNDEFINED,
+        duration: TimeConversion.millisecondsToDuration(0),
+      }
+    }
     try {
-      const { fn, args } = testStep.prepare(world)
-      const result = await fn(...args)
-      if (result === 'pending') {
+      const { fn, args, dataTable, docString } = prepared
+      const fnArgs: Array<unknown> = args.map((arg) => arg.getValue(world))
+      if (dataTable) {
+        fnArgs.push(DataTable.from(dataTable))
+      } else if (docString) {
+        fnArgs.push(docString.content)
+      }
+      const returned = await fn.apply(world, fnArgs)
+      if (returned === 'pending') {
         mostOfResult = {
           status: TestStepResultStatus.PENDING,
           message: 'TODO',
         }
-      } else if (result === 'skipped') {
+      } else if (returned === 'skipped') {
         mostOfResult = {
           status: TestStepResultStatus.SKIPPED,
         }
       }
     } catch (error: unknown) {
-      if (error instanceof AmbiguousError) {
-        return {
-          status: TestStepResultStatus.AMBIGUOUS,
-          duration: TimeConversion.millisecondsToDuration(0),
-        }
-      } else if (error instanceof UndefinedError) {
-        this.onMessage({
-          suggestion: {
-            id: this.newId(),
-            pickleStepId: error.pickleStep.id,
-            snippets: makeSnippets(error.pickleStep, this.supportCodeLibrary),
-          },
-        })
-        return {
-          status: TestStepResultStatus.UNDEFINED,
-          duration: TimeConversion.millisecondsToDuration(0),
-        }
-      }
       mostOfResult = {
         ...this.formatError(error as Error, testStep.sourceReference),
         status: TestStepResultStatus.FAILED,

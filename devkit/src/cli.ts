@@ -3,12 +3,12 @@ import { parseArgs } from 'node:util'
 import { MessageToNdjsonStream } from '@cucumber/message-streams'
 import { Envelope, IdGenerator } from '@cucumber/messages'
 
-import { Clock } from './Clock'
-import { loadSources } from './loadSources'
-import { loadSupport } from './loadSupport'
-import { meta } from './meta'
-import { Runner } from './Runner'
-import { Stopwatch } from './Stopwatch'
+import { Clock } from './Clock.js'
+import { loadSources } from './loadSources.js'
+import { loadSupport } from './loadSupport.js'
+import { meta } from './meta.js'
+import { Runner } from './Runner.js'
+import { Stopwatch } from './Stopwatch.js'
 
 async function main() {
   const { positionals: paths, values } = parseArgs({
