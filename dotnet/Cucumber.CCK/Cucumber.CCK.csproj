@@ -40,8 +40,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\..\..\devkit\samples\**\*">
-      <PackagePath>contentFiles\any\any\devkit\samples\%(RecursiveDir)%(Filename)%(Extension)</PackagePath>
+    <Content Include="..\..\devkit\samples\**\*">
+      <PackagePath>contentFiles\any\any\cck\samples\%(RecursiveDir)%(Filename)%(Extension)</PackagePath>
       <Pack>true</Pack>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <PackageCopyToOutput>true</PackageCopyToOutput>
