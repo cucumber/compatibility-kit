@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Changed
+- [Java] Set release version to 17 ([#200](https://github.com/cucumber/compatibility-kit/pull/200))
 
 ## [27.0.0] - 2026-01-16
 ### Added
