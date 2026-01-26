@@ -10,8 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     environment: Release
     steps:
-      - uses: actions/checkout@v6
-      - uses: actions/setup-node@v6
+      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6
+      - uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6
         with:
           node-version: '24.x'
           cache: "npm"
@@ -19,12 +19,12 @@ jobs:
       - name: Copy the samples to java/../features
         run: npm ci && npm run copy-to:java
         working-directory: devkit
-      - uses: actions/setup-java@v5
+      - uses: actions/setup-java@be666c2fcd27ec809703dec50e508c2fdc7f6654 # v5
         with:
           distribution: 'temurin'
           java-version: '21'
           cache: 'maven'
-      - uses: cucumber/action-publish-mvn@v3.0.0
+      - uses: cucumber/action-publish-mvn@0f70b286568bfba3172f851d8247e7efb7da1c18 # v3.0.0
         with:
           gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
           gpg-passphrase: ${{ secrets.GPG_PASSPHRASE }}
