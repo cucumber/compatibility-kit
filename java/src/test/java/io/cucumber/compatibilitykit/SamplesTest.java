@@ -7,13 +7,13 @@ import org.junit.platform.commons.io.ResourceFilter;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.platform.commons.support.ResourceSupport.findAllResourcesInPackage;
+import static org.junit.platform.commons.support.ResourceSupport.findAllResourcesInModule;
 
 class SamplesTest {
 
     @Test
     void featuresHaveBeenCopied() {
-        List<Resource> resources = findAllResourcesInPackage(
+        List<Resource> resources = findAllResourcesInModule(
                 "io.cucumber.compatibilitykit",
                 hasFeatureExtension()
         );
@@ -22,7 +22,7 @@ class SamplesTest {
 
     @Test
     void ndjsonHasBeenCopied() {
-        List<Resource> resources = findAllResourcesInPackage(
+        List<Resource> resources = findAllResourcesInModule(
                 "io.cucumber.compatibilitykit",
                 hasNdJsonExtension()
         );

@@ -5,7 +5,7 @@
     <parent>
         <groupId>io.cucumber</groupId>
         <artifactId>cucumber-parent</artifactId>
-        <version>4.6.0</version>
+        <version>5.0.0</version>
     </parent>
 
     <artifactId>compatibility-kit</artifactId>
@@ -16,7 +16,6 @@
     <url>https://github.com/cucumber/compatibility-kit</url>
 
     <properties>
-        <project.Automatic-Module-Name>io.cucumber.compatibilitykit</project.Automatic-Module-Name>
         <project.build.outputTimestamp>1768554554</project.build.outputTimestamp>
     </properties>
 
@@ -51,7 +50,7 @@
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>messages</artifactId>
-            <version>31.2.0</version>
+            <version>32.0.0</version>
             <scope>provided</scope>
         </dependency>
 
@@ -67,4 +66,22 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>validate</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>
