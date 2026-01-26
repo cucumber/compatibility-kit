@@ -38,7 +38,7 @@
     "@cucumber/message-streams": "^4.0.1",
     "@cucumber/messages": "^31.0.0",
     "@cucumber/query": "^15.0.0",
-    "@cucumber/tag-expressions": "^8.0.0",
+    "@cucumber/tag-expressions": "^9.0.0",
     "globby": "^16.0.0",
     "stack-utils": "2.0.6"
   },
