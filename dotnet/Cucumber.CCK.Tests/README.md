@@ -10,15 +10,15 @@ The test project (`Cucumber.CCK.Tests`) validates that the NuGet package correct
 
 ```
 dotnet/
-??? NuGet.Config                           # Configures local package source
-??? Directory.Build.props                  # Shared build properties
-??? Cucumber.CCK/
-?   ??? Cucumber.CCK.csproj           # Package project
-?   ??? bin/Release/NuGet/            # Local package output
-?       ??? Cucumber.CCK.27.0.0.nupkg
-??? Cucumber.CCK.Tests/
-    ??? Cucumber.CCK.Tests.csproj         # Test project
-    ??? SamplesTests.cs                   # Tests
++-- NuGet.Config                           # Configures local package source
++-- Directory.Build.props                  # Shared build properties
++-- Cucumber.CCK/
+|   +-- Cucumber.CCK.csproj                # Package project
+|   \-- bin/Release/NuGet/                 # Local package output
+|       \-- Cucumber.CCK.27.0.0.nupkg
+\-- Cucumber.CCK.Tests/
+    +-- Cucumber.CCK.Tests.csproj          # Test project
+    \-- SamplesTests.cs                    # Tests
 ```
 
 ## How It Works
