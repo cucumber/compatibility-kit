@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 ### Changed
 - [Java] Set release version to 17 ([#200](https://github.com/cucumber/compatibility-kit/pull/200))
+- Make `StepMatchArgument.Group.children` optional ([cucumber/messages#370](https://github.com/cucumber/messages/pull/370), [cucumber/cucumber-expressions#387](https://github.com/cucumber/cucumber-expressions/pull/387), [cucumber/javascript-core#43](https://github.com/cucumber/javascript-core/pull/43))
 
 ## [27.0.0] - 2026-01-16
 ### Added
