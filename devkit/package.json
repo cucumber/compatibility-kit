@@ -29,7 +29,7 @@
   "homepage": "https://github.com/cucumber/compatibility-kit#readme",
   "dependencies": {
     "@cucumber/ci-environment": "^13.0.0",
-    "@cucumber/core": "^0.8.2",
+    "@cucumber/core": "^0.8.3",
     "@cucumber/cucumber-expressions": "^19.0.0",
     "@cucumber/fake-cucumber": "file:./",
     "@cucumber/gherkin": "^38.0.0",
