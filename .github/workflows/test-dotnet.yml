@@ -7,19 +7,19 @@ on:
       - renovate/**
     paths:
       - dotnet/**
+      - devkit/**
       - .github/**
   pull_request:
     branches:
       - main
     paths:
       - dotnet/**
+      - devkit/**
       - .github/**
-  workflow_call:
 
 jobs:
   test-dotnet:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-dotnet@v5
