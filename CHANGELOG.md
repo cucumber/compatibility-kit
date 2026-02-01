@@ -6,8 +6,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [28.0.1] - 2026-02-01
 ### Fixed
--  Make ambiguous step definition ambiguous but not duplicates ([#235](https://github.com/cucumber/compatibility-kit/pull/235)) 
+- Make ambiguous step definition ambiguous but not duplicates ([#235](https://github.com/cucumber/compatibility-kit/pull/235))
 
 ## [28.0.0] - 2026-01-27
 ### Changed
@@ -340,7 +342,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - First release
 
-[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v28.0.0...HEAD
+[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v28.0.1...HEAD
+[28.0.1]: https://github.com/cucumber/compatibility-kit/compare/v28.0.0...v28.0.1
 [28.0.0]: https://github.com/cucumber/compatibility-kit/compare/v27.0.0...v28.0.0
 [27.0.0]: https://github.com/cucumber/compatibility-kit/compare/v26.0.0...v27.0.0
 [26.0.0]: https://github.com/cucumber/compatibility-kit/compare/v25.0.0...v26.0.0
