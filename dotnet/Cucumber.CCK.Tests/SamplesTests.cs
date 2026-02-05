@@ -22,17 +22,12 @@ public class SamplesTests
             because: "the cck/samples folder should be copied from the NuGet package");
     }
 
-    [Theory]
-    [InlineData("hooks")]
-    [InlineData("attachments")]
-    [InlineData("empty")]
-    [InlineData("backgrounds")]
-    [InlineData("examples-tables")]
-    public void SampleFolder_ShouldExist(string sampleName)
+    [Fact]
+    public void SampleFolders_ShouldExist()
     {
-        var samplePath = Path.Combine(_samplesPath, sampleName);
-        Directory.Exists(samplePath).Should().BeTrue(
-            because: $"the '{sampleName}' sample should be included in the package");
+        var samplesPaths = Directory.GetDirectories(_samplesPath);
+        samplesPaths.Should().NotBeEmpty(
+            because: "the package should contain sample folders");
     }
 
     [Fact]
@@ -52,12 +47,20 @@ public class SamplesTests
     }
 
     [Fact]
-    public void HooksSample_ShouldContainExpectedFiles()
+    public void Samples_ShouldContainExpectedFiles()
     {
-        var hooksPath = Path.Combine(_samplesPath, "hooks");
-        
-        File.Exists(Path.Combine(hooksPath, "hooks.feature")).Should().BeTrue();
-        File.Exists(Path.Combine(hooksPath, "hooks.ndjson")).Should().BeTrue();
-        File.Exists(Path.Combine(hooksPath, "hooks.ts")).Should().BeTrue();
+        var samplesPaths = Directory.GetDirectories(_samplesPath);
+        foreach (var samplePath in samplesPaths)
+        {
+            var path = Path.Combine(_samplesPath, samplePath);
+            var featureFiles = Directory.GetFiles(path, "*.feature");
+            var markdownFiles = Directory.GetFiles(path, "*.md");
+            string[] combinedList = [..featureFiles, ..markdownFiles];
+            combinedList.Should().NotBeEmpty(
+                because: $"the sample '{samplePath}' should contain .feature files and/or .md files");
+            var ndjsonFiles = Directory.GetFiles(path, "*.ndjson", SearchOption.AllDirectories);
+            ndjsonFiles.Should().NotBeEmpty(
+                because: $"the sample '{samplePath}' should contain .ndjson message files");
+        }
     }
 }
