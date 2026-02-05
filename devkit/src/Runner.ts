@@ -349,6 +349,8 @@ export class Runner {
       }
       if (mostOfResult.exception?.type === 'PendingException') {
         mostOfResult.status = TestStepResultStatus.PENDING
+      } else if (mostOfResult.exception?.type === 'SkippedException') {
+        mostOfResult.status = TestStepResultStatus.SKIPPED
       } else {
         mostOfResult.status = TestStepResultStatus.FAILED
       }
