@@ -1,12 +1,10 @@
 import {
-  AmbiguousError,
   AssembledTestCase,
   AssembledTestStep,
   DataTable,
   DefinedTestRunHook,
   makeTestPlan,
   SupportCodeLibrary,
-  UndefinedError,
 } from '@cucumber/core'
 import {
   Envelope,
@@ -347,7 +345,12 @@ export class Runner {
     } catch (error: unknown) {
       mostOfResult = {
         ...this.formatError(error as Error, testStep.sourceReference),
-        status: TestStepResultStatus.FAILED,
+        status: TestStepResultStatus.UNKNOWN,
+      }
+      if (mostOfResult.exception?.type === 'PendingException') {
+        mostOfResult.status = TestStepResultStatus.PENDING
+      } else {
+        mostOfResult.status = TestStepResultStatus.FAILED
       }
     }
     const endTime = this.stopwatch.now()

@@ -9,6 +9,9 @@ Feature: Pending steps
   Scenario: Unimplemented step signals pending status
     Given an unimplemented pending step
 
+  Scenario: Some implementations use an exception with a message
+    Given a pending step with a message
+
   Scenario: Steps before unimplemented steps are executed
     Given an implemented non-pending step
     And an unimplemented pending step
