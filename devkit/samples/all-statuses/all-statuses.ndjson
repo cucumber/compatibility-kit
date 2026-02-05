@@ -40,7 +40,7 @@
 {"testStepStarted":{"testCaseStartedId":"81","testStepId":"64","timestamp":{"seconds":0,"nanos":18000000}}}
 {"testStepFinished":{"testCaseStartedId":"81","testStepId":"64","testStepResult":{"status":"PASSED","duration":{"seconds":0,"nanos":1000000}},"timestamp":{"seconds":0,"nanos":19000000}}}
 {"testStepStarted":{"testCaseStartedId":"81","testStepId":"65","timestamp":{"seconds":0,"nanos":20000000}}}
-{"testStepFinished":{"testCaseStartedId":"81","testStepId":"65","testStepResult":{"status":"PENDING","message":"TODO","duration":{"seconds":0,"nanos":1000000}},"timestamp":{"seconds":0,"nanos":21000000}}}
+{"testStepFinished":{"testCaseStartedId":"81","testStepId":"65","testStepResult":{"status":"PENDING","duration":{"seconds":0,"nanos":1000000}},"timestamp":{"seconds":0,"nanos":21000000}}}
 {"testStepStarted":{"testCaseStartedId":"81","testStepId":"66","timestamp":{"seconds":0,"nanos":22000000}}}
 {"testStepFinished":{"testCaseStartedId":"81","testStepId":"66","testStepResult":{"status":"SKIPPED","duration":{"seconds":0,"nanos":0}},"timestamp":{"seconds":0,"nanos":23000000}}}
 {"testCaseFinished":{"testCaseStartedId":"81","timestamp":{"seconds":0,"nanos":24000000},"willBeRetried":false}}

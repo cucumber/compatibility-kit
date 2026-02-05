@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Added
+- Add pending and skipped via exceptions ([#238](https://github.com/cucumber/compatibility-kit/pull/238))
 
 ## [28.0.1] - 2026-02-01
 ### Fixed

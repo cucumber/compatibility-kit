@@ -1,12 +1,10 @@
 import {
-  AmbiguousError,
   AssembledTestCase,
   AssembledTestStep,
   DataTable,
   DefinedTestRunHook,
   makeTestPlan,
   SupportCodeLibrary,
-  UndefinedError,
 } from '@cucumber/core'
 import {
   Envelope,
@@ -337,7 +335,6 @@ export class Runner {
       if (returned === 'pending') {
         mostOfResult = {
           status: TestStepResultStatus.PENDING,
-          message: 'TODO',
         }
       } else if (returned === 'skipped') {
         mostOfResult = {
@@ -347,7 +344,14 @@ export class Runner {
     } catch (error: unknown) {
       mostOfResult = {
         ...this.formatError(error as Error, testStep.sourceReference),
-        status: TestStepResultStatus.FAILED,
+        status: TestStepResultStatus.UNKNOWN,
+      }
+      if (mostOfResult.exception?.type === 'PendingException') {
+        mostOfResult.status = TestStepResultStatus.PENDING
+      } else if (mostOfResult.exception?.type === 'SkippedException') {
+        mostOfResult.status = TestStepResultStatus.SKIPPED
+      } else {
+        mostOfResult.status = TestStepResultStatus.FAILED
       }
     }
     const endTime = this.stopwatch.now()
@@ -361,7 +365,8 @@ export class Runner {
     const sourceFrame = sourceReference
       ? `${sourceReference.uri}:${sourceReference.location?.line}`
       : '<unknown>'
-    const type = error.name || 'Error'
+
+    const type = error.constructor.name || 'Error'
     const message = error.message
     const stackTrace = type + ': ' + message + '\n' + sourceFrame
     return {
