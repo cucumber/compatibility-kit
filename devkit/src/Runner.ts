@@ -361,7 +361,8 @@ export class Runner {
     const sourceFrame = sourceReference
       ? `${sourceReference.uri}:${sourceReference.location?.line}`
       : '<unknown>'
-    const type = error.name || 'Error'
+
+    const type = error.constructor.name || 'Error'
     const message = error.message
     const stackTrace = type + ': ' + message + '\n' + sourceFrame
     return {
