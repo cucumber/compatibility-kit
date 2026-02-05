@@ -335,7 +335,6 @@ export class Runner {
       if (returned === 'pending') {
         mostOfResult = {
           status: TestStepResultStatus.PENDING,
-          message: 'TODO',
         }
       } else if (returned === 'skipped') {
         mostOfResult = {
