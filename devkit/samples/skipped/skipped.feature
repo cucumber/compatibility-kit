@@ -13,6 +13,3 @@ Feature: Skipping scenarios
   Scenario: Skipping from a step causes the rest of the scenario to be skipped
     Given I skip a step
     And a step that is skipped
-
-  Scenario: Some implementations use an exception with a message
-    Given a skipped step with a message
