@@ -5,19 +5,18 @@
     <parent>
         <groupId>io.cucumber</groupId>
         <artifactId>cucumber-parent</artifactId>
-        <version>4.6.0</version>
+        <version>5.1.1</version>
     </parent>
 
     <artifactId>compatibility-kit</artifactId>
-    <version>27.0.1-SNAPSHOT</version>
+    <version>28.0.2-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>Compatibility Kit</name>
     <description>Test data used to validate a Cucumber implementation</description>
     <url>https://github.com/cucumber/compatibility-kit</url>
 
     <properties>
-        <project.Automatic-Module-Name>io.cucumber.compatibilitykit</project.Automatic-Module-Name>
-        <project.build.outputTimestamp>1768554554</project.build.outputTimestamp>
+        <project.build.outputTimestamp>1769907153</project.build.outputTimestamp>
     </properties>
 
     <scm>
@@ -40,7 +39,7 @@
             <dependency>
                 <groupId>org.assertj</groupId>
                 <artifactId>assertj-bom</artifactId>
-                <version>3.27.6</version>
+                <version>3.27.7</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -51,7 +50,7 @@
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>messages</artifactId>
-            <version>31.2.0</version>
+            <version>32.0.1</version>
             <scope>provided</scope>
         </dependency>
 
@@ -67,4 +66,22 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>validate</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>
