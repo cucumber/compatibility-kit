@@ -248,7 +248,7 @@ export class Runner {
   ) {
     const statuses = new Set<TestStepResultStatus>()
     const world = new World(this.clock, this.onMessage, testCaseStartedId)
-    let doomed = false
+    let failedish = false
     let skipped = false
 
     for (const testStep of testCase.testSteps) {
@@ -266,15 +266,21 @@ export class Runner {
       const testStepResult = await this.executeTestStep(
         testStep,
         world,
-        doomed,
+        failedish,
         skipped
       )
       statuses.add(testStepResult.status)
-      if (testStepResult.status === TestStepResultStatus.SKIPPED && !doomed) {
+      if (
+        testStepResult.status === TestStepResultStatus.SKIPPED &&
+        !failedish
+      ) {
         skipped = true
       }
-      if (testStepResult.status !== TestStepResultStatus.PASSED) {
-        doomed = true
+      if (
+        testStepResult.status !== TestStepResultStatus.PASSED &&
+        testStepResult.status !== TestStepResultStatus.SKIPPED
+      ) {
+        failedish = true
       }
 
       this.onMessage({
@@ -295,7 +301,7 @@ export class Runner {
   private async executeTestStep(
     testStep: AssembledTestStep,
     world: World,
-    doomed: boolean,
+    failedish: boolean,
     skipped: boolean
   ): Promise<TestStepResult> {
     // if the user has explicitly skipped, skip now
@@ -329,7 +335,7 @@ export class Runner {
     }
 
     // if we've already seen a failed-ish status, skip now
-    if (doomed && !testStep.always) {
+    if (failedish && !testStep.always) {
       return {
         status: TestStepResultStatus.SKIPPED,
         duration: TimeConversion.millisecondsToDuration(0),
