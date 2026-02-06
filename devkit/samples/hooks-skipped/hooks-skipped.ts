@@ -31,3 +31,7 @@ After({ tags: '@skip-after' }, function () {
 After({}, function () {
   // no-op
 })
+
+After({ tags: '@fail-after' }, function () {
+  throw new Error('whoops')
+})

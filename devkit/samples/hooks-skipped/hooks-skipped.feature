@@ -24,3 +24,11 @@ Feature: Hooks and skipped
   will still be run normally.
 
     Given a normal step
+
+  @fail-after
+  Scenario: Failure in an After hook
+
+  Failure in an After hook following a skipped step will cause that test case to be considered failed
+  overall.
+
+    Given a step that skips
