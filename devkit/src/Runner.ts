@@ -248,7 +248,8 @@ export class Runner {
   ) {
     const statuses = new Set<TestStepResultStatus>()
     const world = new World(this.clock, this.onMessage, testCaseStartedId)
-    let outcomeKnown = false
+    let failedish = false
+    let skipped = false
 
     for (const testStep of testCase.testSteps) {
       this.onMessage({
@@ -265,11 +266,21 @@ export class Runner {
       const testStepResult = await this.executeTestStep(
         testStep,
         world,
-        outcomeKnown
+        failedish,
+        skipped
       )
       statuses.add(testStepResult.status)
-      if (testStepResult.status !== TestStepResultStatus.PASSED) {
-        outcomeKnown = true
+      if (
+        testStepResult.status === TestStepResultStatus.SKIPPED &&
+        !failedish
+      ) {
+        skipped = true
+      }
+      if (
+        testStepResult.status !== TestStepResultStatus.PASSED &&
+        testStepResult.status !== TestStepResultStatus.SKIPPED
+      ) {
+        failedish = true
       }
 
       this.onMessage({
@@ -290,19 +301,18 @@ export class Runner {
   private async executeTestStep(
     testStep: AssembledTestStep,
     world: World,
-    outcomeKnown: boolean
+    failedish: boolean,
+    skipped: boolean
   ): Promise<TestStepResult> {
-    if (outcomeKnown && !testStep.always) {
+    // if the user has explicitly skipped, skip now
+    if (skipped && !testStep.always) {
       return {
         status: TestStepResultStatus.SKIPPED,
         duration: TimeConversion.millisecondsToDuration(0),
       }
     }
 
-    let mostOfResult: Omit<TestStepResult, 'duration'> = {
-      status: TestStepResultStatus.PASSED,
-    }
-    const startTime = this.stopwatch.now()
+    // resolve now if we're undefined or ambiguous
     const prepared = testStep.prepare()
     if (prepared.type === 'ambiguous') {
       return {
@@ -323,6 +333,20 @@ export class Runner {
         duration: TimeConversion.millisecondsToDuration(0),
       }
     }
+
+    // if we've already seen a failed-ish status, skip now
+    if (failedish && !testStep.always) {
+      return {
+        status: TestStepResultStatus.SKIPPED,
+        duration: TimeConversion.millisecondsToDuration(0),
+      }
+    }
+
+    let mostOfResult: Omit<TestStepResult, 'duration'> = {
+      status: TestStepResultStatus.PASSED,
+    }
+    const startTime = this.stopwatch.now()
+
     try {
       const { fn, args, dataTable, docString } = prepared
       const fnArgs: Array<unknown> = args.map((arg) => arg.getValue(world))
