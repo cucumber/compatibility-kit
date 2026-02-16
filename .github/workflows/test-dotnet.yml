@@ -1,0 +1,42 @@
+name: test-dotnet
+
+on:
+  push:
+    branches:
+      - main
+      - renovate/**
+    paths:
+      - dotnet/**
+      - devkit/**
+      - .github/**
+  pull_request:
+    branches:
+      - main
+    paths:
+      - dotnet/**
+      - devkit/**
+      - .github/**
+
+jobs:
+  test-dotnet:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: '10.0.x'
+      
+      # Pack the Cucumber.CCK project first
+      - name: Pack Cucumber.CCK
+        run: dotnet pack -c Release
+        working-directory: dotnet/Cucumber.CCK
+      
+      # Enable the local NuGet source for testing
+      - name: Enable local NuGet source
+        run: dotnet nuget enable source Local
+        working-directory: dotnet
+      
+      # Now run tests which will use the locally packed package
+      - name: Run tests
+        run: dotnet test -c Release
+        working-directory: dotnet
