@@ -17,6 +17,7 @@ jobs:
         # Setup local NUGET source
       - name: Setup local NUGET source
         run: mkdir -p ./Cucumber.CCK/bin/Release/NuGet
+        working-directory: dotnet/Cucumber.CCK
       - uses: cucumber/action-publish-nuget@f059d15b2dbcd962afc0d29424f4f083177255aa # v1.0.0
         with:
           nuget-api-key: ${{ secrets.NUGET_API_KEY }}

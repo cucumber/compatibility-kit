@@ -28,6 +28,7 @@ jobs:
       # Setup local NUGET source
       - name: Setup local NUGET source
         run: mkdir -p ./Cucumber.CCK/bin/Release/NuGet
+        working-directory: dotnet/Cucumber.CCK
       # Pack the Cucumber.CCK project first
       - name: Pack Cucumber.CCK
         run: dotnet pack -c Release
