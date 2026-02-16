@@ -10,7 +10,7 @@
     <Product>Cucumber.CCK</Product>
     <PackageId>Cucumber.CCK</PackageId>
     <Authors>Cucumber Ltd, Chris Rudolphi</Authors>
-    <Copyright>Copyright © Cucumber Ltd, Chris Rudolphi</Copyright>
+    <Copyright>Copyright &#xA9; Cucumber Ltd, Chris Rudolphi</Copyright>
 
     <Description>The CCK (Cucumber Compatibility Kit) is a set of features and messages. It aims to validate an implementation of the Cucumber Messages protocol.</Description>
     <PackageTags>reqnroll gherkin cucumber</PackageTags>
@@ -25,7 +25,7 @@
   </PropertyGroup>
 
   <PropertyGroup Label="Version">
-    <VersionNumber>27.0.0</VersionNumber>
+    <VersionNumber>29.1.0</VersionNumber>
     <Version Condition="'$(SnapshotSuffix)' != ''">$(VersionNumber)-$(SnapshotSuffix)</Version>
     <Version Condition="'$(SnapshotSuffix)' == ''">$(VersionNumber)</Version>
   </PropertyGroup>
@@ -47,7 +47,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <None Remove="README.md" />
+    <None Remove="README.md"/>
   </ItemGroup>
 
   <ItemGroup>
@@ -58,7 +58,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Resources\" />
+    <Folder Include="Resources\"/>
   </ItemGroup>
 
 </Project>

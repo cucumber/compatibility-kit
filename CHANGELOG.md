@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [29.1.0] - 2026-02-16
 ### Added
 - Add dotNet Implementation
 
@@ -349,7 +351,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - First release
 
-[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v29.0.0...HEAD
+[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v29.1.0...HEAD
+[29.1.0]: https://github.com/cucumber/compatibility-kit/compare/v29.0.0...v29.1.0
 [29.0.0]: https://github.com/cucumber/compatibility-kit/compare/v28.0.1...v29.0.0
 [28.0.1]: https://github.com/cucumber/compatibility-kit/compare/v28.0.0...v28.0.1
 [28.0.0]: https://github.com/cucumber/compatibility-kit/compare/v27.0.0...v28.0.0
