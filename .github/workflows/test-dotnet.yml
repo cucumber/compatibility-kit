@@ -26,12 +26,7 @@ jobs:
         with:
           dotnet-version: '10.0.x'
       
-      # Pack the Cucumber.CCK project first
-      - name: Pack Cucumber.CCK
-        run: dotnet pack -c Release
-        working-directory: dotnet/Cucumber.CCK
-      
-      # Now run tests which will use the locally packed package
+      # Run tests which will use locally packed package
       - name: Run tests
         run: dotnet test -c Release
         working-directory: dotnet
