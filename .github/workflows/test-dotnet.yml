@@ -31,11 +31,6 @@ jobs:
         run: dotnet pack -c Release
         working-directory: dotnet/Cucumber.CCK
       
-      # Enable the local NuGet source for testing
-      - name: Enable local NuGet source
-        run: dotnet nuget enable source Local
-        working-directory: dotnet
-      
       # Now run tests which will use the locally packed package
       - name: Run tests
         run: dotnet test -c Release

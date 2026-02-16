@@ -6,6 +6,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+- dotNET: Modified nuget.config so that Tests may be built after CCK is built.
 
 ## [29.1.1] - 2026-02-16
 ### Fixed
