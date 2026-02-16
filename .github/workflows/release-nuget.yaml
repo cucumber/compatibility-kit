@@ -14,6 +14,10 @@ jobs:
       - uses: actions/setup-dotnet@baa11fbfe1d6520db94683bd5c7a3818018e4309 # v5.1.0
         with:
           dotnet-version: 10.0.x
+      # Pack the Cucumber.CCK project first
+      - name: Pack Cucumber.CCK
+        run: dotnet pack -c Release
+        working-directory: dotnet/Cucumber.CCK
       - uses: cucumber/action-publish-nuget@f059d15b2dbcd962afc0d29424f4f083177255aa # v1.0.0
         with:
           nuget-api-key: ${{ secrets.NUGET_API_KEY }}
