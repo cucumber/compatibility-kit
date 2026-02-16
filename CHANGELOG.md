@@ -9,11 +9,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [29.1.2] - 2026-02-16
 ### Fixed
-- dotNET: Modified nuget.config so that Tests may be built after CCK is built.
+- [.Net] Modified nuget.config so that Tests may be built after CCK is built.
 
 ## [29.1.1] - 2026-02-16
 ### Fixed
-- Fixed dotNet release process
+- [.Net] Fixed release process
 
 ## [29.1.0] - 2026-02-16
 ### Added
