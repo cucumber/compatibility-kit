@@ -9,6 +9,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - Add dotNet Implementation
 
+## [29.0.0] - 2026-02-08
+### Added
+- Add pending and skipped via exceptions ([#238](https://github.com/cucumber/compatibility-kit/pull/238))
+- Samples for status escalations ([#239](https://github.com/cucumber/compatibility-kit/pull/239))
+
 ## [28.0.1] - 2026-02-01
 ### Fixed
 - Make ambiguous step definition ambiguous but not duplicates ([#235](https://github.com/cucumber/compatibility-kit/pull/235))
@@ -344,7 +349,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - First release
 
-[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v28.0.1...HEAD
+[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v29.0.0...HEAD
+[29.0.0]: https://github.com/cucumber/compatibility-kit/compare/v28.0.1...v29.0.0
 [28.0.1]: https://github.com/cucumber/compatibility-kit/compare/v28.0.0...v28.0.1
 [28.0.0]: https://github.com/cucumber/compatibility-kit/compare/v27.0.0...v28.0.0
 [27.0.0]: https://github.com/cucumber/compatibility-kit/compare/v26.0.0...v27.0.0

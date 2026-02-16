@@ -14,6 +14,8 @@ type HookFunction = (this: World) => any | Promise<any>
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type StepFunction = (this: World, ...args: any[]) => any | Promise<any>
 
+export * from './PendingException.js'
+export * from './SkippedException.js'
 export { DataTable } from '@cucumber/core'
 
 export function ParameterType(

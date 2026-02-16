@@ -1,12 +1,10 @@
 import {
-  AmbiguousError,
   AssembledTestCase,
   AssembledTestStep,
   DataTable,
   DefinedTestRunHook,
   makeTestPlan,
   SupportCodeLibrary,
-  UndefinedError,
 } from '@cucumber/core'
 import {
   Envelope,
@@ -250,7 +248,8 @@ export class Runner {
   ) {
     const statuses = new Set<TestStepResultStatus>()
     const world = new World(this.clock, this.onMessage, testCaseStartedId)
-    let outcomeKnown = false
+    let failedish = false
+    let skipped = false
 
     for (const testStep of testCase.testSteps) {
       this.onMessage({
@@ -267,11 +266,21 @@ export class Runner {
       const testStepResult = await this.executeTestStep(
         testStep,
         world,
-        outcomeKnown
+        failedish,
+        skipped
       )
       statuses.add(testStepResult.status)
-      if (testStepResult.status !== TestStepResultStatus.PASSED) {
-        outcomeKnown = true
+      if (
+        testStepResult.status === TestStepResultStatus.SKIPPED &&
+        !failedish
+      ) {
+        skipped = true
+      }
+      if (
+        testStepResult.status !== TestStepResultStatus.PASSED &&
+        testStepResult.status !== TestStepResultStatus.SKIPPED
+      ) {
+        failedish = true
       }
 
       this.onMessage({
@@ -292,19 +301,18 @@ export class Runner {
   private async executeTestStep(
     testStep: AssembledTestStep,
     world: World,
-    outcomeKnown: boolean
+    failedish: boolean,
+    skipped: boolean
   ): Promise<TestStepResult> {
-    if (outcomeKnown && !testStep.always) {
+    // if the user has explicitly skipped, skip now
+    if (skipped && !testStep.always) {
       return {
         status: TestStepResultStatus.SKIPPED,
         duration: TimeConversion.millisecondsToDuration(0),
       }
     }
 
-    let mostOfResult: Omit<TestStepResult, 'duration'> = {
-      status: TestStepResultStatus.PASSED,
-    }
-    const startTime = this.stopwatch.now()
+    // resolve now if we're undefined or ambiguous
     const prepared = testStep.prepare()
     if (prepared.type === 'ambiguous') {
       return {
@@ -325,6 +333,20 @@ export class Runner {
         duration: TimeConversion.millisecondsToDuration(0),
       }
     }
+
+    // if we've already seen a failed-ish status, skip now
+    if (failedish && !testStep.always) {
+      return {
+        status: TestStepResultStatus.SKIPPED,
+        duration: TimeConversion.millisecondsToDuration(0),
+      }
+    }
+
+    let mostOfResult: Omit<TestStepResult, 'duration'> = {
+      status: TestStepResultStatus.PASSED,
+    }
+    const startTime = this.stopwatch.now()
+
     try {
       const { fn, args, dataTable, docString } = prepared
       const fnArgs: Array<unknown> = args.map((arg) => arg.getValue(world))
@@ -337,7 +359,6 @@ export class Runner {
       if (returned === 'pending') {
         mostOfResult = {
           status: TestStepResultStatus.PENDING,
-          message: 'TODO',
         }
       } else if (returned === 'skipped') {
         mostOfResult = {
@@ -347,7 +368,14 @@ export class Runner {
     } catch (error: unknown) {
       mostOfResult = {
         ...this.formatError(error as Error, testStep.sourceReference),
-        status: TestStepResultStatus.FAILED,
+        status: TestStepResultStatus.UNKNOWN,
+      }
+      if (mostOfResult.exception?.type === 'PendingException') {
+        mostOfResult.status = TestStepResultStatus.PENDING
+      } else if (mostOfResult.exception?.type === 'SkippedException') {
+        mostOfResult.status = TestStepResultStatus.SKIPPED
+      } else {
+        mostOfResult.status = TestStepResultStatus.FAILED
       }
     }
     const endTime = this.stopwatch.now()
@@ -361,7 +389,8 @@ export class Runner {
     const sourceFrame = sourceReference
       ? `${sourceReference.uri}:${sourceReference.location?.line}`
       : '<unknown>'
-    const type = error.name || 'Error'
+
+    const type = error.constructor.name || 'Error'
     const message = error.message
     const stackTrace = type + ': ' + message + '\n' + sourceFrame
     return {

@@ -9,14 +9,14 @@
     </parent>
 
     <artifactId>compatibility-kit</artifactId>
-    <version>28.0.2-SNAPSHOT</version>
+    <version>29.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>Compatibility Kit</name>
     <description>Test data used to validate a Cucumber implementation</description>
     <url>https://github.com/cucumber/compatibility-kit</url>
 
     <properties>
-        <project.build.outputTimestamp>1769907153</project.build.outputTimestamp>
+        <project.build.outputTimestamp>1770581166</project.build.outputTimestamp>
     </properties>
 
     <scm>
@@ -31,7 +31,7 @@
             <dependency>
                 <groupId>org.junit</groupId>
                 <artifactId>junit-bom</artifactId>
-                <version>6.0.2</version>
+                <version>6.0.3</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
