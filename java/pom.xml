@@ -68,7 +68,23 @@
     </dependencies>
 
     <build>
+        <resources>
+            <resource>
+                <directory>../devkit/samples</directory>
+                <excludes>
+                    <exclude>*.ts</exclude>
+                </excludes>
+            </resource>
+        </resources>
+
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <configuration>
+                    <outputDirectory>${build.outputDirectory}/io/cucumber/compatibilitykit/features</outputDirectory>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
