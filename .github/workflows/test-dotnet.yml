@@ -27,7 +27,7 @@ jobs:
           dotnet-version: '10.0.x'
       # Setup local NUGET source
       - name: Setup local NUGET source
-        run: mkdir -p ./Cucumber.CCK/bin/Release/NuGet
+        run: mkdir -p ./bin/Release/NuGet
         working-directory: dotnet/Cucumber.CCK
       # Pack the Cucumber.CCK project first
       - name: Pack Cucumber.CCK
