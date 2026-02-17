@@ -18,7 +18,7 @@
 
   <ItemGroup>
     <!-- This will resolve from local source after packing -->
-    <PackageReference Include="Cucumber.CCK" Version="27.0.0" />
+    <PackageReference Include="Cucumber.CCK" Version="$(Version)" />
   </ItemGroup>
 
 </Project>
