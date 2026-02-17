@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [29.1.3] - 2026-02-17
 ### Fixed
 - [.Net] DotNet: Promote version property to solution ([#251](https://github.com/cucumber/compatibility-kit/pull/251))
 
@@ -361,7 +363,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - First release
 
-[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v29.1.2...HEAD
+[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v29.1.3...HEAD
+[29.1.3]: https://github.com/cucumber/compatibility-kit/compare/v29.1.2...v29.1.3
 [29.1.2]: https://github.com/cucumber/compatibility-kit/compare/v29.1.1...v29.1.2
 [29.1.1]: https://github.com/cucumber/compatibility-kit/compare/v29.1.0...v29.1.1
 [29.1.0]: https://github.com/cucumber/compatibility-kit/compare/v29.0.0...v29.1.0
