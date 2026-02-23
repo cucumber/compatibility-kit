@@ -1,4 +1,8 @@
 <Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="Directory.Build.props" />
+    <File Path="NuGet.Config" />
+  </Folder>
   <Project Path="Cucumber.CCK.Tests/Cucumber.CCK.Tests.csproj" />
   <Project Path="Cucumber.CCK/Cucumber.CCK.csproj" />
 </Solution>

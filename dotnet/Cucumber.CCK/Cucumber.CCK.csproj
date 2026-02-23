@@ -36,7 +36,6 @@
       <PackagePath>contentFiles\any\any\cck\samples\%(RecursiveDir)%(Filename)%(Extension)</PackagePath>
       <Pack>true</Pack>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <PackageCopyToOutput>true</PackageCopyToOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>
@@ -52,6 +51,11 @@
 
   <ItemGroup>
     <Folder Include="Resources\"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="build\Cucumber.CCK.props" Pack="true" PackagePath="build\" />
+    <None Include="build\Cucumber.CCK.targets" Pack="true" PackagePath="build\" />
   </ItemGroup>
 
 </Project>
