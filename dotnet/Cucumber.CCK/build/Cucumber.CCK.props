@@ -1,0 +1,6 @@
+<Project>
+  <PropertyGroup>
+    <!-- Default path - consumers can override this -->
+    <CucumberCCKContentPath Condition="'$(CucumberCCKContentPath)' == ''">cck\samples</CucumberCCKContentPath>
+  </PropertyGroup>
+</Project>

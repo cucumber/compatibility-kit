@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Fixed
+- [.Net] Added Property settings to allow consumers to override the path where CCK assets are delivered.
 
 ## [29.1.3] - 2026-02-17
 ### Fixed

@@ -1,0 +1,12 @@
+<Project>
+  <ItemGroup>
+    <!-- Remove NuGet auto-generated contentFiles items -->
+    <Content Remove="$(MSBuildThisFileDirectory)..\contentFiles\any\any\cck\samples\**\*" />
+
+    <!-- Add them back with configurable path -->
+    <Content Include="$(MSBuildThisFileDirectory)..\contentFiles\any\any\cck\samples\**\*"
+             Link="$(CucumberCCKContentPath)\%(RecursiveDir)%(Filename)%(Extension)"
+             CopyToOutputDirectory="PreserveNewest"
+             Visible="true" />
+  </ItemGroup>
+</Project>

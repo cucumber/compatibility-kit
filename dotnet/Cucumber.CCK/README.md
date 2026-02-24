@@ -38,6 +38,23 @@ Install-Package Cucumber.CCK
 
 The compatibility kit packages gherkin files and sample data as content files that are automatically copied to your output directory when you reference the package. The files will be available in the `cck/samples/` directory relative to your output folder.
 
+### Customizing the Content Path
+
+You can change where the CCK files appear in your project by setting the `CucumberCCKContentPath` MSBuild property in your project file:
+
+```xml
+<PropertyGroup>
+   <CucumberCCKContentPath>TestData\CCK</CucumberCCKContentPath>
+</PropertyGroup>
+```
+
+If not set, the default value is `cck\samples`.
+
+| Property | Default | Description |
+|----------|---------|-------------|
+| `CucumberCCKContentPath` | `cck\samples` | Relative path where CCK content appears in the project and is copied to the output directory |
+
+
 ## More Info
 
 The Cucumber Compatibility Kit is part of the development tools of [Cucumber](https://cucumber.io). It helps ensure that all implementations are properly supporting our internal protocol and are compatible (and consistent) with each other and our common tools like the [html-formatter](https://github.com/cucumber/html-formatter).
