@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [29.1.4] - 2026-02-24
 ### Fixed
 - [.Net] Added Property settings to allow consumers to override the path where CCK assets are delivered.
 
@@ -365,7 +367,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - First release
 
-[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v29.1.3...HEAD
+[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v29.1.4...HEAD
+[29.1.4]: https://github.com/cucumber/compatibility-kit/compare/v29.1.3...v29.1.4
 [29.1.3]: https://github.com/cucumber/compatibility-kit/compare/v29.1.2...v29.1.3
 [29.1.2]: https://github.com/cucumber/compatibility-kit/compare/v29.1.1...v29.1.2
 [29.1.1]: https://github.com/cucumber/compatibility-kit/compare/v29.1.0...v29.1.1

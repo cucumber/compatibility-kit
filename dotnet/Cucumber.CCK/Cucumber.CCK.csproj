@@ -54,8 +54,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="build\Cucumber.CCK.props" Pack="true" PackagePath="build\" />
-    <None Include="build\Cucumber.CCK.targets" Pack="true" PackagePath="build\" />
+    <None Include="build\Cucumber.CCK.props" Pack="true" PackagePath="build\"/>
+    <None Include="build\Cucumber.CCK.targets" Pack="true" PackagePath="build\"/>
   </ItemGroup>
 
 </Project>
