@@ -50,7 +50,7 @@
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>messages</artifactId>
-            <version>32.1.0</version>
+            <version>32.2.0</version>
             <scope>provided</scope>
         </dependency>
 
