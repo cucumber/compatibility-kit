@@ -31,7 +31,7 @@
     "@cucumber/core": "^0.8.3",
     "@cucumber/cucumber-expressions": "^19.0.0",
     "@cucumber/fake-cucumber": "file:./",
-    "@cucumber/gherkin": "^38.0.0",
+    "@cucumber/gherkin": "^39.0.0",
     "@cucumber/gherkin-streams": "^6.0.0",
     "@cucumber/gherkin-utils": "^11.0.0",
     "@cucumber/message-streams": "^4.0.1",
