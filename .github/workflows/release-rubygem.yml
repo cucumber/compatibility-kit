@@ -20,6 +20,8 @@ jobs:
           ruby-version: '3.4.8'
           working-directory: ruby
       - uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
+        with:
+          package-manager-cache: false
       - name: Copy the samples to ruby/features
         run: npm ci && npm run copy-to:ruby
         working-directory: devkit
