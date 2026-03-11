@@ -1,5 +1,7 @@
 name: Test Java
 
+permissions: {}
+
 on:
   push:
     branches:
