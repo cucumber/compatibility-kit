@@ -1,9 +1,9 @@
 import { Given } from '@cucumber/fake-cucumber'
 
-Given(/^a (.*?) with (.*?)$/, function () {
+Given(/^a (.*?) with (.*?)$/, () => {
   // first one
 })
 
-Given(/^a step with (.*?)$/, function () {
+Given(/^a step with (.*?)$/, () => {
   // second one
 })

@@ -1,10 +1,10 @@
-import { When, BeforeAll, AfterAll } from '@cucumber/fake-cucumber'
+import { AfterAll, BeforeAll, When } from '@cucumber/fake-cucumber'
 
 BeforeAll({}, async function () {
   await this.attach('Attachment from BeforeAll hook', 'text/plain')
 })
 
-When('a step passes', function () {
+When('a step passes', () => {
   // no-op
 })
 

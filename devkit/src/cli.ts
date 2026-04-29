@@ -1,7 +1,7 @@
 import { parseArgs } from 'node:util'
 
 import { MessageToNdjsonStream } from '@cucumber/message-streams'
-import { Envelope, IdGenerator } from '@cucumber/messages'
+import { type Envelope, IdGenerator } from '@cucumber/messages'
 
 import { Clock } from './Clock.js'
 import { loadSources } from './loadSources.js'
@@ -26,10 +26,9 @@ async function main() {
     allowPositionals: true,
     strict: false,
   })
-  const allowedRetries = Number(values['retry'] ?? 0)
-  const contriveError = !!values['error']
-  const order =
-    typeof values['order'] === 'string' ? values['order'] : 'defined'
+  const allowedRetries = Number(values.retry ?? 0)
+  const contriveError = !!values.error
+  const order = typeof values.order === 'string' ? values.order : 'defined'
 
   const newId = IdGenerator.incrementing()
   const clock = new Clock()

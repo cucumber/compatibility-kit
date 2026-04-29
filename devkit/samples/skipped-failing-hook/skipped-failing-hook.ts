@@ -1,9 +1,7 @@
 import { After, Given } from '@cucumber/fake-cucumber'
 
-Given('a step that skips', function () {
-  return 'skipped'
-})
+Given('a step that skips', () => 'skipped')
 
-After({}, function () {
+After({}, () => {
   throw new Error('whoops')
 })

@@ -1,11 +1,11 @@
 import assert from 'node:assert'
-import { Given, When, Then } from '@cucumber/fake-cucumber'
+import { Given, Then, When } from '@cucumber/fake-cucumber'
 
-Given('some TypeScript code:', function (dataTable: string[][]) {
+Given('some TypeScript code:', (dataTable: string[][]) => {
   assert(dataTable)
 })
 
-Given('some classic Gherkin:', function (gherkin: string) {
+Given('some classic Gherkin:', (gherkin: string) => {
   assert(gherkin)
 })
 
@@ -20,6 +20,6 @@ When(
   }
 )
 
-Then('this might or might not run', function () {
+Then('this might or might not run', () => {
   // no-op
 })

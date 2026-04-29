@@ -1,6 +1,6 @@
-import { Envelope } from '@cucumber/messages'
+import type { Envelope } from '@cucumber/messages'
 
-import { Clock } from './Clock.js'
+import type { Clock } from './Clock.js'
 import { ExecutionContext } from './ExecutionContext.js'
 
 export class GlobalContext extends ExecutionContext {

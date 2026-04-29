@@ -2,7 +2,10 @@ import assert from 'node:assert'
 import { Given, ParameterType } from '@cucumber/fake-cucumber'
 
 class Flight {
-  constructor(public readonly from: string, public readonly to: string) {}
+  constructor(
+    public readonly from: string,
+    public readonly to: string
+  ) {}
 }
 
 ParameterType({
@@ -13,7 +16,7 @@ ParameterType({
   },
 })
 
-Given('{flight} has been delayed', function (flight: Flight) {
+Given('{flight} has been delayed', (flight: Flight) => {
   assert.strictEqual(flight.from, 'LHR')
   assert.strictEqual(flight.to, 'CDG')
 })

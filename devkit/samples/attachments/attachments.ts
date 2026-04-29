@@ -1,5 +1,5 @@
-import { When } from '@cucumber/fake-cucumber'
 import fs from 'node:fs'
+import { When } from '@cucumber/fake-cucumber'
 
 When(
   'the string {string} is attached as {string}',
@@ -35,13 +35,10 @@ When(
 )
 
 When('a PDF document is attached and renamed', async function () {
-  await this.attach(
-    fs.createReadStream(import.meta.dirname + '/document.pdf'),
-    {
-      mediaType: 'application/pdf',
-      fileName: 'renamed.pdf',
-    }
-  )
+  await this.attach(fs.createReadStream(`${import.meta.dirname}/document.pdf`), {
+    mediaType: 'application/pdf',
+    fileName: 'renamed.pdf',
+  })
 })
 
 When('a link to {string} is attached', async function (uri: string) {

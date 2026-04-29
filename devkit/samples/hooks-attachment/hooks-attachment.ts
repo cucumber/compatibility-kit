@@ -1,20 +1,14 @@
-import { When, Before, After } from '@cucumber/fake-cucumber'
 import fs from 'node:fs'
+import { After, Before, When } from '@cucumber/fake-cucumber'
 
 Before({}, async function () {
-  await this.attach(
-    fs.createReadStream(import.meta.dirname + '/cucumber.svg'),
-    'image/svg+xml'
-  )
+  await this.attach(fs.createReadStream(`${import.meta.dirname}/cucumber.svg`), 'image/svg+xml')
 })
 
-When('a step passes', function () {
+When('a step passes', () => {
   // no-op
 })
 
 After({}, async function () {
-  await this.attach(
-    fs.createReadStream(import.meta.dirname + '/cucumber.svg'),
-    'image/svg+xml'
-  )
+  await this.attach(fs.createReadStream(`${import.meta.dirname}/cucumber.svg`), 'image/svg+xml')
 })

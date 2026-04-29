@@ -1,9 +1,9 @@
-import { SupportCodeLibrary } from '@cucumber/core'
+import type { SupportCodeLibrary } from '@cucumber/core'
 import {
-  PickleStep,
-  PickleStepArgument,
+  type PickleStep,
+  type PickleStepArgument,
   PickleStepType,
-  Snippet,
+  type Snippet,
 } from '@cucumber/messages'
 
 const PRIMITIVE_TYPES = ['Number', 'String']
@@ -28,9 +28,7 @@ export function makeSnippets(
       const allArguments = expression.parameterInfos.map((pi) => {
         let result = pi.name + (pi.count === 1 ? '' : pi.count.toString())
         if (pi.type) {
-          const sanitisedType = PRIMITIVE_TYPES.includes(pi.type)
-            ? pi.type.toLowerCase()
-            : pi.type
+          const sanitisedType = PRIMITIVE_TYPES.includes(pi.type) ? pi.type.toLowerCase() : pi.type
           result += `: ${sanitisedType}`
         }
         return result

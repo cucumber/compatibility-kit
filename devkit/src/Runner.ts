@@ -1,26 +1,26 @@
 import {
-  AssembledTestCase,
-  AssembledTestStep,
+  type AssembledTestCase,
+  type AssembledTestStep,
   DataTable,
-  DefinedTestRunHook,
+  type DefinedTestRunHook,
   makeTestPlan,
-  SupportCodeLibrary,
+  type SupportCodeLibrary,
 } from '@cucumber/core'
 import {
-  Envelope,
-  GherkinDocument,
-  IdGenerator,
-  Pickle,
-  SourceReference,
-  TestStepResult,
+  type Envelope,
+  type GherkinDocument,
+  type IdGenerator,
+  type Pickle,
+  type SourceReference,
+  type TestStepResult,
   TestStepResultStatus,
   TimeConversion,
 } from '@cucumber/messages'
 
-import { Clock } from './Clock.js'
+import type { Clock } from './Clock.js'
 import { GlobalContext } from './GlobalContext.js'
 import { makeSnippets } from './makeSnippets.js'
-import { Stopwatch } from './Stopwatch.js'
+import type { Stopwatch } from './Stopwatch.js'
 import { World } from './World.js'
 
 const NON_SUCCESS_STATUSES = new Set<TestStepResultStatus>([
@@ -74,9 +74,7 @@ export class Runner {
       }
     }
 
-    for (const hook of this.supportCodeLibrary
-      .getAllAfterAllHooks()
-      .toReversed()) {
+    for (const hook of this.supportCodeLibrary.getAllAfterAllHooks().toReversed()) {
       await this.executeGlobalHook(hook)
     }
 
@@ -87,9 +85,7 @@ export class Runner {
     this.onMessage({
       testRunStarted: {
         id: this.testRunStartedId,
-        timestamp: TimeConversion.millisecondsSinceEpochToTimestamp(
-          this.clock.now()
-        ),
+        timestamp: TimeConversion.millisecondsSinceEpochToTimestamp(this.clock.now()),
       },
     })
   }
@@ -97,9 +93,7 @@ export class Runner {
   private markTestRunFinished(error?: Error) {
     let testRunFinished = {
       testRunStartedId: this.testRunStartedId,
-      timestamp: TimeConversion.millisecondsSinceEpochToTimestamp(
-        this.clock.now()
-      ),
+      timestamp: TimeConversion.millisecondsSinceEpochToTimestamp(this.clock.now()),
       success: this.statuses.isDisjointFrom(NON_SUCCESS_STATUSES),
     }
     if (error) {
@@ -129,9 +123,9 @@ export class Runner {
       )
     )
 
-    plans
-      .flatMap((plan) => plan.toEnvelopes())
-      .forEach((envelope) => this.onMessage(envelope))
+    for (const envelope of plans.flatMap((plan) => plan.toEnvelopes())) {
+      this.onMessage(envelope)
+    }
 
     return plans.flatMap((plan) => plan.testCases)
   }
@@ -139,14 +133,12 @@ export class Runner {
   private reorderPickledDocuments() {
     switch (this.options.order) {
       case 'reverse':
-        return this.pickledDocuments
-          .toReversed()
-          .map(({ gherkinDocument, pickles }) => {
-            return {
-              gherkinDocument,
-              pickles: pickles.toReversed(),
-            }
-          })
+        return this.pickledDocuments.toReversed().map(({ gherkinDocument, pickles }) => {
+          return {
+            gherkinDocument,
+            pickles: pickles.toReversed(),
+          }
+        })
       default:
         return this.pickledDocuments
     }
@@ -154,20 +146,14 @@ export class Runner {
 
   private async executeGlobalHook(hook: DefinedTestRunHook): Promise<void> {
     const testRunHookStartedId = this.newId()
-    const context = new GlobalContext(
-      this.clock,
-      this.onMessage,
-      testRunHookStartedId
-    )
+    const context = new GlobalContext(this.clock, this.onMessage, testRunHookStartedId)
 
     this.onMessage({
       testRunHookStarted: {
         testRunStartedId: this.testRunStartedId,
         id: testRunHookStartedId,
         hookId: hook.id,
-        timestamp: TimeConversion.millisecondsSinceEpochToTimestamp(
-          this.clock.now()
-        ),
+        timestamp: TimeConversion.millisecondsSinceEpochToTimestamp(this.clock.now()),
       },
     })
 
@@ -189,9 +175,7 @@ export class Runner {
     this.onMessage({
       testRunHookFinished: {
         testRunHookStartedId,
-        timestamp: TimeConversion.millisecondsSinceEpochToTimestamp(
-          this.clock.now()
-        ),
+        timestamp: TimeConversion.millisecondsSinceEpochToTimestamp(this.clock.now()),
         result: {
           ...mostOfResult,
           duration: TimeConversion.millisecondsToDuration(endTime - startTime),
@@ -212,24 +196,19 @@ export class Runner {
         testCaseStarted: {
           id: testCaseStartedId,
           testCaseId: testCase.id,
-          timestamp: TimeConversion.millisecondsSinceEpochToTimestamp(
-            this.clock.now()
-          ),
+          timestamp: TimeConversion.millisecondsSinceEpochToTimestamp(this.clock.now()),
           // attempt numbers are zero-indexed in messages
           attempt: attempt - 1,
         },
       })
 
       statuses = await this.executeTestCaseAttempt(testCase, testCaseStartedId)
-      const willBeRetried =
-        statuses.has(TestStepResultStatus.FAILED) && attempt < allowedAttempts
+      const willBeRetried = statuses.has(TestStepResultStatus.FAILED) && attempt < allowedAttempts
 
       this.onMessage({
         testCaseFinished: {
           testCaseStartedId,
-          timestamp: TimeConversion.millisecondsSinceEpochToTimestamp(
-            this.clock.now()
-          ),
+          timestamp: TimeConversion.millisecondsSinceEpochToTimestamp(this.clock.now()),
           willBeRetried,
         },
       })
@@ -239,13 +218,12 @@ export class Runner {
       }
     }
 
-    statuses.forEach((status) => this.statuses.add(status))
+    for (const status of statuses) {
+      this.statuses.add(status)
+    }
   }
 
-  private async executeTestCaseAttempt(
-    testCase: AssembledTestCase,
-    testCaseStartedId: string
-  ) {
+  private async executeTestCaseAttempt(testCase: AssembledTestCase, testCaseStartedId: string) {
     const statuses = new Set<TestStepResultStatus>()
     const world = new World(this.clock, this.onMessage, testCaseStartedId)
     let failedish = false
@@ -256,24 +234,14 @@ export class Runner {
         testStepStarted: {
           testCaseStartedId,
           testStepId: testStep.id,
-          timestamp: TimeConversion.millisecondsSinceEpochToTimestamp(
-            this.clock.now()
-          ),
+          timestamp: TimeConversion.millisecondsSinceEpochToTimestamp(this.clock.now()),
         },
       })
 
       world.testStepId = testStep.id
-      const testStepResult = await this.executeTestStep(
-        testStep,
-        world,
-        failedish,
-        skipped
-      )
+      const testStepResult = await this.executeTestStep(testStep, world, failedish, skipped)
       statuses.add(testStepResult.status)
-      if (
-        testStepResult.status === TestStepResultStatus.SKIPPED &&
-        !failedish
-      ) {
+      if (testStepResult.status === TestStepResultStatus.SKIPPED && !failedish) {
         skipped = true
       }
       if (
@@ -288,9 +256,7 @@ export class Runner {
           testCaseStartedId,
           testStepId: testStep.id,
           testStepResult,
-          timestamp: TimeConversion.millisecondsSinceEpochToTimestamp(
-            this.clock.now()
-          ),
+          timestamp: TimeConversion.millisecondsSinceEpochToTimestamp(this.clock.now()),
         },
       })
     }
@@ -392,7 +358,7 @@ export class Runner {
 
     const type = error.constructor.name || 'Error'
     const message = error.message
-    const stackTrace = type + ': ' + message + '\n' + sourceFrame
+    const stackTrace = `${type}: ${message}\n${sourceFrame}`
     return {
       message,
       exception: {
