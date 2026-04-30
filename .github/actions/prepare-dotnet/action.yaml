@@ -1,0 +1,15 @@
+name: Prepare .Net
+description: Setups local NUGET source and pack the Cucumber.CCK project
+runs:
+  using: "composite"
+  steps:
+    # Setup local NUGET source
+    - name: Setup local NUGET source
+      run: mkdir -p ./bin/Release/NuGet
+      shell: bash
+      working-directory: dotnet/Cucumber.CCK
+    # Pack the Cucumber.CCK project first
+    - name: Pack Cucumber.CCK
+      run: dotnet pack -c Release
+      shell: bash
+      working-directory: dotnet/Cucumber.CCK
