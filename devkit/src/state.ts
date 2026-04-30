@@ -1,4 +1,4 @@
-import { SupportCodeBuilder } from '@cucumber/core'
+import type { SupportCodeBuilder } from '@cucumber/core'
 
 type State = {
   coreBuilder: SupportCodeBuilder

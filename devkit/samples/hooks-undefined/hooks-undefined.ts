@@ -1,9 +1,9 @@
-import { When, Before, After } from '@cucumber/fake-cucumber'
+import { After, Before } from '@cucumber/fake-cucumber'
 
-Before({}, function () {
+Before({}, () => {
   // no-op
 })
 
-After({}, function () {
+After({}, () => {
   // no-op
 })

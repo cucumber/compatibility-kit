@@ -5,7 +5,7 @@ import { Writable } from 'node:stream'
 import { pipeline } from 'node:stream/promises'
 
 import { NdjsonToMessageStream } from '@cucumber/message-streams'
-import { Envelope } from '@cucumber/messages'
+import type { Envelope } from '@cucumber/messages'
 import Ajv from 'ajv/dist/2020'
 import { globby } from 'globby'
 import { describe, it } from 'vitest'
@@ -17,31 +17,21 @@ describe('Samples', async () => {
     for (const directory of directories) {
       const suite = path.basename(directory)
 
-      it.concurrent(suite, async function ({ expect }) {
-        const featurePaths = (
-          await globby(['*.feature', '*.feature.md'], { cwd: directory })
-        ).map((filename) => path.join(directory, filename))
-        const args = [...featurePaths]
-        const argumentsPath = path.join(
-          process.cwd(),
-          'samples',
-          suite,
-          suite + '.arguments.txt'
+      it.concurrent(suite, async ({ expect }) => {
+        const featurePaths = (await globby(['*.feature', '*.feature.md'], { cwd: directory })).map(
+          (filename) => path.join(directory, filename)
         )
+        const args = [...featurePaths]
+        const argumentsPath = path.join(process.cwd(), 'samples', suite, `${suite}.arguments.txt`)
         if (fs.existsSync(argumentsPath)) {
-          args.push(
-            ...fs
-              .readFileSync(argumentsPath, { encoding: 'utf-8' })
-              .trim()
-              .split(' ')
-          )
+          args.push(...fs.readFileSync(argumentsPath, { encoding: 'utf-8' }).trim().split(' '))
         }
 
         const [stdout, stderr] = await execute(args)
 
         console.error(stderr)
         await expect(stdout).toMatchFileSnapshot(
-          path.join(process.cwd(), 'samples', suite, suite + '.ndjson')
+          path.join(process.cwd(), 'samples', suite, `${suite}.ndjson`)
         )
       })
     }
@@ -52,19 +42,15 @@ describe('Samples', async () => {
       allErrors: true,
       loadSchema,
     })
-    const validate = await ajv.compileAsync<Envelope>(
-      loadSchema('Envelope.json')
-    )
+    const validate = await ajv.compileAsync<Envelope>(loadSchema('Envelope.json'))
 
     for (const directory of directories) {
       const suite = path.basename(directory)
 
-      it.concurrent(suite, async function ({ expect }) {
+      it.concurrent(suite, async ({ expect }) => {
         let isEmpty = true
         await pipeline([
-          createReadStream(
-            path.join(process.cwd(), 'samples', suite, suite + '.ndjson')
-          ),
+          createReadStream(path.join(process.cwd(), 'samples', suite, `${suite}.ndjson`)),
           new NdjsonToMessageStream((line) => JSON.parse(line)),
           new Writable({
             objectMode: true,
@@ -75,10 +61,7 @@ describe('Samples', async () => {
                 callback()
               } else {
                 callback(
-                  new Error(
-                    'Schema validation errors(s): ' +
-                      JSON.stringify(validate.errors)
-                  )
+                  new Error(`Schema validation errors(s): ${JSON.stringify(validate.errors)}`)
                 )
               }
             },
@@ -111,9 +94,8 @@ async function execute(args: string[]): Promise<[string, string]> {
 
 function loadSchema(filename: string) {
   return JSON.parse(
-    fs.readFileSync(
-      `${process.cwd()}/node_modules/@cucumber/messages/schema/${filename}`,
-      { encoding: 'utf-8' }
-    )
+    fs.readFileSync(`${process.cwd()}/node_modules/@cucumber/messages/schema/${filename}`, {
+      encoding: 'utf-8',
+    })
   )
 }

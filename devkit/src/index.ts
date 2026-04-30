@@ -1,26 +1,20 @@
-import {
-  NewParameterType,
-  NewTestCaseHook,
-  NewTestRunHook,
-} from '@cucumber/core'
-import { SourceReference } from '@cucumber/messages'
+import type { NewParameterType, NewTestCaseHook, NewTestRunHook } from '@cucumber/core'
+import type { SourceReference } from '@cucumber/messages'
 import StackUtils from 'stack-utils'
 
 import { state } from './state.js'
-import { World } from './World.js'
+import type { World } from './World.js'
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+// biome-ignore lint/suspicious/noExplicitAny: hook return type is intentionally any
 type HookFunction = (this: World) => any | Promise<any>
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+// biome-ignore lint/suspicious/noExplicitAny: step return/args types are intentionally any
 type StepFunction = (this: World, ...args: any[]) => any | Promise<any>
 
+export { DataTable } from '@cucumber/core'
 export * from './PendingException.js'
 export * from './SkippedException.js'
-export { DataTable } from '@cucumber/core'
 
-export function ParameterType(
-  options: Omit<NewParameterType, 'sourceReference'>
-) {
+export function ParameterType(options: Omit<NewParameterType, 'sourceReference'>) {
   state.coreBuilder.parameterType({
     ...options,
     sourceReference: makeSourceReference(),

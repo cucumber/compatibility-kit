@@ -1,12 +1,12 @@
+import type { Readable } from 'node:stream'
 import {
-  Attachment,
+  type Attachment,
   AttachmentContentEncoding,
-  Envelope,
+  type Envelope,
   TimeConversion,
 } from '@cucumber/messages'
-import { Readable } from 'stream'
 
-import { Clock } from './Clock.js'
+import type { Clock } from './Clock.js'
 
 const LOG_MEDIA_TYPE = 'text/x.cucumber.log+plain'
 const LINK_MEDIA_TYPE = 'text/uri-list'
@@ -18,10 +18,7 @@ export abstract class ExecutionContext {
   ) {}
 
   abstract makeAttachmentRelations(): Partial<
-    Pick<
-      Attachment,
-      'testCaseStartedId' | 'testStepId' | 'testRunHookStartedId'
-    >
+    Pick<Attachment, 'testCaseStartedId' | 'testStepId' | 'testRunHookStartedId'>
   >
 
   async attach(
@@ -61,9 +58,7 @@ export abstract class ExecutionContext {
         contentEncoding,
         mediaType: options.mediaType,
         fileName: options.fileName,
-        timestamp: TimeConversion.millisecondsSinceEpochToTimestamp(
-          this.clock.now()
-        ),
+        timestamp: TimeConversion.millisecondsSinceEpochToTimestamp(this.clock.now()),
       },
     })
   }

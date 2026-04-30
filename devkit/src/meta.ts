@@ -1,5 +1,5 @@
 import detectCiEnvironment from '@cucumber/ci-environment'
-import { Meta, version as protocolVersion } from '@cucumber/messages'
+import { type Meta, version as protocolVersion } from '@cucumber/messages'
 
 export const meta: Meta = {
   protocolVersion,

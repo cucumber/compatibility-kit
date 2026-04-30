@@ -1,14 +1,6 @@
-import {
-  GherkinStreams,
-  IGherkinStreamOptions,
-} from '@cucumber/gherkin-streams'
+import { GherkinStreams, type IGherkinStreamOptions } from '@cucumber/gherkin-streams'
 import { Query as GherkinQuery } from '@cucumber/gherkin-utils'
-import {
-  Envelope,
-  GherkinDocument,
-  IdGenerator,
-  Pickle,
-} from '@cucumber/messages'
+import type { Envelope, GherkinDocument, IdGenerator, Pickle } from '@cucumber/messages'
 
 export async function loadSources(
   newId: IdGenerator.NewId,
@@ -36,9 +28,7 @@ export async function loadSources(
 
   return gherkinQuery.getGherkinDocuments().map((gherkinDocument) => ({
     gherkinDocument,
-    pickles: gherkinQuery
-      .getPickles()
-      .filter((pickle) => pickle.uri === gherkinDocument.uri),
+    pickles: gherkinQuery.getPickles().filter((pickle) => pickle.uri === gherkinDocument.uri),
   }))
 }
 

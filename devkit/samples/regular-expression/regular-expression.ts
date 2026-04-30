@@ -1,6 +1,8 @@
 import { Given } from '@cucumber/fake-cucumber'
 
-Given(/^a (.*?)(?: and a (.*?))?(?: and a (.*?))?$/, 
-    function (vegetable1: string, vegetable2: string, vegetable3: string) {
-  // no-op
-})
+Given(
+  /^a (.*?)(?: and a (.*?))?(?: and a (.*?))?$/,
+  (_vegetable1: string, _vegetable2: string, _vegetable3: string) => {
+    // no-op
+  }
+)

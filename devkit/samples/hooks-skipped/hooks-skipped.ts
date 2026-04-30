@@ -1,33 +1,27 @@
 import { After, Before, Given } from '@cucumber/fake-cucumber'
 
-Before({}, function () {
+Before({}, () => {
   // no-op
 })
 
-Before({ tags: '@skip-before' }, function () {
-  return 'skipped'
-})
+Before({ tags: '@skip-before' }, () => 'skipped')
 
-Before({}, function () {
+Before({}, () => {
   // no-op
 })
 
-Given('a normal step', function () {
+Given('a normal step', () => {
   // no-op
 })
 
-Given('a step that skips', function () {
-  return 'skipped'
-})
+Given('a step that skips', () => 'skipped')
 
-After({}, function () {
+After({}, () => {
   // no-op
 })
 
-After({ tags: '@skip-after' }, function () {
-  return 'skipped'
-})
+After({ tags: '@skip-after' }, () => 'skipped')
 
-After({}, function () {
+After({}, () => {
   // no-op
 })

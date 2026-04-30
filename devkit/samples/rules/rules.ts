@@ -1,5 +1,5 @@
 import assert from 'node:assert'
-import { Given, When, Then } from '@cucumber/fake-cucumber'
+import { Given, Then, When } from '@cucumber/fake-cucumber'
 
 Given('the customer has {int} cents', function (money) {
   this.money = money
@@ -14,7 +14,7 @@ Given('there are no chocolate bars in stock', function () {
 })
 
 When('the customer tries to buy a {int} cent chocolate bar', function (price) {
-  if(this.money >= price) {
+  if (this.money >= price) {
     this.chocolate = this.stock.pop()
   }
 })

@@ -1,7 +1,7 @@
 import path from 'node:path'
 
 import { buildSupportCode } from '@cucumber/core'
-import { Envelope, IdGenerator } from '@cucumber/messages'
+import type { Envelope, IdGenerator } from '@cucumber/messages'
 import { globby } from 'globby'
 
 import { state } from './state.js'
@@ -16,7 +16,9 @@ export async function loadSupport(
     await import(supportPath)
   }
   const supportCodeLibrary = state.coreBuilder.build()
-  supportCodeLibrary.toEnvelopes().forEach((envelope) => onMessage(envelope))
+  for (const envelope of supportCodeLibrary.toEnvelopes()) {
+    onMessage(envelope)
+  }
   return supportCodeLibrary
 }
 
@@ -29,7 +31,9 @@ async function findSupportPaths(
     const found = await globby([`${directory}/**/*.{js,ts}`], {
       absolute: true,
     })
-    found.forEach((file) => supportPaths.add(file))
+    for (const file of found) {
+      supportPaths.add(file)
+    }
   }
   return Array.from(supportPaths).sort()
 }

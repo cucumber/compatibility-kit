@@ -1,5 +1,5 @@
 import assert from 'node:assert'
-import { Given, When, Then } from '@cucumber/fake-cucumber'
+import { Given, Then, When } from '@cucumber/fake-cucumber'
 
 Given('there are {int} cucumbers', function (initialCount) {
   this.count = initialCount
@@ -18,6 +18,6 @@ Then('I should have {int} cucumbers', function (expectedCount) {
 })
 
 Then('each person can eat {int} cucumbers', function (expectedShare) {
-  let share = Math.floor(this.count / (1 + this.friends));
+  const share = Math.floor(this.count / (1 + this.friends))
   assert.strictEqual(share, expectedShare)
 })

@@ -6,12 +6,12 @@
 {"pickle":{"id":"13","uri":"samples/hooks-skipped/hooks-skipped.feature","location":{"line":21,"column":3},"astNodeIds":["7"],"tags":[{"name":"@skip-after","astNodeId":"6"}],"name":"Skip from an After hook","language":"en","steps":[{"id":"12","text":"a normal step","type":"Context","astNodeIds":["5"]}]}}
 {"hook":{"id":"14","type":"BEFORE_TEST_CASE","sourceReference":{"uri":"samples/hooks-skipped/hooks-skipped.ts","location":{"line":3}}}}
 {"hook":{"id":"15","type":"BEFORE_TEST_CASE","tagExpression":"@skip-before","sourceReference":{"uri":"samples/hooks-skipped/hooks-skipped.ts","location":{"line":7}}}}
-{"hook":{"id":"16","type":"BEFORE_TEST_CASE","sourceReference":{"uri":"samples/hooks-skipped/hooks-skipped.ts","location":{"line":11}}}}
-{"stepDefinition":{"id":"17","pattern":{"type":"CUCUMBER_EXPRESSION","source":"a normal step"},"sourceReference":{"uri":"samples/hooks-skipped/hooks-skipped.ts","location":{"line":15}}}}
-{"stepDefinition":{"id":"18","pattern":{"type":"CUCUMBER_EXPRESSION","source":"a step that skips"},"sourceReference":{"uri":"samples/hooks-skipped/hooks-skipped.ts","location":{"line":19}}}}
-{"hook":{"id":"19","type":"AFTER_TEST_CASE","sourceReference":{"uri":"samples/hooks-skipped/hooks-skipped.ts","location":{"line":23}}}}
-{"hook":{"id":"20","type":"AFTER_TEST_CASE","tagExpression":"@skip-after","sourceReference":{"uri":"samples/hooks-skipped/hooks-skipped.ts","location":{"line":27}}}}
-{"hook":{"id":"21","type":"AFTER_TEST_CASE","sourceReference":{"uri":"samples/hooks-skipped/hooks-skipped.ts","location":{"line":31}}}}
+{"hook":{"id":"16","type":"BEFORE_TEST_CASE","sourceReference":{"uri":"samples/hooks-skipped/hooks-skipped.ts","location":{"line":9}}}}
+{"stepDefinition":{"id":"17","pattern":{"type":"CUCUMBER_EXPRESSION","source":"a normal step"},"sourceReference":{"uri":"samples/hooks-skipped/hooks-skipped.ts","location":{"line":13}}}}
+{"stepDefinition":{"id":"18","pattern":{"type":"CUCUMBER_EXPRESSION","source":"a step that skips"},"sourceReference":{"uri":"samples/hooks-skipped/hooks-skipped.ts","location":{"line":17}}}}
+{"hook":{"id":"19","type":"AFTER_TEST_CASE","sourceReference":{"uri":"samples/hooks-skipped/hooks-skipped.ts","location":{"line":19}}}}
+{"hook":{"id":"20","type":"AFTER_TEST_CASE","tagExpression":"@skip-after","sourceReference":{"uri":"samples/hooks-skipped/hooks-skipped.ts","location":{"line":23}}}}
+{"hook":{"id":"21","type":"AFTER_TEST_CASE","sourceReference":{"uri":"samples/hooks-skipped/hooks-skipped.ts","location":{"line":25}}}}
 {"testRunStarted":{"id":"22","timestamp":{"seconds":0,"nanos":0}}}
 {"testCase":{"id":"23","pickleId":"9","testSteps":[{"id":"24","hookId":"14"},{"id":"25","hookId":"16"},{"id":"26","pickleStepId":"8","stepDefinitionIds":["18"],"stepMatchArgumentsLists":[{"stepMatchArguments":[]}]},{"id":"27","hookId":"21"},{"id":"28","hookId":"19"}],"testRunStartedId":"22"}}
 {"testCase":{"id":"29","pickleId":"11","testSteps":[{"id":"30","hookId":"14"},{"id":"31","hookId":"15"},{"id":"32","hookId":"16"},{"id":"33","pickleStepId":"10","stepDefinitionIds":["17"],"stepMatchArgumentsLists":[{"stepMatchArguments":[]}]},{"id":"34","hookId":"21"},{"id":"35","hookId":"19"}],"testRunStartedId":"22"}}
