@@ -12,6 +12,8 @@ jobs:
     name: Publish Ruby Gem
     runs-on: ubuntu-latest
     environment: Release
+    permissions:
+      id-token: write
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
@@ -27,7 +29,6 @@ jobs:
       - name: Copy the samples to ruby/features
         run: npm ci && npm run copy-to:ruby
         working-directory: devkit
-      - uses: cucumber/action-publish-rubygem@d8918cbdee789cfc78f346a96a59596b87795be1 # v1.0.0
+      - uses: rubygems/release-gem@6317d8d1f7e28c24d28f6eff169ea854948bd9f7 # v1.2.0
         with:
-          working_directory: ruby
-          rubygems_api_key: ${{ secrets.RUBYGEMS_API_KEY }}
+          working-directory: ruby
