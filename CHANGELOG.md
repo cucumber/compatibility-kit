@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 
 ## [29.2.1] - 2026-05-11
+### Fixed
+- [Ruby] Fixed publishing
+- [.Net] Fixed publishing
 
 ## [29.2.0] - 2026-05-11
 ### Changed
