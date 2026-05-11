@@ -30,6 +30,9 @@ jobs:
       - name: Copy the samples to ruby/features
         run: npm ci && npm run copy-to:ruby
         working-directory: devkit
+      - name: Install dependencies
+        run: bundle install
+        working-directory: ruby
       - uses: rubygems/release-gem@6317d8d1f7e28c24d28f6eff169ea854948bd9f7 # v1.2.0
         with:
           working-directory: ruby

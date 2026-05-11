@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+- [Ruby] Fix release process
+- [.Net] Fix release process
 
 ## [29.2.0] - 2026-05-11
 ### Changed
