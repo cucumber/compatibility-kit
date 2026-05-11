@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Changed
+- [Ruby] Use trusted publishing
+- [.Net] Use trusted publishing
+
 ### Fixed
 - [Ruby] Fix release process
 
