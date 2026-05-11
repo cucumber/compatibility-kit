@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [29.2.0] - 2026-05-11
 ### Changed
 - [Ruby] Use trusted publishing
 - [.Net] Use trusted publishing
@@ -373,7 +375,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - First release
 
-[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v29.1.4...HEAD
+[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v29.2.0...HEAD
+[29.2.0]: https://github.com/cucumber/compatibility-kit/compare/v29.1.4...v29.2.0
 [29.1.4]: https://github.com/cucumber/compatibility-kit/compare/v29.1.3...v29.1.4
 [29.1.3]: https://github.com/cucumber/compatibility-kit/compare/v29.1.2...v29.1.3
 [29.1.2]: https://github.com/cucumber/compatibility-kit/compare/v29.1.1...v29.1.2
