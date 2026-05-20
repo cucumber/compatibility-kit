@@ -1,14 +1,18 @@
-# Cucumber Compatibility Kit
-
-![Cucumber logo](https://raw.githubusercontent.com/cucumber/cucumber-js/46a5a78107be27e99c6e044c69b6e8f885ce456c/docs/images/logo.svg)
-
-**Test data for validating compatibility of a Cucumber implementation**
-
+<h1 align="center">
+  <img src="https://raw.githubusercontent.com/cucumber/cucumber-js/46a5a78107be27e99c6e044c69b6e8f885ce456c/docs/images/logo.svg" alt="Cucumber logo" width="75">
+  <br>
+  Cucumber Compatibility Kit
+</h1>
+<p align="center">
+  <b>Test data for validating compatibility of a Cucumber implementation</b>
+</p>
+<div align="center">
 [![nuget](https://img.shields.io/nuget/v/Cucumber.CCK.svg?color=dark-green)](https://www.nuget.org/packages/Cucumber.CCK)
 [![build](https://github.com/cucumber/compatibility-kit/actions/workflows/test-dotnet.yml/badge.svg)](https://github.com/cucumber/compatibility-kit/actions/workflows/test-dotnet.yml)
 [![backers](https://opencollective.com/cucumber/backers/badge.svg)](https://opencollective.com/cucumber)
 [![sponsors](https://opencollective.com/cucumber/sponsors/badge.svg)](https://opencollective.com/cucumber)
 [![docs](https://img.shields.io/badge/-docs-brightgreen?logo=cucumber&logoColor=bright%20green&labelColor=grey)](https://cucumber.io)
+</div>
 
 The CCK (Cucumber Compatibility Kit) is a set of features and messages. It aims to validate an implementation of the [Cucumber Messages protocol](https://github.com/cucumber/common/tree/main/messages#cucumber-messages).
 
