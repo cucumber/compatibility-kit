@@ -110,3 +110,4 @@ When in doubt, keep in mind that that applications should be able to process the
 - [cucumber-node](https://github.com/cucumber/cucumber-node/tree/main/test/cck)
 - [cucumber-jvm](https://github.com/cucumber/cucumber-jvm/tree/main/compatibility)
 - [cucumber-ruby](https://github.com/cucumber/cucumber-ruby/tree/main/compatibility)
+- [Reqnroll](https://github.com/reqnroll/Reqnroll/tree/main/Tests/Reqnroll.Formatters.Tests)
