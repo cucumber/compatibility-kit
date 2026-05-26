@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Changed
+- [Ruby] Minimum ruby version is now bumped from `3.1` to `3.2`
 
 ## [29.2.2] - 2026-05-11
 ### Fixed
@@ -42,7 +44,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [29.1.0] - 2026-02-16
 ### Added
-- Add dotNet Implementation
+- [.Net] Add dotNET Implementation
 
 ## [29.0.0] - 2026-02-08
 ### Added

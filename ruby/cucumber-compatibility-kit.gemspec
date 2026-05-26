@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.homepage    = 'https://github.com/cucumber/compatibility-kit'
   s.platform    = Gem::Platform::RUBY
   s.license     = 'MIT'
-  s.required_ruby_version = '>= 3.1'
+  s.required_ruby_version = '>= 3.2'
   s.required_rubygems_version = '>= 3.2.8'
 
   s.metadata = {
@@ -22,9 +22,9 @@ Gem::Specification.new do |s|
   }
 
   s.add_development_dependency 'rspec', '~> 3.13'
-  s.add_development_dependency 'rubocop', '~> 1.81.0'
-  s.add_development_dependency 'rubocop-performance', '~> 1.26.0'
-  s.add_development_dependency 'rubocop-rspec', '~> 3.7.0'
+  s.add_development_dependency 'rubocop', '~> 1.85.1'
+  s.add_development_dependency 'rubocop-performance', '~> 1.26.1'
+  s.add_development_dependency 'rubocop-rspec', '~> 3.8.0'
 
   s.files            = Dir['README.md', 'LICENSE', 'lib/**/*', 'features/**/*']
   s.rdoc_options     = ['--charset=UTF-8']
