@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 ### Changed
 - [Ruby] Minimum ruby version is now bumped from `3.1` to `3.2`
+- [.Net] Replace assertion library FluentAssertions with AwesomeAssertions
 
 ## [29.2.2] - 2026-05-11
 ### Fixed
