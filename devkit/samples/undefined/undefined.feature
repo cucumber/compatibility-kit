@@ -18,3 +18,12 @@ Feature: Undefined steps
 
   Scenario: Snippets reflect parameter types
     Given a list of 8 things
+
+  Scenario: Multiple missing snippets reflect parameter types
+    Given a list of 8 things
+    And a list of 3.14 things
+    And a list of "many" things
+
+  Scenario: Multiple undefined steps also cause a failure
+    Given a step that is yet to be defined
+    And another step that is also yet to be defined
