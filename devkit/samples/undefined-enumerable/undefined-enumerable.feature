@@ -20,6 +20,13 @@ Feature: Undefined steps
     And a step that will be skipped
     And a step that will be skipped
 
+  Scenario: Undefined Steps after skipped steps will also be skipped
+    Given a step that is yet to be defined
+    And a step that will be skipped
+    And a step that will be skipped
+    And a step that is yet to be defined
+    And another step that is also yet to be defined
+
   Scenario: Multiple missing snippets reflect parameter types
     Given a list of 8 things
     And a list of 3.14 things
