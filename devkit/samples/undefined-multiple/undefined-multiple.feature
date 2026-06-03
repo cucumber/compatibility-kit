@@ -20,7 +20,7 @@ Feature: Undefined steps
     And a step that will be skipped
     And a step that will be skipped
 
-  Scenario: Undefined Steps after skipped steps will also be skipped
+  Scenario: Undefined Steps after skipped steps will be remain as undefined
     Given a step that is yet to be defined
     And a step that will be skipped
     And a step that will be skipped
