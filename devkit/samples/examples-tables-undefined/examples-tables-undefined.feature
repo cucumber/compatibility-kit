@@ -15,5 +15,3 @@ Feature: Examples Tables - With Undefined Steps
       | pear  | 1      | 12    |
       | 12    | banana | 12    |
       | 0     | 1      | apple |
-      | pear  | 1      | apple |
-      | pear  | banana | apple |
