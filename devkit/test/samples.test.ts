@@ -5,8 +5,9 @@ import { Writable } from 'node:stream'
 import { pipeline } from 'node:stream/promises'
 
 import { NdjsonToMessageStream } from '@cucumber/message-streams'
-import type { Envelope } from '@cucumber/messages'
-import Ajv from 'ajv/dist/2020'
+import envelopeSchema from '@cucumber/messages/schema' with { type: 'json' }
+import { registerSchema, validate } from '@hyperjump/json-schema/draft-2020-12'
+import { BASIC } from '@hyperjump/json-schema/experimental'
 import { globby } from 'globby'
 import { describe, it } from 'vitest'
 
@@ -38,11 +39,8 @@ describe('Samples', async () => {
   })
 
   describe('Validation', async () => {
-    const ajv = new Ajv({
-      allErrors: true,
-      loadSchema,
-    })
-    const validate = await ajv.compileAsync<Envelope>(loadSchema('Envelope.json'))
+    registerSchema(envelopeSchema)
+    const validateEnvelope = await validate(envelopeSchema.$id)
 
     for (const directory of directories) {
       const suite = path.basename(directory)
@@ -56,13 +54,11 @@ describe('Samples', async () => {
             objectMode: true,
             write(envelope, _, callback) {
               isEmpty = false
-              const valid = validate(envelope)
-              if (valid) {
+              const output = validateEnvelope(envelope, BASIC)
+              if (output.valid) {
                 callback()
               } else {
-                callback(
-                  new Error(`Schema validation errors(s): ${JSON.stringify(validate.errors)}`)
-                )
+                callback(new Error(`Schema validation errors(s): ${JSON.stringify(output.errors)}`))
               }
             },
           }),
@@ -90,12 +86,4 @@ async function execute(args: string[]): Promise<[string, string]> {
       }
     )
   })
-}
-
-function loadSchema(filename: string) {
-  return JSON.parse(
-    fs.readFileSync(`${process.cwd()}/node_modules/@cucumber/messages/schema/${filename}`, {
-      encoding: 'utf-8',
-    })
-  )
 }
