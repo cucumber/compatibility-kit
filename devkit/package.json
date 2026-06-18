@@ -43,7 +43,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^2.4.13",
-    "@cucumber/biome-config": "github:cucumber/biome-config#v0.2.1",
+    "@cucumber/biome-config": "github:cucumber/biome-config#v0.3.0",
     "@hyperjump/json-schema": "^1.17.6",
     "@tsconfig/node22": "^22.0.2",
     "@types/node": "^24.0.0",
