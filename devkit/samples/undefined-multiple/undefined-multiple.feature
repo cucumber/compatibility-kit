@@ -8,19 +8,24 @@ Feature: Undefined steps
   Scenario: An undefined step causes a failure
     Given a step that is yet to be defined
 
-  Scenario: Steps before undefined steps are executed
+  Scenario: All steps are executed before a single undefined step
+    Given an implemented step
+    And an implemented step
+    And a step that is yet to be defined
+
+  Scenario: Multiple undefined steps will all remain as undefined
     Given an implemented step
     And an implemented step
     And a step that is yet to be defined
     And another step that is also yet to be defined
     And a third step that is yet to be defined
 
-  Scenario: Steps after undefined steps are skipped
+  Scenario: Multiple defined steps after undefined steps are all skipped
     Given a step that is yet to be defined
     And a step that will be skipped
     And a step that will be skipped
 
-  Scenario: Undefined Steps after skipped steps will be remain as undefined
+  Scenario: Multiple undefined steps after skipped steps will also remain as undefined
     Given a step that is yet to be defined
     And a step that will be skipped
     And a step that will be skipped
