@@ -22,9 +22,9 @@ Gem::Specification.new do |s|
   }
 
   s.add_development_dependency 'rspec', '~> 3.13'
-  s.add_development_dependency 'rubocop', '~> 1.85.1'
+  s.add_development_dependency 'rubocop', '~> 1.88.0'
   s.add_development_dependency 'rubocop-performance', '~> 1.26.1'
-  s.add_development_dependency 'rubocop-rspec', '~> 3.8.0'
+  s.add_development_dependency 'rubocop-rspec', '~> 3.10.2'
 
   s.files            = Dir['README.md', 'LICENSE', 'lib/**/*', 'features/**/*']
   s.rdoc_options     = ['--charset=UTF-8']

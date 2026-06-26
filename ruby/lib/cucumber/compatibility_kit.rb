@@ -4,6 +4,18 @@ module Cucumber
   # CompatibilityKit contains a series of helper methods to determine paths for each relevant item(s)
   class CompatibilityKit
     class << self
+      # Return the path for a specific example scenario based on its name
+      #
+      # i.e. 'attachments' would return the fully qualified path to the attachments folder
+      # which contains the feature, the ndjson file and any applicable assets to run the example
+      def feature_code_for(example_name)
+        path = File.join(cck_features_folder_location, example_name)
+
+        return path if File.directory?(path)
+
+        raise ArgumentError, "No feature code directory found in gem for CCK example: #{example_name}"
+      end
+
       # Return the paths for each example that is of 'gherkin' type
       def gherkin
         Dir.entries(cck_features_folder_location).select do |file_or_folder|
@@ -21,18 +33,6 @@ module Cucumber
 
           markdown_example?(File.join(cck_features_folder_location, file_or_folder))
         end
-      end
-
-      # Return the path for a specific example scenario based on its name
-      #
-      # i.e. 'attachments' would return the fully qualified path to the attachments folder
-      # which contains the feature, the ndjson file and any applicable assets to run the example
-      def feature_code_for(example_name)
-        path = File.join(cck_features_folder_location, example_name)
-
-        return path if File.directory?(path)
-
-        raise ArgumentError, "No feature code directory found in gem for CCK example: #{example_name}"
       end
 
       private
