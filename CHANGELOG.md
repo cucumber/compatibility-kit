@@ -6,6 +6,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Added
+- Added/Improved examples for multiple suggestion snippets - using undefined steps ([#278](https://github.com/cucumber/compatibility-kit/pull/278))
+
 ### Changed
 - [Ruby] Minimum ruby version is now bumped from `3.1` to `3.2`
 - [.Net] Replace assertion library FluentAssertions with AwesomeAssertions
