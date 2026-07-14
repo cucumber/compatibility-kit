@@ -7,10 +7,17 @@ on:
     branches:
       - main
       - renovate/**
+    paths:
+      - python/**
+      - devkit/**
+      - .github/**
   pull_request:
     branches:
       - main
-
+    paths:
+      - python/**
+      - devkit/**
+      - .github/**
 jobs:
   test-python:
     runs-on: ubuntu-latest
