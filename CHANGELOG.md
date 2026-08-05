@@ -13,6 +13,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - [Ruby] Minimum ruby version is now bumped from `3.1` to `3.2`
 - [.Net] Replace assertion library FluentAssertions with AwesomeAssertions
 
+### Fixed
+- [Java] Use version range for `org.jspecify:jspecify`
+
 ## [29.2.2] - 2026-05-11
 ### Fixed
 - [Ruby] Fixed publishing
