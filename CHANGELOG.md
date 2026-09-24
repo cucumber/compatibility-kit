@@ -6,10 +6,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Added
+- Add example with both DocString and DataTable ([#291](https://github.com/cucumber/compatibility-kit/pull/291))
+- Add examples combining Cucumber expressions with either DocStrings or DataTables ([#291](https://github.com/cucumber/compatibility-kit/pull/291))
 
 ## [30.0.0] - 2026-08-05
 ### Added
-- Added/Improved examples for multiple suggestion snippets - using undefined steps ([#278](https://github.com/cucumber/compatibility-kit/pull/278))
+- Improve undefined examples ([#278](https://github.com/cucumber/compatibility-kit/pull/278))
 
 ### Changed
 - [Ruby] Minimum ruby version is now bumped from `3.1` to `3.2`
