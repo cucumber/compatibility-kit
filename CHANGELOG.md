@@ -6,12 +6,17 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [30.0.0] - 2026-08-05
 ### Added
 - Added/Improved examples for multiple suggestion snippets - using undefined steps ([#278](https://github.com/cucumber/compatibility-kit/pull/278))
 
 ### Changed
 - [Ruby] Minimum ruby version is now bumped from `3.1` to `3.2`
 - [.Net] Replace assertion library FluentAssertions with AwesomeAssertions
+
+### Fixed
+- [Java] Use version range for `org.jspecify:jspecify`
 
 ## [29.2.2] - 2026-05-11
 ### Fixed
@@ -390,7 +395,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - First release
 
-[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v29.2.2...HEAD
+[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v30.0.0...HEAD
+[30.0.0]: https://github.com/cucumber/compatibility-kit/compare/v29.2.2...v30.0.0
 [29.2.2]: https://github.com/cucumber/compatibility-kit/compare/v29.2.1...v29.2.2
 [29.2.1]: https://github.com/cucumber/compatibility-kit/compare/v29.2.0...v29.2.1
 [29.2.0]: https://github.com/cucumber/compatibility-kit/compare/v29.1.4...v29.2.0

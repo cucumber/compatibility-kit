@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/cucumber/compatibility-kit#readme",
   "dependencies": {
-    "@cucumber/ci-environment": "^14.0.0",
+    "@cucumber/ci-environment": "^15.0.0",
     "@cucumber/core": "^0.10.0",
     "@cucumber/cucumber-expressions": "^20.0.0",
     "@cucumber/fake-cucumber": "file:./",
@@ -37,7 +37,7 @@
     "@cucumber/message-streams": "^5.0.0",
     "@cucumber/messages": "^34.0.0",
     "@cucumber/query": "^16.0.0",
-    "@cucumber/tag-expressions": "^10.0.0",
+    "@cucumber/tag-expressions": "^11.0.0",
     "globby": "^16.0.0",
     "stack-utils": "2.0.6"
   },
@@ -51,6 +51,6 @@
     "shx": "^0.4.0",
     "tsx": "^4.20.3",
     "typescript": "^7.0.0",
-    "vitest": "^4.1.0"
+    "vitest": "^5.0.0"
   }
 }
