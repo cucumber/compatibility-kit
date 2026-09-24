@@ -314,13 +314,13 @@ export class Runner {
     const startTime = this.stopwatch.now()
 
     try {
-      const { fn, args, dataTable, docString } = prepared
-      const fnArgs: Array<unknown> = args.map((arg) => arg.getValue(world))
-      if (dataTable) {
-        fnArgs.push(DataTable.from(dataTable))
-      } else if (docString) {
-        fnArgs.push(docString.content)
-      }
+      const { fn, args, stepArguments } = prepared
+      const fnArgs: Array<unknown> = [
+        ...args.map((arg) => arg.getValue(world)),
+        ...stepArguments.map((stepArgument) =>
+          'content' in stepArgument ? stepArgument.content : DataTable.from(stepArgument)
+        ),
+      ]
       const returned = await fn.apply(world, fnArgs)
       if (returned === 'pending') {
         mostOfResult = {
