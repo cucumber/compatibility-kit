@@ -20,7 +20,7 @@ export function makeSnippets(
   supportCodeLibrary: SupportCodeLibrary
 ): ReadonlyArray<Snippet> {
   const method = METHOD_BY_TYPE[pickleStep.type ?? PickleStepType.UNKNOWN]
-  const stepArgument = makeStepArgument(pickleStep.argument)
+  const stepArguments = makeStepArguments(pickleStep.argument)
   return supportCodeLibrary
     .getExpressionGenerator()
     .generateExpressions(pickleStep.text)
@@ -33,9 +33,7 @@ export function makeSnippets(
         }
         return result
       })
-      if (stepArgument) {
-        allArguments.push(stepArgument)
-      }
+      allArguments.push(...stepArguments)
       const code = `${method}(${JSON.stringify(expression.source)}, (${allArguments.join(', ')}) => {
   return "pending"
 })`
@@ -46,11 +44,21 @@ export function makeSnippets(
     })
 }
 
-function makeStepArgument(pickleStepArgument: PickleStepArgument | undefined) {
+function makeStepArguments(pickleStepArgument: PickleStepArgument | undefined) {
+  const stepArguments: Array<{ index?: number; code: string }> = []
   if (pickleStepArgument?.dataTable) {
-    return 'dataTable: DataTable'
-  } else if (pickleStepArgument?.docString) {
-    return 'docString: string'
+    stepArguments.push({
+      index: pickleStepArgument.dataTable.argumentIndex,
+      code: 'dataTable: DataTable',
+    })
   }
-  return ''
+  if (pickleStepArgument?.docString) {
+    stepArguments.push({
+      index: pickleStepArgument.docString.argumentIndex,
+      code: 'docString: string',
+    })
+  }
+  return stepArguments
+    .sort((a, b) => (a.index ?? Number.MAX_SAFE_INTEGER) - (b.index ?? Number.MAX_SAFE_INTEGER))
+    .map(({ code }) => code)
 }
