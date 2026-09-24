@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 ### Added
 - Add example with both DocString and DataTable ([#291](https://github.com/cucumber/compatibility-kit/pull/291))
+- Add examples combining Cucumber expressions with either DocStrings or DataTables ([#291](https://github.com/cucumber/compatibility-kit/pull/291))
 
 ## [30.0.0] - 2026-08-05
 ### Added
