@@ -88,7 +88,7 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
                 <configuration>
-                    <outputDirectory>${build.outputDirectory}/io/cucumber/compatibilitykit/features</outputDirectory>
+                    <outputDirectory>${project.build.outputDirectory}/io/cucumber/compatibilitykit/features</outputDirectory>
                 </configuration>
             </plugin>
             <plugin>
