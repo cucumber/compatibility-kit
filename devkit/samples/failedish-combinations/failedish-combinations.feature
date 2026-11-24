@@ -1,4 +1,5 @@
 Feature: Failed-ish combinations
+
   Sometimes the first failed-ish (not passed or skipped) step's status
   is not the only one.
 

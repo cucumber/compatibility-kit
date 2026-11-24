@@ -1,4 +1,5 @@
 Feature: Examples Tables
+
   Sometimes it can be desirable to run the same scenario multiple times with
   different data each time - this can be done by placing an Examples table
   underneath a Scenario, and use <placeholders> in the Scenario which match the

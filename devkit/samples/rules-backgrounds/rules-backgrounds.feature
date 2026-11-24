@@ -1,4 +1,5 @@
 Feature: Rules with Backgrounds
+
   Like Features, Rules can also have Backgrounds, whose steps are prepended to those of each child Scenario. Only
   one Background at the Rule level is supported.
 
@@ -10,6 +11,7 @@ Feature: Rules with Backgrounds
     And an order for "bread"
 
   Rule:
+
     Background:
       Given an order for "batteries"
       And an order for "light bulbs"

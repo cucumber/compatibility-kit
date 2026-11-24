@@ -1,4 +1,5 @@
 Feature: Attachments
+
   It is sometimes useful to take a screenshot while a scenario runs or capture some logs.
 
   Cucumber lets you `attach` arbitrary files during execution, and you can
@@ -9,6 +10,7 @@ Feature: Attachments
   Attachments must have a body and a content type.
 
   Scenario: Strings can be attached with a media type
+
     Beware that some formatters such as the html formatter use the media type
     to determine how to display an attachment.
 
@@ -21,10 +23,10 @@ Feature: Attachments
     When text with ANSI escapes is logged
 
   Scenario: Log JSON
-     When the following string is attached as "application/json":
-       ```
-       {"message": "The <b>big</b> question", "foo": "bar"}
-       ```
+    When the following string is attached as "application/json":
+      ```
+      {"message": "The <b>big</b> question", "foo": "bar"}
+      ```
 
   Scenario: Byte arrays are base64-encoded regardless of media type
     When an array with 10 bytes is attached as "text/plain"

@@ -1,4 +1,5 @@
 Feature: Data Tables
+
   Data Tables can be placed underneath a step and will be passed as the last
   argument to the step definition.
 

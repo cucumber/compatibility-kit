@@ -1,4 +1,5 @@
 Feature: Stack traces
+
   Stack traces can help you diagnose the source of a bug.
 
   Cucumber provides helpful stack traces that includes the stack frames from the

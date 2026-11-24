@@ -1,4 +1,5 @@
 Feature: Backgrounds
+
   Though not recommended, Backgrounds can be used to share context steps between Scenarios. The Background steps
   are prepended to the steps in each Scenario when they are compiled to Pickles. Only one Background at the Feature
   level is supported.
