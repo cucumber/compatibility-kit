@@ -1,4 +1,5 @@
 Feature: Data Tables
+
   Data Tables  can be combined with Cucumber expressions. The arguments from the
   Cucumber expression are provided before the data table.
 

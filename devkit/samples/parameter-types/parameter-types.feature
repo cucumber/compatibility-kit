@@ -1,4 +1,5 @@
 Feature: Parameter Types
+
   Cucumber lets you define your own parameter types, which can be used
   in Cucumber Expressions.
 

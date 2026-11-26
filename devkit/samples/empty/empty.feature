@@ -1,4 +1,5 @@
 Feature: Empty Scenarios
+
   Sometimes we want to quickly jot down a new scenario without specifying any actual steps
   for what should be executed.
 
