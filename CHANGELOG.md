@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [31.0.1] - 2026-11-27
 ### Fixed
 - Reformatted feature files ([#313](https://github.com/cucumber/compatibility-kit/pull/313))
 
@@ -402,7 +404,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - First release
 
-[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v31.0.0...HEAD
+[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v31.0.1...HEAD
+[31.0.1]: https://github.com/cucumber/compatibility-kit/compare/v31.0.0...v31.0.1
 [31.0.0]: https://github.com/cucumber/compatibility-kit/compare/v30.0.0...v31.0.0
 [30.0.0]: https://github.com/cucumber/compatibility-kit/compare/v29.2.2...v30.0.0
 [29.2.2]: https://github.com/cucumber/compatibility-kit/compare/v29.2.1...v29.2.2
