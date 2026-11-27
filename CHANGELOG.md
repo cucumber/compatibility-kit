@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [31.0.2] - 2026-11-27
 ### Fixed
 - Consistently right align numbers in feature files.
 
@@ -406,7 +408,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - First release
 
-[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v31.0.1...HEAD
+[Unreleased]: https://github.com/cucumber/compatibility-kit/compare/v31.0.2...HEAD
+[31.0.2]: https://github.com/cucumber/compatibility-kit/compare/v31.0.1...v31.0.2
 [31.0.1]: https://github.com/cucumber/compatibility-kit/compare/v31.0.0...v31.0.1
 [31.0.0]: https://github.com/cucumber/compatibility-kit/compare/v30.0.0...v31.0.0
 [30.0.0]: https://github.com/cucumber/compatibility-kit/compare/v29.2.2...v30.0.0
