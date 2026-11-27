@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Fixed
+- Consistently right align numbers in feature files.
 
 ## [31.0.1] - 2026-11-27
 ### Fixed

@@ -13,6 +13,6 @@ Feature: Examples Tables - With Undefined Steps
     @undefined
     Examples: These are undefined because the value is not an {int}
       | start | eat    | left  |
-      | pear  | 1      | 12    |
-      | 12    | banana | 12    |
-      | 0     | 1      | apple |
+      | pear  |      1 |    12 |
+      |    12 | banana |    12 |
+      |     0 |      1 | apple |
